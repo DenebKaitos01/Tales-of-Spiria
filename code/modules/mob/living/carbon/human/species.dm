@@ -2170,7 +2170,16 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 	var/hit_percent = 1
 	damage = max(damage - (blocked),0)
 	hit_percent = (hit_percent * (100-H.physiology.damage_resistance))/100
+	var/atom/movable/screen/zone_sel/zone_sel
+	if(def_zone && H.client && H.hud_used?.zone_select)
+		zone_sel = H.hud_used.zone_select
 	if(!damage || (!forced && hit_percent <= 0))
+		if(zone_sel)
+			var/blocked_zone = def_zone
+			if(isbodypart(def_zone))
+				var/obj/item/bodypart/blocked_part = def_zone
+				blocked_zone = blocked_part.body_zone
+			zone_sel.flash_limb(check_zone(blocked_zone), "#00AFFF") // blocked = blue
 		return 0
 
 	var/obj/item/bodypart/BP = null
@@ -2215,6 +2224,7 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 					else if(damage_amount >= 20)
 						H.flash_fullscreen("redflash3")
 			if(BP)
+				zone_sel?.flash_limb(BP.body_zone, "#FF0000")
 				if(damage_type)
 					BP.bodypart_attacked_by(damage_type, damage_amount, modifiers = mods)
 					H.update_damage_overlays()
@@ -2236,6 +2246,7 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 				else if(damage_amount >= 20)
 					H.flash_fullscreen("redflash3")
 			if(BP)
+				zone_sel?.flash_limb(BP.body_zone, "#FF0000")
 				if(skip_dtype)
 					if(BP.receive_damage(0, damage_amount, flashes = flashes))
 						H.update_damage_overlays()

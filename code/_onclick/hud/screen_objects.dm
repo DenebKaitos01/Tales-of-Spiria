@@ -965,6 +965,46 @@
 	var/static/list/hover_overlays_cache = list()
 	var/hovering
 	var/arrowheight = 0
+	/// Holds the limb flashes so they survive overlay rebuilds
+	var/obj/effect/overlay/flash_layer
+	/// zone -> reusable flash overlay
+	var/list/flash_vis = list()
+
+/atom/movable/screen/zone_sel/New()
+	..()
+	flash_layer = new
+	flash_layer.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	flash_layer.plane = plane
+	vis_contents += flash_layer
+
+/atom/movable/screen/zone_sel/Destroy()
+	for(var/zone in flash_vis)
+		qdel(flash_vis[zone])
+	flash_vis = null
+	QDEL_NULL(flash_layer)
+	return ..()
+
+/// Briefly tints a limb on the doll: red when hit, blue when armor stops it, orange when grabbed
+/atom/movable/screen/zone_sel/proc/flash_limb(zone, limb_color = "#FF0000")
+	if(!zone || !hud?.mymob)
+		return
+
+	var/gender_prefix = (hud.mymob.gender == FEMALE) ? "f" : "m"
+
+	var/obj/effect/overlay/vis/highlight = flash_vis[zone]
+	if(!highlight)
+		highlight = new
+		highlight.icon = 'icons/mob/roguehud64.dmi'
+		highlight.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+		highlight.layer = layer + 0.3
+		highlight.plane = plane
+		flash_vis[zone] = highlight
+		flash_layer.vis_contents += highlight
+	highlight.icon_state = "[gender_prefix]-[zone]"
+	highlight.color = limb_color
+	highlight.alpha = 180
+
+	animate(highlight, alpha = 0, time = 2 SECONDS, easing = EASE_IN)
 
 /atom/movable/screen/zone_sel/Click(location, control,params)
 	if(isobserver(usr))
@@ -1040,73 +1080,227 @@
 	if(!icon_x || !icon_y)
 		return
 
-	// Ordered 1-based pixel bounds for icons/mob/roguehud64.dmi.
-	// More precise zones must be checked before their parent body zones.
-	var/static/list/male_zone_hitboxes = list(
-		list(BODY_ZONE_PRECISE_R_INHAND, 2, 10, 2, 23),
-		list(BODY_ZONE_PRECISE_L_INHAND, 56, 64, 2, 23),
-		list(BODY_ZONE_PRECISE_SKULL, 28, 36, 61, 64),
-		list(BODY_ZONE_PRECISE_R_EYE, 29, 31, 58, 60),
-		list(BODY_ZONE_PRECISE_R_EYE, 29, 30, 57, 57),
-		list(BODY_ZONE_PRECISE_L_EYE, 33, 35, 58, 60),
-		list(BODY_ZONE_PRECISE_L_EYE, 34, 35, 57, 57),
-		list(BODY_ZONE_PRECISE_NOSE, 31, 33, 56, 57),
-		list(BODY_ZONE_PRECISE_NOSE, 32, 32, 58, 58),
-		list(BODY_ZONE_PRECISE_MOUTH, 31, 33, 53, 55),
-		list(BODY_ZONE_PRECISE_EARS, 27, 28, 57, 60),
-		list(BODY_ZONE_PRECISE_EARS, 36, 37, 57, 60),
-		list(BODY_ZONE_PRECISE_NECK, 27, 37, 50, 54),
-		list(BODY_ZONE_HEAD, 27, 37, 53, 64),
-		list(BODY_ZONE_PRECISE_R_HAND, 22, 25, 30, 37),
-		list(BODY_ZONE_PRECISE_L_HAND, 39, 44, 28, 34),
-		list(BODY_ZONE_R_ARM, 20, 25, 36, 52),
-		list(BODY_ZONE_L_ARM, 39, 44, 35, 53),
-		list(BODY_ZONE_CHEST, 26, 38, 42, 49),
-		list(BODY_ZONE_PRECISE_STOMACH, 26, 38, 36, 41),
-		list(BODY_ZONE_PRECISE_GROIN, 26, 38, 31, 35),
-		list(BODY_ZONE_PRECISE_R_FOOT, 23, 30, 2, 6),
-		list(BODY_ZONE_PRECISE_L_FOOT, 34, 41, 2, 6),
-		list(BODY_ZONE_R_LEG, 24, 32, 7, 30),
-		list(BODY_ZONE_L_LEG, 33, 40, 7, 30),
-	)
-	var/static/list/female_zone_hitboxes = list(
-		list(BODY_ZONE_PRECISE_R_INHAND, 9, 17, 2, 23),
-		list(BODY_ZONE_PRECISE_L_INHAND, 49, 57, 2, 23),
-		list(BODY_ZONE_PRECISE_SKULL, 27, 35, 61, 64),
-		list(BODY_ZONE_PRECISE_R_EYE, 28, 30, 58, 60),
-		list(BODY_ZONE_PRECISE_R_EYE, 28, 29, 57, 57),
-		list(BODY_ZONE_PRECISE_L_EYE, 32, 34, 58, 60),
-		list(BODY_ZONE_PRECISE_L_EYE, 33, 34, 57, 57),
-		list(BODY_ZONE_PRECISE_NOSE, 30, 32, 56, 57),
-		list(BODY_ZONE_PRECISE_NOSE, 31, 31, 58, 58),
-		list(BODY_ZONE_PRECISE_MOUTH, 30, 32, 53, 55),
-		list(BODY_ZONE_PRECISE_EARS, 24, 27, 57, 60),
-		list(BODY_ZONE_PRECISE_EARS, 35, 38, 57, 60),
-		list(BODY_ZONE_PRECISE_NECK, 27, 35, 50, 54),
-		list(BODY_ZONE_HEAD, 27, 35, 53, 64),
-		list(BODY_ZONE_PRECISE_R_HAND, 21, 24, 32, 37),
-		list(BODY_ZONE_PRECISE_L_HAND, 40, 44, 28, 33),
-		list(BODY_ZONE_R_ARM, 20, 25, 38, 53),
-		list(BODY_ZONE_L_ARM, 38, 44, 34, 52),
-		list(BODY_ZONE_CHEST, 26, 37, 43, 49),
-		list(BODY_ZONE_PRECISE_STOMACH, 26, 37, 36, 42),
-		list(BODY_ZONE_PRECISE_GROIN, 25, 38, 32, 35),
-		list(BODY_ZONE_PRECISE_R_FOOT, 24, 31, 2, 6),
-		list(BODY_ZONE_PRECISE_L_FOOT, 38, 46, 2, 7),
-		list(BODY_ZONE_R_LEG, 24, 32, 7, 31),
-		list(BODY_ZONE_L_LEG, 33, 41, 7, 33),
-	)
-	var/list/hitboxes = male_zone_hitboxes
-	if(gender != MALE)
-		hitboxes = female_zone_hitboxes
+	// The held item boxes on either side of the doll come first
+	if(icon_y >= 2 && icon_y <= 23)
+		if(gender == MALE)
+			if(icon_x >= 2 && icon_x <= 10)
+				return BODY_ZONE_PRECISE_R_INHAND
+			if(icon_x >= 56 && icon_x <= 64)
+				return BODY_ZONE_PRECISE_L_INHAND
+		else
+			if(icon_x >= 9 && icon_x <= 17)
+				return BODY_ZONE_PRECISE_R_INHAND
+			if(icon_x >= 49 && icon_x <= 57)
+				return BODY_ZONE_PRECISE_L_INHAND
 
-	for(var/list/hitbox as anything in hitboxes)
-		var/min_x = hitbox[2]
-		var/max_x = hitbox[3]
-		var/min_y = hitbox[4]
-		var/max_y = hitbox[5]
-		if(icon_x >= min_x && icon_x <= max_x && icon_y >= min_y && icon_y <= max_y)
-			return hitbox[1]
+	return get_body_zone_at(icon_x, icon_y, gender)
+
+/// Pixel map of the body zones on the doll in icons/mob/roguehud64.dmi (from Azure Peak)
+/atom/movable/screen/zone_sel/proc/get_body_zone_at(icon_x, icon_y, gender = MALE)
+	if(gender == MALE)
+		switch(icon_y)
+			if(1 to 3)
+				switch(icon_x)
+					if(17 to 28)
+						return BODY_ZONE_PRECISE_R_FOOT
+					if(38 to 49)
+						return BODY_ZONE_PRECISE_L_FOOT
+			if(4 to 5)
+				switch(icon_x)
+					if(17 to 28)
+						return BODY_ZONE_PRECISE_R_FOOT
+					if(38 to 49)
+						return BODY_ZONE_PRECISE_L_FOOT
+			if(6 to 15)
+				switch(icon_x)
+					if(20 to 29)
+						return BODY_ZONE_R_LEG
+					if(37 to 46)
+						return BODY_ZONE_L_LEG
+			if(16 to 21)
+				switch(icon_x)
+					if(12 to 18)
+						return BODY_ZONE_PRECISE_R_HAND
+					if(20 to 29)
+						return BODY_ZONE_R_LEG
+					if(37 to 46)
+						return BODY_ZONE_L_LEG
+					if(48 to 54)
+						return BODY_ZONE_PRECISE_L_HAND
+			if(22 to 24)
+				switch(icon_x)
+					if(12 to 18)
+						return BODY_ZONE_PRECISE_R_HAND
+					if(20 to 29)
+						return BODY_ZONE_R_LEG
+					if(30 to 36)
+						return BODY_ZONE_PRECISE_GROIN
+					if(37 to 46)
+						return BODY_ZONE_L_LEG
+					if(48 to 54)
+						return BODY_ZONE_PRECISE_L_HAND
+			if(25 to 29)
+				switch(icon_x)
+					if(16 to 22)
+						return BODY_ZONE_R_ARM
+					if(27 to 39)
+						return BODY_ZONE_PRECISE_STOMACH
+					if(44 to 50)
+						return BODY_ZONE_L_ARM
+			if(30 to 38)
+				switch(icon_x)
+					if(16 to 22)
+						return BODY_ZONE_R_ARM
+					if(24 to 42)
+						return BODY_ZONE_CHEST
+					if(44 to 50)
+						return BODY_ZONE_L_ARM
+			if(39)
+				switch(icon_x)
+					if(29 to 37)
+						return BODY_ZONE_PRECISE_NECK
+			if(40 to 46)
+				switch(icon_x)
+					if(27 to 39)
+						if(icon_y in 40 to 41)
+							if(icon_x in 29 to 37)
+								return BODY_ZONE_PRECISE_NECK
+						if(icon_y in 42 to 44)
+							if(icon_x in 32 to 34)
+								return BODY_ZONE_PRECISE_MOUTH
+						if(icon_y == 46)
+							if(icon_x in 32 to 34)
+								return BODY_ZONE_PRECISE_NOSE
+						return BODY_ZONE_HEAD
+			if(47 to 50)
+				switch(icon_x)
+					if(24 to 26)
+						return BODY_ZONE_PRECISE_EARS
+					if(27 to 39)
+						if(icon_y in 49 to 50)
+							if(icon_x in 30 to 32)
+								return BODY_ZONE_PRECISE_R_EYE
+							if(icon_x in 34 to 36)
+								return BODY_ZONE_PRECISE_L_EYE
+						if(icon_y in 47 to 48)
+							if(icon_x in 32 to 34)
+								return BODY_ZONE_PRECISE_NOSE
+						return BODY_ZONE_HEAD
+					if(40 to 42)
+						return BODY_ZONE_PRECISE_EARS
+			if(51 to 55)
+				switch(icon_x)
+					if(27 to 39)
+						if(icon_y == 51)
+							if(icon_x in 30 to 32)
+								return BODY_ZONE_PRECISE_R_EYE
+							if(icon_x in 34 to 36)
+								return BODY_ZONE_PRECISE_L_EYE
+						if(icon_y in 53 to 55)
+							if(icon_x in 29 to 37)
+								return BODY_ZONE_PRECISE_SKULL
+						return BODY_ZONE_HEAD
+	else
+		switch(icon_y)
+			if(1 to 7)
+				switch(icon_x)
+					if(26 to 32)
+						return BODY_ZONE_PRECISE_R_FOOT
+					if(34 to 40)
+						return BODY_ZONE_PRECISE_L_FOOT
+			if(8 to 16)
+				switch(icon_x)
+					if(24 to 31)
+						return BODY_ZONE_R_LEG
+					if(35 to 42)
+						return BODY_ZONE_L_LEG
+			if(17 to 20)
+				switch(icon_x)
+					if(20 to 23)
+						return BODY_ZONE_PRECISE_R_HAND
+					if(24 to 31)
+						return BODY_ZONE_R_LEG
+					if(35 to 42)
+						return BODY_ZONE_L_LEG
+					if(43 to 46)
+						return BODY_ZONE_PRECISE_L_HAND
+			if(21)
+				switch(icon_x)
+					if(20 to 23)
+						return BODY_ZONE_PRECISE_R_HAND
+					if(30 to 36)
+						return BODY_ZONE_PRECISE_GROIN
+					if(43 to 46)
+						return BODY_ZONE_PRECISE_L_HAND
+			if(22 to 23)
+				switch(icon_x)
+					if(20 to 25)
+						return BODY_ZONE_R_ARM
+					if(30 to 36)
+						return BODY_ZONE_PRECISE_GROIN
+					if(41 to 46)
+						return BODY_ZONE_L_ARM
+			if(24 to 29)
+				switch(icon_x)
+					if(20 to 25)
+						return BODY_ZONE_R_ARM
+					if(28 to 38)
+						return BODY_ZONE_PRECISE_STOMACH
+					if(41 to 46)
+						return BODY_ZONE_L_ARM
+			if(30 to 37)
+				switch(icon_x)
+					if(20 to 25)
+						return BODY_ZONE_R_ARM
+					if(27 to 39)
+						return BODY_ZONE_CHEST
+					if(41 to 46)
+						return BODY_ZONE_L_ARM
+			if(38 to 39)
+				switch(icon_x)
+					if(30 to 36)
+						return BODY_ZONE_PRECISE_NECK
+			if(40 to 43)
+				switch(icon_x)
+					if(28 to 38)
+						if(icon_y == 40)
+							if(icon_x in 30 to 36)
+								return BODY_ZONE_PRECISE_NECK
+						if(icon_y in 41 to 43)
+							if(icon_x in 32 to 34)
+								return BODY_ZONE_PRECISE_MOUTH
+						return BODY_ZONE_HEAD
+			if(44 to 47)
+				switch(icon_x)
+					if(26 to 27)
+						return BODY_ZONE_PRECISE_EARS
+					if(28 to 38)
+						if(icon_y in 44 to 46)
+							if(icon_x in 32 to 34)
+								return BODY_ZONE_PRECISE_NOSE
+						if(icon_y == 47)
+							if(icon_x in 30 to 32)
+								return BODY_ZONE_PRECISE_R_EYE
+							if(icon_x in 34 to 36)
+								return BODY_ZONE_PRECISE_L_EYE
+						return BODY_ZONE_HEAD
+					if(39 to 40)
+						return BODY_ZONE_PRECISE_EARS
+			if(48 to 51)
+				switch(icon_x)
+					if(28 to 38)
+						if(icon_y in 48 to 49)
+							if(icon_x in 30 to 32)
+								return BODY_ZONE_PRECISE_R_EYE
+							if(icon_x in 34 to 36)
+								return BODY_ZONE_PRECISE_L_EYE
+						if(icon_y in 50 to 51)
+							if(icon_x in 30 to 36)
+								return BODY_ZONE_PRECISE_SKULL
+						return BODY_ZONE_HEAD
+			if(52)
+				if(icon_x in 30 to 36)
+					return BODY_ZONE_PRECISE_SKULL
 
 /atom/movable/screen/zone_sel/proc/get_zone_icon_state(choice, gender = MALE)
 	if(!choice)

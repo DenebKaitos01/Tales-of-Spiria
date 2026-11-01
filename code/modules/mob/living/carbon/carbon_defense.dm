@@ -149,6 +149,9 @@
 						span_hear("I hear shuffling."), null, list(src))
 		to_chat(src, span_info("I grab [src != target ? "[target]" : "myself"]."))
 
+	if(I && target.client && target.hud_used?.zone_select)
+		target.hud_used.zone_select.flash_limb(check_zone(I.sublimb_grabbed), "#d19e13") // grab = orange
+
 /mob/living/carbon/send_grabbed_message(mob/living/carbon/user)
 	var/used_limb = "chest"
 	var/obj/item/grabbing/I
