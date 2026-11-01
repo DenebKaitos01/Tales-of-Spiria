@@ -276,9 +276,9 @@
 	damage = (parent.force * (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) / 10)) + 10
 
 	if(user.used_hand == 1)	//We mirror it if it's the left arm.
-		tile_coordinates += AXE_SWING_GRID_MIRROR
+		tile_coordinates = AXE_SWING_GRID_MIRROR
 	else
-		tile_coordinates += AXE_SWING_GRID_DEFAULT //Initial() doesn't work with lists so we copy paste the original
+		tile_coordinates = AXE_SWING_GRID_DEFAULT //Initial() doesn't work with lists so we copy paste the original
 
 /datum/special_intent/axe_swing/apply_hit(mob/living/user, obj/item/parent, turf/target)
 	for(var/mob/living/victim in target)
@@ -292,6 +292,130 @@
 
 #undef AXE_SWING_GRID_DEFAULT
 #undef AXE_SWING_GRID_MIRROR
+
+#define HATCHET_TWIRL_GRID_DEFAULT	list(list(-1,-1), list(1,-1, 0.2 SECONDS), list(0,0, 0.4 SECONDS))
+#define HATCHET_TWIRL_GRID_MIRROR	list(list(-1,-1, 0.4 SECONDS), list(1,-1, 0.2 SECONDS), list(0,0))
+
+/datum/special_intent/hatchet_twirl
+	name = "Hefty Flourish"
+	desc = "A defensive flourish that sweeps to the side, before finishing up front. \
+		Briefly stuns and exposes the opponent if hit. Always targets the arms."
+
+	tile_coordinates = HATCHET_TWIRL_GRID_DEFAULT
+
+	pre_icon_state = "trap"
+	pre_sound = 'sound/combat/polearm_woosh.ogg'
+	post_icon_state = "sweep_fx"
+	post_sound = list('sound/combat/sp_axe_swing1.ogg', 'sound/combat/sp_axe_swing2.ogg', 'sound/combat/sp_axe_swing3.ogg')
+
+	stamina_cost = 20
+
+	attack_delay = 0.5 SECONDS
+	cooldown = 25 SECONDS
+
+	immobilize_user = TRUE
+
+	var/damage = 15
+
+/datum/special_intent/hatchet_twirl/pre_creation(mob/living/user, obj/item/parent, turf/target)
+	damage = (parent.force * (GET_MOB_ATTRIBUTE_VALUE(user, STAT_SPEED) / 10)) + 5
+
+	if(user.used_hand == 1)
+		tile_coordinates = HATCHET_TWIRL_GRID_MIRROR
+	else
+		tile_coordinates = HATCHET_TWIRL_GRID_DEFAULT
+
+/datum/special_intent/hatchet_twirl/apply_hit(mob/living/user, obj/item/parent, turf/target)
+	for(var/mob/living/victim in target)
+		if(victim == user)
+			continue
+		if(victim.body_position == LYING_DOWN)
+			continue
+		victim.apply_status_effect(/datum/status_effect/debuff/exposed, 3 SECONDS)
+		victim.Immobilize(1 SECONDS)
+		apply_generic_weapon_damage(user, parent, victim, damage, SLASH, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), BCLASS_CHOP)
+
+#undef HATCHET_TWIRL_GRID_DEFAULT
+#undef HATCHET_TWIRL_GRID_MIRROR
+
+#define WARHAMMER_SWING_GRID_DEFAULT	list(list(0,0), list(-1,0, 0.2 SECONDS), list(-1,-1, 0.4 SECONDS))
+#define WARHAMMER_SWING_GRID_MIRROR		list(list(0,0, 0.4 SECONDS), list(-1,0, 0.2 SECONDS), list(-1,-1))
+
+/datum/special_intent/warhammer_swing
+	name = "Dazing Swing"
+	desc = "A wide strike that swings through the nearest quadrant at a high angle. \
+		Briefly dazes and slows the opponent if hit. Always targets the head."
+
+	tile_coordinates = WARHAMMER_SWING_GRID_DEFAULT
+
+	pre_icon_state = "trap"
+	pre_sound = 'sound/combat/ground_smash_start.ogg'
+	post_icon_state = "sweep_fx"
+	post_sound = list('sound/combat/ground_smash1.ogg', 'sound/combat/ground_smash2.ogg', 'sound/combat/ground_smash3.ogg')
+
+	stamina_cost = 20
+
+	attack_delay = 0.5 SECONDS
+	cooldown = 25 SECONDS
+
+	immobilize_user = TRUE
+
+	var/damage = 15
+
+/datum/special_intent/warhammer_swing/pre_creation(mob/living/user, obj/item/parent, turf/target)
+	damage = (parent.force * (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) / 10)) + 5
+
+	if(user.used_hand == 1)
+		tile_coordinates = WARHAMMER_SWING_GRID_MIRROR
+	else
+		tile_coordinates = WARHAMMER_SWING_GRID_DEFAULT
+
+/datum/special_intent/warhammer_swing/apply_hit(mob/living/user, obj/item/parent, turf/target)
+	for(var/mob/living/victim in target)
+		if(victim == user)
+			continue
+		if(victim.body_position == LYING_DOWN)
+			continue
+		victim.apply_status_effect(/datum/status_effect/debuff/dazed, 5 SECONDS)
+		victim.Slowdown(3)
+		apply_generic_weapon_damage(user, parent, victim, damage, BLUNT, BODY_ZONE_HEAD, BCLASS_BLUNT)
+
+#undef WARHAMMER_SWING_GRID_DEFAULT
+#undef WARHAMMER_SWING_GRID_MIRROR
+
+/datum/special_intent/quarterstaff_sweep
+	name = "Quarterstaff Sweep"
+	desc = "Sweep a five-tile frontal arc, knocking foes back and leaving them vulnerable. \
+		Aims for the targeted zone."
+
+	tile_coordinates = list(list(-1, -1), list(1, -1), list(-1, 0), list(0, 0), list(1, 0))
+
+	pre_icon_state = "trap"
+	pre_sound = 'sound/combat/wooshes/blunt/wooshmed (1).ogg'
+	post_icon_state = "sweep_fx"
+	post_sound = 'sound/combat/hits/blunt/woodblunt (1).ogg'
+
+	stamina_cost = 20
+
+	attack_delay = 0.6 SECONDS
+	cooldown = 25 SECONDS
+
+	var/damage = 15
+	/// Users aimed zone when we started the attack, instead of checking it when it happens
+	var/target_zone
+
+/datum/special_intent/quarterstaff_sweep/pre_creation(mob/living/user, obj/item/parent, turf/target)
+	damage = parent.force * max(max(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH), GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION)) / 10, 0.5)
+	target_zone = check_zone(user.zone_selected)
+
+/datum/special_intent/quarterstaff_sweep/apply_hit(mob/living/user, obj/item/parent, turf/target)
+	for(var/mob/living/victim in target)
+		if(victim == user)
+			continue
+		var/turf/throw_target = get_ranged_target_turf(get_turf(victim), get_dir(user, victim), 1)
+		victim.safe_throw_at(throw_target, 1, 1, user, force = MOVE_FORCE_EXTREMELY_STRONG)
+		victim.apply_status_effect(/datum/status_effect/debuff/vulnerable, 3 SECONDS)
+		apply_generic_weapon_damage(user, parent, victim, damage, BLUNT, target_zone, BCLASS_BLUNT)
 
 /datum/special_intent/backstep
 	name = "Backstep"

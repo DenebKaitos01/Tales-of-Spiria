@@ -45,6 +45,7 @@
 
 //................ Wooden Staff ............... //
 /obj/item/weapon/polearm/woodstaff
+	weapon_special = /datum/special_intent/quarterstaff_sweep
 	item_weight = 1 KILOGRAMS
 	name = "wooden staff"
 	desc = "The ultimate tool of travel for weary wanderers, support your weight or crack the heads that don't support you."
@@ -124,6 +125,7 @@
 
 //................ Spear ............... //
 /obj/item/weapon/polearm/spear
+	weapon_special = /datum/special_intent/backstep
 	item_weight = 2.5 KILOGRAMS
 	name = "spear"
 	desc = "The humble spear, use the pointy end."
@@ -315,6 +317,7 @@
 
 
 //................ Halberd ............... //
+	weapon_special = /datum/special_intent/backstep
 /obj/item/weapon/polearm/halberd
 	item_weight = 3.5 KILOGRAMS
 	name = "halberd"

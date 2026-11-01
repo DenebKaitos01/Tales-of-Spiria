@@ -228,6 +228,7 @@
 | Sabres |	Onehanded, slightly weaker thrust, better for parries. Think rapier but cutting focus.
 \-------*/
 /obj/item/weapon/sword/sabre
+	weapon_special = /datum/special_intent/shin_swipe
 	item_weight = 900 GRAMS
 	name = "sabre"
 	desc = "A swift sabre, favored by duelists and cut-throats alike."

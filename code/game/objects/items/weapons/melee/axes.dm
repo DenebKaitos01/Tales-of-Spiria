@@ -320,6 +320,7 @@
 
 //................ Copper Hatchet ............... //
 /obj/item/weapon/axe/copper
+	weapon_special = /datum/special_intent/hatchet_twirl
 	item_weight = 700 GRAMS
 	name = "copper hatchet"
 	desc = "A simple designed handaxe, an outdated weaponry from simpler times."

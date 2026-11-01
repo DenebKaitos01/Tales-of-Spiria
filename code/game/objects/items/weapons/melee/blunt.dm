@@ -2,6 +2,7 @@
 ==========================================================*/
 //................ Mace ............... //
 /obj/item/weapon/mace
+	weapon_special = /datum/special_intent/ground_smash
 	item_weight = 1.5 KILOGRAMS
 	name = "iron mace"
 	desc = "A heavy iron mace, preferred by those with a grudge against knightly whoresons."
@@ -78,6 +79,7 @@
 //................  Canes, my beloved. ............... //
 
 /obj/item/weapon/mace/cane
+	weapon_special = null
 	item_weight = 400 GRAMS
 	name = "wooden cane"
 	desc = "A simple wooden cane, whittled from wood. Good for supporting your weight."
@@ -400,6 +402,7 @@
 
 //................ Wooden sword ............... //
 /obj/item/weapon/mace/woodclub/train_sword
+	weapon_special = null
 	item_weight = 400 GRAMS
 	name = "wooden sword"
 	desc = "Crude wood assembled into the shape of a sword, a terrible weapon to be on the receiving end of during a training spat."
@@ -612,6 +615,7 @@
 
 //................ Warhammers ............... //
 /obj/item/weapon/mace/warhammer
+	weapon_special = /datum/special_intent/warhammer_swing
 	item_weight = 2 KILOGRAMS
 	name = "iron warhammer"
 	desc = "Made to punch through armor and skull alike."
