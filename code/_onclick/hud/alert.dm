@@ -111,8 +111,8 @@
 /atom/movable/screen/alert_countdown
 	plane = ABOVE_HUD_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	maptext_x = 4
-	maptext_y = 4
+	maptext_x = 8
+	maptext_y = 2
 	color = "#800000"
 
 //At or above this, the countdown shows whole minutes ("27m"); below it, M:SS or Ns
@@ -146,7 +146,8 @@
 	if(!countdown_holder)
 		countdown_holder = new(src)
 		vis_contents += countdown_holder
-	countdown_holder.maptext = MAPTEXT(countdown_text)
+	// Azure's maptext font (Small Fonts 6px); RMH's default .maptext style is too big for a 32px icon
+	countdown_holder.maptext = "<span style='font-family: \"Small Fonts\"; font-size: 6px; -dm-text-outline: 1px black; color: white; line-height: 1.1;'>[countdown_text]</span>"
 
 #undef ALERT_COUNTDOWN_CUTOFF
 
