@@ -258,7 +258,13 @@
 	if(do_crit)
 		var/crit_attempt = try_crit(bclass, dam, user, zone_precise, silent, crit_message, modifiers)
 		if(crit_attempt)
+			if(ishuman(owner))
+				var/mob/living/carbon/human/human_owner = owner
+				human_owner.hud_used?.stressies?.flick_pain(TRUE)
 			return crit_attempt
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		human_owner.hud_used?.stressies?.flick_pain(FALSE)
 
 /obj/item/bodypart/proc/try_crit(bclass, dam, mob/living/user, zone_precise, silent = FALSE, crit_message = FALSE, list/modifiers = list())
 	if(!owner || !bclass || isnum(bclass) || !dam || (owner.status_flags & GODMODE))

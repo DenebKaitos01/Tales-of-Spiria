@@ -1639,29 +1639,75 @@
 /atom/movable/screen/stress
 	name = "sanity"
 	icon = 'icons/mob/roguehud.dmi'
-	icon_state = "stressback"
+	icon_state = "mood_idle"
 
+/atom/movable/screen/stress/Initialize(mapload, ...)
+	. = ..()
+	var/image/mood_base = image(icon, null, "stressback")
+	mood_base.layer = layer - 0.01
+	underlays += mood_base
+
+// The face is the icon_state itself so flick_pain() can play over it. Faces from Azure Peak.
 /atom/movable/screen/stress/update_overlays()
 	. = ..()
-	var/state2use = "stress1"
-	if(!hud?.mymob)
-		. += state2use
+	var/state2use = "mood_idle"
+	if(!ishuman(hud?.mymob))
+		icon_state = state2use
 		return
 	var/mob/living/carbon/human/H = hud.mymob
 	if(!HAS_TRAIT(H, TRAIT_NOMOOD))
 		var/stress_amt = H.get_stress_amount()
-		if(stress_amt >= STRESS_BAD)
-			state2use = "stress2"
-		if(stress_amt >= STRESS_VBAD)
+		if(stress_amt >= STRESS_INSANE)
+			state2use = "stress4"
+		else if(stress_amt >= STRESS_VBAD)
 			state2use = "stress3"
+		else if(stress_amt >= STRESS_BAD)
+			state2use = "stress2"
+		else if(stress_amt >= STRESS_GOOD)
+			state2use = "stress"
+		else if(stress_amt <= -10)
+			state2use = "mood_nirvana"
+		else if(stress_amt <= -5)
+			state2use = "peace3"
+		else if(stress_amt <= -3)
+			state2use = "peace2"
+		else if(stress_amt < 0)
+			state2use = "peace"
 
 	if(H.has_status_effect(/datum/status_effect/buff/drunk) || H.has_status_effect(/datum/status_effect/buff/druqks))
-		state2use = "mood_drunk"
-	if(H.InFullCritical())
-		state2use = "mood_fear"
-	if(H.stat == DEAD || H.mind?.has_antag_datum(/datum/antagonist/zombie))
-		state2use = "mood_dead"
-	. += state2use
+		state2use = "mood_drunkorhigh"
+	if(H.has_status_effect(/datum/status_effect/buff/bloodrage))
+		state2use = "mood_ult"
+
+	var/zombie = H.mind?.has_antag_datum(/datum/antagonist/zombie)
+	var/lich = H.mind?.has_antag_datum(/datum/antagonist/lich)
+	if(H.stat == DEAD)
+		state2use = zombie ? "mood_zdead" : (lich ? "mood_bdead" : "mood_dead")
+	else if(H.IsSleeping())
+		state2use = zombie ? "mood_zsleep" : (lich ? "mood_bsleep" : "mood_sleep")
+	else if(zombie)
+		state2use = "mood_zombidle"
+	else if(lich)
+		state2use = "mood_boneidle"
+	else if(H.InFullCritical())
+		state2use = "mood_painidle"
+	else if(H.disgust >= DISGUST_LEVEL_GROSS)
+		state2use = "mood_sick"
+	icon_state = state2use
+
+/// Grimace when hurt; critical hits get the bigger reaction
+/atom/movable/screen/stress/proc/flick_pain(critical = FALSE)
+	var/mob/living/carbon/human/H = hud?.mymob
+	var/prefix = ""
+	if(ishuman(H))
+		if(H.mind?.has_antag_datum(/datum/antagonist/zombie))
+			prefix = "z"
+		else if(H.mind?.has_antag_datum(/datum/antagonist/lich))
+			prefix = "b"
+	if(prefix)
+		flick(critical ? "mood_[prefix]ouch" : "mood_[prefix]pain", src)
+	else
+		flick(critical ? "mood_ouch" : "mood_hurt", src)
 
 /atom/movable/screen/stress/Click(location,control,params)
 	var/list/modifiers = params2list(params)
