@@ -139,29 +139,42 @@
 	if(!.)
 		return
 
-	if(user.incapacitated(IGNORE_GRAB))
+	return user.try_weapon_special(target)
+
+/**
+ * Fire the special of the held weapon at the target's turf
+ *
+ * Used by the Strong stance right click and the Special middle click intent.
+ * Set feedback to tell the user why nothing happened.
+ */
+/mob/living/proc/try_weapon_special(atom/target, feedback = FALSE)
+	if(incapacitated(IGNORE_GRAB))
 		return FALSE
 
-	if(user.has_status_effect(/datum/status_effect/debuff/specialcd))
+	if(has_status_effect(/datum/status_effect/debuff/specialcd))
+		if(feedback)
+			balloon_alert(src, "not ready!")
 		return FALSE
 
-	var/turf/T = get_target(target)
+	var/turf/T = get_turf(target)
 	if(!istype(T))
 		return FALSE
 
-	var/obj/item/weapon/held_weapon = user.get_active_held_item()
+	var/obj/item/weapon/held_weapon = get_active_held_item()
 
 	if(!istype(held_weapon) || !held_weapon.weapon_special)
+		if(feedback)
+			balloon_alert(src, "no special!")
 		return FALSE
 
 	var/datum/special_intent/special = held_weapon.weapon_special
 
-	if(!special.deploy(user, held_weapon, target))
+	if(!special.deploy(src, held_weapon, target))
 		return FALSE // Invalid starting args somehow
 
-	special.apply_cost(user)
+	special.apply_cost(src)
 
-	user.changeNext_move(CLICK_CD_MELEE)
+	changeNext_move(CLICK_CD_MELEE)
 
 	return TRUE
 

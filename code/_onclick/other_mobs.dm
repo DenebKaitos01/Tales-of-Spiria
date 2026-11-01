@@ -325,7 +325,12 @@
 			face_atom(A)
 			bite(A)
 		if(INTENT_STEAL)
-			steal_action(A)
+			// In combat this is the weapon special, out of it a pickpocket attempt
+			if(cmode)
+				face_atom(A)
+				try_weapon_special(A, feedback = TRUE)
+			else
+				steal_action(A)
 
 //Return TRUE to cancel other attack hand effects that respect it.
 /atom/proc/attack_hand(mob/user, list/modifiers)

@@ -168,7 +168,7 @@
 /datum/keybinding/carbon/steal_intent
 	hotkey_keys = list("L")
 	name = "intent_steal"
-	full_name = "Select Steal Intent"
+	full_name = "Select Special / Steal Intent"
 	description = ""
 	category = CATEGORY_CARBON
 

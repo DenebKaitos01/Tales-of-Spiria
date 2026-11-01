@@ -275,7 +275,8 @@
 	pointer = 'icons/effects/mousemice/human_jump.dmi'
 
 /datum/intent/steal
-	name = "steal"
+	name = "special"
+	desc = "In combat mode, uses the special of the held weapon. Otherwise, tries to steal from someone."
 	candodge = FALSE
 	canparry = FALSE
 	chargedrain = 0
