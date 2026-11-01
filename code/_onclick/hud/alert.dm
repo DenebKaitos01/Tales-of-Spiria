@@ -103,6 +103,52 @@
 	var/overlay_state
 	///The file to fetch the overlay from
 	var/overlay_icon = 'icons/mob/screen_alert.dmi'
+	///Shows the remaining duration of a timed status effect on top of the icon
+	var/atom/movable/screen/alert_countdown/countdown_holder
+	///Cached countdown string so we don't rewrite maptext every fast-process tick
+	var/last_countdown_text
+
+/atom/movable/screen/alert_countdown
+	plane = ABOVE_HUD_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	maptext_x = 4
+	maptext_y = 4
+	color = "#800000"
+
+//At or above this, the countdown shows whole minutes ("27m"); below it, M:SS or Ns
+#define ALERT_COUNTDOWN_CUTOFF (3 MINUTES)
+
+/// Ported from Azure Peak (PR #5720): shows how long a timed status effect has left.
+/atom/movable/screen/alert/proc/update_countdown(remaining_deciseconds)
+	if(remaining_deciseconds <= 0)
+		if(countdown_holder)
+			countdown_holder.maptext = null
+		last_countdown_text = null
+		return
+
+	var/countdown_text
+	if(remaining_deciseconds >= ALERT_COUNTDOWN_CUTOFF)
+		var/mins_left = max(round(remaining_deciseconds / (1 MINUTES), 1), 1)
+		countdown_text = "[mins_left]m"
+	else
+		var/seconds_left = round(remaining_deciseconds / (1 SECONDS), 0.1)
+		if(seconds_left >= 60)
+			var/mins = round(seconds_left / 60)
+			var/secs = round(seconds_left) % 60
+			countdown_text = "[mins]:[secs < 10 ? "0[secs]" : "[secs]"]"
+		else
+			countdown_text = "[seconds_left]s"
+
+	if(countdown_text == last_countdown_text)
+		return
+	last_countdown_text = countdown_text
+
+	if(!countdown_holder)
+		countdown_holder = new(src)
+		vis_contents += countdown_holder
+	countdown_holder.maptext = MAPTEXT(countdown_text)
+
+#undef ALERT_COUNTDOWN_CUTOFF
 
 /atom/movable/screen/alert/MouseEntered(location,control,params)
 	..()
@@ -482,6 +528,7 @@
 	return 1
 
 /atom/movable/screen/alert/Destroy()
+	QDEL_NULL(countdown_holder)
 	severity = 0
 	mob_viewer = null
 	screen_loc = ""

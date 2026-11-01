@@ -67,6 +67,8 @@
 		if(A)
 			A?.attached_effect = src //so the alert can reference us, if it needs to
 			linked_alert = A //so we can reference the alert, if we need to
+			if(duration != -1)
+				A.update_countdown(duration - world.time)
 
 	if(duration != -1 || tick_interval != STATUS_EFFECT_NO_TICK) // Don't process permanent effects with no tick.
 		switch(processing_speed)
@@ -103,6 +105,9 @@
 		tick_interval = world.time + initial(tick_interval)
 	if(duration != -1 && duration < world.time)
 		qdel(src)
+		return
+	if(linked_alert && duration != -1)
+		linked_alert.update_countdown(max(duration - world.time, 0))
 
 /// Called whenever the buff is applied; returning FALSE will cause it to autoremove itself.
 /datum/status_effect/proc/on_apply()
