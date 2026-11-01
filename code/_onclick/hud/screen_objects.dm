@@ -1682,7 +1682,7 @@
 	var/zombie = H.mind?.has_antag_datum(/datum/antagonist/zombie)
 	var/lich = H.mind?.has_antag_datum(/datum/antagonist/lich)
 	if(H.stat == DEAD)
-		state2use = zombie ? "mood_zdead" : (lich ? "mood_bdead" : "mood_dead")
+		state2use = lich ? "mood_bdead" : "mood_zdead"
 	else if(H.IsSleeping())
 		state2use = zombie ? "mood_zsleep" : (lich ? "mood_bsleep" : "mood_sleep")
 	else if(zombie)
