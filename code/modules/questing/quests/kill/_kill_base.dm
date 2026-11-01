@@ -198,7 +198,7 @@
 
 /// A shared-board posting loses a target before anyone claims it, so the posting shrinks or lapses.
 /datum/quest/kill/proc/on_posted_target_lost(mob/living/lost_target)
-	remove_tracked_atom(lost_target)
+	forget_tracked_atom(lost_target)
 	progress_required = max(progress_required - 1, 0)
 	if(progress_required <= progress_current)
 		expire_posting("its last target is gone")

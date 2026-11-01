@@ -165,7 +165,7 @@
 		Q.on_posted_target_lost(target_mob)
 		qdel(src)
 		return FALSE
-	Q.remove_tracked_atom(target_mob)
+	Q.forget_tracked_atom(target_mob)
 	Q.progress_current++
 	Q.on_progress_update()
 	qdel(src)

@@ -114,7 +114,7 @@
 /// A contract creature died or vanished; it no longer helps the contract.
 /datum/quest/kill/carnal/proc/on_target_lost(mob/living/lost_target)
 	spawned_target_count = max(spawned_target_count - 1, 0)
-	remove_tracked_atom(lost_target)
+	forget_tracked_atom(lost_target)
 	if(!spawned_target_count && !quest_receiver_reference && SSquestboard?.is_posted(src))
 		expire_posting("its last creature is gone")
 		return
