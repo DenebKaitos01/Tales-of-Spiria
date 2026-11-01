@@ -41,6 +41,30 @@
 
 	remove_status_effect(/datum/status_effect/buff/clash)
 
+/// Guard against a creature's attack. Returns TRUE if the attack was deflected.
+/mob/living/proc/simple_clash(mob/living/simple_animal/attacker)
+	if(attacker == src || !has_status_effect(/datum/status_effect/buff/clash))
+		return FALSE
+
+	if(dir == REVERSE_DIR(get_dir(src, attacker)))
+		bad_guard(span_userdanger("My focus was interrupted!")) // Attacked from behind
+		return FALSE
+
+	var/obj/item/our_item = get_active_held_item()
+	if(our_item)
+		visible_message(span_suicide("[src] ripostes [attacker] with \the [our_item]!"))
+	else
+		visible_message(span_warning("[src] deflects [attacker]'s strike with [p_their()] bare hands!"))
+	to_chat(src, span_notice("[capitalize(attacker.p_theyre())] exposed!"))
+	playsound(src, 'sound/combat/clash_struck.ogg', 100)
+
+	attacker.apply_status_effect(/datum/status_effect/debuff/exposed, 3 SECONDS)
+	attacker.apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
+	attacker.Slowdown(3)
+
+	remove_status_effect(/datum/status_effect/buff/clash)
+	return TRUE
+
 /// Decide who gets disarmed if both combants have clash enabled
 /mob/living/proc/clash(mob/living/user, obj/item/our_item, obj/item/their_item)
 	var/instantloss = FALSE

@@ -115,26 +115,26 @@
 	user.body_toggle_head()
 	return TRUE
 
-/datum/keybinding/mob/target_neck
+/datum/keybinding/mob/target_eye_nose
 	hotkey_keys = list("Numpad7")
-	name = "target_neck"
-	full_name = "Target: Cycle Neck/Mouth"
+	name = "target_eye_nose"
+	full_name = "Target: Cycle eyes and nose"
 	description = ""
 
-/datum/keybinding/mob/target_neck/down(client/user, turf/target, mousepos_x, mousepos_y)
+/datum/keybinding/mob/target_eye_nose/down(client/user, turf/target, mousepos_x, mousepos_y)
 	. = ..()
-	user.body_neck()
+	user.body_toggle_eye_nose()
 	return TRUE
 
-/datum/keybinding/mob/target_eyes
-	hotkey_keys = list("Numpad7")
-	name = "target_eyes"
-	full_name = "Target: Cycle Eyes"
+/datum/keybinding/mob/target_mouth_ears
+	hotkey_keys = list("Numpad9")
+	name = "target_mouth_ears"
+	full_name = "Target: Cycle mouth and ears"
 	description = ""
 
-/datum/keybinding/mob/target_eyes/down(client/user, turf/target, mousepos_x, mousepos_y)
+/datum/keybinding/mob/target_mouth_ears/down(client/user, turf/target, mousepos_x, mousepos_y)
 	. = ..()
-	user.body_eyes()
+	user.body_toggle_mouth_ears()
 	return TRUE
 
 /datum/keybinding/mob/target_r_arm

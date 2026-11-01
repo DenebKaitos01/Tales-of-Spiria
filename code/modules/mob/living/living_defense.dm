@@ -469,6 +469,9 @@
 	if(M.incapacitated(IGNORE_GRAB))
 		return FALSE
 
+	if(simple_clash(M))
+		return FALSE
+
 	if(checkmiss(M))
 		return FALSE
 
