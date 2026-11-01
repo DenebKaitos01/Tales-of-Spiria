@@ -382,7 +382,7 @@
 	var/atom/movable/screen/zone_sel/selector = mob.hud_used.zone_select
 	selector.set_selected_zone(next_in_line, mob)
 
-///Hidden verb to target the face, bound to 7 - repeated presses toggles through right eye - nose - left eye
+///Hidden verb to target the face, bound to 7 - repeated presses toggles through left eye - nose - right eye
 /client/verb/body_toggle_eye_nose()
 	set name = "body-toggle-eye-nose"
 	set hidden = 1
@@ -392,12 +392,12 @@
 
 	var/next_in_line
 	switch(mob.zone_selected)
-		if(BODY_ZONE_PRECISE_R_EYE)
+		if(BODY_ZONE_PRECISE_L_EYE)
 			next_in_line = BODY_ZONE_PRECISE_NOSE
 		if(BODY_ZONE_PRECISE_NOSE)
-			next_in_line = BODY_ZONE_PRECISE_L_EYE
-		else
 			next_in_line = BODY_ZONE_PRECISE_R_EYE
+		else
+			next_in_line = BODY_ZONE_PRECISE_L_EYE
 
 	var/atom/movable/screen/zone_sel/selector = mob.hud_used.zone_select
 	selector.set_selected_zone(next_in_line, mob)

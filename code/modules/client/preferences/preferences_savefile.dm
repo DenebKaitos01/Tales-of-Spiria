@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 37
+#define SAVEFILE_VERSION_MAX 38
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -73,6 +73,17 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		key_bindings = (read_preference(/datum/preference/toggle/hotkeys)) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 		parent.update_movement_keys()
 		to_chat(parent, "<span class='danger'>Empty keybindings, setting default to [read_preference(/datum/preference/toggle/hotkeys) ? "Hotkey" : "Classic"] mode</span>")
+	if(current_version < 38)
+		// Stances moved from Ctrl+1-6 to Shift+1-6 and numpad 7/9 got the face cycles.
+		// Unbinding them lets check_new_keybindings() give them their new defaults.
+		var/static/list/moved_binds = list("rmb_intent_1", "rmb_intent_2", "rmb_intent_3", "rmb_intent_4", "rmb_intent_5", "rmb_intent_6", "target_neck", "target_eyes")
+		for(var/key in key_bindings)
+			var/list/names = key_bindings[key]
+			if(!islist(names))
+				continue
+			names -= moved_binds
+			if(!length(names))
+				key_bindings -= key
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	if(current_version < 22)

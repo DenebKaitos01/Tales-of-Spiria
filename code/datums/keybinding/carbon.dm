@@ -183,7 +183,7 @@
 //****** RMB Intents ******
 
 /datum/keybinding/carbon/rmb_intent_1
-	hotkey_keys = list("Shift1", "Ctrl1")
+	hotkey_keys = list("Shift1")
 	name = "rmb_intent_1"
 	full_name = "Select Feint Intent"
 	description = "Selects the Feint RMB intent."
@@ -198,7 +198,7 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_2
-	hotkey_keys = list("Shift2", "Ctrl2")
+	hotkey_keys = list("Shift2")
 	name = "rmb_intent_2"
 	full_name = "Select Aimed Intent"
 	description = "Selects the Aimed RMB intent."
@@ -213,7 +213,7 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_3
-	hotkey_keys = list("Shift3", "Ctrl3")
+	hotkey_keys = list("Shift3")
 	name = "rmb_intent_3"
 	full_name = "Select Strong Intent"
 	description = "Selects the Strong RMB intent."
@@ -228,7 +228,7 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_4
-	hotkey_keys = list("Shift4", "Ctrl4")
+	hotkey_keys = list("Shift4")
 	name = "rmb_intent_4"
 	full_name = "Select Swift Intent"
 	description = "Selects the Swift RMB intent."
@@ -243,7 +243,7 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_5
-	hotkey_keys = list("Shift5", "Ctrl5")
+	hotkey_keys = list("Shift5")
 	name = "rmb_intent_5"
 	full_name = "Select Defend Intent"
 	description = "Selects the Defend RMB intent."
@@ -258,7 +258,7 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_6
-	hotkey_keys = list("Shift6", "Ctrl6")
+	hotkey_keys = list("Shift6")
 	name = "rmb_intent_6"
 	full_name = "Select Weak Intent"
 	description = "Selects the Weak RMB intent."
