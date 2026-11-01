@@ -11,7 +11,7 @@
 	can_parry = FALSE // You can't parry with this, it'd be awkward to tangle chains, use a shield
 	wdefense = TERRIBLE_PARRY
 	wlength = WLENGTH_NORMAL
-	possible_item_intents = list(FLAIL_STRIKE, FLAIL_SMASH)
+	possible_item_intents = list(FLAIL_STRIKE, FLAIL_SMASH, /datum/intent/flail/sweep)
 	max_integrity = INTEGRITY_STRONG
 	minstr = 6
 

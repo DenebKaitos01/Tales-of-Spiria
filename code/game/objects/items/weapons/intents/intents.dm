@@ -53,6 +53,8 @@
 
 	var/item_damage_type = "blunt"
 	var/move_limit = 0
+	/// Cleave pattern for hitting secondary targets on normal attacks. Null = no cleave.
+	var/datum/cleave_pattern/cleave
 
 	var/static/list/bonk_animation_types = list(
 		BCLASS_BLUNT,
@@ -78,6 +80,8 @@
 		master.curplaying = null
 	masteritem = null
 	mastermob = null
+	if(istype(cleave))
+		QDEL_NULL(cleave)
 	return ..()
 
 /// returns the attack animation type this intent uses
@@ -119,6 +123,12 @@
 			inspec += "Quick"
 		if(clickcd > CLICK_CD_MELEE)
 			inspec += "Slow"
+	if(cleave)
+		inspec += "\n<b>Cleave:</b> [cleave.desc]"
+		inspec += "\n	Max additional targets: [cleave.max_targets ? cleave.max_targets : "Unlimited"]"
+		if(cleave.diagonal_desc)
+			inspec += "\n	[cleave.diagonal_desc]"
+		inspec += "\n<tt>[cleave.get_pattern_display()]</tt>"
 
 	return inspec
 
@@ -184,6 +194,8 @@
 				update_chargeloop()
 	if(Masteritem)
 		masteritem = WEAKREF(Masteritem)
+	if(ispath(cleave))
+		cleave = new cleave()
 
 /datum/intent/proc/get_master_item()
 	var/obj/item/master = masteritem?.resolve()

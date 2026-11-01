@@ -136,6 +136,23 @@
 	swingdelay = 1
 	item_damage_type = "slash"
 
+/datum/intent/sword/cut/zwei/cleave
+	name = "cleaving cut"
+	desc = "A cleave that cuts through a second target behind the first."
+	icon_state = "incleave"
+	attack_verb = list("cleaves", "carves through")
+	clickcd = 16
+	damfactor = 1.0
+	cleave = /datum/cleave_pattern/forward_cleave
+
+/datum/intent/sword/cut/zwei/sweep
+	name = "sweeping cut"
+	desc = "A heavy sweep that cuts through targets to the front."
+	icon_state = "insweep"
+	attack_verb = list("sweeps through", "cuts across")
+	clickcd = 18
+	cleave = /datum/cleave_pattern/horizontal_sweep
+
 /datum/intent/sword/cut/rapier
 	damfactor = 0.8
 	item_damage_type = "slash"

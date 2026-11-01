@@ -328,7 +328,7 @@
 	wbalance = EASY_TO_DODGE
 	slowdown = 1
 	possible_item_intents = list(POLEARM_THRUST, POLEARM_BASH) //bash is for nonlethal takedowns, only targets limbs
-	gripped_intents = list(POLEARM_THRUST, SPEAR_CUT, POLEARM_CHOP, POLEARM_BASH)
+	gripped_intents = list(POLEARM_THRUST, /datum/intent/polearm/cut/sweep, POLEARM_CHOP, POLEARM_BASH)
 	max_blade_int = 300
 	max_integrity = INTEGRITY_STRONGEST
 
@@ -470,7 +470,7 @@
 	wdefense = AVERAGE_PARRY
 	wbalance = VERY_EASY_TO_DODGE
 	possible_item_intents = list(AXE_CUT)
-	gripped_intents = list(AXE_CUT, AXE_GRTCHOP, SPEAR_THRUST)
+	gripped_intents = list(AXE_CUT, AXE_GRTCHOP, SPEAR_THRUST, /datum/intent/polearm/cut/cleave)
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STRONG
 	minstr = 11

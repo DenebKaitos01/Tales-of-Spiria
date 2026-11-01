@@ -48,6 +48,23 @@
 /datum/intent/polearm/cut/naginata
 	damfactor = 1.2
 
+/datum/intent/polearm/cut/sweep
+	name = "sweeping cut"
+	desc = "A sweep that cuts through targets to the front."
+	icon_state = "insweep"
+	attack_verb = list("sweeps through", "cuts across")
+	clickcd = 20
+	cleave = /datum/cleave_pattern/horizontal_sweep
+
+/datum/intent/polearm/cut/cleave
+	name = "cleaving cut"
+	desc = "A cleave that cuts through a second target behind the first."
+	icon_state = "incleave"
+	attack_verb = list("cleaves", "carves through")
+	clickcd = 18
+	damfactor = 1.0
+	cleave = /datum/cleave_pattern/forward_cleave
+
 // POLEARM CHOP INTENTS //
 /datum/intent/polearm/chop
 	name = "chop"

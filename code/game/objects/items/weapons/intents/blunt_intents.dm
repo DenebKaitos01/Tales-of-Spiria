@@ -53,6 +53,21 @@
 	misscost = 22
 	warnie = "mobwarning"
 
+/datum/intent/mace/sweep
+	name = "sweeping strike"
+	desc = "A heavy sweep that smashes through targets to the sides and front."
+	icon_state = "insweep"
+	blade_class = BCLASS_BLUNT
+	attack_verb = list("sweeps through", "smashes across")
+	animname = "strike"
+	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
+	penfactor = PEN_NONE
+	damfactor = 1.2
+	clickcd = 20
+	misscost = 15
+	item_damage_type = "blunt"
+	cleave = /datum/cleave_pattern/frontal_arc
+
 /datum/intent/mace/thrust
 	name = "thrust"
 	blade_class = BCLASS_STAB
@@ -133,6 +148,23 @@
 /datum/intent/flail/strike/smash/long
 	reach = 2
 	misscost = 12
+
+/datum/intent/flail/sweep
+	name = "sweeping strike"
+	desc = "A charged sweep that smashes through targets to the front."
+	icon_state = "insweep"
+	blade_class = BCLASS_BLUNT
+	chargetime = 12
+	chargedrain = 1
+	chargedloop = /datum/looping_sound/flailswing
+	attack_verb = list("sweeps", "thrashes through")
+	animname = "strike"
+	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
+	penfactor = PEN_NONE
+	damfactor = 1.5
+	misscost = 10
+	item_damage_type = "blunt"
+	cleave = /datum/cleave_pattern/horizontal_sweep
 
 /datum/intent/flail/strike/matthiosflail
 	reach = 2

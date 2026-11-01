@@ -327,6 +327,7 @@
 				user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname, used_item = src, used_intent = user.used_intent)
 			else
 				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname, used_item = src, used_intent = user.used_intent)
+		execute_cleave(user, turf_before, M) // The sweep carries on to the others even if the first one defends
 		return
 	if(!user.used_intent.noaa)
 		if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
@@ -370,6 +371,7 @@
 
 	log_combat(user, M, "attacked", src.name, "(INTENT: [uppertext(user.used_intent.name)]) (DAMTYPE: [uppertext(damtype)])")
 	add_fingerprint(user)
+	execute_cleave(user, turf_before, M)
 
 
 /// The equivalent of [/obj/item/proc/attack] but for alternate attacks, AKA right clicking

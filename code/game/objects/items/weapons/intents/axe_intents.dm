@@ -62,6 +62,21 @@
 	misscost = 8
 	item_damage_type = "slash"
 
+/datum/intent/axe/sweep
+	name = "sweeping cut"
+	desc = "A heavy sweep that cuts through targets to the sides and front."
+	icon_state = "insweep"
+	blade_class = BCLASS_CUT
+	attack_verb = list("sweeps through", "cuts across")
+	animname = "cut"
+	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
+	penfactor = PEN_NONE
+	damfactor = 1.1
+	clickcd = 18
+	misscost = 15
+	item_damage_type = "slash"
+	cleave = /datum/cleave_pattern/frontal_arc
+
 /datum/intent/axe/cut/greataxe/doublehead //Better to cut as well
 	reach = 2
 	clickcd = 16

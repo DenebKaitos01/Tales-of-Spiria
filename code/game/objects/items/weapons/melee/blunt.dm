@@ -441,7 +441,7 @@
 	wbalance = EASY_TO_DODGE
 	wlength = WLENGTH_LONG
 	possible_item_intents = list(MACE_HVYSTRIKE)
-	gripped_intents = list(MACE_HVYSMASH, MACE_THRUST)
+	gripped_intents = list(MACE_HVYSMASH, MACE_THRUST, /datum/intent/mace/sweep)
 	max_integrity = INTEGRITY_STRONG
 	minstr = 10
 

@@ -392,7 +392,7 @@
 	wlength = WLENGTH_GREAT
 	slowdown = 1
 	possible_item_intents = list(AXE_CUT, AXE_CHOP, POLEARM_BASH) //bash is for nonlethal takedowns, only targets limbs
-	gripped_intents = list(GREATAXE_CUT, GREATAXE_CHOP,  POLEARM_BASH)
+	gripped_intents = list(GREATAXE_CUT, GREATAXE_CHOP, POLEARM_BASH, /datum/intent/axe/sweep)
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STRONG
 	minstr = 11

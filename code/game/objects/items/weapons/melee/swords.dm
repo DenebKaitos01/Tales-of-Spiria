@@ -1040,6 +1040,7 @@
 	wbalance = EASY_TO_DODGE
 	wlength = WLENGTH_GREAT
 	possible_item_intents = list(SWORD_CUT, SWORD_STRIKE)
+	gripped_intents = list(SWORD_CUT, SWORD_THRUST, /datum/intent/sword/cut/zwei/cleave, /datum/intent/sword/cut/zwei/sweep)
 	minstr = 11
 
 	swingsound = BLADEWOOSH_HUGE
@@ -1157,7 +1158,7 @@
 	icon_state = "steelzwei"
 	force_wielded = DAMAGE_LONGSWORD_WIELD
 	possible_item_intents = list(ZWEI_CUT, ZWEI_THRUST, SWORD_STRIKE)
-	gripped_intents = list(SWORD_CUT, SWDLONG_THRUST, SWORD_STRIKE, SWDLONG_CHOP)
+	gripped_intents = list(SWORD_CUT, SWDLONG_THRUST, /datum/intent/sword/cut/zwei/cleave, /datum/intent/sword/cut/zwei/sweep)
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STRONG
 	melting_material = /datum/material/iron
