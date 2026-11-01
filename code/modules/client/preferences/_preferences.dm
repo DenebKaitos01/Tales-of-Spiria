@@ -1373,6 +1373,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		"bloom" = /datum/preference/toggle/bloom, // RMH EDIT
 		"flame_flicker" = /datum/preference/toggle/flame_flicker, // RMH EDIT
 		"auto_fit_viewport" = /datum/preference/toggle/auto_fit_viewport,
+		"descriptor_color" = /datum/preference/toggle/descriptor_color,
 	)
 	var/toggle_link_type = toggle_link_types[action]
 	if(toggle_link_type)
