@@ -27,12 +27,8 @@
 
 	if(istype(src, /mob/living/simple_animal))
 		var/mob/living/simple_animal/quest_animal = src
+		// Contract creatures still drop nothing on death, but their corpse can be butchered for meat and hides
 		quest_animal.loot = list()
-		quest_animal.butcher_results = null
-		quest_animal.guaranteed_butcher_results = null
-		quest_animal.botched_butcher_results = null
-		quest_animal.perfect_butcher_results = null
-		quest_animal.head_butcher = null
 
 /datum/quest/kill/proc/get_mob_spawn_descriptor(mob_type)
 	var/mob_descriptor = mob_types_to_spawn[mob_type]
