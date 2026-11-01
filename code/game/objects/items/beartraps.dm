@@ -162,6 +162,8 @@
 
 			if(L.movement_type & (MOVETYPE_NOT_TOUCHING_GROUND)) //don't close the trap if they're flying/floating over it.
 				return ..()
+			if(HAS_TRAIT(L, TRAIT_LIGHT_STEP))
+				return ..()
 
 			var/def_zone = BODY_ZONE_CHEST
 			if(snap && iscarbon(L))
