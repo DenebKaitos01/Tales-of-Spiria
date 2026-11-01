@@ -116,7 +116,7 @@
 	if(!is_organic_limb())
 		return FALSE
 	if(NOBLOOD in owner?.dna?.species?.species_traits)
-		return FALSE
+		return
 	return TRUE
 
 /// Returns the total bleed rate on this bodypart
