@@ -38,7 +38,15 @@
 			/obj/item/carvedgem/shell/comb = 1,
 			/obj/item/statue/silver/figurine = 1,
 			/obj/item/carvedgem/onyxa/cutgem = 1,
-			/obj/item/carvedgem/shell/cutgem = 1
+			/obj/item/carvedgem/shell/cutgem = 1,
+			// Trinkets and gem jewelry
+			/obj/item/carvedwood/bust = 1,
+			/obj/item/ceramic_trinket/figurine = 1,
+			/obj/item/statue/bronze/duck = 1,
+			/obj/item/statue/bronze/scale = 1,
+			/obj/item/clothing/ring/shell = 1,
+			/obj/item/clothing/ring/amber = 1,
+			/obj/item/gem/random = 2,
 		)
 	)
 
@@ -78,7 +86,17 @@
 			/obj/item/weapon/sword/rapier/nimcha = 2,
 			/obj/item/weapon/mace/gada = 2,
 			/obj/item/weapon/whip/urumi/silver = 1,
-			/obj/item/weapon/sword/silver = 3
+			/obj/item/weapon/sword/silver = 3,
+			// Valuables and gem jewelry
+			/obj/item/statue/bronze/bigurn = 1,
+			/obj/item/statue/bronze/caryatid = 1,
+			/obj/item/ceramic_trinket/octopus = 1,
+			/obj/item/ceramic_trinket/carp = 1,
+			/obj/item/clothing/ring/jade = 1,
+			/obj/item/clothing/ring/opal = 1,
+			/obj/item/clothing/neck/onyxaamulet = 1,
+			/obj/item/clothing/ring/gold/rontz = 1,
+			/obj/item/gem/diamond = 1,
 		)
 	)
 
