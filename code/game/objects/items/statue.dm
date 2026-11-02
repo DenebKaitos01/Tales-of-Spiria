@@ -522,6 +522,69 @@
 	icon_state = "elven_bronze"
 	sellprice = 30
 
+/obj/item/statue/bronze/ashtray
+	name = "bronze zigtray"
+	desc = "A zigtray forged out of bronze. Truly, this is the pinnacle of zig extinguishment."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "ashtray_bronze"
+	sellprice = 15
+
+/obj/item/statue/bronze/duck
+	name = "bronze duck"
+	desc = "A lovely little duck, forged out of bronze."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "duck_bronze"
+	sellprice = 15
+
+/obj/item/statue/bronze/saiga
+	name = "bronze saiga figurine"
+	desc = "A bronze figurine made to resemble a saiga."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "saiga_bronze"
+	sellprice = 15
+
+/obj/item/statue/bronze/insect
+	name = "bronze insect charm"
+	desc = "A bronze charm depicting a flying insect."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "bug_bronze"
+	sellprice = 15
+
+/obj/item/statue/bronze/talisman
+	name = "bronze talisman"
+	desc = "A talisman meant to ward off evil spirits, this one is forged out of bronze."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "talisman_bronze"
+	sellprice = 15
+
+/obj/item/statue/bronze/canister
+	name = "bronze canister"
+	desc = "A canister forged out of bronze."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "oil_bronze"
+	sellprice = 30
+
+/obj/item/statue/bronze/caryatid
+	name = "bronze caryatid"
+	desc = "A type of statue that originated in Etrusca, this one is forged out of bronze."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "caryatid_bronze"
+	sellprice = 30
+
+/obj/item/statue/bronze/scale
+	name = "bronze scale"
+	desc = "A bronze scale, meant for weighing things."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "scale_bronze"
+	sellprice = 30
+
+/obj/item/statue/bronze/bigurn
+	name = "large bronze urn"
+	desc = "A large decorative urn forged out of bronze."
+	icon = 'icons/roguetown/items/precious_objects.dmi'
+	icon_state = "bigurn_bronze"
+	sellprice = 60
+
 /obj/item/statue/bronze/comb
 	parent_type = /obj/item/hairbrush
 	name = "bronze comb"

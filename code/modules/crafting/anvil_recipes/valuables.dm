@@ -528,3 +528,54 @@
 	recipe_name = "two bronze Fish Figurines"
 	created_item = /obj/item/statue/bronze/fish
 	createditem_extra = 1
+
+/datum/anvil_recipe/valuables/bronze/ashtray
+	name = "2x Bronze Zigtrays"
+	recipe_name = "two Bronze Zigtrays"
+	created_item = /obj/item/statue/bronze/ashtray
+	createditem_extra = 1
+
+/datum/anvil_recipe/valuables/bronze/duck
+	name = "2x Bronze Ducks"
+	recipe_name = "two Bronze Ducks"
+	created_item = /obj/item/statue/bronze/duck
+	createditem_extra = 1
+
+/datum/anvil_recipe/valuables/bronze/saiga
+	name = "2x Bronze Saiga Figurines"
+	recipe_name = "two Bronze Saiga Figurines"
+	created_item = /obj/item/statue/bronze/saiga
+	createditem_extra = 1
+
+/datum/anvil_recipe/valuables/bronze/insect
+	name = "2x Bronze Insect Charms"
+	recipe_name = "two Bronze Insect Charms"
+	created_item = /obj/item/statue/bronze/insect
+	createditem_extra = 1
+
+/datum/anvil_recipe/valuables/bronze/talisman
+	name = "2x Bronze Talismans"
+	recipe_name = "two Bronze Talismans"
+	created_item = /obj/item/statue/bronze/talisman
+	createditem_extra = 1
+
+/datum/anvil_recipe/valuables/bronze/canister
+	name = "Bronze Canister"
+	recipe_name = "a Bronze Canister"
+	created_item = /obj/item/statue/bronze/canister
+
+/datum/anvil_recipe/valuables/bronze/caryatid
+	name = "Bronze Caryatid"
+	recipe_name = "a Bronze Caryatid"
+	created_item = /obj/item/statue/bronze/caryatid
+
+/datum/anvil_recipe/valuables/bronze/scale
+	name = "Bronze Scale"
+	recipe_name = "a Bronze Scale"
+	created_item = /obj/item/statue/bronze/scale
+
+/datum/anvil_recipe/valuables/bronze/bigurn
+	name = "Large Bronze Urn (+ Bronze Bar)"
+	recipe_name = "a Large Bronze Urn"
+	additional_items = list(/obj/item/ingot/bronze)
+	created_item = /obj/item/statue/bronze/bigurn
