@@ -287,7 +287,7 @@
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
 	metalizer_result = null
-	extinguish_prob = 10
+	extinguish_prob = 0 // Enclosed flame, water and weather do not put it out
 	melting_material = /datum/material/iron
 	melt_amount = 75
 
@@ -344,7 +344,7 @@
 	on_damage = 5
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
-	extinguish_prob = 15
+	extinguish_prob = 0
 	melting_material = /datum/material/copper
 	melt_amount = 75
 
