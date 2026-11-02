@@ -90,3 +90,18 @@
 
 /mob/living/carbon/proc/is_empath()
 	return HAS_TRAIT(src, TRAIT_EMPATH)
+
+/// Flicks a gesture (beckon, wave, taunt...) over our head, seen only by us and the target. Ported from Azure Peak.
+/mob/living/proc/play_gesture_emote(mob/target, icon_state, y_offset = 20)
+	var/image/gesture = image('icons/mob/overhead_effects.dmi', src, icon_state, ABOVE_ALL_MOB_LAYER)
+	gesture.appearance_flags = RESET_COLOR|RESET_ALPHA|KEEP_APART
+	gesture.pixel_y = y_offset
+	if(iscarbon(src))
+		var/mob/living/carbon/C = src
+		C.apply_offset(gesture, OFFSET_HEAD)
+	var/list/viewers = list()
+	if(client)
+		viewers += client
+	if(target != src && target.client && target.can_see_cone(src))
+		viewers += target.client
+	flick_overlay(gesture, viewers, 2 SECONDS)
