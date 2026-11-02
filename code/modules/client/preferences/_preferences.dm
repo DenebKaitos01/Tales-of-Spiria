@@ -2518,8 +2518,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 /// Host names shown in image link prompts; keep in sync with the two allowed_hosts lists below.
 /datum/preferences/proc/get_image_host_names(nsfw = FALSE)
 	if(nsfw)
-		return "gyazo, lensdump, imgbox, catbox, imagechest, pixhost, file garden"
-	return "gyazo, lensdump, imgbox, catbox, postimages, freeimage, imagechest, pixhost, file garden"
+		return "gyazo, lensdump, imgbox, catbox, imagechest, pixhost, file garden, imgbb"
+	return "gyazo, lensdump, imgbox, catbox, postimages, freeimage, imagechest, pixhost, file garden, imgbb"
 
 /datum/preferences/proc/is_valid_headshot_link(mob/user, value, silent = FALSE, list/valid_extensions = list("jpg", "png", "jpeg", "gif"))
 	var/static/list/allowed_hosts = list(
@@ -2537,6 +2537,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		"iili.io",
 		"cdn.imgchest.com",
 		"file.garden",
+		"i.ibb.co",
 	)
 	var/static/list/allowed_host_suffixes = list(".pixhost.to", ".pixhost.cc", ".pixho.st")
 
@@ -2556,6 +2557,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		"files.catbox.moe",
 		"cdn.imgchest.com",
 		"file.garden",
+		"i.ibb.co",
 	)
 	var/static/list/allowed_host_suffixes = list(".pixhost.to", ".pixhost.cc", ".pixho.st")
 
