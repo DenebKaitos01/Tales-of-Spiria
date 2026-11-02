@@ -176,10 +176,14 @@
 		return FALSE
 	var/datum/status_effect/buff/clash/guard = has_status_effect(/datum/status_effect/buff/clash)
 	if(guard)
+		var/mob/living/caster = P.firer
+		var/expose_caster = P.expose_caster_on_deflect
 		if(P.on_guard_deflect(src))
 			apply_status_effect(/datum/status_effect/buff/parry_buffer)
 			guard.deflected_spell = TRUE
 			remove_status_effect(/datum/status_effect/buff/clash)
+			if(expose_caster && isliving(caster) && caster != src)
+				punish_deflected_caster(caster)
 			return TRUE
 		return FALSE
 	if(has_status_effect(/datum/status_effect/buff/parry_buffer))
@@ -188,6 +192,13 @@
 		return P.on_guard_deflect(src, silent = TRUE)
 	return FALSE
 
+/// Exposes and staggers the caster of a spell we just guard-deflected. Ported from Azure Peak.
+/mob/living/proc/punish_deflected_caster(mob/living/caster)
+	to_chat(caster, span_userdanger("My spell is turned back on me!"))
+	caster.apply_status_effect(/datum/status_effect/debuff/exposed, 3 SECONDS)
+	caster.apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
+	caster.Slowdown(3)
+
 /mob/living/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
 	if(dodge_projectile(P))
 		return BULLET_ACT_FORCE_PIERCE
@@ -195,7 +206,7 @@
 	// Also hooked in /mob/living/carbon/human/bullet_act so deflection outranks
 	// species/martial-art/reflect handling there; safe to run twice.
 	if(guard_deflect_projectile(P))
-		return BULLET_ACT_BLOCK
+		return QDELETED(P) ? BULLET_ACT_BLOCK : BULLET_ACT_FORCE_PIERCE // A reflected projectile keeps flying
 
 	if(!prob(P.accuracy + P.bonus_accuracy)) //if your accuracy check fails, you wont hit your intended target
 		def_zone = ran_zone(BODY_ZONE_CHEST, 65)//Hits a random part of the body, geared towards the chest

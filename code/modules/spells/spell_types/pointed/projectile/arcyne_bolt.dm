@@ -29,6 +29,7 @@
 
 /obj/projectile/magic/energy/rogue3
 	name = "arcyne bolt"
+	expose_caster_on_deflect = TRUE
 	icon_state = "arcane_barrage"
 	damage = 30
 	damage_type = BRUTE

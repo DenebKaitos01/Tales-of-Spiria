@@ -260,7 +260,7 @@
 
 	// Duplicated from /mob/living/bullet_act so deflection outranks species/martial-art/reflect handling; safe to run twice.
 	if(guard_deflect_projectile(P))
-		return BULLET_ACT_BLOCK
+		return QDELETED(P) ? BULLET_ACT_BLOCK : BULLET_ACT_FORCE_PIERCE // A reflected projectile keeps flying
 
 	if(dna && dna.species)
 		var/spec_return = dna.species.bullet_act(P, src, def_zone)

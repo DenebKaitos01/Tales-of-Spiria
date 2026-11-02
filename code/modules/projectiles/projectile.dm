@@ -154,6 +154,8 @@
 
 	/// Can a clash guard deflect this projectile? Set TRUE on magic bolts for spell counterplay.
 	var/guard_deflectable = FALSE
+	/// If TRUE, guard-deflecting this projectile exposes its caster (riposte punish).
+	var/expose_caster_on_deflect = FALSE
 	/// Can a player-controlled dodge grace avoid this direct projectile hit?
 	var/dodgeable = TRUE
 
@@ -161,11 +163,32 @@
 	return
 
 /// Called when a guard or parry buffer deflects this projectile. Returns TRUE if handled.
+/// The projectile is sent back toward where it came from; hitscan ones are just dispelled. Ported from Azure Peak.
 /obj/projectile/proc/on_guard_deflect(mob/living/deflector, silent = FALSE)
+	var/reflected = !hitscan && reflect_back(deflector)
 	if(!silent)
-		deflector.visible_message(span_boldwarning("[deflector] deflects [src]!"))
+		deflector.visible_message(span_boldwarning(reflected ? "[deflector] deflects [src] back at its caster!" : "[deflector] deflects [src]!"))
 		playsound(deflector, 'sound/combat/clash_struck.ogg', 100, TRUE)
-	qdel(src)
+	if(!reflected)
+		qdel(src)
+	return TRUE
+
+/// Turns this projectile around toward its starting point, give or take a couple of tiles. The reflector becomes the firer.
+/obj/projectile/proc/reflect_back(mob/living/reflector)
+	if(!starting || !isturf(reflector.loc))
+		return FALSE
+	var/new_x = starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+	var/new_y = starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+	var/turf/curloc = get_turf(reflector)
+	original = locate(new_x, new_y, z)
+	starting = curloc
+	firer = reflector
+	yo = new_y - curloc.y
+	xo = new_x - curloc.x
+	var/new_angle = Angle + rand(120, 240)
+	while(new_angle > 180)
+		new_angle -= 360
+	setAngle(new_angle)
 	return TRUE
 
 /obj/projectile/Initialize(mapload, ...)
