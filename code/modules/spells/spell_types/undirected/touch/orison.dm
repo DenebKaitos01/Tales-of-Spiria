@@ -315,7 +315,7 @@
 	return "SUBJECTPRONOUN is surrounded by an aura of gentle light."
 
 /datum/status_effect/light_buff/proc/add_light(mob/living/source)
-	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj = source.mob_light(_power = potency)
+	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj = source.mob_light(_color = outline_colour, _range = potency, _power = 1)
 	LAZYSET(mobs_affected, source, mob_light_obj)
 	RegisterSignal(source, COMSIG_PARENT_QDELETING, PROC_REF(on_living_holder_deletion))
 
