@@ -128,6 +128,7 @@
 	crossfire = FALSE
 	cookonme = TRUE
 	temperature_change = 30
+	resting_range = 4
 
 /obj/machinery/light/fueled/wallfire/candle
 	name = "candles"
@@ -139,6 +140,7 @@
 	SET_BASE_PIXEL(0, 32)
 	soundloop = null
 	temperature_change = 0
+	resting_range = 0
 
 /obj/machinery/light/fueled/wallfire/candle/incense
 	name = "incense"
@@ -430,6 +432,7 @@
 
 /obj/machinery/light/fueled/hearth
 	name = "hearth"
+	resting_range = 1
 	icon_state = "hearth1"
 	base_state = "hearth"
 	density = TRUE
@@ -541,6 +544,7 @@
 
 
 /obj/machinery/light/fueled/hearth/process()
+	warm_nearby() // Does not call parent
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		if(IS_WET_OPEN_TURF(O))
@@ -571,6 +575,7 @@
 
 /obj/machinery/light/fueled/campfire
 	name = "campfire"
+	resting_range = 1
 	icon_state = "badfire1"
 	base_state = "badfire"
 	density = FALSE
@@ -711,6 +716,7 @@
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 
 /obj/machinery/light/fueled/campfire/densefire
+	resting_range = 2
 	icon_state = "densefire1"
 	base_state = "densefire"
 	density = TRUE

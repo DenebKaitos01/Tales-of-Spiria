@@ -419,3 +419,9 @@
 	stress_change = -1
 	desc = span_green("Someone gave me a good pie-ing.")
 	timer = 3 MINUTES
+
+// Vanderlin #7104
+/datum/stress_event/campfire
+	desc = span_green("The warmth of the fire is comforting.")
+	stress_change = -1
+	timer = 5 SECONDS

@@ -502,6 +502,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 		to_chat(src, span_warning("Something is there but i can't see it!"))
 		return
 
+	var/turf/our_turf = get_turf(src)
+	var/turf/their_turf = get_turf(examinify)
+	/// Prevents people being examined from another Z-level from getting tipped off (Vanderlin #7919)
+	var/cross_z_examine = our_turf && their_turf && our_turf.z != their_turf.z
+
 	if(isturf(examinify.loc) && isliving(src) && stat == CONSCIOUS)
 		face_atom(examinify)
 		if(m_intent != MOVE_INTENT_SNEAK)
@@ -526,9 +531,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 						zone_text = "breasts"
 				look_target_text = "[T]'s [zone_text]"
 			visible_message("<span class='emote'>[src] looks at [look_target_text].</span>")
-		else if(isliving(examinify) && zone_selected == BODY_ZONE_PRECISE_GROIN)
+		else if(isliving(examinify) && zone_selected == BODY_ZONE_PRECISE_GROIN && !cross_z_examine)
 			do_groin_peek_check(examinify)
-	else if(isliving(examinify) && zone_selected == BODY_ZONE_PRECISE_GROIN)
+	else if(isliving(examinify) && zone_selected == BODY_ZONE_PRECISE_GROIN && !cross_z_examine)
 		do_groin_peek_check(examinify)
 
 	var/ref_to_atom = REF(examinify)
@@ -545,7 +550,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 		var/examined_at = world.time
 		client.recent_examines[ref_to_atom] = examined_at
 		addtimer(CALLBACK(src, PROC_REF(clear_from_recent_examines), ref_to_atom, examined_at), RECENT_EXAMINE_MAX_WINDOW)
-		handle_eye_contact(examinify)
+		if(!cross_z_examine)
+			handle_eye_contact(examinify)
 
 	var/list/result = examinify.examine(src)
 	if(LAZYLEN(result))

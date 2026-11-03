@@ -1127,3 +1127,19 @@
 	name = "Lathander's Seed"
 	desc = "The Morninglord's vitality burns warmly within me."
 	icon_state = "buff"
+
+// Vanderlin #7104: resting by a fire restores energy
+/atom/movable/screen/alert/status_effect/buff/campfire_stamina
+	name = "Warm Rest"
+	desc = "It is nice and warm, I'm recovering my energy."
+	icon_state = "campfire"
+
+/datum/status_effect/buff/campfire_stamina
+	id = "stamina_campfire"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/campfire_stamina
+	duration = 5 SECONDS
+
+/datum/status_effect/buff/campfire_stamina/tick()
+	if(owner.cmode)
+		return
+	owner.adjust_energy(5)

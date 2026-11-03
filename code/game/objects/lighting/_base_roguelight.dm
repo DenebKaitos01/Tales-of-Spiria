@@ -15,6 +15,8 @@
 	var/temperature_change = 20
 	var/temperature_weight = 1
 	var/temperature_falloff = 0.9
+	/// Vanderlin #7104: humans within this range of the lit fire recover energy. 0 = none
+	var/resting_range = 0
 
 /obj/machinery/light/fueled/Initialize()
 	if(soundloop)
@@ -268,8 +270,22 @@
 
 /obj/machinery/light/fueled/process()
 	. = ..()
+	warm_nearby()
 	if(on && length(contents)) // burn kobolds in ovens and smelters
 		for(var/obj/item/mob_holder/holder in GetAllContents(/obj/item/mob_holder))
 			holder.held_mob?.adjust_fire_stacks(5)
 			holder.held_mob?.IgniteMob()
 			holder.update_appearance()
+
+/// Lets people resting by the lit fire recover energy and stress
+/obj/machinery/light/fueled/proc/warm_nearby()
+	if(!on || resting_range <= 0)
+		return
+	for(var/mob/living/carbon/human/human in range(resting_range, src))
+		human.apply_status_effect(/datum/status_effect/buff/campfire_stamina)
+		human.add_stress(/datum/stress_event/campfire)
+
+/obj/machinery/light/fueled/get_mechanics_examine(mob/user)
+	. = ..()
+	if(resting_range > 0)
+		. += span_info("Resting by this fire gradually restores energy.")

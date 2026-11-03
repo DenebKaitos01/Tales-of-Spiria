@@ -393,7 +393,8 @@
 			type = "map"
 		if("Custom")
 			type = "custom"
-	SSvote.initiate_vote(type, usr.key)
+	var/broadcast = tgui_input_list(usr, "Force popup?", "Force Popup", list("Yes", "No")) == "Yes" // Vanderlin #8070
+	SSvote.initiate_vote(type, usr.key, broadcast)
 
 /datum/admins/proc/adjusttriumphs(mob/living/M in GLOB.mob_list)
 	set name = "Adjust Triumphs"
