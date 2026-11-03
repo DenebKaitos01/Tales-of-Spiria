@@ -14,7 +14,7 @@
 //0 test
 //12 minutes norma
 //#define ROUNDTIMERBOAT (300 MINUTES)
-#define INITIAL_ROUND_TIMER (99 MINUTES)
+#define INITIAL_ROUND_TIMER (180 MINUTES) // RMH EDIT: end-round vote at the 3 hour mark
 #define ROUND_EXTENSION_TIME (30 MINUTES)
 #define ROUND_END_TIME (15 MINUTES)
 #define ROUND_END_TIME_VERBAL "15 minutes"

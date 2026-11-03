@@ -831,12 +831,13 @@ SUBSYSTEM_DEF(gamemode)
 		return TRUE
 
 	var/ttime = world.time - SSticker.round_start_time
-	/*if(ttime >= GLOB.round_timer)
+	// RMH EDIT: end-round vote re-enabled; a tie or no votes ends the round
+	if(ttime >= GLOB.round_timer)
 		if(roundvoteend)
 			if(ttime >= round_ends_at)
 				return TRUE
 		else if(!SSvote.mode)
-			SSvote.initiate_vote("endround", "The Gods")*/
+			SSvote.initiate_vote("endround", "The Gods", TRUE)
 
 	if(SSmapping.retainer.head_rebel_decree)
 		if(reb_end_time == 0)
@@ -846,7 +847,7 @@ SUBSYSTEM_DEF(gamemode)
 				to_chat(world, span_boldwarning("The round will end in 15 minutes."))
 			else
 				reb_end_time = INITIAL_ROUND_TIMER
-				to_chat(world, span_boldwarning("The round will end at the 2:30 hour mark."))
+				to_chat(world, span_boldwarning("The round will end at the [DisplayTimeText(INITIAL_ROUND_TIMER)] mark."))
 		if(ttime >= reb_end_time)
 			return TRUE
 
