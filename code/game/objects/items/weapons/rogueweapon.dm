@@ -42,7 +42,7 @@
 	if(ispath(weapon_special))
 		weapon_special = new weapon_special()
 
-	update_integrity(max_integrity + rand(-(max_integrity * 0.2), 0), FALSE)
+	// RMH EDIT: weapons spawn at full integrity instead of up to 20% worn
 
 /obj/item/weapon/Destroy(force)
 	if(weapon_special)

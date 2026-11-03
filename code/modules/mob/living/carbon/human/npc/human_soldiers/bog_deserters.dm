@@ -20,7 +20,7 @@
 		if(2)
 			r_hand = /obj/item/weapon/polearm/spear
 		if(3)
-			r_hand = /obj/item/weapon/axe
+			r_hand = /obj/item/weapon/axe/iron
 
 /datum/outfit/job/human/northern/bog_deserters/proc/add_random_deserter_weapon_hard(mob/living/carbon/human/H)
 	var/add_random_deserter_weapon_hard = rand(1,4)
@@ -32,7 +32,7 @@
 			r_hand = /obj/item/weapon/mace/warhammer
 			l_hand = /obj/item/weapon/shield/heater
 		if(3)
-			r_hand = /obj/item/weapon/axe
+			r_hand = /obj/item/weapon/axe/iron
 		if(4)
 			r_hand = /obj/item/weapon/flail
 			l_hand = /obj/item/weapon/shield/heater

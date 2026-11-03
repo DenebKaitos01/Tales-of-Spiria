@@ -1461,7 +1461,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	melting_material = /datum/material/iron
 
-/obj/item/weapon/estoc/getonmobprop(tag)
+/obj/item/weapon/sword/rapier/ironestoc/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
