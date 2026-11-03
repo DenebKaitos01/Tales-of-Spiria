@@ -491,6 +491,74 @@
 
 	return best
 
+// RMH EDIT START: multi-map compass routing
+/// Cached list of list(gate, from map file, to map file) for every gate that crosses maps.
+GLOBAL_LIST_EMPTY(quest_gate_exits)
+GLOBAL_VAR_INIT(quest_gate_exits_count, -1)
+
+/datum/quest/proc/get_quest_gate_exits()
+	if(GLOB.quest_gate_exits_count == length(GLOB.traveltiles))
+		return GLOB.quest_gate_exits
+	var/list/exits = list()
+	for(var/obj/structure/fluff/traveltile/tile as anything in GLOB.traveltiles)
+		if(tile.required_trait) // Hidden gates only some roles can use
+			continue
+		var/turf/tile_turf = get_turf(tile)
+		var/turf/other_end = tile.get_other_end_turf()
+		if(!tile_turf || !other_end)
+			continue
+		var/from_map = get_map_file_for_turf(tile_turf)
+		var/to_map = get_map_file_for_turf(other_end)
+		if(!from_map || !to_map || from_map == to_map)
+			continue
+		exits += list(list(tile, from_map, to_map))
+	GLOB.quest_gate_exits = exits
+	GLOB.quest_gate_exits_count = length(GLOB.traveltiles)
+	return exits
+
+/// Picks the gate on the current map that starts the shortest map-to-map route to the target map (nearest one on ties).
+/datum/quest/proc/find_gate_route_step(turf/from_turf, target_map_file)
+	var/source_map_file = get_map_file_for_turf(from_turf)
+	if(!source_map_file || !target_map_file || source_map_file == target_map_file)
+		return null
+
+	var/list/exits = get_quest_gate_exits()
+	var/list/incoming = list() // map file -> maps with a gate into it
+	for(var/list/exit as anything in exits)
+		var/list/sources = incoming[exit[3]]
+		if(!sources)
+			sources = list()
+			incoming[exit[3]] = sources
+		sources |= exit[2]
+
+	// Hops from each map to the target map, walking gates backwards
+	var/list/hops = list()
+	hops[target_map_file] = 0
+	var/list/queue = list(target_map_file)
+	while(length(queue))
+		var/current = queue[1]
+		queue.Cut(1, 2)
+		for(var/prev_map in incoming[current])
+			if(!isnull(hops[prev_map]))
+				continue
+			hops[prev_map] = hops[current] + 1
+			queue += prev_map
+
+	var/obj/structure/fluff/traveltile/best
+	var/best_hops = INFINITY
+	var/best_dist = INFINITY
+	for(var/list/exit as anything in exits)
+		if(exit[2] != source_map_file || isnull(hops[exit[3]]))
+			continue
+		var/obj/structure/fluff/traveltile/gate = exit[1]
+		var/distance = get_dist(from_turf, get_turf(gate))
+		if(hops[exit[3]] < best_hops || (hops[exit[3]] == best_hops && distance < best_dist))
+			best = gate
+			best_hops = hops[exit[3]]
+			best_dist = distance
+	return best
+// RMH EDIT END
+
 /datum/quest/proc/get_compass_signal_label(turf/reference_turf, using_live_target)
 	return using_live_target ? "Live target signal" : "Quest spawner echo"
 
@@ -524,6 +592,12 @@
 		if(portal)
 			signal_data["compass_target"] = get_turf(portal)
 			signal_data["status_text"] = "[signal_label] routed through a local gate."
+			return signal_data
+
+		var/obj/structure/fluff/traveltile/route_gate = find_gate_route_step(reference_turf, resolved_map_file)
+		if(route_gate)
+			signal_data["compass_target"] = get_turf(route_gate)
+			signal_data["status_text"] = "[signal_label] is on another map. The needle points to the way there."
 			return signal_data
 
 		signal_data["compass_target"] = null

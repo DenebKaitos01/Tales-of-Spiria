@@ -209,6 +209,11 @@
 	if(target_turf.z == user_turf.z)
 		return null
 
+	// RMH EDIT: another map sits on another z-level too, but up/down means nothing there; the needle points to the gate instead
+	var/datum/quest/assigned_quest = quest_scroll.assigned_quest
+	if(assigned_quest.get_map_file_for_turf(user_turf) != assigned_quest.get_map_file_for_turf(target_turf))
+		return null
+
 	if(target_turf.z > user_turf.z)
 		return span_notice("The needle tilts upward — the target is <b>above</b> you.")
 	else
