@@ -228,15 +228,6 @@
    ]
   },
   {
-   "base": "modular_rmh/icons/clothing/licensed-infraredbaron/onmob/armor.dmi",
-   "output": "modular_rmh/modular/hiking/icons/hiked_rmh_armor.dmi",
-   "output_back": "modular_rmh/modular/hiking/icons/back/hiked_rmh_armor.dmi",
-   "families": [
-    "duchess",
-    "magos"
-   ]
-  },
-  {
    "base": "icons/roguetown/clothing/onmob/cloaks.dmi",
    "output": "modular_rmh/modular/hiking/icons/hiked_cloaks.dmi",
    "output_back": "modular_rmh/modular/hiking/icons/back/hiked_cloaks.dmi",
