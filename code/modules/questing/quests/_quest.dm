@@ -476,6 +476,8 @@
 	var/source_map_file = get_map_file_for_turf(from_turf)
 
 	for(var/obj/structure/fluff/traveltile/tile in GLOB.traveltiles)
+		if(!is_public_route_gate(tile))
+			continue
 		var/turf/tile_turf = get_turf(tile)
 		if(!tile_turf)
 			continue
@@ -501,7 +503,7 @@ GLOBAL_VAR_INIT(quest_gate_exits_count, -1)
 		return GLOB.quest_gate_exits
 	var/list/exits = list()
 	for(var/obj/structure/fluff/traveltile/tile as anything in GLOB.traveltiles)
-		if(tile.required_trait) // Hidden gates only some roles can use
+		if(!is_public_route_gate(tile))
 			continue
 		var/turf/tile_turf = get_turf(tile)
 		var/turf/other_end = tile.get_other_end_turf()
@@ -515,6 +517,14 @@ GLOBAL_VAR_INIT(quest_gate_exits_count, -1)
 	GLOB.quest_gate_exits = exits
 	GLOB.quest_gate_exits_count = length(GLOB.traveltiles)
 	return exits
+
+/// Whether anyone can use this gate: not a hidden role gate, nor one of the mage tower's teleport runes (they sit behind the mages' quarters)
+/datum/quest/proc/is_public_route_gate(obj/structure/fluff/traveltile/tile)
+	if(tile.required_trait)
+		return FALSE
+	if(findtext(tile.aportalid, "mage", 1, 5) == 1 || findtext(tile.aportalgoesto, "mage", 1, 5) == 1)
+		return FALSE
+	return TRUE
 
 /// Picks the gate on the current map that starts the shortest map-to-map route to the target map (nearest one on ties).
 /datum/quest/proc/find_gate_route_step(turf/from_turf, target_map_file)
