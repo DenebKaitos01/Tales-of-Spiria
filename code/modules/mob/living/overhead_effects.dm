@@ -95,6 +95,7 @@
 /mob/living/proc/play_gesture_emote(mob/target, icon_state, y_offset = 20)
 	var/image/gesture = image('icons/mob/overhead_effects.dmi', src, icon_state, ABOVE_ALL_MOB_LAYER)
 	gesture.appearance_flags = RESET_COLOR|RESET_ALPHA|KEEP_APART
+	gesture.plane = WEATHER_EFFECT_PLANE // Drawn above the vision cone like Azure, the mob's own plane hides it
 	gesture.pixel_y = y_offset
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
