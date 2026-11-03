@@ -38,7 +38,8 @@
 	return get_chem_effect(CE_ANTIBIOTIC)
 
 /mob/living/carbon/proc/check_equipment_cover_flags(flags = NONE)
-	for(var/obj/item/thing in get_equipped_items())
+	// RMH EDIT: only face-worn slots count, so a helmet hung on the belt or back does not cover the mouth
+	for(var/obj/item/thing in list(head, wear_mask, wear_neck, mouth))
 		if(thing.flags_cover & flags)
 			return thing
 	return null
