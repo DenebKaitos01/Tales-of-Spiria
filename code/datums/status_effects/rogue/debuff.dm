@@ -7,7 +7,7 @@
 	tick_interval = STATUS_EFFECT_NO_TICK
 	id = "hungryt1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt1
-	effectedstats = list(STAT_SPEED = -1, STAT_STRENGTH = -1, STAT_CONSTITUTION = -1, STAT_ENDURANCE = -1)
+	// RMH EDIT: the first tier is only a warning, no stat loss (idea from Vanderlin #7772)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt1
@@ -112,7 +112,7 @@
 	tick_interval = STATUS_EFFECT_NO_TICK
 	id = "thirsty1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt1
-	effectedstats = list(STAT_ENDURANCE = -1, STAT_SPEED = -1)
+	// RMH EDIT: the first tier is only a warning, no stat loss (idea from Vanderlin #7772)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt1

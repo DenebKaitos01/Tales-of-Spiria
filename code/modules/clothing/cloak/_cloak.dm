@@ -21,7 +21,7 @@
 
 	var/is_rain_protective = FALSE
 	/// Whether this cloak creates internal storage during initialization.
-	var/has_storage = FALSE
+	var/has_storage = TRUE // Vanderlin #8029: almost every cloak-slot item gets a small 2x2 pocket
 	/// The storage component used when has_storage is enabled.
 	var/datum/component/storage/storage_component_path = /datum/component/storage/concrete/grid/cloak
 
