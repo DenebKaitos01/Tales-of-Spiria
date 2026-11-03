@@ -32,7 +32,10 @@
 			step = list(0, -1)
 	var/pumps = get_motion_pumps()
 	var/list/timing = get_motion_steps(pumps)
-	sex_motion_nudge(user, step[1] * reach, step[2] * reach, timing[1], timing[2], timing[3], pumps)
+	if(motion_vertical) // RMH EDIT: riding rises gently instead of hopping
+		sex_motion_nudge(user, 0, max(1, reach - 1), timing[1], timing[2], timing[3], pumps, SINE_EASING)
+	else
+		sex_motion_nudge(user, step[1] * reach, step[2] * reach, timing[1], timing[2], timing[3], pumps)
 	// Hard thrusts push the partner along; riding does not.
 	var/recoil = GLOB.sex_motion_recoil[get_motion_force_index()]
 	if(recoil && !motion_vertical)

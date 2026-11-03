@@ -7,7 +7,7 @@
 
 /// Pixels by force (low, mid, high, extreme) per motion kind.
 GLOBAL_LIST_INIT(sex_motion_pixels, list(
-	SEX_MOTION_THRUST = list(2, 3, 4, 5),
+	SEX_MOTION_THRUST = list(1, 2, 2, 3), // RMH EDIT: was up to 5 px, which read as jumping at high force
 	SEX_MOTION_LEAN = list(1, 2, 2, 3),
 	SEX_MOTION_IMPACT = list(1, 2, 2, 3),
 	SEX_MOTION_PULL = list(2, 3, 3, 4),
@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(sex_motion_pixels, list(
 	SEX_MOTION_PAIZURI = list(2, 3, 3, 4),
 ))
 /// Pixels a thrust pushes the partner along, by force (low, mid, high, extreme).
-GLOBAL_LIST_INIT(sex_motion_recoil, list(0, 0, 1, 2))
+GLOBAL_LIST_INIT(sex_motion_recoil, list(0, 0, 1, 1))
 /// Thrusts per cycle by speed (low, mid, high, extreme).
 GLOBAL_LIST_INIT(sex_motion_pumps, list(1, 1, 2, 3))
 
@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(sex_motion_pumps, list(1, 1, 2, 3))
 #define SEX_MOTION_MIN_STEP (0.08 SECONDS)
 #define SEX_MOTION_MAX_STEP (0.6 SECONDS)
 #define SEX_MOTION_MAX_FORWARD (0.15 SECONDS)
-#define SEX_MOTION_MAX_PIXELS 5
+#define SEX_MOTION_MAX_PIXELS 3
 
 /datum/sex_action
 	/// SEX_MOTION_* played once per cycle; actions calling do_thrust_animate() themselves leave it null.
@@ -123,6 +123,11 @@ GLOBAL_LIST_INIT(sex_motion_pumps, list(1, 1, 2, 3))
 	var/pump_time = get_motion_cycle_time() / pumps
 	var/forward = clamp(pump_time * SEX_MOTION_FORWARD_SHARE, SEX_MOTION_MIN_STEP, SEX_MOTION_MAX_FORWARD)
 	var/back = clamp(pump_time * SEX_MOTION_BACK_SHARE, SEX_MOTION_MIN_STEP, SEX_MOTION_MAX_STEP)
+	// RMH EDIT: at high speed the minimum step times overran the pump, so the next cycle stacked on top and the sprite flew further
+	if(forward + back > pump_time)
+		var/fit = pump_time / (forward + back)
+		forward *= fit
+		back *= fit
 	var/pause = max(0, pump_time - forward - back)
 	return list(forward, back, pause)
 
