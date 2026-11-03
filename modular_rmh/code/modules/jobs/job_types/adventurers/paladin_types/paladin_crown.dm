@@ -49,7 +49,7 @@
 		/datum/action/cooldown/spell/sacred_flame,
 	)
 
-/datum/job/advclass/combat/adventurer_paladin/devotion/after_spawn(mob/living/carbon/human/spawned, client/player_client)
+/datum/job/advclass/combat/adventurer_paladin/crown/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
 	spawned.grant_language(/datum/language/celestial)
 
