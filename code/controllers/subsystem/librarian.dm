@@ -139,8 +139,10 @@ SUBSYSTEM_DEF(librarian)
 		var/json_file = file("data/player_generated_books/[LIBRARY_JSON].json")
 		var/json_list = json_decode(file2text(json_file))
 		return json_list
-	else
-		message_admins("!!! [LIBRARY_JSON].json no longer exists, previous book title list has been lost. !!!")
+	// RMH EDIT: a fresh server has no list yet. Start an empty one instead of warning admins once per spawned book
+	log_world("[LIBRARY_JSON].json was missing, starting an empty player book list.")
+	text2file(json_encode(list()), "data/player_generated_books/[LIBRARY_JSON].json")
+	return list()
 
 /datum/controller/subsystem/librarian/proc/update_books()
 	books = list()
