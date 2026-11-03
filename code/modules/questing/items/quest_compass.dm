@@ -132,10 +132,20 @@
 
 	if(compass_target && reference_turf)
 		current_arrow_state = get_arrow_state(get_dir(reference_turf, compass_target))
+		last_signal_text += " [get_route_detail(reference_turf, compass_target, compass_target != resolved_target)]"
 
 	icon_state = "icon"
 	update_appearance()
 	return TRUE
+
+/// RMH EDIT: how far the needle's mark is, and for a gate whether it is on another floor (the objective has its own up/down hint)
+/obj/item/quest_compass/proc/get_route_detail(turf/reference_turf, turf/compass_target, is_gate)
+	var/distance = max(abs(compass_target.x - reference_turf.x), abs(compass_target.y - reference_turf.y))
+	var/mark = is_gate ? "The gate" : "The target"
+	var/detail = distance ? "[mark] is [distance] pace[distance == 1 ? "" : "s"] away" : "[mark] is right here"
+	if(is_gate && compass_target.z != reference_turf.z)
+		detail += compass_target.z > reference_turf.z ? ", on a floor <b>above</b> you" : ", on a floor <b>below</b> you"
+	return "[detail]."
 
 /obj/item/quest_compass/proc/reset_compass(status_text)
 	last_signal_text = status_text
