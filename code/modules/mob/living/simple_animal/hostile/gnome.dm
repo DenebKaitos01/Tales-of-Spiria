@@ -185,6 +185,10 @@
 	SEND_SIGNAL(src, COMSIG_EMOTION_STORE, giver, EMOTION_HAPPY, "gave me delicious [food_item]!", 3)
 
 	say(pick("Food!", "Yum!", "Good!", "*happy chirp*"))
+	giver.visible_message(span_info("[giver] hand-feeds [food_item] to [src]."), span_notice("I hand-feed [food_item] to [src]."))
+	playsound(src, 'sound/misc/eat.ogg', rand(30, 60), TRUE)
+	// RMH EDIT: actually fill the hunger meter, the gift used to only heal
+	SEND_SIGNAL(src, COMSIG_MOB_FEED, food_item, 30, giver)
 
 	qdel(food_item)
 	adjustBruteLoss(-5)
