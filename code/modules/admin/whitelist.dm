@@ -17,6 +17,10 @@ GLOBAL_PROTECT(whitelist)
 		GLOB.whitelist += ckey(line)
 // HSECTOR EDIT START
 /proc/check_whitelist(key)
+	// RMH EDIT: without SQL, use the ckey list in config/roguetown/wl_mat.txt, re-read on every login so edits apply at once
+	if(!CONFIG_GET(flag/sql_enabled))
+		load_whitelist()
+		return (ckey(key) in GLOB.whitelist)
 	if(!SSdbcore.Connect())
 		log_world("Failed to connect to database in check_whitelist(). Disabling whitelist for current round.")
 		log_game("Failed to connect to database in check_whitelist(). Disabling whitelist for current round.")
