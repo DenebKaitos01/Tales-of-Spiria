@@ -500,13 +500,14 @@ GLOBAL_LIST_EMPTY(questboard_active_takers)
 
 /obj/structure/questboard/tavern
 	name = "tavern quest board"
-	desc = "A quest board kept by the tavern. The Innkeeper and the kitchen staff may pin notices here."
+	desc = "A quest board kept by the tavern. The Guildmaster, who keeps the inn, and the kitchen staff may pin notices here."
 	board_roles = list(
+		/datum/job/adventurers_guildmaster::title = QUESTBOARD_MAX_TASKS, // RMH EDIT: the Guildmaster runs the inn
 		/datum/job/innkeep::title = QUESTBOARD_MAX_TASKS,
 		/datum/job/cook::title = 3,
 	)
 	board_location_name = "Drunken Dwarf"
-	leader_job_title = /datum/job/innkeep::title
+	leader_job_title = /datum/job/adventurers_guildmaster::title
 	leader_label = "Innkeeper"
 	staff_job_titles = list(/datum/job/cook::title)
 	staff_label = "Cooks"

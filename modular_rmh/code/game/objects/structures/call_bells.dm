@@ -255,6 +255,9 @@
 	name = "tavern bell"
 	notify_titles = list(
 		/datum/job/innkeep,
+		/datum/job/adventurers_guildmaster, // RMH EDIT: the Guildmaster runs the inn
+		/datum/job/advclass/adventurers_guildmaster/ranger,
+		/datum/job/advclass/adventurers_guildmaster/eldritch_knight,
 		/datum/job/cook,
 		/datum/job/matron,
 		/datum/job/tavern_wench,

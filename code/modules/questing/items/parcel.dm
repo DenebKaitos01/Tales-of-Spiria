@@ -56,14 +56,14 @@
 
 /obj/item/parcel/proc/get_area_jobs(area_type)
 	var/static/list/area_jobs = list(
-		/area/indoors/town/tavern = list(/datum/job/innkeep, /datum/job/tavern_wench, /datum/job/cook),
+		/area/indoors/town/tavern = list(/datum/job/adventurers_guildmaster, /datum/job/tavern_wench, /datum/job/cook),
 		/area/indoors/town/bath = list(/datum/job/matron),
 		/area/indoors/town/church = list(/datum/job/acolyte, /datum/job/moon_priest, /datum/job/heart_priest),
-		/area/indoors/town/dwarfin = list(/datum/job/innkeep, /datum/job/tavern_wench, /datum/job/cook),
+		/area/indoors/town/dwarfin = list(/datum/job/adventurers_guildmaster, /datum/job/tavern_wench, /datum/job/cook),
 		/area/indoors/town/shop = list(/datum/job/waterdeep_merchant, /datum/job/towner),
 		/area/indoors/town/noble_manor = list(/datum/job/servant, /datum/job/councilor, /datum/job/watch_captain, /datum/job/lord, /datum/job/burgmeister),
 		/area/indoors/town/keep/magician = list(/datum/job/guild_wizard, /datum/job/guild_wizard_apprentice, /datum/job/town_scholar, /datum/job/town_scholar_apprentice),
-		/area/indoors/town = list(/datum/job/innkeep, /datum/job/tavern_wench, /datum/job/cook)
+		/area/indoors/town = list(/datum/job/adventurers_guildmaster, /datum/job/tavern_wench, /datum/job/cook)
 	)
 	return area_jobs[area_type]
 

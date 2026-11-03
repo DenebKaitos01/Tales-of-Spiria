@@ -1,10 +1,11 @@
 /datum/job/adventurers_guildmaster
 	title = "Adventurers Guildmaster"
+	alt_titles = list("Innkeep", "Taverner") // RMH EDIT: the Innkeep role is folded into the Guildmaster
 	tutorial = "Once an adventurer yourself, you now stand at the heart of the Blue Sage Adventurers’ Guild. \
 	Your domain is the Drunken Dwarf tavern — part guildhall, part public house. \
 	You accept contracts from townsfolk, nobles, and private patrons, distribute guild tokens, \
 	and oversee the fulfillment of quests. New adventurers look to you for guidance, veterans for favors. \
-	Keep the guild prosperous, reputable, and well-supplied — and make sure every completed job is properly rewarded."
+	Keep the guild prosperous, reputable, and well-supplied — and make sure every completed job is properly rewarded. 	You also keep the inn itself: pour the ale, rent the rooms, and write up contracts at the ledger for anyone who needs one."
 	department_flag = TAVERN
 	faction = FACTION_TOWN
 	total_positions = 1
@@ -13,7 +14,8 @@
 	display_order = JDO_ADVENTURERS_HEAD
 
 	allowed_races = ALL_RACES_LIST
-	allowed_ages = list (AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
+	is_quest_giver = TRUE // Can print, post and manage contracts at the ledger
 
 	selection_color = JCOLOR_TAVERN
 	advclass_cat_rolls = list(CAT_AHEAD = 20)
@@ -56,7 +58,10 @@
 		/datum/attribute/skill/craft/cooking = 30,
 		/datum/attribute/skill/craft/traps = 10,
 		/datum/attribute/skill/labor/butchering = 50,
-		/datum/attribute/skill/labor/mathematics = 50
+		/datum/attribute/skill/labor/mathematics = 50,
+		/datum/attribute/skill/craft/cooking/brewing = 35, // Innkeep duties
+		/datum/attribute/skill/craft/cooking/grilling = 25,
+		/datum/attribute/skill/craft/cooking/preparation = 20
 	)
 
 /datum/job/advclass/adventurers_guildmaster/ranger
@@ -77,6 +82,9 @@
 		TRAIT_BURDEN,
 		TRAIT_STEELHEARTED,
 		TRAIT_OLDPARTY,
+		TRAIT_BOOZE_SLIDER, // Innkeep traits
+		TRAIT_EXTEROCEPTION,
+		TRAIT_RECOGNIZE_ADDICTS,
 	)
 
 
@@ -108,6 +116,9 @@
 		/obj/item/paper = 3,
 		/obj/item/weapon/knife/dagger/steel,
 		/obj/item/paper,
+		/obj/item/storage/keyring/tavern_keeper, // Innkeep kit
+		/obj/item/recipe_book/cooking,
+		/obj/item/bottle_kit,
 	)
 
 /datum/job/advclass/adventurers_guildmaster/ranger/after_spawn(mob/living/carbon/human/spawned, client/player_client)
@@ -144,7 +155,11 @@
 		/datum/attribute/skill/labor/mathematics = 50,
 		/datum/attribute/skill/magic/arcane = 30,
 		/datum/attribute/skill/misc/reading = 40,
-		/datum/attribute/skill/craft/alchemy = 20
+		/datum/attribute/skill/craft/alchemy = 20,
+		/datum/attribute/skill/craft/cooking = 30, // Innkeep duties
+		/datum/attribute/skill/craft/cooking/brewing = 35,
+		/datum/attribute/skill/craft/cooking/grilling = 25,
+		/datum/attribute/skill/craft/cooking/preparation = 20
 	)
 
 /datum/job/advclass/adventurers_guildmaster/eldritch_knight
@@ -170,6 +185,9 @@
 		TRAIT_BURDEN,
 		TRAIT_STEELHEARTED,
 		TRAIT_OLDPARTY,
+		TRAIT_BOOZE_SLIDER, // Innkeep traits
+		TRAIT_EXTEROCEPTION,
+		TRAIT_RECOGNIZE_ADDICTS,
 	)
 
 	spells = list(
@@ -243,6 +261,9 @@
 		/obj/item/paper = 3,
 		/obj/item/weapon/knife/dagger/steel,
 		/obj/item/paper,
+		/obj/item/storage/keyring/tavern_keeper, // Innkeep kit
+		/obj/item/recipe_book/cooking,
+		/obj/item/bottle_kit,
 	)
 
 /datum/outfit/adventurers_guildmaster/eldritch_knight/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
