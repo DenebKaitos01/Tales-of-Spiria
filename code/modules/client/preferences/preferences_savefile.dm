@@ -675,6 +675,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 #endif
 
 /datum/preferences/proc/check_new_keybindings()
+	// RMH EDIT: G used to be Give item, it now raises the Defend guard (giving moved to right-click)
+	var/list/g_binds = key_bindings["G"]
+	if(islist(g_binds) && ("Give_Item" in g_binds))
+		g_binds -= "Give_Item"
+		g_binds |= "defend_guard"
 	var/list/keybind_names = list()
 	var/list/used_keys = list()
 	for(var/key in key_bindings)

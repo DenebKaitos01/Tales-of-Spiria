@@ -40,3 +40,12 @@
 		return
 
 	offer_item(offered_to, offering_item)
+
+// RMH EDIT: outside combat mode, right-clicking a person with an item offers it instead of hitting them
+/mob/living/carbon/human/attackby_secondary(obj/item/weapon, mob/user, list/modifiers)
+	. = ..()
+	if(. != SECONDARY_ATTACK_CALL_NORMAL || user == src || user.cmode || !isliving(user))
+		return
+	var/mob/living/giver = user
+	giver.give(src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

@@ -294,7 +294,10 @@
 	. = ..()
 	if(!.)
 		return
+	return try_guard(user)
 
+/// Raises the Defend guard (clash). Shared by the right-click and the Defend keybind.
+/datum/rmb_intent/riposte/proc/try_guard(mob/living/user)
 	if(user.has_status_effect(/datum/status_effect/buff/clash))
 		return FALSE
 

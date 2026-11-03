@@ -95,7 +95,7 @@
 //****** Quad Intents ******
 
 /datum/keybinding/carbon/give_intent
-	hotkey_keys = list("G")
+	hotkey_keys = list() // RMH EDIT: right-click a person to give; G raises the Defend guard instead
 	name = "Give_Item"
 	full_name = "Give item"
 	description = "Give the item you're currently holding"
@@ -118,6 +118,27 @@
 		return
 
 	living_user.give(offered)
+	return TRUE
+
+/datum/keybinding/carbon/defend_guard
+	hotkey_keys = list("G")
+	name = "defend_guard"
+	full_name = "Raise Guard (Defend)"
+	description = "Raise your weapon in a Defend guard, as if right-clicking with the Defend intent. Needs combat mode."
+	category = CATEGORY_CARBON
+
+/datum/keybinding/carbon/defend_guard/down(client/user, turf/target, mousepos_x, mousepos_y)
+	. = ..()
+	if(.)
+		return
+	var/mob/living/carbon/C = user.mob
+	if(!iscarbon(C))
+		return FALSE
+	if(!C.cmode)
+		C.balloon_alert(C, "need combat mode")
+		return TRUE
+	var/static/datum/rmb_intent/riposte/guard_intent = new
+	guard_intent.try_guard(C)
 	return TRUE
 
 /datum/keybinding/carbon/bite_intent
