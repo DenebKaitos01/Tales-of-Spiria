@@ -18,7 +18,7 @@
 
 		if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 			set_nutrition(NUTRITION_LEVEL_FED - 1)	//just less than feeling vigorous
-			set_hydration(HYDRATION_LEVEL_START_MAX - 1)	//just less than feeling vigorous
+			set_hydration(1799)	//just less than feeling vigorous (RMH EDIT: fixed value, the start range moved)
 		else if(stat != DEAD)
 			adjust_nutrition(-(0.02))
 			adjust_hydration(-(0.02))

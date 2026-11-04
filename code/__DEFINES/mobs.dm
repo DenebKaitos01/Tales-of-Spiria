@@ -223,8 +223,14 @@
 #define NUTRITION_LEVEL_START_MIN 1000
 #define NUTRITION_LEVEL_START_MAX 1800
 
-#define HYDRATION_LEVEL_START_MIN 1200
-#define HYDRATION_LEVEL_START_MAX 1800
+// RMH EDIT: Ratwood's starting water (500-600 on its half-size scale)
+#define HYDRATION_LEVEL_START_MIN 1000
+#define HYDRATION_LEVEL_START_MAX 1200
+
+/// RMH EDIT: scale the organ-based hunger/thirst drain to Ratwood's pace. A standard human then loses about
+/// 0.15 nutrition and 0.15 hydration per second on RMH's scale (Ratwood: 0.15 per 2 s life tick on a half-size scale)
+#define RMH_HUNGER_RATE_MULT 3.9
+#define RMH_THIRST_RATE_MULT 5
 
 //Disgust levels for humans
 #define DISGUST_LEVEL_MAXEDOUT 150
