@@ -57,6 +57,8 @@
 		return
 	message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 	message = parsemarkdown_basic(message, limited = TRUE, barebones = TRUE)
+	if(usr.try_subtle_emote(message))
+		return
 	usr.emote("me",1,message,TRUE, custom_me = TRUE)
 
 ///The big me emote verb
@@ -81,7 +83,28 @@
 		return
 	message = trim(copytext_char(html_encode(message), 1, MAX_MESSAGE_BIGME))
 	message = parsemarkdown_basic(message, limited = TRUE, barebones = TRUE)
+	if(usr.try_subtle_emote(message))
+		return
 	usr.emote("me", 1, message, TRUE, custom_me = TRUE)
+
+/// RMH EDIT: a me emote starting with @ is subtle, seen only by those next to us. Returns TRUE if it handled the message.
+/mob/proc/try_subtle_emote(message)
+	if(!findtext(message, "@", 1, 2))
+		return FALSE
+	message = trim(copytext(message, 2))
+	if(!length(message))
+		return TRUE
+	if(stat != CONSCIOUS)
+		to_chat(src, span_warning("I can't do that right now."))
+		return TRUE
+	log_message("(SUBTLE) [message]", LOG_EMOTE)
+	var/shown = span_emote("<b>[src]</b> <i>[message]</i>")
+	for(var/mob/viewer in viewers(1, src))
+		viewer.show_message(shown, MSG_VISUAL)
+	for(var/mob/dead/observer/ghost in GLOB.dead_mob_list) // Admins watching from beyond still see it
+		if(ghost.client?.holder && get_dist(ghost, src) <= 7)
+			to_chat(ghost, "[span_notice("(subtle)")] [shown]")
+	return TRUE
 
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)
