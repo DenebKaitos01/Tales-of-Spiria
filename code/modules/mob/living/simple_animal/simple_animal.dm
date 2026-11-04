@@ -767,6 +767,25 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		..()
 		// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
 
+// RMH EDIT: a player in a creature body had no way to tell how to leave it once dead.
+// Moving after a minute already ghosts them (client/Move); say so, and give them a verb for it.
+/mob/living/simple_animal/death(gibbed)
+	var/had_client = client
+	. = ..()
+	if(had_client && !QDELETED(src) && stat == DEAD)
+		to_chat(src, span_notice("In a minute you can leave this body: move, or use <b>Leave Body</b> in the OOC tab."))
+
+/mob/living/simple_animal/verb/leave_body()
+	set name = "Leave Body"
+	set category = "OOC"
+	if(stat != DEAD)
+		to_chat(src, span_warning("I can only leave a dead body."))
+		return
+	if(!MOBTIMER_FINISHED(src, MT_LASTDIED, 60 SECONDS))
+		to_chat(src, span_warning("My spirit hasn't manifested yet."))
+		return
+	ghostize()
+
 /mob/living/simple_animal/handle_fire()
 	. = ..()
 	if(!on_fire)
