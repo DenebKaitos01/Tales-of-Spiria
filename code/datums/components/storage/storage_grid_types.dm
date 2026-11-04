@@ -237,6 +237,10 @@
 	screen_max_rows = 5
 	screen_max_columns = 3
 	max_w_class = WEIGHT_CLASS_HUGE
+	// Vanderlin #8101: click the floor with the crucible to scoop up the meltable items there
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	allow_quick_gather = TRUE
 	not_while_equipped = TRUE
 
 /datum/component/storage/concrete/grid/crucible/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check, list/modifiers, storage_click)
