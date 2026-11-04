@@ -440,6 +440,14 @@
 /datum/config_entry/string/channel_announce_new_game_message
 	default = null
 
+/// RMH EDIT: text added to the "New round starting" chat message, e.g. a Discord role mention <@&ROLE_ID>
+/datum/config_entry/string/chat_round_start_ping
+	default = null
+
+/// RMH EDIT: text added to the "Round ending!" chat message, e.g. a Discord role mention <@&ROLE_ID>
+/datum/config_entry/string/chat_round_end_ping
+	default = null
+
 /datum/config_entry/flag/debug_admin_hrefs
 
 /datum/config_entry/number/mc_tick_rate/base_mc_tick_rate
