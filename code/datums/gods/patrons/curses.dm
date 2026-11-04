@@ -202,15 +202,13 @@
 	MOBTIMER_SET(owner, "nympho_curse")
 
 	if(owner.underwear)
-		to_chat(owner, span_love("UNDIE"))
-		if(rand(5))
+		if(prob(20)) // RMH EDIT: was rand(5) (nearly always) after a leftover debug message
 			to_chat(owner, span_love("I feel my [owner.underwear] rub against me..."))
 		owner_arousal?.arousal += rand(15,60)
 
 	else if(owner.wear_pants)
 		if(owner.wear_pants.flags_inv & HIDECROTCH && !owner.wear_pants.genital_access)
-			to_chat(owner, span_love("PANT"))
-			if(rand(5))
+			if(prob(20))
 				to_chat(owner, span_love("I feel my [owner.wear_pants] rub against me..."))
 			owner_arousal?.arousal += rand(5,50)
 
