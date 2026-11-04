@@ -846,6 +846,9 @@
 
 	if(user.has_quirk(/datum/quirk/vice/addiction/lovefiend))
 		user.sate_addiction(/datum/quirk/vice/addiction/lovefiend)
+	// RMH EDIT: as Azure, the partner is sated too
+	if(isliving(target) && target != user && target.has_quirk(/datum/quirk/vice/addiction/lovefiend))
+		target.sate_addiction(/datum/quirk/vice/addiction/lovefiend)
 
 	if(!user.rogue_sneaking && user.alpha > 100) //stealth sex, keep your voice down.
 		if(!user.can_speak())
