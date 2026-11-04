@@ -15,10 +15,12 @@ SUBSYSTEM_DEF(vote)
 	var/list/voted = list()
 	var/list/voting = list()
 	var/list/generated_actions = list()
+	/// RMH EDIT: how long the current vote runs; the end-round vote gets 5 minutes, others use the config period
+	var/current_vote_period = 0
 
 /datum/controller/subsystem/vote/fire()	//called by master_controller
 	if(mode)
-		time_remaining = round((started_time + CONFIG_GET(number/vote_period) - world.time)/10)
+		time_remaining = round((started_time + current_vote_period - world.time)/10)
 
 		if(time_remaining < 0)
 			result()
@@ -181,7 +183,7 @@ SUBSYSTEM_DEF(vote)
 					log_game("LOG VOTE: ROUNDVOTEEND [REALTIMEOFDAY]")
 					to_chat(world, "\n<font color='purple'>[ROUND_END_TIME_VERBAL]</font>")
 					SSgamemode.roundvoteend = TRUE
-					SSgamemode.round_ends_at = GLOB.round_timer + ROUND_END_TIME
+					SSgamemode.round_ends_at = (world.time - SSticker.round_start_time) + ROUND_END_TIME // RMH EDIT: from now, not from the vote mark
 			if("storyteller")
 				SSgamemode.storyteller_vote_result(.)
 
@@ -295,7 +297,8 @@ SUBSYSTEM_DEF(vote)
 		if(mode == "custom")
 			text += "\n[question]"
 		log_vote(text)
-		var/vp = CONFIG_GET(number/vote_period)
+		var/vp = (mode == "endround") ? 5 MINUTES : CONFIG_GET(number/vote_period)
+		current_vote_period = vp
 		to_chat(world, "\n<font color='purple'><b>[text]</b>\nClick <a href='byond://?src=[REF(src)]'>here</a> to place your vote.\nYou have [DisplayTimeText(vp)] to vote.</font>")
 		time_remaining = round(vp/10)
 		// Vanderlin #8070: pop the vote window open for everyone instead of relying on the chat link
