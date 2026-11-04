@@ -17,6 +17,10 @@
 		return
 	if(message)
 		set_typing_indicator(FALSE)
+		// RMH EDIT: "@" in the say box (T) sends a subtle emote, like it does in me
+		if(findtext(message, "@", 1, 2))
+			try_subtle_emote(parsemarkdown_basic(trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN)), limited = TRUE, barebones = TRUE))
+			return
 		say(message)
 
 ///Whisper verb
