@@ -13,6 +13,12 @@
 #define CLASH_DUEL_MIN_CLICK_GAP (0.6)
 /// Clicks per second an NPC mashes at
 #define CLASH_DUEL_NPC_CPS 6
+/// How far the camera closes in
+#define CLASH_DUEL_ZOOM 1.3
+/// Pixels each sprite leans into the other while locked
+#define CLASH_DUEL_LEAN 6
+/// Extra pixels the one winning the bar drives both sprites toward the loser
+#define CLASH_DUEL_SHOVE 6
 
 /datum/preference/toggle/clash_zoom
 	savefile_key = "clash_zoom"
@@ -56,6 +62,10 @@
 	var/finished = FALSE
 	/// cleanup() already ran
 	var/cleaned = FALSE
+	/// Pixel offset we applied to each sprite: fighter = list(x, y)
+	var/list/sprite_offsets = list()
+	/// Process ticks since the start, to pace the sparks
+	var/ticks = 0
 
 /datum/clash_duel/New(mob/living/new_defender, mob/living/new_attacker, obj/item/new_defender_item, obj/item/new_attacker_item, advantage)
 	. = ..()
@@ -86,9 +96,11 @@
 		RegisterSignal(fighter, list(COMSIG_LIVING_DEATH, COMSIG_PARENT_QDELETING), PROC_REF(abort))
 		to_chat(fighter, span_userdanger("Blades locked! MASH LEFT CLICK to overpower [fighter == defender ? attacker : defender]!"))
 		zoom_in(fighter)
-	lock_sprites(TRUE)
+	update_sprites()
 	for(var/mob/living/fighter as anything in list(defender, attacker))
 		shake_camera(fighter, 3, 1)
+		clash_flash(fighter)
+	clash_sparks()
 	defender.visible_message(span_boldwarning("[defender] and [attacker] lock blades!"))
 	playsound(defender, 'sound/combat/clash_struck.ogg', 100, TRUE)
 	end_time = world.time + CLASH_DUEL_TIME
@@ -106,6 +118,12 @@
 		if(!fighter.client && prob(CLASH_DUEL_NPC_CPS * seconds_per_tick * 100))
 			push(fighter)
 	update_bar()
+	update_sprites()
+	ticks++
+	for(var/mob/living/fighter as anything in list(defender, attacker))
+		shake_camera(fighter, 1, 0.08) // the blades grinding
+	if(!(ticks % 3))
+		clash_sparks(small = TRUE)
 	if(bar <= 0 || bar >= CLASH_DUEL_BAR_MAX || world.time >= end_time)
 		resolve()
 		return PROCESS_KILL
@@ -157,17 +175,58 @@
 	if(!world_plate)
 		return
 	zoomed += world_plate
-	animate(world_plate, transform = matrix(2, 0, 0, 0, 2, 0), time = 0.15 SECONDS, easing = QUAD_EASING|EASE_OUT)
+	animate(world_plate, transform = matrix(CLASH_DUEL_ZOOM, 0, 0, 0, CLASH_DUEL_ZOOM, 0), time = 0.25 SECONDS, easing = SINE_EASING|EASE_OUT)
 
-/// Lean both sprites into each other while the blades are locked
-/datum/clash_duel/proc/lock_sprites(locking)
+/// Leans both sprites into each other, slides them toward whoever is losing, with a little grinding jitter
+/datum/clash_duel/proc/update_sprites()
+	var/list/axis = get_sex_motion_step(defender, attacker) // from the defender toward the attacker
+	var/shove = round(((bar - 50) / 50) * CLASH_DUEL_SHOVE)
+	for(var/mob/living/fighter as anything in list(defender, attacker))
+		var/lean = (fighter == defender) ? CLASH_DUEL_LEAN : -CLASH_DUEL_LEAN
+		var/jitter = rand(-1, 1)
+		set_sprite_offset(fighter, axis[1] * (lean + shove) + jitter, axis[2] * (lean + shove) + rand(-1, 1))
+
+/// Moves the sprite to an absolute offset from where the duel found it
+/datum/clash_duel/proc/set_sprite_offset(mob/living/fighter, new_x, new_y, time = 0.15 SECONDS)
+	if(QDELETED(fighter))
+		return
+	var/list/current = sprite_offsets[fighter] || list(0, 0)
+	var/delta_x = new_x - current[1]
+	var/delta_y = new_y - current[2]
+	sprite_offsets[fighter] = list(new_x, new_y)
+	if(delta_x || delta_y)
+		animate(fighter, pixel_w = delta_x, pixel_z = delta_y, time = time, flags = ANIMATION_PARALLEL|ANIMATION_RELATIVE)
+
+/// A soft white flash on the fighter's screen as the blades meet
+/datum/clash_duel/proc/clash_flash(mob/living/fighter)
+	if(!fighter.client)
+		return
+	var/atom/movable/screen/fullscreen/flash = fighter.overlay_fullscreen("clash_flash", /atom/movable/screen/fullscreen/flash)
+	flash.alpha = 90
+	animate(flash, alpha = 0, time = 0.35 SECONDS)
+	addtimer(CALLBACK(fighter, TYPE_PROC_REF(/mob, clear_fullscreen), "clash_flash", 0), 0.4 SECONDS)
+
+/// Sparks thrown off both weapons, where the blades meet. Visual only: real sparks heat the tile and can light hay
+/datum/clash_duel/proc/clash_sparks(small = FALSE)
+	var/list/axis = get_sex_motion_step(defender, attacker)
 	for(var/mob/living/fighter as anything in list(defender, attacker))
 		if(QDELETED(fighter))
 			continue
-		var/mob/living/other = (fighter == defender) ? attacker : defender
-		var/list/step = get_sex_motion_step(fighter, other)
-		var/shift = locking ? 6 : -6
-		animate(fighter, pixel_w = step[1] * shift, pixel_z = step[2] * shift, time = 0.1 SECONDS, flags = ANIMATION_PARALLEL|ANIMATION_RELATIVE)
+		var/toward = (fighter == defender) ? 1 : -1
+		var/obj/effect/temp_visual/clash_spark/spark = new(get_turf(fighter))
+		spark.pixel_x = axis[1] * toward * 12 + rand(-4, 4)
+		spark.pixel_y = axis[2] * toward * 12 + rand(0, 8)
+		if(small)
+			spark.transform = matrix(0.6, 0, 0, 0, 0.6, 0)
+
+/obj/effect/temp_visual/clash_spark
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "sparks"
+	plane = ABOVE_LIGHTING_PLANE
+	duration = 0.5 SECONDS
+	light_outer_range = MINIMUM_USEFUL_LIGHT_RANGE
+	light_power = 1
+	light_color = LIGHT_COLOR_FIRE
 
 /datum/clash_duel/proc/resolve()
 	if(finished)
@@ -228,7 +287,7 @@
 	bar_images.Cut()
 	for(var/atom/movable/screen/plane_master/world_plate as anything in zoomed)
 		if(!QDELETED(world_plate))
-			animate(world_plate, transform = matrix(), time = 0.4 SECONDS, easing = SINE_EASING)
+			animate(world_plate, transform = matrix(), time = 0.3 SECONDS, easing = SINE_EASING|EASE_IN)
 	zoomed.Cut()
 	for(var/mob/living/fighter as anything in list(defender, attacker))
 		if(QDELETED(fighter))
@@ -237,11 +296,15 @@
 		if(fighter.active_clash_duel == src)
 			fighter.active_clash_duel = null
 		fighter.remove_status_effect(/datum/status_effect/buff/clash)
-	if(!QDELETED(defender) && !QDELETED(attacker))
-		lock_sprites(FALSE)
+	for(var/mob/living/fighter as anything in sprite_offsets)
+		set_sprite_offset(fighter, 0, 0, 0.1 SECONDS)
+	sprite_offsets.Cut()
 
 #undef CLASH_DUEL_TIME
 #undef CLASH_DUEL_BAR_MAX
 #undef CLASH_DUEL_PUSH
 #undef CLASH_DUEL_MIN_CLICK_GAP
 #undef CLASH_DUEL_NPC_CPS
+#undef CLASH_DUEL_ZOOM
+#undef CLASH_DUEL_LEAN
+#undef CLASH_DUEL_SHOVE
