@@ -49,7 +49,7 @@
 	var/end_time = 0
 	/// Last counted click per fighter, to cap the clicking speed
 	var/list/last_click = list()
-	/// Clients we zoomed in, with the view they had: client = view string
+	/// World rendering plates we scaled up for the zoom
 	var/list/zoomed = list()
 	/// Bar shown over the pair: client = image
 	var/list/bar_images = list()
@@ -87,6 +87,8 @@
 		to_chat(fighter, span_userdanger("Blades locked! MASH LEFT CLICK to overpower [fighter == defender ? attacker : defender]!"))
 		zoom_in(fighter)
 	lock_sprites(TRUE)
+	for(var/mob/living/fighter as anything in list(defender, attacker))
+		shake_camera(fighter, 3, 1)
 	defender.visible_message(span_boldwarning("[defender] and [attacker] lock blades!"))
 	playsound(defender, 'sound/combat/clash_struck.ogg', 100, TRUE)
 	end_time = world.time + CLASH_DUEL_TIME
@@ -146,19 +148,16 @@
 			viewer.images += bar_image
 		bar_image.maptext = MAPTEXT_CENTER("<b>CLICK!</b><br>[text]")
 
+/// Scales up the world rendering plate (not the HUD), which zooms the camera on the fighter
 /datum/clash_duel/proc/zoom_in(mob/living/fighter)
 	var/client/viewer = fighter.client
 	if(!viewer || !viewer.prefs?.read_preference(/datum/preference/toggle/clash_zoom))
 		return
-	var/list/size = getviewsize(viewer.view)
-	var/width = max(5, round(size[1] / 2))
-	var/height = max(5, round(size[2] / 2))
-	if(!(width % 2))
-		width++
-	if(!(height % 2))
-		height++
-	zoomed[viewer] = viewer.view
-	viewer.change_view("[width]x[height]")
+	var/atom/movable/screen/plane_master/world_plate = fighter.hud_used?.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
+	if(!world_plate)
+		return
+	zoomed += world_plate
+	animate(world_plate, transform = matrix(2, 0, 0, 0, 2, 0), time = 0.15 SECONDS, easing = QUAD_EASING|EASE_OUT)
 
 /// Lean both sprites into each other while the blades are locked
 /datum/clash_duel/proc/lock_sprites(locking)
@@ -185,6 +184,8 @@
 	var/decisive = (bar <= 0 || bar >= CLASH_DUEL_BAR_MAX)
 	cleanup()
 	shove_apart()
+	for(var/mob/living/fighter as anything in list(defender, attacker))
+		shake_camera(fighter, decisive ? 4 : 2, decisive ? 2 : 1)
 	if(!winner)
 		defender.visible_message(span_boldwarning("[defender] and [attacker] break apart, neither giving ground!"))
 		playsound(defender, 'sound/combat/clash_draw.ogg', 100, TRUE)
@@ -225,8 +226,9 @@
 	for(var/client/viewer as anything in bar_images)
 		viewer?.images -= bar_images[viewer]
 	bar_images.Cut()
-	for(var/client/viewer as anything in zoomed)
-		viewer?.change_view(zoomed[viewer])
+	for(var/atom/movable/screen/plane_master/world_plate as anything in zoomed)
+		if(!QDELETED(world_plate))
+			animate(world_plate, transform = matrix(), time = 0.4 SECONDS, easing = SINE_EASING)
 	zoomed.Cut()
 	for(var/mob/living/fighter as anything in list(defender, attacker))
 		if(QDELETED(fighter))
