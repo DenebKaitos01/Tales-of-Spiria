@@ -55,7 +55,6 @@
 		/datum/action/cooldown/spell/projectile/fireball,
 		/datum/action/cooldown/spell/undirected/shapeshift/cat,				//HARRY POTTAH?!!!
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 

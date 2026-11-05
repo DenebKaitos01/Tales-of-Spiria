@@ -37,7 +37,6 @@
 		/datum/action/cooldown/spell/projectile/fireball,
 		/datum/action/cooldown/spell/essence/fire_cascade/class_granted,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 

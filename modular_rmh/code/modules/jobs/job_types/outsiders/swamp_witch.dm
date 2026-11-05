@@ -260,7 +260,6 @@
 		/datum/action/cooldown/spell/conjure/web,
 		/datum/action/cooldown/spell/enchantment/green_flame,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 /datum/outfit/swamp_witch/hex

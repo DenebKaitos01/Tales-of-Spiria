@@ -283,7 +283,6 @@
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/essence/toxic_cleanse/class_granted,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/acolyte/sune
@@ -616,7 +615,6 @@
 		/datum/action/cooldown/spell/instill_perfection,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/acolyte/love

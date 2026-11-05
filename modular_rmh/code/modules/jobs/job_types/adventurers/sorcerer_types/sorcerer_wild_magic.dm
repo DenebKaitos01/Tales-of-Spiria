@@ -27,7 +27,6 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/combat/adventurer_sorcerer/wild_magic

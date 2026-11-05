@@ -56,7 +56,6 @@
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/guild_wizard/expert
@@ -155,7 +154,6 @@
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/guild_wizard/adept

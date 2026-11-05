@@ -44,7 +44,6 @@
 		/datum/action/cooldown/spell/gravemark,
 		/datum/action/cooldown/spell/control_undead,
 		/datum/action/cooldown/spell/enrapture,
-		/datum/action/cooldown/spell/forced_orgasm,
 	)
 
 

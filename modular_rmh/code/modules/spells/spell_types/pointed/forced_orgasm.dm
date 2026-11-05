@@ -1,3 +1,4 @@
+// RMH EDIT: disabled, no role is granted this spell any more
 /datum/action/cooldown/spell/forced_orgasm
 	name = "Power Word Cum"
 	desc = "Cause a target to be magically forced to orgasm."

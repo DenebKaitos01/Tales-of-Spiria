@@ -4,6 +4,7 @@
 	icon_state = "MinotaurMale"
 	icon_living = "MinotaurMale"
 	icon_dead = "MinotaurMale_dead"
+	SET_BASE_PIXEL(-16, 0) // RMH EDIT: centre the 64px sprite on its tile, as Azure does
 	gender = MALE
 	emote_hear = null
 	emote_see = null
