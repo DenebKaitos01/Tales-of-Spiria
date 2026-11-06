@@ -67,9 +67,9 @@
 			/obj/item/clothing/neck/chaincoif/iron,
 			/obj/item/clothing/head/helmet/kettle/iron,
 		),
-		"Breastplate & Maille" = list(
+		"Breastplate & Gambeson" = list(
 			/obj/item/clothing/armor/cuirass/iron,
-			/obj/item/clothing/armor/chainmail/iron,
+			/obj/item/clothing/armor/gambeson,
 			/obj/item/clothing/neck/gorget,
 			/obj/item/clothing/pants/trou/leather,
 			/obj/item/clothing/shoes/boots/leather,
