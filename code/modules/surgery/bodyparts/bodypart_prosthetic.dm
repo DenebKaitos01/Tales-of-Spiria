@@ -383,3 +383,18 @@
 	smeltresult = /obj/item/ingot/bronze
 	melting_material = /datum/material/bronze
 	melt_amount = 100
+/// A strapped-on replacement limb; its damage is wear on the device, not on the wearer.
+/obj/item/bodypart/proc/is_prosthetic()
+	return FALSE
+
+/obj/item/bodypart/l_arm/prosthetic/is_prosthetic()
+	return TRUE
+
+/obj/item/bodypart/r_arm/prosthetic/is_prosthetic()
+	return TRUE
+
+/obj/item/bodypart/l_leg/prosthetic/is_prosthetic()
+	return TRUE
+
+/obj/item/bodypart/r_leg/prosthetic/is_prosthetic()
+	return TRUE
