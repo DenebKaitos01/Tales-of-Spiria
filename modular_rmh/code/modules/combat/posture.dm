@@ -154,7 +154,7 @@
 		return // our own bar, always shown
 	posture_viewers[viewer] = until
 
-/// A small bar under our feet, filling yellow to red; seen by us and by whoever is striking into our guard
+/// A small bar under our feet (icons/effects/posture_bar.dmi); seen by us and by whoever is striking into our guard
 /mob/living/proc/update_posture_bar()
 	if(posture <= 0)
 		clear_posture_bar()
@@ -162,16 +162,12 @@
 	if(client)
 		show_posture_to(client, 0)
 	if(!posture_image)
-		posture_image = image(loc = src, layer = ABOVE_ALL_MOB_LAYER)
+		posture_image = image('icons/effects/posture_bar.dmi', src, "posture_0", ABOVE_ALL_MOB_LAYER)
 		posture_image.plane = WEATHER_EFFECT_PLANE
 		posture_image.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM|KEEP_APART
-		posture_image.maptext_width = 96
-		posture_image.maptext_x = -32
-		posture_image.pixel_y = -10
-	var/ratio = posture / get_max_posture()
-	var/filled = clamp(round(ratio * 10), 1, 10)
-	var/color = ratio >= 0.8 ? "#ff3b3b" : (ratio >= 0.5 ? "#ff9a3b" : "#ffd84a")
-	posture_image.maptext = MAPTEXT_CENTER("<span style='color:[color]'>[repeat_string(filled, "|")]</span><span style='color:#555555'>[repeat_string(10 - filled, "|")]</span>")
+		posture_image.pixel_y = -14 // the bar is drawn mid-frame; this drops it under our feet
+	// States go posture_0 to posture_100 in steps of 5; any tension at all shows at least one notch
+	posture_image.icon_state = "posture_[clamp(round((posture / get_max_posture()) * 100, 5), 5, 100)]"
 	for(var/client/viewer as anything in posture_viewers?.Copy())
 		var/until = posture_viewers[viewer]
 		if(!viewer || (until && world.time > until))
