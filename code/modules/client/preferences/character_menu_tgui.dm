@@ -672,6 +672,8 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 		var/datum/erp_preference/pref = new pref_type()
 		if(pref.abstract_type == pref_type)
 			continue
+		if(pref.is_removed()) // RMH EDIT: no mob ERP section
+			continue
 		var/list/entry = list(
 			"type" = "[pref_type]",
 			"name" = pref.name,

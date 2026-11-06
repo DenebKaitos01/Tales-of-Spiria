@@ -349,6 +349,7 @@
 	return FALSE
 
 /datum/targetting_datum/basic/can_horny(mob/living/living_mob, atom/the_target)
+	return FALSE // RMH EDIT: mob (NPC) ERP is removed; no mob seeks anyone out for it
 	if(isturf(the_target) || !the_target) // bail out on invalids
 		return FALSE
 	// A captive who has steeled themselves (the "Refuse Advances" opt-out) is off-limits to horny mobs.

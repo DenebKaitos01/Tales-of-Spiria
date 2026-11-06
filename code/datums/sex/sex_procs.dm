@@ -706,11 +706,9 @@
 	cached_allow_belly_inflation = belly_pref.get_value_from_list(cached_erp_preferences)
 	var/datum/erp_preference/boolean/nonmatching_horny_mobs_are_nonlethal/nonlethal_pref = new
 	cached_nonmatching_horny_mobs_are_nonlethal = nonlethal_pref.get_value_from_list(cached_erp_preferences)
-	cached_horny_mob_pref_flags = cached_erp_preferences[/datum/erp_preference/bitflag/horny_mobs] || NONE
-	var/allowed_families = cached_erp_preferences[/datum/erp_preference/bitflag/horny_mob_types]
-	if(isnull(allowed_families))
-		allowed_families = HORNY_MOB_TYPE_ALL
-	cached_horny_mob_family_flags = allowed_families
+	// RMH EDIT: mob (NPC) ERP is removed - no mob may target anyone for it
+	cached_horny_mob_pref_flags = NONE
+	cached_horny_mob_family_flags = NONE
 
 /mob/living/proc/set_cached_erp_preferences(list/preferences, revision = -1)
 	cached_erp_preferences = islist(preferences) ? deep_copy_list_alt(preferences) : null

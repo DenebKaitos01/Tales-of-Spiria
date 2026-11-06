@@ -163,6 +163,8 @@
 		var/datum/erp_preference/pref = new pref_type()
 		if(pref.abstract_type == pref_type)
 			continue
+		if(pref.is_removed()) // RMH EDIT: no mob ERP section
+			continue
 		if(!categories[pref.category])
 			categories[pref.category] = list()
 		categories[pref.category] += pref_type

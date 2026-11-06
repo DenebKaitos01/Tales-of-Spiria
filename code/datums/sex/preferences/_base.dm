@@ -14,7 +14,13 @@
 /datum/erp_preference/proc/get_value(datum/preferences/prefs)
 	return get_value_from_list(prefs?.ensure_erp_preferences())
 
+/// RMH EDIT: mob (NPC) ERP is removed - its preferences are hidden and always read as off
+/datum/erp_preference/proc/is_removed()
+	return category == "Mobs"
+
 /datum/erp_preference/proc/get_value_from_list(list/stored_preferences)
+	if(is_removed())
+		return FALSE
 	var/stored_value = stored_preferences?[type]
 	if(isnull(stored_value))
 		return get_default_value()
