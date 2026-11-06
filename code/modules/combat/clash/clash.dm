@@ -125,11 +125,6 @@
 	var/initiator_bonus = rand(5, 10)
 	prob_us += initiator_bonus
 
-	// RMH EDIT (combat rework): settle normal clashes with a click-mash duel; the dice above become the starting edge
-	if(((!instantloss && !instantwin) || (instantloss && instantwin)) && !active_clash_duel && !user.active_clash_duel && Adjacent(user))
-		var/datum/clash_duel/duel = new(src, user, our_item, their_item, prob_us - prob_opp)
-		duel.start()
-		return
 	if((!instantloss && !instantwin) || (instantloss && instantwin))	//We are both using normal weapons OR we're both using memes. Either way, proceed as normal.
 		visible_message(span_boldwarning("[src] and [user] clash!"))
 		flash_fullscreen("whiteflash")

@@ -187,6 +187,9 @@
 	return ..() || (uses_integrity && I.attack_atom(src, user))
 
 /mob/living/attackby(obj/item/I, mob/living/user, list/modifiers)
+	// RMH EDIT (combat rework): an exchange of blows can lock blades into a clash duel instead of landing this strike
+	if(user?.try_exchange_clash_duel(src, I))
+		return TRUE
 	if(..())
 		return TRUE
 	var/adf = user.used_intent?.clickcd

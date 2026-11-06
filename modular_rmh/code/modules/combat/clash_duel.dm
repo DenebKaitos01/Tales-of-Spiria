@@ -36,9 +36,60 @@
 	prefs.save_preferences()
 	to_chat(usr, span_notice("Clash zoom [prefs.read_preference(/datum/preference/toggle/clash_zoom) ? "enabled" : "disabled"]."))
 
+/// Window in which two fighters striking each other counts as an exchange of blows
+#define CLASH_DUEL_EXCHANGE_WINDOW (2 SECONDS)
+/// Chance an exchange of blows locks the blades
+#define CLASH_DUEL_EXCHANGE_CHANCE 20
+/// Time before the same fighter can be locked into another duel
+#define CLASH_DUEL_COOLDOWN (15 SECONDS)
+
 /mob/living
 	/// The clash duel we are locked in, if any
 	var/datum/clash_duel/active_clash_duel
+	/// Who we last struck in melee, and when
+	var/datum/weakref/last_melee_target
+	var/last_melee_time = 0
+	/// world.time before which we can't be locked into another clash duel
+	var/next_clash_duel = 0
+
+/// Our standing in a blade lock: Strength + Speed (dexterity) + Perception + twice our skill with the weapon
+/mob/living/proc/clash_duel_score(obj/item/weapon)
+	. = GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH) + GET_MOB_ATTRIBUTE_VALUE(src, STAT_SPEED) + GET_MOB_ATTRIBUTE_VALUE(src, STAT_PERCEPTION)
+	if(weapon?.associated_skill)
+		. += GET_MOB_SKILL_VALUE_OLD(src, weapon.associated_skill) * 2
+
+/**
+ * Called as we strike target with weapon. If target struck us back within a moment, this is an exchange of blows
+ * and has a chance to lock blades into a clash duel instead of landing the strike. Returns TRUE if a duel started.
+ */
+/mob/living/proc/try_exchange_clash_duel(mob/living/target, obj/item/weapon)
+	if(!istype(target) || target == src || !istype(weapon) || !weapon.associated_skill || !weapon.force)
+		return FALSE
+	if(!used_intent || used_intent.tranged || used_intent.tshield || used_intent.noaa)
+		return FALSE
+	var/struck_back = (target.last_melee_target?.resolve() == src) && (world.time - target.last_melee_time <= CLASH_DUEL_EXCHANGE_WINDOW)
+	last_melee_target = WEAKREF(target)
+	last_melee_time = world.time
+	if(!struck_back)
+		return FALSE
+	var/obj/item/their_weapon = target.get_active_held_item()
+	if(!istype(their_weapon) || !their_weapon.associated_skill)
+		return FALSE
+	if(active_clash_duel || target.active_clash_duel || !Adjacent(target))
+		return FALSE
+	if(stat != CONSCIOUS || target.stat != CONSCIOUS)
+		return FALSE
+	if(world.time < next_clash_duel || world.time < target.next_clash_duel)
+		return FALSE
+	if(!prob(CLASH_DUEL_EXCHANGE_CHANCE))
+		return FALSE
+	next_clash_duel = world.time + CLASH_DUEL_COOLDOWN
+	target.next_clash_duel = world.time + CLASH_DUEL_COOLDOWN
+	// The one being struck holds the bar's high end; each point of score gap is worth 6 of advantage
+	var/advantage = (target.clash_duel_score(their_weapon) - clash_duel_score(weapon)) * 6
+	var/datum/clash_duel/duel = new(target, src, their_weapon, weapon, advantage)
+	duel.start()
+	return TRUE
 
 /datum/clash_duel
 	/// The fighter who held the guard (wins at bar 100)
@@ -242,7 +293,7 @@
 		loser = defender
 	var/decisive = (bar <= 0 || bar >= CLASH_DUEL_BAR_MAX)
 	cleanup()
-	shove_apart()
+	shove_apart(loser)
 	for(var/mob/living/fighter as anything in list(defender, attacker))
 		shake_camera(fighter, decisive ? 4 : 2, decisive ? 2 : 1)
 	if(!winner)
@@ -252,21 +303,22 @@
 		winner.visible_message(span_boldwarning("[winner] overpowers [loser]!"))
 		winner.show_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, y_offset = 24, sound = 'sound/combat/clash_disarm_us.ogg')
 		loser.apply_status_effect(/datum/status_effect/debuff/exposed, 2 SECONDS)
-		loser.Slowdown(3)
-		if(decisive)
+		if(decisive) // Overpowered outright: the blade flies
 			loser.disarm_weapon()
 	qdel(src)
 
-/// Throw both a couple of tiles away from each other
-/datum/clash_duel/proc/shove_apart()
+/// The loser is thrown two tiles back from the winner; on a draw both give one tile
+/datum/clash_duel/proc/shove_apart(mob/living/loser)
 	for(var/mob/living/fighter as anything in list(defender, attacker))
 		if(QDELETED(fighter))
 			continue
+		fighter.SetImmobilized(0)
+		if(loser && fighter != loser)
+			continue
 		var/mob/living/other = (fighter == defender) ? attacker : defender
 		var/away = get_dir(other, fighter) || REVERSE_DIR(fighter.dir)
-		var/turf/landing = get_ranged_target_turf(fighter, away, 2)
-		fighter.SetImmobilized(0)
-		fighter.safe_throw_at(landing, 2, 1, gentle = TRUE)
+		var/distance = loser ? 2 : 1
+		fighter.safe_throw_at(get_ranged_target_turf(fighter, away, distance), distance, 1, gentle = TRUE)
 
 /// Ends the duel without a winner (someone died, left or was deleted)
 /datum/clash_duel/proc/abort()
@@ -305,6 +357,9 @@
 #undef CLASH_DUEL_PUSH
 #undef CLASH_DUEL_MIN_CLICK_GAP
 #undef CLASH_DUEL_NPC_CPS
+#undef CLASH_DUEL_EXCHANGE_WINDOW
+#undef CLASH_DUEL_EXCHANGE_CHANCE
+#undef CLASH_DUEL_COOLDOWN
 #undef CLASH_DUEL_ZOOM
 #undef CLASH_DUEL_LEAN
 #undef CLASH_DUEL_SHOVE
