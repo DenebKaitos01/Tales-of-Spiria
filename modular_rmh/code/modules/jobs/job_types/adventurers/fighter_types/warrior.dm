@@ -2,8 +2,7 @@
 	raw_attribute_list = list(
 		STAT_STRENGTH = 2,
 		STAT_ENDURANCE = 1,
-		STAT_CONSTITUTION = 1,
-		STAT_INTELLIGENCE = -1,
+		STAT_CONSTITUTION = 2,
 		/datum/attribute/skill/combat/wrestling = 20,
 		/datum/attribute/skill/combat/unarmed = 30,
 		/datum/attribute/skill/misc/athletics = 30,
@@ -22,7 +21,7 @@
 	)
 
 /datum/job/advclass/combat/adventurer_fighter/warrior
-	title = "Warrior"
+	title = "Adventurer: Warrior" // RMH EDIT: the base fighter subclass
 	tutorial = "On the Sword Coast, steel speaks louder than promises. \
 	Warriors are mercenaries, caravan guards, militia veterans, \
 	and hardened survivors of countless skirmishes."
@@ -37,7 +36,10 @@
 	traits = list(
 		TRAIT_MEDIUMARMOR,
 		TRAIT_STEELHEARTED,
-		TRAIT_BLINDFIGHTING,
+	)
+
+	spells = list(
+		/datum/action/cooldown/spell/undirected/second_wind,
 	)
 
 
