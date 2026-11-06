@@ -449,8 +449,8 @@
 
 /obj/item/grabbing/proc/twistlimb(mob/living/user) //implies limb_grabbed and sublimb are things
 	var/mob/living/carbon/C = grabbed
-	var/armor_block = C.run_armor_check(limb_grabbed, "blunt")
 	var/damage = user.get_punch_dmg()
+	var/armor_block = C.run_armor_check(limb_grabbed, "blunt", damage = damage) // RMH EDIT: armor wears down
 	playsound(C, "genblunt", 100, FALSE, -1)
 	C.next_attack_msg.Cut()
 	C.apply_damage(damage, BRUTE, limb_grabbed, armor_block)
@@ -469,9 +469,9 @@
 	var/mob/living/carbon/C = grabbed
 	var/obj/item/bodypart/Chead = C.get_bodypart(BODY_ZONE_HEAD)
 	var/obj/item/bodypart/Hhead = H.get_bodypart(BODY_ZONE_HEAD)
-	var/armor_block = C.run_armor_check(Chead, "blunt")
-	var/armor_block_user = H.run_armor_check(Hhead, "blunt")
 	var/damage = H.get_punch_dmg()
+	var/armor_block = C.run_armor_check(Chead, "blunt", damage = damage) // RMH EDIT: armor wears down
+	var/armor_block_user = H.run_armor_check(Hhead, "blunt", damage = damage)
 	C.next_attack_msg.Cut()
 	playsound(C, "genblunt", 100, FALSE, -1)
 	var/head_damage = C.apply_damage(damage*1.5, , Chead, armor_block)
@@ -592,8 +592,8 @@
 
 /obj/item/grabbing/proc/smashlimb(atom/A, mob/living/user) //implies limb_grabbed and sublimb are things
 	var/mob/living/carbon/C = grabbed
-	var/armor_block = C.run_armor_check(limb_grabbed, "blunt")
 	var/damage = user.get_punch_dmg()
+	var/armor_block = C.run_armor_check(limb_grabbed, "blunt", damage = damage) // RMH EDIT: armor wears down
 	C.next_attack_msg.Cut()
 	if(C.apply_damage(damage, BRUTE, limb_grabbed, armor_block))
 		limb_grabbed.bodypart_attacked_by(BCLASS_BLUNT, damage, user, sublimb_grabbed, crit_message = TRUE, pre_applied = TRUE)

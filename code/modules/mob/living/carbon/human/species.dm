@@ -1622,7 +1622,7 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 		if(!target.lying_attack_check(user))
 			return 0
 
-		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = user.used_intent.blade_class)
+		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = user.used_intent.blade_class, damage = damage) // RMH EDIT: armor wears down
 
 		target.set_damage_attack_context(user)
 		user.dna.species.spec_unarmedattacked(user, target)
@@ -1836,7 +1836,7 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 			var/selzone = accuracy_check(user.zone_selected, user, target, /datum/skill/combat/unarmed, user.used_intent)
 			var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(selzone))
 			var/damage = user.get_kick_damage(2.5)
-			var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
+			var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT, damage = damage) // RMH EDIT: armor wears down
 			var/balance = 10
 			target.next_attack_msg.Cut()
 			var/nodmg = FALSE
@@ -1942,8 +1942,8 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 		var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(selzone))
 		if(!affecting)
 			affecting = target.get_bodypart(BODY_ZONE_CHEST)
-		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
 		var/damage = user.get_kick_damage(1.4)
+		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT, damage = damage) // RMH EDIT: armor wears down
 		var/damage_blocked = FALSE
 
 		target.set_damage_attack_context(user)
