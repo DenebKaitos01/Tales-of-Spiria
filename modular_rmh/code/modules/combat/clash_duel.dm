@@ -1,5 +1,5 @@
 // RMH EDIT (combat rework): clashes are settled by a short click-mash duel instead of a hidden dice roll.
-// When both fighters hold the Defend guard and one strikes, the camera closes in on them, both mash
+// When two fighters trade blows, the blades may lock: the camera closes in on them, both mash
 // left click to push a shared bar, and the loser is thrown off. Stats, skill and weapons still matter:
 // they tilt where the bar starts and how hard each click pushes.
 
@@ -303,6 +303,7 @@
 		winner.visible_message(span_boldwarning("[winner] overpowers [loser]!"))
 		winner.show_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, y_offset = 24, sound = 'sound/combat/clash_disarm_us.ogg')
 		loser.apply_status_effect(/datum/status_effect/debuff/exposed, 2 SECONDS)
+		clash_duel_posture(winner, loser) // the winner steadies, the loser's guard strains
 		if(decisive) // Overpowered outright: the blade flies
 			loser.disarm_weapon()
 	qdel(src)

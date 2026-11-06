@@ -169,6 +169,7 @@
 
 	clear_dodge_grace()
 	flash_fullscreen("blackflash2")
+	dodge_posture_relief() // RMH EDIT (combat rework): a clean dodge eases the tension
 	visible_message(span_warning("<b>[src]</b> slips clear of [user]'s attack!"), span_notice("I evade [user]'s attack!"))
 	if(user.used_intent)
 		user.aftermiss()
@@ -188,6 +189,7 @@
 
 	clear_dodge_grace()
 	flash_fullscreen("blackflash2")
+	dodge_posture_relief() // RMH EDIT (combat rework): a clean dodge eases the tension
 	visible_message(span_warning("<b>[src]</b> slips clear of [projectile]!"), span_notice("I evade [projectile]!"))
 	if(client)
 		record_round_statistic(STATS_DODGES)
@@ -323,6 +325,7 @@
 		return FALSE
 
 	flash_fullscreen("blackflash2")
+	dodge_posture_relief() // RMH EDIT (combat rework): a clean dodge eases the tension
 	user.aftermiss()
 	var/attacking_item = user.get_active_held_item()
 	if(!(!src.mind || !user.mind))

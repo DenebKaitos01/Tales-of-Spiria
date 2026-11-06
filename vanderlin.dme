@@ -4592,6 +4592,7 @@
 #include "modular_rmh\code\modules\clothing\vladegeg\wintercoat.dm"
 #include "modular_rmh\code\modules\clothing\vladegeg\armor\druid.dm"
 #include "modular_rmh\code\modules\combat\clash_duel.dm"
+#include "modular_rmh\code\modules\combat\posture.dm"
 #include "modular_rmh\code\modules\crafting\recipe_book_db.dm"
 #include "modular_rmh\code\modules\crafting\alchemy\herbal_preparations.dm"
 #include "modular_rmh\code\modules\crafting\blueprinting\blueprients\walls.dm"

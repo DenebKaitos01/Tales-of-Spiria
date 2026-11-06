@@ -147,6 +147,7 @@
 	if(weapon_parry)
 		if(do_parry(used_weapon, drained, user))
 			process_parry_aftermath(user, used_weapon, defender_skill, attacker_skill, intenty)
+			add_posture(parry_posture_damage(user, intenty, used_weapon, roll_result == DICE_CRIT_SUCCESS), user) // RMH EDIT (combat rework): parrying builds tension
 			return TRUE
 		return FALSE
 	else
@@ -154,6 +155,7 @@
 			if((body_position != LYING_DOWN) && attacker_skill && (defender_skill < attacker_skill - SKILL_RANK_NOVICE))
 				adjust_experience(/datum/attribute/skill/combat/unarmed, max(round(GET_MOB_ATTRIBUTE_VALUE(src, STAT_INTELLIGENCE)/2), 0), FALSE)
 			flash_fullscreen("blackflash2")
+			add_posture(parry_posture_damage(user, intenty, null, roll_result == DICE_CRIT_SUCCESS), user) // RMH EDIT (combat rework): parrying builds tension
 			return TRUE
 		return FALSE
 
