@@ -42,6 +42,8 @@
 
 	/// The AM for the mob visual
 	var/atom/movable/mob_visual
+	/// RMH EDIT: the overlay drawn on the owner from mob_overlay_icon_state while the effect lasts (Azure Peak)
+	var/mutable_appearance/mob_overlay_appearance
 
 /datum/status_effect/New(list/arguments)
 	on_creation(arglist(arguments))
@@ -70,6 +72,12 @@
 			if(duration != -1)
 				A.update_countdown(duration - world.time)
 
+	if(mob_overlay_icon_state)
+		mob_overlay_appearance = mutable_appearance(mob_overlay_icon, mob_overlay_icon_state, mob_overlay_layer || ABOVE_MOB_LAYER)
+		mob_overlay_appearance.plane = ABOVE_LIGHTING_PLANE
+		mob_overlay_appearance.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
+		owner.add_overlay(mob_overlay_appearance)
+
 	if(duration != -1 || tick_interval != STATUS_EFFECT_NO_TICK) // Don't process permanent effects with no tick.
 		switch(processing_speed)
 			if(STATUS_EFFECT_FAST_PROCESS)
@@ -88,6 +96,9 @@
 	if(owner)
 		linked_alert = null
 		owner.clear_alert(id)
+		if(mob_overlay_appearance)
+			owner.cut_overlay(mob_overlay_appearance)
+			mob_overlay_appearance = null
 		LAZYREMOVE(owner.status_effects, src)
 		on_remove()
 		UnregisterSignal(owner, COMSIG_LIVING_POST_FULLY_HEAL)

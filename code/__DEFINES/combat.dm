@@ -127,6 +127,11 @@
 #define UNARMED_ATTACK 2
 /// RMH EDIT: flat damage an Expert Pugilist adds to the base of every punch, before strength and glove multipliers (Azure Peak)
 #define PUGILIST_PUNCH_BONUS 4
+/// RMH EDIT (Azure Peak): the first melee hit on an Exposed / Vulnerable target is a punishing one - armor wear, or a creature's damage
+#define EXPOSED_INTEG_MOD 2.5
+#define VULN_INTEG_MOD 1.3
+/// Accuracy bonus against an Exposed or Vulnerable target
+#define ACC_OPENED_TARGET_BONUS 20
 #define PROJECTILE_ATTACK 3
 #define THROWN_PROJECTILE_ATTACK 4
 #define LEAP_ATTACK 5

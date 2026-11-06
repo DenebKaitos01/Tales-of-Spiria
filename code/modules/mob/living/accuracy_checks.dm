@@ -78,6 +78,10 @@
 	else if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION) < 10)
 		chance2hit -= ((10 - GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION)) * 3)
 
+	// RMH EDIT: an opened guard is easier to hit (Azure Peak)
+	if(target.has_status_effect(/datum/status_effect/debuff/exposed) || target.has_status_effect(/datum/status_effect/debuff/vulnerable))
+		chance2hit += ACC_OPENED_TARGET_BONUS
+
 	if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
 		chance2hit += 20
 	else if(istype(user.rmb_intent, /datum/rmb_intent/swift))

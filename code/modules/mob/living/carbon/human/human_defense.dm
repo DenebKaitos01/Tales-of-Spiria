@@ -90,6 +90,24 @@
 		if(intdamfactor != 1)
 			intdamage *= intdamfactor
 		intdamage *= get_tempo_bonus(TEMPO_TAG_ARMOR_INTEGFACTOR)
+		// RMH EDIT START: Azure Peak - the first melee blow that the armor stops while the guard is open is punishing,
+		// and closes the guard again. A blow that goes through the armor leaves it open.
+		var/penetrated = (d_type in ARMOR_DBLOCK_TYPES) && normalize_penetration(armor_penetration) >= protection_tier
+		if(attacker && !istype(used_weapon, /obj/projectile) && !penetrated)
+			if(has_status_effect(/datum/status_effect/debuff/exposed))
+				if(!(d_type in ARMOR_DR_ABSORB_TYPES)) // blunt already bruises the armor at its own rate
+					intdamage *= EXPOSED_INTEG_MOD
+				playsound(src, 'sound/combat/exposed_pop.ogg', 100, TRUE)
+				visible_message(span_danger("[src] suffers a savage hit to [p_their()] armor while exposed!"))
+				remove_status_effect(/datum/status_effect/debuff/exposed)
+				emote("pain", forced = TRUE)
+			else if(has_status_effect(/datum/status_effect/debuff/vulnerable))
+				intdamage *= VULN_INTEG_MOD
+				playsound(src, 'sound/combat/vulnerable_pop.ogg', 100, TRUE)
+				visible_message(span_danger("[src] is struck into [p_their()] armor while vulnerable!"))
+				remove_status_effect(/datum/status_effect/debuff/vulnerable)
+				emote("groan", forced = TRUE)
+		// RMH EDIT END
 		var/old_integrity = used.get_integrity()
 		var/armor_damage_dealt = used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
 		if(armor_damage_dealt > 0)

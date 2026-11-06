@@ -731,6 +731,17 @@
 				to_chat(src, span_userdanger("SNEAK ATTACK!!!"))
 				to_chat(user, span_userdanger("SNEAK ATTACK!!!"))
 				user.adjust_experience(/datum/skill/misc/sneaking, user.STAINT * 5, FALSE)
+	// RMH EDIT: a creature with its guard open takes a punishing blow, which closes it again (Azure Peak)
+	if(has_status_effect(/datum/status_effect/debuff/exposed))
+		newforce *= EXPOSED_INTEG_MOD
+		playsound(src, 'sound/combat/exposed_pop.ogg', 100, TRUE)
+		visible_message(span_danger("[src] suffers a savage blow while exposed!"))
+		remove_status_effect(/datum/status_effect/debuff/exposed)
+	else if(has_status_effect(/datum/status_effect/debuff/vulnerable))
+		newforce *= VULN_INTEG_MOD
+		playsound(src, 'sound/combat/vulnerable_pop.ogg', 100, TRUE)
+		visible_message(span_danger("[src] is struck while vulnerable!"))
+		remove_status_effect(/datum/status_effect/debuff/vulnerable)
 	var/actual_damage = apply_damage(newforce, I.damtype, hitlim, armor)
 	if(!actual_damage)
 		nodmg = TRUE
