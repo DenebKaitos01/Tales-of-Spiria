@@ -48,6 +48,7 @@
 
 /datum/outfit/adventurer_fighter/warrior
 	name = "Warrior"
+	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/belt/pouch/cloth/coins/poor
@@ -71,8 +72,10 @@
 			/obj/item/clothing/armor/cuirass/iron,
 			/obj/item/clothing/armor/gambeson,
 			/obj/item/clothing/neck/gorget,
-			/obj/item/clothing/pants/trou/leather,
-			/obj/item/clothing/shoes/boots/leather,
+			/obj/item/clothing/wrists/bracers/iron,
+			/obj/item/clothing/gloves/leather/advanced,
+			/obj/item/clothing/pants/trou/leather/advanced,
+			/obj/item/clothing/shoes/boots/leather/advanced,
 		),
 	)
 	H.select_equippable(player_client, armor_kits, message = "Choose Your Armor", title = "Warrior")
