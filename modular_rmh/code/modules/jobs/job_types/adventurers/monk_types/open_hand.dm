@@ -31,6 +31,7 @@
 	traits = list(
 		TRAIT_BREADY,
 		TRAIT_DODGEEXPERT,
+		TRAIT_CIVILIZEDBARBARIAN,
 		TRAIT_DODGE_THROUGH_MOBS,
 		TRAIT_STEELHEARTED,
 		TRAIT_CRITICAL_RESISTANCE,
@@ -63,7 +64,7 @@
 	beltr = /obj/item/storage/belt/pouch/cloth/coins/poor
 	beltr = null
 	ring = null
-	l_hand = /obj/item/weapon/knuckles
+	l_hand = /obj/item/clothing/gloves/knuckles
 	r_hand = null
 
 	backpack_contents = list(

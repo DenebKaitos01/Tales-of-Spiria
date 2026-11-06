@@ -58,7 +58,7 @@
 		return "Whip"
 	if(istype(src, /obj/item/weapon/katar))
 		return "Katar"
-	if(istype(src, /obj/item/weapon/knuckles))
+	if(istype(src, /obj/item/clothing/gloves/knuckles))
 		return "Knuckles"
 	if(istype(src, /obj/item/weapon/pick))
 		return "War Pick"

@@ -125,6 +125,8 @@
 //Attack types for checking shields/hit reactions
 #define MELEE_ATTACK 1
 #define UNARMED_ATTACK 2
+/// RMH EDIT: flat damage an Expert Pugilist adds to the base of every punch, before strength and glove multipliers (Azure Peak)
+#define PUGILIST_PUNCH_BONUS 4
 #define PROJECTILE_ATTACK 3
 #define THROWN_PROJECTILE_ATTACK 4
 #define LEAP_ATTACK 5
@@ -263,8 +265,6 @@
 #define STILETTO_CUT		/datum/intent/dagger/cut/stiletto
 #define STILETTO_THRUST		/datum/intent/dagger/thrust/stiletto
 
-#define KNUCKLE_STRIKE		/datum/intent/knuckles/strike
-#define KNUCKLE_SMASH		/datum/intent/knuckles/smash
 #define KATAR_CUT			/datum/intent/katar/cut
 #define KATAR_THRUST		/datum/intent/katar/thrust
 

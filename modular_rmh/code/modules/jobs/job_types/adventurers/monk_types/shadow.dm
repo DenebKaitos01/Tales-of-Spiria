@@ -60,5 +60,5 @@
 	beltr = /obj/item/weapon/mace/rungu
 	beltl = /obj/item/storage/belt/pouch //broke as hell!
 	ring = null
-	l_hand = /obj/item/weapon/knuckles
+	l_hand = /obj/item/clothing/gloves/knuckles
 	r_hand = null

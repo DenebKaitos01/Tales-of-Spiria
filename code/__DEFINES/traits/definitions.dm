@@ -402,6 +402,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MEDIUMARMOR "Mail Training"
 #define TRAIT_HEAVYARMOR "Plate Training"
 #define TRAIT_DODGEEXPERT "Fast Reflexes"
+#define TRAIT_CIVILIZEDBARBARIAN "Expert Pugilist" // RMH EDIT: Azure Peak unarmed specialist
+#define TRAIT_WEAPONLESS "weaponless" // wearing knuckles: can't fight with held weapons
 #define TRAIT_DODGE_THROUGH_MOBS "Flowing Footwork"
 #define TRAIT_UNDODGING	"Inflexible"
 #define TRAIT_UNPARRYING "Graceless"

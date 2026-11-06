@@ -25,6 +25,10 @@
 		if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS))
 			to_chat(user, span_warning("...What?"))
 			return TRUE
+		// RMH EDIT: knuckles on the hands (Azure Peak) - weapons can still be used as tools, just not on creatures
+		if(HAS_TRAIT(user, TRAIT_WEAPONLESS) && istype(src, /obj/item/weapon) && ismob(target))
+			to_chat(user, span_warning("I cannot properly wield [src] with knuckles on."))
+			return TRUE
 
 	var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
 

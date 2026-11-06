@@ -18471,7 +18471,7 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
 	},
-/obj/item/weapon/knuckles/eora{
+/obj/item/clothing/gloves/knuckles/eora{
 	pixel_x = -13;
 	pixel_y = 16
 	},

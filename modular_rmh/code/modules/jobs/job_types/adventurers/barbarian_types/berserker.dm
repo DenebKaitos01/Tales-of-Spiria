@@ -50,7 +50,7 @@
 /datum/job/advclass/combat/adventurer_barbarian/berserker/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()
 	var/static/list/selectableweapon = list(
-		"MY BARE HANDS!!!" = /obj/item/weapon/knuckles,
+		"MY BARE HANDS!!!" = /obj/item/clothing/gloves/knuckles,
 		"Great Axe" = /obj/item/weapon/greataxe/steel,
 		"Mace" = /obj/item/weapon/mace/goden/steel,
 		"Sword" = /obj/item/weapon/sword/arming
@@ -63,6 +63,7 @@
 	switch(choice)
 		if("MY BARE HANDS!!!")
 			spawned.adjust_skillrank(/datum/skill/combat/unarmed, 5)
+			ADD_TRAIT(spawned, TRAIT_CIVILIZEDBARBARIAN, JOB_TRAIT) // RMH EDIT
 		if("Great Axe")
 			spawned.clamped_adjust_skillrank(/datum/skill/combat/axesmaces, 5)
 		if("Mace")

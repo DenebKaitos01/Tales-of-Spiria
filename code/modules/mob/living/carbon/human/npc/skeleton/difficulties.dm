@@ -167,7 +167,7 @@
 	if(prob(50))
 		r_hand = /obj/item/weapon/knife/dagger
 	else
-		r_hand = /obj/item/weapon/knuckles
+		gloves = /obj/item/clothing/gloves/knuckles
 	H.attributes.add_sheet(/datum/attribute_holder/sheet/job/skeleton_npc/pirate)
 
 /mob/living/carbon/human/species/skeleton/npc/medium

@@ -77,7 +77,7 @@
 		/obj/item/reagent_containers/glass/bottle/stronghealthpot,
 		/obj/item/flashlight/flare/torch/lantern,
 		/obj/item/clothing/head/menacing,
-		/obj/item/weapon/knuckles
+		/obj/item/clothing/gloves/knuckles
 	)
 
 /datum/job/watch_warden/after_spawn(mob/living/carbon/human/spawned, client/player_client)

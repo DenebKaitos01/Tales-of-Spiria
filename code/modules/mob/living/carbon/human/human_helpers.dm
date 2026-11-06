@@ -124,6 +124,8 @@
 		damage = GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)
 	else
 		damage = 12
+	if(HAS_TRAIT(src, TRAIT_CIVILIZEDBARBARIAN)) // RMH EDIT: Azure Peak expert pugilist
+		damage += PUGILIST_PUNCH_BONUS
 
 	var/used_str = GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)
 

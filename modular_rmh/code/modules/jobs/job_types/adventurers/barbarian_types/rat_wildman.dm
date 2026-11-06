@@ -33,6 +33,7 @@
 
 	traits = list(
 		TRAIT_DARKVISION,
+		TRAIT_CIVILIZEDBARBARIAN,
 		TRAIT_DEADNOSE,
 		TRAIT_CRITICAL_RESISTANCE,
 		TRAIT_NOPAINSTUN,
@@ -55,7 +56,7 @@
 	armor = /obj/item/clothing/armor/leather/advanced
 	shirt = null
 	wrists = /obj/item/rope/chain
-	gloves = null
+	gloves = /obj/item/clothing/gloves/knuckles
 	pants = null
 	shoes = /obj/item/clothing/shoes/boots/leather/advanced
 	backr = null
@@ -64,5 +65,5 @@
 	beltl = null
 	beltr = /obj/item/weapon/knife/hunting
 	ring = null
-	l_hand = /obj/item/weapon/knuckles
+	l_hand = null
 	r_hand = null

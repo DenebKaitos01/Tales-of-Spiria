@@ -64,6 +64,8 @@
 
 	var/skill_type = weapon_parry ? used_weapon.associated_skill : /datum/attribute/skill/combat/unarmed
 	var/parry_modifier = weapon_modifier
+	if(!weapon_parry)
+		parry_modifier += get_unarmed_parry_bonus() // RMH EDIT: knuckles, bandages and bracers (Azure Peak)
 
 	// Protection from Evil and Good - bonus against matching creature types and vampires
 	var/datum/status_effect/buff/protection_evil_good/ward = has_status_effect(/datum/status_effect/buff/protection_evil_good)
@@ -181,6 +183,13 @@
 	var/force_shield = FALSE
 	var/weapon_parry = FALSE
 
+	// RMH EDIT: hands wearing knuckles cannot parry with held weapons
+	if(HAS_TRAIT(src, TRAIT_WEAPONLESS))
+		if(istype(mainhand, /obj/item/weapon))
+			mainhand = null
+		if(istype(offhand, /obj/item/weapon))
+			offhand = null
+		used_weapon = mainhand
 	if(mainhand && mainhand.can_parry)
 		mainhand_defense += nulltozero(GET_MOB_SKILL_VALUE(src, mainhand.associated_skill))
 		if(istype(mainhand, /obj/item/weapon/shield))

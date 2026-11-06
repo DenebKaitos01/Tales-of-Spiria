@@ -229,7 +229,7 @@
 /datum/supply_pack/weapons/steel/knuckles
 	name = "Steel Knuckles"
 	cost = 45
-	contains = /obj/item/weapon/knuckles
+	contains = /obj/item/clothing/gloves/knuckles
 
 /datum/supply_pack/weapons/steel/sflail
 	name = "Steel Flail"

@@ -674,7 +674,7 @@
 	name = "Knuckles"
 	recipe_name = "a Steel Knuckles"
 	appro_skill = /datum/attribute/skill/craft/weaponsmithing
-	created_item = /obj/item/weapon/knuckles
+	created_item = /obj/item/clothing/gloves/knuckles
 
 /datum/anvil_recipe/weapons/steel/dagger_steel
 	name = "2x Steel Daggers"
@@ -1035,7 +1035,7 @@
 	name = "Aonic Knuckles"
 	req_bar = /obj/item/ingot/silverblessed
 	craftdiff = 3
-	created_item = /obj/item/weapon/knuckles/psydon
+	created_item = /obj/item/clothing/gloves/knuckles/psydon
 	i_type = "Weapons"
 
 /datum/anvil_recipe/weapons/psy/cudgel

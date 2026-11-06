@@ -4240,8 +4240,8 @@
 /obj/structure/rack/underworld{
 	color = "#7D9BAE"
 	},
-/obj/item/weapon/knuckles/psydon,
-/obj/item/weapon/knuckles/psydon,
+/obj/item/clothing/gloves/knuckles/psydon,
+/obj/item/clothing/gloves/knuckles/psydon,
 /turf/open/floor/abyss_tile/three{
 	color = "#29404E"
 	},
@@ -11929,8 +11929,8 @@
 /obj/structure/rack/underworld{
 	color = "#7D9BAE"
 	},
-/obj/item/weapon/knuckles,
-/obj/item/weapon/knuckles,
+/obj/item/clothing/gloves/knuckles,
+/obj/item/clothing/gloves/knuckles,
 /turf/open/floor/abyss_tile/two{
 	color = "#29404E"
 	},
