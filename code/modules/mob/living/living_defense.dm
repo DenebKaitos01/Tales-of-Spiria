@@ -58,18 +58,25 @@
 	var/balance_bonus = 0
 	var/sharpness_bonus = 0
 	if(attacker && used_weapon)
-		if(used_weapon.wbalance >= HARD_TO_DODGE)
-			balance_bonus = max(GET_MOB_ATTRIBUTE_VALUE(attacker, STAT_SPEED) - 10, 0)
+		// RMH EDIT: Azure Peak's stat bonus - heavy weapons ride Strength (+2), swift ones the better of Speed and
+		// Strength, normal ones Strength; only heavy weapons may exceed +4
+		var/str_bonus = GET_MOB_ATTRIBUTE_VALUE(attacker, STAT_STRENGTH) - 10
+		if(used_weapon.wbalance < DODGE_CHANCE_NORMAL)
+			balance_bonus = str_bonus + 2
+		else if(used_weapon.wbalance > DODGE_CHANCE_NORMAL)
+			balance_bonus = min(max(GET_MOB_ATTRIBUTE_VALUE(attacker, STAT_SPEED) - 10, str_bonus), 4)
 		else
-			balance_bonus = max(GET_MOB_ATTRIBUTE_VALUE(attacker, STAT_STRENGTH) - 10, 0)
+			balance_bonus = min(str_bonus, 4)
 		if(used_weapon.max_blade_int && used_weapon.sharpness != IS_BLUNT)
 			var/dullness_ratio = used_weapon.blade_int / used_weapon.max_blade_int
 			if(dullness_ratio <= SHARPNESS_TIER2_THRESHOLD)
 				sharpness_bonus = -2
 			else if(dullness_ratio < SHARPNESS_TIER1_THRESHOLD)
 				sharpness_bonus = -1
+			else
+				sharpness_bonus = 1 // Azure: a keen edge bites a little deeper
 	if(used_intent?.damfactor > 1)
-		pen_total += round((used_intent.damfactor - 1) * 2)
+		pen_total += floor((used_intent.damfactor - 1) * 10) // Azure's damfactor bonus
 	// Don't let a dull blade penalize us below what raw stats would give (TA edge-case rule)
 	if(sharpness_bonus < 0 && balance_bonus >= 0 && abs(balance_bonus) <= abs(sharpness_bonus))
 		balance_bonus = 0
@@ -97,7 +104,7 @@
 				return block_damage * PEN_PROJECTILE_EQUAL_BLOCK_RATIO
 			return block_damage * PEN_PROJECTILE_OVERMATCH_BLOCK_RATIO
 		pen_info = isnull(pen_info) ? 1 : CLAMP(pen_info, 1, PEN_PASSTHROUGH_CAP)
-		return block_damage * max(0, 1 - (pen_info * PEN_PASSTHROUGH_RATIO))
+		return block_damage * max(0, 1 - (PEN_PASSTHROUGH_MINIMUM + (pen_info * PEN_PASSTHROUGH_RATIO)))
 
 	var/legacy_penetration = isnum(armor_penetration) ? armor_penetration : 0
 	return max(0, armor_rating - legacy_penetration)

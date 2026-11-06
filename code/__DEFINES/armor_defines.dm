@@ -34,7 +34,9 @@
 #define ARMOR_DR_TYPES list("blunt", "fire", "acid", "bullet")
 #define ARMOR_DBLOCK_TYPES list("slash", "stab", "piercing")
 
-#define PEN_PASSTHROUGH_RATIO 0.1
+// RMH EDIT: Azure Peak's passthrough - a penetrating hit lets 40% through, +5% per pen dot (max 80% at the cap)
+#define PEN_PASSTHROUGH_MINIMUM 0.4
+#define PEN_PASSTHROUGH_RATIO 0.05
 #define PEN_PASSTHROUGH_CAP 8
 
 // Blocked-damage ratios for projectile-style armor overmatch.
