@@ -478,14 +478,15 @@
 		if(user_human.clan)
 			used_str += floor(0.5 * user_human.potence_weapon_buff)
 			// For each level of potence user gains 0.5 STR, at 5 Potence their STR buff is 2.5
+	// RMH EDIT: Azure Peak's sharpness - a dulling edge first loses the STR bonus (it used to be cut after being applied)
+	var/edge_bonus_mult = 1
+	if(dullness_ratio && (user.used_intent.blade_class in list(BCLASS_CHOP, BCLASS_CUT, BCLASS_STAB)))
+		if(dullness_ratio <= SHARPNESS_TIER1_FLOOR)
+			edge_bonus_mult = 0
+		else if(dullness_ratio < SHARPNESS_TIER1_THRESHOLD)
+			edge_bonus_mult = (dullness_ratio - SHARPNESS_TIER1_FLOOR) / (SHARPNESS_TIER1_THRESHOLD - SHARPNESS_TIER1_FLOOR)
 	if(used_str >= 11)
-		newforce = newforce + (newforce * ((used_str - 10) * 0.1))
-		if(dullness_ratio && (user.used_intent.blade_class in list(BCLASS_CHOP, BCLASS_CUT, BCLASS_STAB)))
-			if(dullness_ratio <= SHARPNESS_TIER2_THRESHOLD)
-				used_str = 0
-			else if(dullness_ratio < SHARPNESS_TIER1_THRESHOLD)
-				var/strlerp = (dullness_ratio - SHARPNESS_TIER2_THRESHOLD) / (SHARPNESS_TIER1_THRESHOLD - SHARPNESS_TIER2_THRESHOLD)
-				used_str *= strlerp
+		newforce = newforce + (newforce * ((used_str - 10) * 0.1) * edge_bonus_mult)
 	else if(used_str <= 9)
 		newforce = newforce - (newforce * ((10 - used_str) * 0.1))
 
@@ -593,14 +594,11 @@
 	* a rock wall or anything with DULLING_PICK blade_dulling
 	* flag. This is alot.
 	*/
-	newforce = (newforce * user.used_intent.damfactor) * dullfactor
-	if(user.used_intent.damfactor && (user.used_intent.blade_class in list(BCLASS_CHOP, BCLASS_CUT, BCLASS_STAB)))
-		if(dullness_ratio <= SHARPNESS_TIER2_THRESHOLD)
-			newforce = 0
-		else if(dullness_ratio <= SHARPNESS_TIER1_THRESHOLD)
-			var/damflerp = (dullness_ratio - SHARPNESS_TIER2_THRESHOLD) / (SHARPNESS_TIER1_THRESHOLD - SHARPNESS_TIER2_THRESHOLD)
-			newforce *= damflerp
-			newforce = round(newforce)
+	// RMH EDIT: Azure Peak's sharpness - a dulling edge loses only the intent's extra damage, not the weapon's base damage
+	var/damfactor = user.used_intent.damfactor
+	if(damfactor > 1)
+		damfactor = 1 + ((damfactor - 1) * edge_bonus_mult)
+	newforce = (newforce * damfactor) * dullfactor
 	if(user.used_intent.get_chargetime() && user.client?.chargedprog < 100)
 		newforce = newforce * round(user.client?.chargedprog / 100, 0.1)
 	// newforce = round(newforce, 1)

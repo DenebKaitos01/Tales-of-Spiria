@@ -724,6 +724,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(minstr)
 		inspect_list += "\n<b>MIN.STR:</b> [minstr]"
 
+	// RMH EDIT: show the weapon's damage like Azure Peak does
+	if(force)
+		inspect_list += "\n<b>FORCE:</b> [force]"
+	if(force_wielded && force_wielded != force)
+		inspect_list += "\n<b>WIELDED FORCE:</b> [force_wielded]"
+
 	if(wbalance)
 		inspect_list += "\n<b>BALANCE: </b>"
 		if(wbalance < 0)
