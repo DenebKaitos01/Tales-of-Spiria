@@ -21,7 +21,7 @@
 	)
 
 /datum/job/advclass/combat/adventurer_fighter/warrior
-	title = "Adventurer: Warrior" // RMH EDIT: the base fighter subclass
+	title = "Warrior" // RMH EDIT: the base fighter subclass
 	tutorial = "On the Sword Coast, steel speaks louder than promises. \
 	Warriors are mercenaries, caravan guards, militia veterans, \
 	and hardened survivors of countless skirmishes."
@@ -44,95 +44,56 @@
 
 
 // ------------------------------------------------------------
+// RMH EDIT: the Warrior picks a weapon kit and an armor kit when spawning. The chosen weapon's skill goes to Expert.
 
 /datum/outfit/adventurer_fighter/warrior
 	name = "Warrior"
-	head = null
-	mask = null
-	neck = null
-	cloak = null
-	armor = null
-	shirt = null
-	wrists = null
-	gloves = null
-	pants = null
-	shoes = null
-	backr = null
-	backl = null
-	belt = /obj/item/storage/belt/leather/adventurers_subclasses
-	beltl = null
-	beltr = null
-	ring = null
-	l_hand = null
-	r_hand = /obj/item/flashlight/flare/torch/prelit
-
-	backpack_contents = list(
-		/obj/item/storage/belt/pouch/cloth/coins/poor = 1,
-	)
-
-
-// ------------------------------------------------------------
-
-/datum/outfit/adventurer_fighter/warrior/pre_equip(mob/living/carbon/human/H, visuals_only)
-	. = ..()
-	if(visuals_only)
-		return
-
-	head = pick(/obj/item/clothing/head/helmet/skullcap, /obj/item/clothing/head/helmet/ironpot, /obj/item/clothing/head/helmet/sallet/iron, /obj/item/clothing/head/helmet/leather/headscarf)
-	neck = pick(/obj/item/clothing/neck/chaincoif/iron, /obj/item/clothing/neck/gorget, /obj/item/clothing/neck/highcollier/iron, /obj/item/clothing/neck/coif/cloth, /obj/item/clothing/neck/coif)
-	armor = pick(/obj/item/clothing/armor/chainmail/hauberk/iron, /obj/item/clothing/armor/leather/splint, /obj/item/clothing/armor/cuirass/iron)
-	shirt = pick(/obj/item/clothing/armor/gambeson, /obj/item/clothing/armor/gambeson/light)
-	wrists = pick(/obj/item/clothing/wrists/bracers/leather, /obj/item/clothing/wrists/bracers/ironjackchain)
-	gloves = pick(/obj/item/clothing/gloves/leather, /obj/item/clothing/gloves/leather/advanced, /obj/item/clothing/gloves/fingerless, /obj/item/clothing/gloves/chain/iron)
-	pants = pick(/obj/item/clothing/pants/tights/colored/black, /obj/item/clothing/pants/trou/leather/splint, /obj/item/clothing/pants/trou/leather)
-	shoes = pick(/obj/item/clothing/shoes/boots, /obj/item/clothing/shoes/boots/furlinedboots)
-
-// ------------------------------------------------------------
+	belt = /obj/item/storage/belt/leather
+	beltl = /obj/item/flashlight/flare/torch/lantern
+	beltr = /obj/item/storage/belt/pouch/cloth/coins/poor
 
 /datum/job/advclass/combat/adventurer_fighter/warrior/after_spawn(mob/living/carbon/human/H, client/player_client)
 	. = ..()
 
-	var/list/selectableweapon = list(
-		"Sword" = pick(list(/obj/item/weapon/sword/iron, /obj/item/weapon/sword/scimitar/messer, /obj/item/weapon/sword/sabre/scythe)),
-		"Axe" = /obj/item/weapon/axe/iron,
-		"Mace" = pick(list(/obj/item/weapon/mace/bludgeon, /obj/item/weapon/mace/warhammer, /obj/item/weapon/mace/spiked, /obj/item/weapon/hammer/sledgehammer)),
-		"Spear" = /obj/item/weapon/polearm/spear,
-		"Flail" = pick(list(/obj/item/weapon/flail, /obj/item/weapon/flail/militia)),
-		"Great flail" = /obj/item/weapon/flail/peasant,
-		"Goedendag" = /obj/item/weapon/mace/goden,
-		"Great axe" = /obj/item/weapon/polearm/halberd/bardiche/woodcutter,
+	// Armor goes on first so the shields and weapons find their slots afterwards
+	var/static/list/armor_kits = list(
+		"Maille & Leather" = list(
+			/obj/item/clothing/armor/leather,
+			/obj/item/clothing/armor/chainmail/iron,
+			/obj/item/clothing/wrists/bracers/ironjackchain,
+			/obj/item/clothing/pants/trou/leather/splint,
+			/obj/item/clothing/shoes/boots/leather,
+			/obj/item/clothing/gloves/leather,
+			/obj/item/clothing/neck/chaincoif/iron,
+			/obj/item/clothing/head/helmet/kettle/iron,
+		),
+		"Breastplate & Maille" = list(
+			/obj/item/clothing/armor/cuirass/iron,
+			/obj/item/clothing/armor/chainmail/iron,
+			/obj/item/clothing/neck/gorget,
+			/obj/item/clothing/pants/trou/leather,
+			/obj/item/clothing/shoes/boots/leather,
+		),
 	)
+	H.select_equippable(player_client, armor_kits, message = "Choose Your Armor", title = "Warrior")
+	if(QDELETED(H))
+		return
 
-	var/weaponchoice = H.select_equippable(player_client, selectableweapon, message = "Choose Your Martial Training", title = "Warrior")
-
+	var/static/list/weapon_kits = list(
+		"Short Sword & Iron Shield" = list(/obj/item/weapon/sword/short, /obj/item/weapon/shield/tower/buckleriron),
+		"Longsword & Wrestling" = list(/obj/item/weapon/sword/long),
+		"Battle Axe & Wood Shield" = list(/obj/item/weapon/axe/battle, /obj/item/weapon/shield/wood),
+		"Mace & Iron Shield" = list(/obj/item/weapon/mace, /obj/item/weapon/shield/tower/buckleriron),
+	)
+	var/weaponchoice = H.select_equippable(player_client, weapon_kits, message = "Choose Your Martial Training", title = "Warrior")
 	if(QDELETED(H) || !weaponchoice)
 		return
 
-	var/grant_shield = TRUE
-	var/shield_path = null
-
 	switch(weaponchoice)
-		if("Sword")
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-		if("Axe", "Mace")
-			H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-		if("Spear")
-			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-			grant_shield = /obj/item/weapon/shield/tower/buckleriron
-		if("Flail", "Great flail")
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
-			if(weaponchoice == "Great flail")
-				grant_shield = FALSE
-		if("Goedendag", "Great axe")
-			H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-			grant_shield = FALSE
-
-	if(grant_shield == TRUE)
-		shield_path = pick(list(/obj/item/weapon/shield/heater, /obj/item/weapon/shield/wood))
-		var/obj/item/shield = new shield_path()
-		if(!H.equip_to_appropriate_slot(shield))
-			qdel(shield)
-	else if(ispath(grant_shield))
-		var/obj/item/shield = new grant_shield()
-		if(!H.equip_to_appropriate_slot(shield))
-			qdel(shield)
+		if("Short Sword & Iron Shield")
+			H.adjust_skillrank_up_to(/datum/attribute/skill/combat/swords, SKILL_RANK_EXPERT, TRUE)
+		if("Longsword & Wrestling")
+			H.adjust_skillrank_up_to(/datum/attribute/skill/combat/swords, SKILL_RANK_EXPERT, TRUE)
+			H.adjust_skillrank(/datum/attribute/skill/combat/wrestling, 1, TRUE)
+		if("Battle Axe & Wood Shield", "Mace & Iron Shield")
+			H.adjust_skillrank_up_to(/datum/attribute/skill/combat/axesmaces, SKILL_RANK_EXPERT, TRUE)
