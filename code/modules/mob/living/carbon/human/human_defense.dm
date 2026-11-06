@@ -32,15 +32,14 @@
 		if(bp && istype(bp , /obj/item/clothing))
 			var/obj/item/clothing/C = bp
 			if(zone2covered(def_zone, C.body_parts_covered))
-				if(C.uses_integrity)
-					if(C.get_integrity() <= 0)
-						continue
+				if(C.armor_is_broken()) // RMH EDIT: broken armor (below its failure threshold) no longer protects, as in Azure
+					continue
 				var/val = C.get_armor_rating(d_type)
 				// The code below finally fixes the targetting order of armor > shirt > flesh. - Foxtrot (#gundamtanaka)
 				var/obj/item/armorworn = src.get_item_by_slot(ITEM_SLOT_ARMOR) // The armor we're wearing
 				var/obj/item/shirtworn = src.get_item_by_slot(ITEM_SLOT_SHIRT) // The shirt we're wearing
 				var/armor_protection = 0 // We are going to check if the armor protects more than the shirt.
-				if(bp == armorworn && (armorworn.uses_integrity && armorworn.get_integrity() > 0) && zone2covered(def_zone, armorworn.body_parts_covered)) // If the targeted bodypart has an armor...
+				if(bp == armorworn && zone2covered(def_zone, armorworn.body_parts_covered)) // If the targeted bodypart has an armor...
 					if(val > 0) // ...and it's an actual armor with armor values...
 						if(val > protection)
 							protection = val
@@ -79,6 +78,15 @@
 		// unrated armor (tier 0) doesn't absorb, so it skips the multiplier by design.
 		else if(protection_tier > ARMOR_TIER_NONE && (d_type in ARMOR_DR_ABSORB_TYPES))
 			intdamage = (intdamage * BLUNT_ARMOR_INTEGRITY_MULT) / (1 + (0.2 * protection_tier))
+		// RMH EDIT START: Azure Peak's armor wear - what goes through the armor no longer also wears it down in full
+		else if(protection_tier > ARMOR_TIER_NONE && (d_type in ARMOR_DBLOCK_TYPES) && normalize_penetration(armor_penetration) >= protection_tier)
+			if(d_type == PIERCE)
+				var/equal_pen = normalize_penetration(armor_penetration) == protection_tier
+				intdamage *= equal_pen ? PEN_PASSTHROUGH_PROJ_EQUAL : PEN_PASSTHROUGH_PROJ_MORE
+			else
+				var/pen_dots = get_pen_info(attacker, used_weapon, attacker?.used_intent, armor_penetration, protection)
+				intdamage *= max(0, 1 - (pen_dots * PEN_PASSTHROUGH_RATIO))
+		// RMH EDIT END
 		if(intdamfactor != 1)
 			intdamage *= intdamfactor
 		intdamage *= get_tempo_bonus(TEMPO_TAG_ARMOR_INTEGFACTOR)
@@ -115,7 +123,7 @@
 		var/obj/item/clothing/armor_layer = layer
 		if(!zone2covered(def_zone, armor_layer.body_parts_covered))
 			continue
-		if(armor_layer.uses_integrity && armor_layer.get_integrity() <= 0)
+		if(armor_layer.armor_is_broken())
 			continue
 		var/armor_rating = armor_layer.get_armor_rating(attack_flag)
 		protection_tier = max(protection_tier, normalize_armor_rating(attack_flag, armor_rating))

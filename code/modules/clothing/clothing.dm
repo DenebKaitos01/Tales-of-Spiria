@@ -384,15 +384,23 @@
 	. = ..()
 	if(!damaged_clothes)
 		update_clothes_damaged_state(TRUE)
+	// RMH EDIT: this used to zero a copy of the ratings, so "broken" armor kept protecting in full.
+	// Broken armor is now skipped by checkarmor() through armor_is_broken() until it is repaired.
 	var/brokemessage = FALSE
 	var/list/armorlist = get_armor().get_rating_list()
 	for(var/x in armorlist)
 		if(armorlist[x] > 0)
 			brokemessage = TRUE
-			armorlist[x] = 0
+			break
 	if(ismob(loc) && brokemessage)
 		var/mob/M = loc
-		to_chat(M, "ARMOR BROKEN...!")
+		to_chat(M, span_userdanger("My [name] breaks and no longer protects me!"))
+
+/// Whether this piece is too damaged to protect (at or below its failure threshold); repairing it restores protection
+/obj/item/clothing/proc/armor_is_broken()
+	if(!uses_integrity)
+		return FALSE
+	return obj_broken || get_integrity() <= 0
 
 /obj/item/clothing/atom_fix()
 	. = ..()

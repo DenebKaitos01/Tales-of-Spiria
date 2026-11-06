@@ -38,6 +38,9 @@
 #define PEN_PASSTHROUGH_MINIMUM 0.4
 #define PEN_PASSTHROUGH_RATIO 0.05
 #define PEN_PASSTHROUGH_CAP 8
+// Share of a projectile's damage a penetrated armor takes as wear (Azure Peak values)
+#define PEN_PASSTHROUGH_PROJ_EQUAL 0.2
+#define PEN_PASSTHROUGH_PROJ_MORE 0.8
 
 // Blocked-damage ratios for projectile-style armor overmatch.
 #define PEN_PROJECTILE_EQUAL_BLOCK_RATIO 0.8
