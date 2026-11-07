@@ -20,6 +20,7 @@
 	// RMH EDIT: fighter subclasses pruned to one base class; new ones derive from it with small bonuses
 	job_subclasses = list(
 		/datum/job/advclass/combat/adventurer_fighter/warrior,
+		/datum/job/advclass/combat/adventurer_fighter/ironclad,
 	)
 
 /datum/job/adventurer_fighter/after_spawn(mob/living/carbon/human/spawned, client/player_client)

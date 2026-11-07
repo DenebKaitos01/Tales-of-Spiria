@@ -112,6 +112,9 @@
 		var/armor_damage_dealt = used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
 		if(armor_damage_dealt > 0)
 			show_armor_damage_feedback(used, armor_damage_dealt, old_integrity, used.get_integrity(), attacker)
+			// RMH EDIT: Ironclad's Bulwark knocks a repair fragment loose
+			var/datum/status_effect/buff/bulwark/bulwark = has_status_effect(/datum/status_effect/buff/bulwark)
+			bulwark?.shed_fragment()
 
 	if(steam_boiler && def_zone == BODY_ZONE_CHEST)
 		steam_boiler.take_damage(boiler_damage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
