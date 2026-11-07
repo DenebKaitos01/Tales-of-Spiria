@@ -13,6 +13,7 @@ GLOBAL_LIST_EMPTY(paladin_evil_subclasses)
 	display_order = JDO_ADVENTURER_PALADIN
 
 	allowed_patrons = list(
+		/datum/patron/spira/primordial/gaedon,
 		/datum/patron/spira/greater/sirokel,
 		/datum/patron/spira/greater/naverae,
 		/datum/patron/spira/greater/ragelia,

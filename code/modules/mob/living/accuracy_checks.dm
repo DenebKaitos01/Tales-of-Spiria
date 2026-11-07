@@ -5,7 +5,7 @@
 		return FALSE
 	if(body_position == LYING_DOWN)
 		return FALSE
-	if(user.stat_roll(STAT_FORTUNE,4,10,TRUE))
+	if(user.stat_roll(STAT_FORTUNE,4,10,TRUE) && !user.ambition_spares(user.stat_roll(STAT_FORTUNE,4,10,TRUE))) // RMH EDIT: Ambition rerolls
 		var/list/usedp = list("Critical miss!", "Damn! Critical miss!", "No! Critical miss!", "It can't be! Critical miss!", "Betrayed by lady luck! Critical miss!", "Bad luck! Critical miss!", "Curse creation! Critical miss!", "What?! Critical miss!")
 		to_chat(user, "<span class='boldwarning'>[pick(usedp)]</span>")
 		flash_fullscreen("blackflash2")

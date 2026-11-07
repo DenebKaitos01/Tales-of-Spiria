@@ -33,7 +33,7 @@
 	patron_type = /datum/patron/spira/lesser/lunestra
 	domains = list("shadow", "luck")
 
-/datum/dungeon_god_profile/gaedon // sinister: only watches parties carrying his faithful
+/datum/dungeon_god_profile/gaedon
 	patron_type = /datum/patron/spira/primordial/gaedon
 	domains = list("craft", "war")
 

@@ -93,7 +93,7 @@
 		progress = 0
 
 	if(!moveup)
-		if(!prob(proab)) // Roll again for consequences
+		if(!prob(proab) && !user.ambition_spares(!prob(proab))) // Roll again for consequences (RMH EDIT: Ambition rerolls)
 			user.visible_message("<span class='warning'>[user] strikes poorly!</span>")
 			skill_quality -= 0.5
 			return FALSE

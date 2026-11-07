@@ -1185,7 +1185,7 @@
 			found_tempus_boost = TRUE
 	TEST_ASSERT(found_tempus_boost, "Ragelia should be in the watching pool.")
 
-	// A Gaedon worshipper unlocks Gaedon's gaze.
+	// A Gaedon worshipper is watched by Gaedon.
 	worshipper.patron = GLOB.patron_list[/datum/patron/spira/primordial/gaedon]
 	TEST_ASSERT_NOTNULL(worshipper.patron, "Gaedon should exist in the patron list.")
 	var/list/lolth_weights = get_watching_god_weights(list(worshipper))
@@ -1193,7 +1193,7 @@
 	for(var/datum/dungeon_god_profile/profile as anything in lolth_weights)
 		if(profile.patron_type == /datum/patron/spira/primordial/gaedon)
 			found_lolth = TRUE
-	TEST_ASSERT(found_lolth, "An evil god should watch when its worshipper descends.")
+	TEST_ASSERT(found_lolth, "A god should watch when its worshipper descends.")
 
 	// The roll returns three distinct gods.
 	var/list/rolled = roll_watching_gods(list(worshipper))

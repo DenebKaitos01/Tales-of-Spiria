@@ -259,7 +259,7 @@
 		else
 			prob2craft = CLAMP(prob2craft, 5, 99)
 
-			if(prob(prob2fail)) // Critical fail
+			if(prob(prob2fail) && !user.ambition_spares(prob(prob2fail))) // Critical fail (RMH EDIT: Ambition rerolls)
 				to_chat(user, "<span class='danger'>MISTAKE! I've completely fumbled the construction of [recipe.name]!</span>")
 				return FALSE
 

@@ -39,21 +39,22 @@
 /datum/patron/spira/primordial/gaedon
 	name = "Gaedon"
 	display_name = "Gaedon, the Firstborn"
-	domain = "Ambition, Foundations, the First of All Things"
+	domain = "Ambition, Perfection and Progress"
 	desc = "The primordial god who withstood the chaos and forced a stable world out of it: Paradise. \
-	Arrogant and tyrannical, he built the foundations of the world and its first servants, struck down Sirokel \
-	for her theft and now lies imprisoned in his own creation. He is shown as chains and golden shackles."
-	worshippers = "The ambitious, builders, tyrants and those who would rule"
+	Proud and overbearing, he built the foundations of the world and its first servants, struck down Sirokel \
+	for her theft and now lies imprisoned in his own creation. Though every mortal was made by Saelion, Gaedon finds \
+	them interesting and full of potential, and grants his favor to the exceptional and to those who strive to improve \
+	despite lacking skill or talent. He is shown as chains and golden shackles."
+	worshippers = "Nobles, the ambitious, the talented and those who press on against all odds"
 	flaws = "Arrogance, Tyranny, Wrath"
-	sins = "Ingratitude, Theft from one's master, Submitting to the usurper"
-	boons = "You recover more energy when sleeping."
-	added_traits = list(TRAIT_BETTER_SLEEP)
+	sins = "Pessimism, Complacency, Fearing to advance or improve"
+	boons = "Ambition: when you critically fail an attack or a craft, you roll again."
+	added_traits = list(TRAIT_AMBITION)
 	devotion_holder = /datum/devotion/divine/malum
-	sinister = TRUE
 	confess_lines = list(
-		"GAEDON WAS FIRST, AND GAEDON WILL BE LAST!",
-		"NO CHAIN HOLDS THE FIRSTBORN FOREVER!",
-		"ALL THAT STANDS WAS BUILT BY HIS HAND!",
+		"GAEDON WAS THE FIRST AND WILL BE THE LAST!",
+		"HIS CHAINS HOLD THE WORLD TOGETHER!",
+		"AMBITION REWARDS THE BRAVE!",
 	)
 
 /datum/patron/spira/primordial/saelion

@@ -851,7 +851,7 @@
 		to_chat(user, "<span class='danger'>I lack the skills for this...</span>")
 		return FAIL_END_CRAFT
 
-	if(prob(prob2fail))
+	if(prob(prob2fail) && !user.ambition_spares(prob(prob2fail))) // RMH EDIT: Ambition rerolls
 		to_chat(user, "<span class='danger'>MISTAKE! I've completely fumbled the crafting of \the [name]!</span>")
 		return FAIL_END_CRAFT
 
