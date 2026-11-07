@@ -151,6 +151,9 @@
 		return FALSE
 	if(has_status_effect(/datum/status_effect/defeat_knockout))
 		return FALSE
+	// RMH EDIT: Saelion's Will to Live - the fall is refused (counts as handled, so a lethal hit is not let through)
+	if(try_will_to_live(reason))
+		return TRUE
 
 	var/mob/living/carbon/carbon_target = src
 	if(!istype(carbon_target))

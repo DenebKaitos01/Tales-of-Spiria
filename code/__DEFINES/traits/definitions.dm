@@ -403,6 +403,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HEAVYARMOR "Plate Training"
 #define TRAIT_DODGEEXPERT "Fast Reflexes"
 #define TRAIT_CIVILIZEDBARBARIAN "Expert Pugilist" // RMH EDIT: Azure Peak unarmed specialist
+#define TRAIT_WILL_TO_LIVE "Will to Live" // RMH EDIT: Saelion - a chance to refuse defeat once per round
 #define TRAIT_AMBITION "Ambition" // RMH EDIT: Gaedon - rerolls critical failures on attacks and crafting
 #define TRAIT_MOMENTUM "Momentum" // RMH EDIT: Warrior - landed hits build towards Focus
 #define TRAIT_WEAPONLESS "weaponless" // wearing knuckles: can't fight with held weapons

@@ -59,22 +59,22 @@
 
 /datum/patron/spira/primordial/saelion
 	name = "Saelion"
-	display_name = "Saelion, the Blue Flame"
-	domain = "Life, Creation, Nature and Beasts"
+	display_name = "Saelion, the Bluish Flame"
+	domain = "Life, Light and Creation"
 	desc = "A small being born from the chaos with a gift Gaedon never had: the power to create life. \
 	Hidden and taught by Sirokel, he received her stolen essence and imprisoned his creator. \
 	The faithful of Gaedon call him the usurper; everyone else calls him the patron of all life. \
 	He is shown as a bluish flame."
-	worshippers = "Druids, hunters, farmers, healers and every living thing"
+	worshippers = "Most beings of the civilized world of Spira, above all the highest ranks of the Holy Church"
 	flaws = "Recklessness, Vengefulness, Careless experiments"
-	sins = "Wasting life, Despoiling the wild, Cruelty to beasts"
-	boons = "You are immune to kneestingers."
-	added_traits = list(TRAIT_KNEESTINGER_IMMUNITY)
+	sins = "Wasting or scorning life, Senseless destruction of nature"
+	boons = "Will to Live: once per round, when you are about to fall, Endurance gives you a chance to stay on your feet."
+	added_traits = list(TRAIT_WILL_TO_LIVE)
 	devotion_holder = /datum/devotion/divine/dendor
 	confess_lines = list(
-		"THE BLUE FLAME BURNS IN ALL THAT LIVES!",
-		"SAELION GAVE US LIFE!",
 		"WHAT LIVES, LIVES BY HIS GRACE!",
+		"PRAISED BE THE BLUE FLAME, FOR ITS WARMTH GAVE US LIFE!",
+		"HIS FLAME BURNS WITHIN EVERY HEART!",
 	)
 
 // ---------------- Greater Gods ----------------
