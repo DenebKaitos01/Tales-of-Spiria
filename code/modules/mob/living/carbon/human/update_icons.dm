@@ -2011,6 +2011,7 @@ generate/load female uniform sprites matching all previously decided variables
 			. += "organic"
 		else
 			. += "robotic"
+			. += BP.prosthetic_tint // RMH EDIT - tinted prosthetics need their own cache slot
 		if(HAS_TRAIT(BP, TRAIT_ROTTEN))
 			. += "rotted"
 		if(BP.skeletonized)

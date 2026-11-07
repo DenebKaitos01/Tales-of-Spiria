@@ -2356,6 +2356,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		apply_character_kinks(character)
 
 	// RMH EDITED START - self-written tattoos, applied after species/bodyparts are set up
+	apply_prosthetics_to_human(character, character_setup)
 	apply_tattoos_to_human(character)
 	if(!character_setup)
 		apply_stat_allocation_to_human(character)

@@ -2402,6 +2402,44 @@
 .cc-tat-controls {
   gap: 4px;
 }
+.cc-tat-kinds {
+  gap: 4px;
+  flex-wrap: wrap;
+  margin: 4px 0 2px;
+}
+.cc-tat-medium {
+  width: 14px;
+  flex: none;
+  text-align: center;
+  font-size: 10px;
+  color: var(--cc-muted);
+}
+.cc-tat-entry {
+  border-left: 2px solid transparent;
+  padding-left: 4px;
+}
+.cc-tat-brand {
+  border-left-color: #c48e42;
+}
+.cc-tat-brand .cc-tat-medium {
+  color: #e0803a;
+}
+.cc-tat-arcane {
+  border-left-color: #ffb02e;
+  box-shadow: -3px 0 6px -3px #ffb02e;
+}
+.cc-tat-arcane .cc-tat-medium {
+  color: #ffd27a;
+}
+.cc-tat-writing {
+  border-left-style: dashed;
+  border-left-color: var(--cc-muted);
+}
+.cc-tat-note {
+  font-size: 10px;
+  font-style: italic;
+  white-space: nowrap;
+}
 /* End of tattoo editor */
 
 /* Prosthetics window: artificer's schematic and parts drawer */
