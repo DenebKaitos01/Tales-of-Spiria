@@ -356,6 +356,9 @@
 	if(src.client)
 		record_round_statistic(STATS_PARRIES)
 
+	if(isliving(src)) // RMH EDIT: a focused Warrior keeps their Focus by blocking
+		var/mob/living/parrier = src
+		parrier.momentum_block()
 	return TRUE
 
 /**

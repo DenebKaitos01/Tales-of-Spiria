@@ -365,6 +365,9 @@
 	M.set_damage_attack_context(user)
 	var/attack_result = M.attacked_by(src, user)
 	M.clear_damage_attack_context()
+	if(isliving(user) && M.stat != DEAD) // RMH EDIT: Warrior momentum
+		var/mob/living/living_user = user
+		living_user.momentum_hit()
 	if(attack_result)
 		if(user.used_intent == cached_intent)
 			var/tempsound = user.used_intent.hitsound
