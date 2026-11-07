@@ -29,6 +29,8 @@
 	heal_overall_damage(needed, needed * 0.5)
 	if(getOxyLoss() > 0)
 		adjustOxyLoss(-50)
+	if(!is_bloodless())
+		adjust_bloodvolume(BLOOD_VOLUME_NORMAL * 0.1, BLOOD_VOLUME_NORMAL) // a little blood back
 	SetUnconscious(0)
 	SetParalyzed(0)
 	SetKnockdown(0)
@@ -36,9 +38,7 @@
 		get_up(TRUE)
 
 	playsound(src, 'sound/magic/bless.ogg', 80, TRUE)
-	new /obj/effect/temp_visual/heal(get_turf(src), "#4fa3ff")
-	visible_message(span_danger("A bluish flame flares within [src] as [p_they()] refuse[p_s()] to fall!"), \
-		span_userdanger("Saelion watches over his sons and daughters. RISE!"))
+	to_chat(src, span_userdanger("Saelion watches over his sons and daughters. RISE!"))
 	return TRUE
 
 #undef WILL_TO_LIVE_CHANCE_PER_END
