@@ -25,13 +25,7 @@
 	display_order = JDO_GROVE_DRUID
 
 	allowed_patrons = list(
-		/datum/patron/faerun/neutral_gods/Silvanus,
-
-		/datum/patron/faerun/good_gods/Mielikki,
-
-		/datum/patron/faerun/evil_gods/Malar,
-		/datum/patron/faerun/evil_gods/Talos,
-		/datum/patron/faerun/evil_gods/Umberlee
+		/datum/patron/spira/primordial/saelion,
 	)
 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)

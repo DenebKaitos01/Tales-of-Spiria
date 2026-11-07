@@ -19,44 +19,12 @@
 	display_order = JDO_CHAPEL_ACOLYTE
 
 	allowed_patrons = list(
-		/datum/patron/faerun/good_gods/Garl_Glittergold,
-		/datum/patron/faerun/neutral_gods/Helm,
-		/datum/patron/faerun/neutral_gods/Mystra,
-		/datum/patron/faerun/neutral_gods/Oghma,
-		/datum/patron/faerun/neutral_gods/Tempus,
-		/datum/patron/faerun/neutral_gods/Tymora,
-		/datum/patron/faerun/neutral_gods/Silvanus,
-		/datum/patron/faerun/neutral_gods/Jergal,
-
-		/datum/patron/faerun/good_gods/Bahamut,
-		/datum/patron/faerun/good_gods/Corellon,
-		/datum/patron/faerun/good_gods/Eilistraee,
-		/datum/patron/faerun/good_gods/Ilmater,
-		/datum/patron/faerun/good_gods/Lathander,
-		/datum/patron/faerun/good_gods/Mielikki,
-		/datum/patron/faerun/good_gods/Moradin,
-		/datum/patron/faerun/good_gods/Selune,
-		/datum/patron/faerun/good_gods/Tyr,
-		/datum/patron/faerun/good_gods/Yondalla,
-		/datum/patron/faerun/good_gods/Sune,
-		/datum/patron/faerun/good_gods/Sharess,
-		/datum/patron/faerun/good_gods/Torm,
-		/datum/patron/faerun/good_gods/Milil,
-		/datum/patron/faerun/good_gods/Deneir,
-
-		/datum/patron/faerun/evil_gods/Mask,
-		/datum/patron/faerun/evil_gods/Vlaakith,
-		/datum/patron/faerun/evil_gods/Lolth,
-		/datum/patron/faerun/evil_gods/Shar,
-		/datum/patron/faerun/evil_gods/Gruumsh,
-		/datum/patron/faerun/evil_gods/Laduguer,
-		/datum/patron/faerun/evil_gods/Talos,
-		/datum/patron/faerun/evil_gods/Tiamat,
-		/datum/patron/faerun/evil_gods/Malar,
-		/datum/patron/faerun/evil_gods/Maglubiyet,
-		/datum/patron/faerun/evil_gods/Umberlee,
-		/datum/patron/faerun/evil_gods/Loviatar,
-		/datum/patron/faerun/evil_gods/Asmodeus
+		/datum/patron/spira/primordial/gaedon,
+		/datum/patron/spira/primordial/saelion,
+		/datum/patron/spira/greater/sirokel,
+		/datum/patron/spira/greater/naverae,
+		/datum/patron/spira/greater/ragelia,
+		/datum/patron/spira/lesser/lunestra,
 	)
 
 
@@ -194,7 +162,14 @@
 	outfit = /datum/outfit/acolyte/selune
 	category_tags = list(CAT_CHAPEL)
 
-	allowed_patrons = list(/datum/patron/faerun/good_gods/Selune)
+	allowed_patrons = list(
+		/datum/patron/spira/primordial/gaedon,
+		/datum/patron/spira/primordial/saelion,
+		/datum/patron/spira/greater/sirokel,
+		/datum/patron/spira/greater/naverae,
+		/datum/patron/spira/greater/ragelia,
+		/datum/patron/spira/lesser/lunestra,
+	)
 
 	spells = list(/datum/action/cooldown/spell/undirected/touch/orison,
 		/datum/action/cooldown/spell/healing,
@@ -270,7 +245,14 @@
 	outfit = /datum/outfit/acolyte/sune
 	category_tags = list(CAT_CHAPEL)
 
-	allowed_patrons = list(/datum/patron/faerun/good_gods/Sune)
+	allowed_patrons = list(
+		/datum/patron/spira/primordial/gaedon,
+		/datum/patron/spira/primordial/saelion,
+		/datum/patron/spira/greater/sirokel,
+		/datum/patron/spira/greater/naverae,
+		/datum/patron/spira/greater/ragelia,
+		/datum/patron/spira/lesser/lunestra,
+	)
 
 	spells = list(/datum/action/cooldown/spell/undirected/touch/orison,
 		/datum/action/cooldown/spell/healing,

@@ -47,7 +47,7 @@
 
 /datum/status_effect/buff/protection_evil_good/on_apply()
 	. = ..()
-	is_inhumen = istype(owner.patron, /datum/patron/inhumen) || istype(owner.patron, /datum/patron/faerun/evil_gods)
+	is_inhumen = is_sinister_patron(owner.patron)
 	ADD_TRAIT(owner, TRAIT_PROTECTION_EVIL_GOOD, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FEARLESS, TRAIT_STATUS_EFFECT(id))
 	owner.add_overlay(ward_overlay)

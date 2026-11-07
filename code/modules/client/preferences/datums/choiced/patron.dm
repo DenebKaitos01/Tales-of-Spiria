@@ -21,7 +21,7 @@
 	return TRUE
 
 /datum/preference/choiced/patron/create_default_value(datum/preferences/prefs)
-	return GLOB.patron_list[/datum/patron/faerun/good_gods/Selune]
+	return GLOB.patron_list[/datum/patron/spira/greater/sirokel]
 
 /datum/preference/choiced/patron/serialize(input)
 	if (istype(input, /datum/patron))

@@ -30,28 +30,10 @@
 	category_tags = list(CAT_ADVENTURER_PALADIN)
 	give_bank_account = TRUE
 	allowed_patrons = list(
-	/datum/patron/faerun/evil_gods/Mask,
-	/datum/patron/faerun/evil_gods/Vlaakith,
-	/datum/patron/faerun/evil_gods/Lolth,
-	/datum/patron/faerun/evil_gods/Shar,
-	/datum/patron/faerun/evil_gods/Gruumsh,
-	/datum/patron/faerun/evil_gods/Laduguer,
-	/datum/patron/faerun/evil_gods/Talos,
-	/datum/patron/faerun/evil_gods/Tiamat,
-	/datum/patron/faerun/evil_gods/Malar,
-	/datum/patron/faerun/evil_gods/Maglubiyet,
-	/datum/patron/faerun/evil_gods/Umberlee,
-	/datum/patron/faerun/evil_gods/Blissara,
-	/datum/patron/faerun/evil_gods/Loviatar,
-	/datum/patron/faerun/evil_gods/Asmodeus,
-
-	/datum/patron/faerun/neutral_gods/Helm,
-	/datum/patron/faerun/neutral_gods/Mystra,
-	/datum/patron/faerun/neutral_gods/Oghma,
-	/datum/patron/faerun/neutral_gods/Tempus,
-	/datum/patron/faerun/neutral_gods/Tymora,
-	/datum/patron/faerun/neutral_gods/Silvanus,
-	/datum/patron/faerun/neutral_gods/Jergal
+		/datum/patron/spira/primordial/gaedon,
+		/datum/patron/spira/greater/ragelia,
+		/datum/patron/spira/lesser/lunestra,
+		/datum/patron/spira/greater/naverae,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/combat/adventurer_paladin/oathbreaker
@@ -127,7 +109,9 @@
 	. = ..()
 
 	allowed_patrons = allowed_patrons.Copy()
-	allowed_patrons += subtypesof(/datum/patron/faerun/evil_gods)
+	for(var/datum/patron/spira/god as anything in subtypesof(/datum/patron/spira))
+		if(!IS_ABSTRACT(god) && is_sinister_patron(god) && initial(god.preference_accessible))
+			allowed_patrons |= god
 
 	job_subclasses = job_subclasses.Copy()
 	job_subclasses += /datum/job/advclass/combat/adventurer_paladin/oathbreaker

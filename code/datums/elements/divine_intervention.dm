@@ -22,7 +22,7 @@
 
 /datum/element/divine_intervention/proc/on_pickup(obj/item/source, mob/user)
 	SIGNAL_HANDLER
-	// GLOB.patron_list only holds faerun patrons, so inhumen god weapons resolve no patron.
+	// GLOB.patron_list only holds Spira patrons, so inhumen god weapons resolve no patron.
 	if(!patron || !iscarbon(user))
 		return
 	var/mob/living/carbon/mob = user

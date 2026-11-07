@@ -35,7 +35,7 @@
 		if(IS_ABSTRACT(faith))
 			continue
 		faith = new faith()
-		if(!istype(faith, /datum/faith/faerun) || isnull(faith.name))
+		if(!istype(faith, /datum/faith/spira) || isnull(faith.name)) // RMH EDIT: only the pantheon of Spira
 			continue
 
 		if(faith.preference_accessible())
@@ -51,7 +51,7 @@
 		if(IS_ABSTRACT(patron))
 			continue
 		patron = new patron()
-		if(!istype(patron, /datum/patron/faerun))
+		if(!istype(patron, /datum/patron/spira)) // RMH EDIT: only the pantheon of Spira
 			continue
 
 

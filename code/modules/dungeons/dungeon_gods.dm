@@ -1,9 +1,9 @@
-// The Faerûn gaze: each infinite run is watched by three gods whose domains
+// The gaze of Spira: each infinite run is watched by three gods whose domains
 // shape the boons on offer. Worship matters — a god with faithful in the
 // descending party is far likelier to watch, and evil gods only watch parties
 // that carry at least one of their own.
 
-/// Maps a /datum/patron/faerun/* god to the boon domains it offers.
+/// Maps a /datum/patron/spira/* god to the boon domains it offers.
 /datum/dungeon_god_profile
 	abstract_type = /datum/dungeon_god_profile
 	/// The patron this profile speaks for
@@ -13,80 +13,29 @@
 	/// Possessive brand on boon cards; defaults to "[god name]'s"
 	var/boon_prefix_override
 
-// -- War --
-/datum/dungeon_god_profile/tempus
-	patron_type = /datum/patron/faerun/neutral_gods/Tempus
+/datum/dungeon_god_profile/ragelia
+	patron_type = /datum/patron/spira/greater/ragelia
 	domains = list("war")
 
-/datum/dungeon_god_profile/tyr
-	patron_type = /datum/patron/faerun/good_gods/Tyr
-	domains = list("war", "fate")
-
-/datum/dungeon_god_profile/torm
-	patron_type = /datum/patron/faerun/good_gods/Torm
-	domains = list("war", "life")
-
-/datum/dungeon_god_profile/gruumsh
-	patron_type = /datum/patron/faerun/evil_gods/Gruumsh
-	domains = list("war")
-
-// -- Luck --
-/datum/dungeon_god_profile/tymora
-	patron_type = /datum/patron/faerun/neutral_gods/Tymora
-	domains = list("luck")
-
-// -- Life --
-/datum/dungeon_god_profile/ilmater
-	patron_type = /datum/patron/faerun/good_gods/Ilmater
-	domains = list("life")
-
-/datum/dungeon_god_profile/lathander
-	patron_type = /datum/patron/faerun/good_gods/Lathander
+/datum/dungeon_god_profile/sirokel
+	patron_type = /datum/patron/spira/greater/sirokel
 	domains = list("life", "fate")
 
-// -- Shadow --
-/datum/dungeon_god_profile/shar
-	patron_type = /datum/patron/faerun/evil_gods/Shar
-	domains = list("shadow")
-
-/datum/dungeon_god_profile/lolth
-	patron_type = /datum/patron/faerun/evil_gods/Lolth
-	domains = list("shadow", "war")
-
-/datum/dungeon_god_profile/mask
-	patron_type = /datum/patron/faerun/evil_gods/Mask
-	domains = list("shadow", "luck")
-
-// -- Nature --
-/datum/dungeon_god_profile/mielikki
-	patron_type = /datum/patron/faerun/good_gods/Mielikki
-	domains = list("nature")
-
-/datum/dungeon_god_profile/silvanus
-	patron_type = /datum/patron/faerun/neutral_gods/Silvanus
+/datum/dungeon_god_profile/saelion
+	patron_type = /datum/patron/spira/primordial/saelion
 	domains = list("nature", "life")
 
-/datum/dungeon_god_profile/malar
-	patron_type = /datum/patron/faerun/evil_gods/Malar
-	domains = list("nature", "war")
-
-// -- Craft --
-/datum/dungeon_god_profile/moradin
-	patron_type = /datum/patron/faerun/good_gods/Moradin
-	domains = list("craft", "war")
-
-// -- Fate --
-/datum/dungeon_god_profile/mystra
-	patron_type = /datum/patron/faerun/neutral_gods/Mystra
-	domains = list("fate")
-
-/datum/dungeon_god_profile/selune
-	patron_type = /datum/patron/faerun/good_gods/Selune
-	domains = list("fate", "life")
-
-/datum/dungeon_god_profile/oghma
-	patron_type = /datum/patron/faerun/neutral_gods/Oghma
+/datum/dungeon_god_profile/naverae
+	patron_type = /datum/patron/spira/greater/naverae
 	domains = list("fate", "craft")
+
+/datum/dungeon_god_profile/lunestra
+	patron_type = /datum/patron/spira/lesser/lunestra
+	domains = list("shadow", "luck")
+
+/datum/dungeon_god_profile/gaedon // sinister: only watches parties carrying his faithful
+	patron_type = /datum/patron/spira/primordial/gaedon
+	domains = list("craft", "war")
 
 GLOBAL_LIST_EMPTY(dungeon_god_profiles)
 
@@ -117,7 +66,7 @@ GLOBAL_LIST_EMPTY(dungeon_god_profiles)
 				continue
 			if(member.patron.type == profile.patron_type)
 				worshippers++
-		if(ispath(profile.patron_type, /datum/patron/faerun/evil_gods) && !worshippers)
+		if(is_sinister_patron(profile.patron_type) && !worshippers)
 			continue // dark gods only watch parties carrying their faithful
 		weights[profile] = 10 + worshippers * 40
 	return weights

@@ -18,13 +18,13 @@
 
 /// TRUE if the god would see a chastity device as virtue: good or neutral faiths, save the gods of love and pleasure.
 /proc/patron_blesses_chastity(datum/patron/patron)
-	if(!istype(patron, /datum/patron/faerun/good_gods) && !istype(patron, /datum/patron/faerun/neutral_gods))
+	if(!istype(patron, /datum/patron/spira) || is_sinister_patron(patron))
 		return FALSE
 	return !is_pleasure_patron(patron)
 
 /// Gods of love, pleasure and desire, whose followers chafe in chastity.
 /proc/is_pleasure_patron(datum/patron/patron)
-	return istype(patron, /datum/patron/faerun/good_gods/Sune) || istype(patron, /datum/patron/faerun/good_gods/Sharess) || istype(patron, /datum/patron/faerun/evil_gods/Blissara)
+	return istype(patron, /datum/patron/spira/primordial/saelion) // the patron of all life
 
 /obj/item/clothing/undies/chastity/proc/clear_moods(mob/living/carbon/human/target)
 	target?.remove_stress(/datum/stress_event/chastity_devout)

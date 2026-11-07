@@ -11,13 +11,7 @@
 	display_order = JDO_ADVENTURER_DRUID
 
 	allowed_patrons = list(
-		/datum/patron/faerun/neutral_gods/Silvanus,
-
-		/datum/patron/faerun/good_gods/Mielikki,
-
-		/datum/patron/faerun/evil_gods/Malar,
-		/datum/patron/faerun/evil_gods/Talos,
-		/datum/patron/faerun/evil_gods/Umberlee
+		/datum/patron/spira/primordial/saelion,
 	)
 
 

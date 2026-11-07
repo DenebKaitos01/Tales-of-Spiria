@@ -13,21 +13,11 @@ GLOBAL_LIST_EMPTY(paladin_evil_subclasses)
 	display_order = JDO_ADVENTURER_PALADIN
 
 	allowed_patrons = list(
-		/datum/patron/faerun/good_gods/Garl_Glittergold,
-		/datum/patron/faerun/good_gods/Sune,
-		/datum/patron/faerun/good_gods/Mielikki,
-		/datum/patron/faerun/good_gods/Deneir,
-		/datum/patron/faerun/neutral_gods/Oghma,
-		/datum/patron/faerun/neutral_gods/Helm,
-		/datum/patron/faerun/neutral_gods/Tempus,
-		/datum/patron/faerun/neutral_gods/Mystra,
-		/datum/patron/faerun/good_gods/Bahamut,
-		/datum/patron/faerun/good_gods/Tyr,
-		/datum/patron/faerun/good_gods/Torm,
-		/datum/patron/faerun/good_gods/Lathander,
-		/datum/patron/faerun/good_gods/Ilmater,
-		/datum/patron/faerun/good_gods/Selune,
-		/datum/patron/faerun/good_gods/Sune,
+		/datum/patron/spira/greater/sirokel,
+		/datum/patron/spira/greater/naverae,
+		/datum/patron/spira/greater/ragelia,
+		/datum/patron/spira/primordial/saelion,
+		/datum/patron/spira/lesser/lunestra,
 	)
 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
@@ -69,7 +59,7 @@ GLOBAL_LIST_EMPTY(paladin_evil_subclasses)
 	if(!..())
 		return FALSE
 
-	if(istype(to_check.patron, /datum/patron/faerun/evil_gods) && !(type in GLOB.paladin_evil_subclasses))
+	if(is_sinister_patron(to_check.patron) && !(type in GLOB.paladin_evil_subclasses))
 		return FALSE
 
 	return TRUE

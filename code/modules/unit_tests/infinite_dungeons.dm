@@ -1171,27 +1171,27 @@
 	// Without any worshippers: evil gods must not appear; base weights only.
 	var/list/base_weights = get_watching_god_weights(list(worshipper))
 	for(var/datum/dungeon_god_profile/profile as anything in base_weights)
-		TEST_ASSERT(!ispath(profile.patron_type, /datum/patron/faerun/evil_gods), "Evil gods must not watch a party with no worshipper of theirs.")
+		TEST_ASSERT(!is_sinister_patron(profile.patron_type), "Evil gods must not watch a party with no worshipper of theirs.")
 		TEST_ASSERT_EQUAL(base_weights[profile], 10, "Godless parties should produce base weights only.")
 
-	// A Tempus worshipper boosts Tempus's weight.
-	worshipper.patron = GLOB.patron_list[/datum/patron/faerun/neutral_gods/Tempus]
-	TEST_ASSERT_NOTNULL(worshipper.patron, "Tempus should exist in the patron list.")
+	// A Ragelia worshipper boosts Ragelia's weight.
+	worshipper.patron = GLOB.patron_list[/datum/patron/spira/greater/ragelia]
+	TEST_ASSERT_NOTNULL(worshipper.patron, "Ragelia should exist in the patron list.")
 	var/list/tempus_weights = get_watching_god_weights(list(worshipper))
 	var/found_tempus_boost = FALSE
 	for(var/datum/dungeon_god_profile/profile as anything in tempus_weights)
-		if(profile.patron_type == /datum/patron/faerun/neutral_gods/Tempus)
+		if(profile.patron_type == /datum/patron/spira/greater/ragelia)
 			TEST_ASSERT_EQUAL(tempus_weights[profile], 50, "A worshipper should add +40 weight to their god.")
 			found_tempus_boost = TRUE
-	TEST_ASSERT(found_tempus_boost, "Tempus should be in the watching pool.")
+	TEST_ASSERT(found_tempus_boost, "Ragelia should be in the watching pool.")
 
-	// A Lolth worshipper unlocks Lolth's gaze.
-	worshipper.patron = GLOB.patron_list[/datum/patron/faerun/evil_gods/Lolth]
-	TEST_ASSERT_NOTNULL(worshipper.patron, "Lolth should exist in the patron list.")
+	// A Gaedon worshipper unlocks Gaedon's gaze.
+	worshipper.patron = GLOB.patron_list[/datum/patron/spira/primordial/gaedon]
+	TEST_ASSERT_NOTNULL(worshipper.patron, "Gaedon should exist in the patron list.")
 	var/list/lolth_weights = get_watching_god_weights(list(worshipper))
 	var/found_lolth = FALSE
 	for(var/datum/dungeon_god_profile/profile as anything in lolth_weights)
-		if(profile.patron_type == /datum/patron/faerun/evil_gods/Lolth)
+		if(profile.patron_type == /datum/patron/spira/primordial/gaedon)
 			found_lolth = TRUE
 	TEST_ASSERT(found_lolth, "An evil god should watch when its worshipper descends.")
 
@@ -1202,7 +1202,7 @@
 
 /datum/unit_test/dungeon_boon_offer/Run()
 	var/datum/dungeon_run/run = new(null, null)
-	run.watching_god_types = list(/datum/patron/faerun/neutral_gods/Tempus)
+	run.watching_god_types = list(/datum/patron/spira/greater/ragelia)
 
 	// Pity at maximum forces an epic and resets.
 	run.epic_pity = 100

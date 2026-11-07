@@ -62,7 +62,7 @@
 	if(!istype(champion))
 		return
 	champion.set_species(/datum/species/gnoll_champion)
-	champion.set_patron(/datum/patron/faerun/evil_gods/Gorellik)
+	champion.set_patron(/datum/patron/spira/chaos/gorellik)
 	champion.apply_gnoll_customization()
 	RegisterSignal(champion, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_hunt_damage))
 	RegisterSignal(champion, COMSIG_LIVING_DEATH, PROC_REF(on_hunt_death))
@@ -290,7 +290,7 @@
 /proc/is_in_gnoll_camp(atom/movable/thing)
 	return istype(get_area(thing), /area/outdoors/gnoll_camp)
 
-/datum/patron/faerun/evil_gods/Gorellik
+/datum/patron/spira/chaos/gorellik
 	name = "Gorellik"
 	domain = "Gnolls, Hyenas, Wilderness and the Hunt"
 	desc = "An ancient, fading patron of gnolls and hyenas. His rebuilding packs honor the living hunt, their wild homes and the continuity of the pack through fertility rites."

@@ -54,7 +54,7 @@
 		return
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/traitor.ogg', 80, FALSE, pressure_affected = FALSE)
 	var/mob/living/carbon/human/human_bandit = owner.current
-	human_bandit.set_patron(/datum/patron/faerun/evil_gods/Mask)
+	human_bandit.set_patron(/datum/patron/spira/primordial/gaedon)
 
 /datum/antagonist/bandit/greet()
 	to_chat(owner.current, span_alert("I am a BANDIT!"))

@@ -47,7 +47,7 @@
 	exp_types_granted = list(EXP_TYPE_CHURCH, EXP_TYPE_CLERIC)
 	exp_requirements = list(EXP_TYPE_CHURCH = 700)
 
-	allowed_patrons = list(/datum/patron/faerun/good_gods/Selune)
+	allowed_patrons = list(/datum/patron/spira/greater/sirokel)
 	attribute_sheet = /datum/attribute_holder/sheet/job/moon_priest
 
 
