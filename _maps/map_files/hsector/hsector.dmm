@@ -107,6 +107,22 @@
 	},
 /turf/open/openspace,
 /area/outdoors/rmh_field/west)
+"aac" = (
+/obj/effect/decal/edge{
+	dir = 8;
+	color = "#3b3b3b"
+	},
+/obj/machinery/ameliorate,
+/turf/open/floor/concrete,
+/area/indoors/town/rmh/craft/blacksmith)
+"aad" = (
+/obj/effect/decal/edge_corner{
+	dir = 8;
+	color = "#3b3b3b"
+	},
+/obj/machinery/ameliorate,
+/turf/open/floor/concrete,
+/area/indoors/town/rmh/craft/blacksmith)
 "aai" = (
 /obj/structure/vine{
 	icon_state = "Light2d"
@@ -6505,17 +6521,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/outdoors/beach/rmh_beach)
-"caM" = (
-/obj/effect/decal/edge{
-	dir = 8;
-	color = "#3b3b3b"
-	},
-/obj/structure/mannequin/male/female{
-	dir = 8;
-	pixel_y = 3
-	},
-/turf/open/floor/concrete,
-/area/indoors/town/rmh/craft/blacksmith)
 "caO" = (
 /obj/effect/decal/edge{
 	color = "#3b3b3b"
@@ -63459,17 +63464,6 @@
 /obj/structure/stockpile_storage,
 /turf/open/floor/concrete,
 /area/under/town/rmh/basement/townhall)
-"tzi" = (
-/obj/effect/decal/edge_corner{
-	dir = 8;
-	color = "#3b3b3b"
-	},
-/obj/structure/mannequin/male{
-	dir = 8;
-	pixel_y = 2
-	},
-/turf/open/floor/concrete,
-/area/indoors/town/rmh/craft/blacksmith)
 "tzB" = (
 /obj/effect/decal/alizeria/decals/wooddecal1,
 /turf/open/floor/rooftop/green/east,
@@ -181646,8 +181640,8 @@ ktT
 gSv
 jsJ
 gMA
-tzi
-caM
+aad
+aac
 hhz
 ohY
 bGM
