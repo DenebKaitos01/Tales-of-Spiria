@@ -190,4 +190,5 @@ GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 	} while(0)
 
 ///displays the current time into the round, with a lot of extra code just there for ensuring it looks okay after an entire day passes
-#define ROUND_TIME(...) ( "[world.time - SSticker.round_start_time > MIDNIGHT_ROLLOVER ? "[round((world.time - SSticker.round_start_time)/MIDNIGHT_ROLLOVER)]:[worldtime2text()]" : worldtime2text()]" )
+// RMH EDIT: time since the round actually started (it used to print the time since server boot, lobby included)
+#define ROUND_TIME(...) ( "[world.time - SSticker.round_start_time > MIDNIGHT_ROLLOVER ? "[round((world.time - SSticker.round_start_time)/MIDNIGHT_ROLLOVER)]:" : ""][time2text(world.time - SSticker.round_start_time, "hh:mm:ss", 0)]" )
