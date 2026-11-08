@@ -201,8 +201,11 @@
 		return FALSE
 	var/mob/living/doctor = user
 	var/mob/living/carbon/patient = target
-	if(!get_location_accessible(patient, check_zone(doctor.zone_selected)))
-		to_chat(doctor, span_warning("Something is in the way."))
+	// RMH EDIT: clothes and light armor can be pushed aside to stitch a wound; only rigid armor (medium or
+	// heavy) over the wound has to come off. It used to take stripping every layer covering the limb.
+	var/obj/item/sew_blocker = get_sew_blocker(patient, check_zone(doctor.zone_selected))
+	if(sew_blocker)
+		to_chat(doctor, span_warning("[sew_blocker] is in the way."))
 		return FALSE
 	var/obj/item/bodypart/affecting = patient.get_bodypart(check_zone(doctor.zone_selected))
 	if(!affecting)
@@ -310,3 +313,12 @@
 	desc = span_hierophant("A needle blessed by the ordained faithful of Ilmater. A coveted item, for its thread will never end. \n This thread however can only be used to sew wounds.")
 	infinite = TRUE
 	can_repair = FALSE
+
+/// RMH EDIT: the worn item that stops a wound in this zone from being stitched, if any - only rigid armor does
+/obj/item/needle/proc/get_sew_blocker(mob/living/carbon/patient, zone)
+	for(var/obj/item/clothing/worn in patient.get_equipped_items(include_pockets = FALSE))
+		if(!worn.surgery_cover || !zone2covered(zone, worn.body_parts_covered))
+			continue
+		if(worn.armor_class >= AC_MEDIUM)
+			return worn
+	return null
