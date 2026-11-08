@@ -162,6 +162,8 @@
 /obj/item/storage/belt/potion_belt
 	name = "Belt for potion"
 	desc = "Belt with pockets and straps for potion bottles."
+	icon = 'modular_rmh/icons/clothing/potionbelt.dmi' // RMH EDIT: its sprites were never hooked up
+	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/potionbelt.dmi'
 	icon_state = "potion_belt"
 	item_state = "potion_belt"
 	strip_delay = 20

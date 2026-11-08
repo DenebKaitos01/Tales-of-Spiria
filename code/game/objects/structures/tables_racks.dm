@@ -269,7 +269,7 @@
 	icon_state = "churchtable_alt"
 
 /obj/structure/table/church/m/alt
-	icon_state = "churchtable_end"
+	icon_state = "churchtable_mid_alt"
 
 /obj/structure/table/church/end/alt
 	icon_state = "churchtable_end_alt"

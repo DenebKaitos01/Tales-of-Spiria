@@ -239,7 +239,7 @@
 	name = "silver comb"
 	desc = "A silver comb, great for combing your hair or lack thereof."
 	icon = 'icons/roguetown/items/precious_objects.dmi'
-	icon_state = "combs_silv"
+	icon_state = "comb_silv"
 	sellprice = 10
 
 /obj/item/statue/silver/comb/Initialize()

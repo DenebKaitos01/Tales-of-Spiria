@@ -504,7 +504,9 @@
 	slot_flags = null
 
 /obj/item/paper/crumpled/bloody
-	icon_state = "scrap_bloodied"
+	icon_state = "scrap" // RMH EDIT: no bloodied sprite exists, tint the plain scrap
+	color = "#b07070"
 
 /obj/item/paper/crumpled/muddy
-	icon_state = "scrap_mud"
+	icon_state = "scrap" // RMH EDIT: no muddy sprite exists, tint the plain scrap
+	color = "#8f7a5a"

@@ -610,7 +610,8 @@
 /obj/item/ammo_casing/caseless/cball/grapeshot
 	name = "berryshot"
 	desc = "A large pouch of smaller lead balls. Not as complex and not as spherical."
-	icon_state = "grapeshot" // NEEDS SPRITE
+	icon = 'icons/roguetown/misc/cannon.dmi' // RMH EDIT: the sprite lives here
+	icon_state = "grapeshot"
 	dropshrink = 0.5
 	projectile_type = /obj/projectile/bullet/fragment
 
