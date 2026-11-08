@@ -1370,6 +1370,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		"winflash" = /datum/preference/toggle/windowflashing,
 		"ambientocclusion" = /datum/preference/toggle/ambientocclusion,
 		"color_grading" = /datum/preference/toggle/color_grading, // RMH EDIT
+		"bloom" = /datum/preference/toggle/bloom, // RMH EDIT
 		"auto_fit_viewport" = /datum/preference/toggle/auto_fit_viewport,
 	)
 	var/toggle_link_type = toggle_link_types[action]
@@ -1385,6 +1386,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				update_occlusion(parent)
 			if("color_grading") // RMH EDIT
 				parent?.mob?.update_color_grading(TRUE)
+			if("bloom") // RMH EDIT
+				parent?.mob?.update_bloom()
 			if("auto_fit_viewport")
 				if(read_preference(/datum/preference/toggle/auto_fit_viewport))
 					parent?.fit_viewport()

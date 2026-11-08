@@ -4550,6 +4550,7 @@ export const CharacterCreator = () => {
       action: 'color_grading',
       label: 'color_grading',
     },
+    { key: 'bloom', action: 'bloom', label: 'bloom' },
     {
       key: 'auto_fit_viewport',
       action: 'auto_fit_viewport',
@@ -4608,7 +4609,7 @@ export const CharacterCreator = () => {
   ];
 
   // RMH EDIT: graphic effects live in their own Post processing menu
-  const POST_PROCESSING_KEYS = ['ambientocclusion', 'color_grading'];
+  const POST_PROCESSING_KEYS = ['ambientocclusion', 'color_grading', 'bloom'];
 
   const renderSettings = () => {
     const game = data.game_prefs || {};
