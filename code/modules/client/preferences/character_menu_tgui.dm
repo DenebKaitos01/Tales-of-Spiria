@@ -787,7 +787,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 	var/tgui_lock = read_preference(/datum/preference/toggle/tgui_lock)
 	var/windowflashing = read_preference(/datum/preference/toggle/windowflashing)
 	var/ambientocclusion = read_preference(/datum/preference/toggle/ambientocclusion)
-	var/post_processing = read_preference(/datum/preference/toggle/post_processing) // RMH EDIT
+	var/color_grading = read_preference(/datum/preference/toggle/color_grading) // RMH EDIT
 	var/auto_fit_viewport = read_preference(/datum/preference/toggle/auto_fit_viewport)
 	var/toggles_maptext = read_preference(/datum/preference/bitwise/toggles_maptext)
 	var/pixel_size = read_preference(/datum/preference/numeric/pixel_size)
@@ -1021,7 +1021,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 		"lobby_music" = !!(toggles & SOUND_LOBBY),
 		"hear_midis" = !!(toggles & SOUND_MIDI),
 		"ambientocclusion" = !!ambientocclusion,
-		"post_processing" = !!post_processing,
+		"color_grading" = !!color_grading,
 		"auto_fit_viewport" = !!auto_fit_viewport,
 		"allow_midround_antag" = !!(toggles & MIDROUND_ANTAG),
 		"ambience" = !!(toggles & SOUND_AMBIENCE),

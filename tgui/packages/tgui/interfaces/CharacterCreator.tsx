@@ -1543,6 +1543,7 @@ export const CharacterCreator = () => {
   const [pickerSearch, setPickerSearch] = useState('');
   const [search, setSearch] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
+  const [postProcessingOpen, setPostProcessingOpen] = useState(false); // RMH EDIT
   const [menuScale, setMenuScaleState] = useState(
     clampScale(data.preferences_scale),
   );
@@ -4545,9 +4546,9 @@ export const CharacterCreator = () => {
       label: 'ambientocclusion',
     },
     {
-      key: 'post_processing',
-      action: 'post_processing',
-      label: 'post_processing',
+      key: 'color_grading',
+      action: 'color_grading',
+      label: 'color_grading',
     },
     {
       key: 'auto_fit_viewport',
@@ -4594,8 +4595,6 @@ export const CharacterCreator = () => {
       title: 'display',
       keys: [
         'see_chat_non_mob',
-        'ambientocclusion',
-        'post_processing',
         'auto_fit_viewport',
         'balloon_alerts',
         'runechat',
@@ -4607,6 +4606,9 @@ export const CharacterCreator = () => {
     },
     { title: 'round', keys: ['allow_midround_antag', 'be_voice'] },
   ];
+
+  // RMH EDIT: graphic effects live in their own Post processing menu
+  const POST_PROCESSING_KEYS = ['ambientocclusion', 'color_grading'];
 
   const renderSettings = () => {
     const game = data.game_prefs || {};
@@ -4637,6 +4639,11 @@ export const CharacterCreator = () => {
                 ).map(toggleRow)}
                 {settingsGroup.title === 'display' ? (
                   <>
+                    {kvButton(
+                      L.postProcessing,
+                      postProcessingOpen ? L.close : L.open,
+                      () => setPostProcessingOpen(!postProcessingOpen),
+                    )}
                     {kvButton(L.pixelSize, text(game.pixel_size), () =>
                       doPref('pixel_size'),
                     )}
@@ -4649,6 +4656,18 @@ export const CharacterCreator = () => {
             ),
           )}
         </div>
+        {postProcessingOpen ? (
+          <div className="cc-info-grid" style={{ marginTop: 8 }}>
+            {infoBlock(
+              L.postProcessing,
+              <div className="cc-kv">
+                {SETTINGS_TOGGLES.filter((toggle) =>
+                  POST_PROCESSING_KEYS.includes(toggle.key),
+                ).map(toggleRow)}
+              </div>,
+            )}
+          </div>
+        ) : null}
         <div className="cc-info-grid" style={{ marginTop: 8 }}>
           {infoBlock(
             L.editor,

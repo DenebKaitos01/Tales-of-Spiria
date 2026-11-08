@@ -2,7 +2,7 @@
 // Under the open sky it follows the outdoor cycle (deep blue night, golden-peach dawn and dusk, clear fresh day);
 // under a roof it stays warm and saturated, changing only a little with the hour. High fantasy, not desolation.
 // Purely client-side: the server only swaps a filter when the hour changes or the player steps in or out.
-// Off by default: players turn it on in the Display settings ("Post processing").
+// Off by default: players turn it on in Settings > Display > Post processing > "Time of day colors".
 
 #define GRADING_FILTER "color_grading"
 /// How long the colors take to shift when the hour changes
@@ -22,8 +22,8 @@ GLOBAL_LIST_INIT(color_grading_looks, list(
 	"indoor_dusk"   = list(1.25, 1.12, 1.00, 0.88),
 ))
 
-/datum/preference/toggle/post_processing
-	savefile_key = "post_processing"
+/datum/preference/toggle/color_grading
+	savefile_key = "color_grading"
 	savefile_identifier = PREF_PLAYER
 	category = "ui"
 	can_randomize = FALSE
@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(color_grading_looks, list(
 	var/atom/movable/screen/plane_master/plate = hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 	if(!plate)
 		return
-	if(!client.prefs?.read_preference(/datum/preference/toggle/post_processing))
+	if(!client.prefs?.read_preference(/datum/preference/toggle/color_grading))
 		plate.remove_filter(GRADING_FILTER)
 		grading_outdoors = null
 		return
