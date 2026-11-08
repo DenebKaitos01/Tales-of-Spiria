@@ -4552,6 +4552,11 @@ export const CharacterCreator = () => {
     },
     { key: 'bloom', action: 'bloom', label: 'bloom' },
     {
+      key: 'flame_flicker',
+      action: 'flame_flicker',
+      label: 'flame_flicker',
+    },
+    {
       key: 'auto_fit_viewport',
       action: 'auto_fit_viewport',
       label: 'auto_fit_viewport',
@@ -4609,7 +4614,12 @@ export const CharacterCreator = () => {
   ];
 
   // RMH EDIT: graphic effects live in their own Post processing menu
-  const POST_PROCESSING_KEYS = ['ambientocclusion', 'color_grading', 'bloom'];
+  const POST_PROCESSING_KEYS = [
+    'ambientocclusion',
+    'color_grading',
+    'bloom',
+    'flame_flicker',
+  ];
 
   const renderSettings = () => {
     const game = data.game_prefs || {};

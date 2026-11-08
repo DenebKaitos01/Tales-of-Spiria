@@ -4596,6 +4596,7 @@
 #include "modular_rmh\code\modules\combat\mace_smash.dm"
 #include "modular_rmh\code\modules\visuals\bloom.dm"
 #include "modular_rmh\code\modules\visuals\color_grading.dm"
+#include "modular_rmh\code\modules\visuals\flame_flicker.dm"
 #include "modular_rmh\code\modules\combat\momentum.dm"
 #include "modular_rmh\code\modules\combat\unarmed_azure.dm"
 #include "modular_rmh\code\modules\crafting\recipe_book_db.dm"

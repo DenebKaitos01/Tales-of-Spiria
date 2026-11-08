@@ -113,6 +113,7 @@ GLOBAL_LIST_INIT(color_grading_outdoor_areas, list(
 	. = ..()
 	if(istype(mymob))
 		mymob.update_color_grading(TRUE)
+		mymob.client?.update_flame_flicker()
 
 /// Every connected player's colors follow the new hour
 /proc/update_all_color_grading()
