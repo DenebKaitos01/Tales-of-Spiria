@@ -1,7 +1,7 @@
 // RMH EDIT: the Dragoon's techniques and the Acrobat trait.
 // - Full Thrust: dash 2-5 tiles toward the target, then a thrust that strikes the two tiles ahead for
 //   extra damage with the held polearm.
-// - Elusive Jump: a quick strike at the tile ahead, then a leap 2-4 tiles backwards.
+// - Elusive Jump: a quick, slowing strike at the tile ahead, then a flip up to 4 tiles back through enemies.
 // - Acrobat (TRAIT_ACROBAT): no damage from a fall of one level, and jumps reach a tile further.
 
 #define DRAGOON_THRUST_MULT 1.5
@@ -69,30 +69,38 @@
 /datum/action/cooldown/spell/dragoon_full_thrust/cast(atom/cast_on)
 	. = ..()
 	var/mob/living/L = owner
-	var/thrust_dir = get_dir(L, cast_on)
-	var/travel = clamp(get_dist(L, cast_on) - 1, 2, 5)
 	L.visible_message(span_danger("[L] surges forward, polearm leveled!"), span_danger("Full thrust!"))
-	INVOKE_ASYNC(src, PROC_REF(do_thrust), L, thrust_dir, travel)
+	INVOKE_ASYNC(src, PROC_REF(do_thrust), L, cast_on)
 
-/datum/action/cooldown/spell/dragoon_full_thrust/proc/do_thrust(mob/living/L, thrust_dir, travel)
-	L.setDir(thrust_dir)
-	for(var/i in 1 to travel)
+/// Dashes 2 to 5 tiles toward the target, always stopping right in front of it, then thrusts.
+/datum/action/cooldown/spell/dragoon_full_thrust/proc/do_thrust(mob/living/L, atom/target)
+	var/turf/target_turf = get_turf(target)
+	var/moved = 0
+	while(moved < 5)
 		if(QDELETED(L) || L.stat || L.body_position == LYING_DOWN)
 			return
-		var/turf/next = get_step(L, thrust_dir)
-		if(!next || next.density || (locate(/mob/living) in next))
+		if(!QDELETED(target) && ismovable(target))
+			target_turf = get_turf(target) // follow a moving target
+		if(get_dist(L, target_turf) <= 1 && moved >= 2)
+			break
+		if(get_dist(L, target_turf) <= 1) // already in front: keep the facing, the thrust still lands
+			break
+		var/turf/next = get_step_towards(L, target_turf)
+		if(!next || next == target_turf || next.density || (locate(/mob/living) in next))
 			break
 		var/turf/before = get_turf(L)
-		L.Move(next, thrust_dir)
+		L.Move(next, get_dir(before, next))
 		if(get_turf(L) == before)
 			break
-		new /obj/effect/temp_visual/decoy/fading/halfsecond(before, L)
+		moved++
+		new /obj/effect/temp_visual/decoy/fading/afterimage(before, L)
 		sleep(1)
 	if(QDELETED(L) || L.stat)
 		return
 	var/obj/item/weapon/polearm/P = L.get_dragoon_polearm()
 	if(!P)
 		return
+	var/thrust_dir = get_dir(L, target_turf) || L.dir
 	L.setDir(thrust_dir)
 	var/turf/reach = get_turf(L)
 	for(var/i in 1 to 2)
@@ -107,8 +115,8 @@
 
 /datum/action/cooldown/spell/undirected/dragoon_elusive_jump
 	name = "Elusive Jump"
-	desc = "A quick jab at whoever stands before you, then leap 2 to 4 tiles backwards out of reach. \
-	The better your athletics, the further you leap. Requires a polearm in hand."
+	desc = "A quick jab that slows whoever stands before you, then a flip 4 tiles backwards, over anyone in the way, \
+	until something solid stops you. Requires a polearm in hand."
 	button_icon_state = "bcry"
 	sound = null
 	antimagic_flags = NONE
@@ -141,17 +149,57 @@
 	var/turf/front = get_step(cast_on, cast_on.dir)
 	if(front)
 		for(var/mob/living/victim in front)
-			cast_on.dragoon_strike(victim, P, DRAGOON_QUICK_MULT)
+			if(cast_on.dragoon_strike(victim, P, DRAGOON_QUICK_MULT))
+				victim.apply_status_effect(/datum/status_effect/debuff/hobbled, 4 SECONDS)
 			break
-	var/athletics = floor(GET_MOB_SKILL_VALUE(cast_on, /datum/attribute/skill/misc/athletics) / 10)
-	var/range = clamp(2 + floor(athletics / 2), 2, 4)
-	var/turf/landing = get_ranged_target_turf(cast_on, REVERSE_DIR(cast_on.dir), range)
-	if(!landing)
-		return
-	var/facing = cast_on.dir
-	cast_on.visible_message(span_notice("[cast_on] strikes and springs back!"), span_notice("I strike and leap back!"))
-	cast_on.jump_action_resolve(landing, 10, range, FALSE)
-	cast_on.setDir(facing) // keep facing the enemy
+	cast_on.visible_message(span_notice("[cast_on] strikes and flips away!"), span_notice("I strike and leap back!"))
+	INVOKE_ASYNC(src, PROC_REF(do_leap), cast_on, cast_on.dir)
+
+/// Flips up to 4 tiles backwards, passing through anyone in the way, until something solid stops it.
+/datum/action/cooldown/spell/undirected/dragoon_elusive_jump/proc/do_leap(mob/living/L, facing)
+	var/back_dir = REVERSE_DIR(facing)
+	var/matrix/old_transform = L.transform
+	var/old_pixel_z = L.pixel_z
+	var/flip = (facing & (SOUTH|WEST)) ? -90 : 90
+	animate(L, pixel_z = old_pixel_z + 8, transform = turn(old_transform, flip), time = 2, flags = ANIMATION_PARALLEL)
+	animate(transform = turn(old_transform, flip * 2), time = 2)
+	animate(transform = turn(old_transform, flip * 3), time = 2)
+	animate(pixel_z = old_pixel_z, transform = old_transform, time = 2)
+	playsound(L, 'sound/combat/shove.ogg', 60, TRUE)
+	var/turf/last_free = get_turf(L)
+	for(var/i in 1 to 4)
+		if(QDELETED(L) || L.stat)
+			break
+		var/turf/next = get_step(L, back_dir)
+		if(!next || next.density || isopenspace(next))
+			break
+		var/blocked = FALSE
+		for(var/obj/O in next)
+			if(O.density && !(O.flags_1 & ON_BORDER_1))
+				blocked = TRUE
+				break
+		if(blocked)
+			break
+		var/turf/before = get_turf(L)
+		new /obj/effect/temp_visual/decoy/fading/afterimage(before, L)
+		L.forceMove(next) // leaps over anyone in the way
+		L.setDir(facing)
+		var/occupied = FALSE
+		for(var/mob/living/other in next)
+			if(other != L && other.density)
+				occupied = TRUE
+				break
+		if(!occupied)
+			last_free = next
+		sleep(1)
+	if(!QDELETED(L))
+		if(get_turf(L) != last_free) // never land on top of someone
+			L.forceMove(last_free)
+		L.setDir(facing)
+		if(isopenturf(L.loc))
+			var/turf/open/landing = L.loc
+			if(landing.landsound)
+				playsound(landing, landing.landsound, 100, FALSE)
 
 // ---------------- Acrobat ----------------
 

@@ -3,7 +3,6 @@
 
 /datum/attribute_holder/sheet/job/advclass/combat/adventurer_fighter/dragoon
 	raw_attribute_list = list(
-		STAT_STRENGTH = 1,
 		STAT_ENDURANCE = 1,
 		STAT_CONSTITUTION = 1,
 		STAT_SPEED = 2,
@@ -35,6 +34,7 @@
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/combat/adventurer_fighter/dragoon
 
 	traits = list(
+		TRAIT_MEDIUMARMOR,
 		TRAIT_STEELHEARTED,
 		TRAIT_ZJUMP,
 		TRAIT_ACROBAT,
