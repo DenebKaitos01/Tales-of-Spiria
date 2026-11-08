@@ -84,7 +84,6 @@
 		/datum/action/cooldown/spell/status/guidance,
 		/datum/action/cooldown/spell/status/haste,
 		/datum/action/cooldown/spell/undirected/conjure_item/poison_bomb,
-		/datum/action/cooldown/spell/undirected/conjure_item/aphrodisiac_bomb,
 		/datum/action/cooldown/spell/undirected/conjure_item/destroy_clothes_bomb,
 		/datum/action/cooldown/spell/undirected/conjure_item/sleeping_bomb,
 		/datum/action/cooldown/spell/projectile/acid_splash,

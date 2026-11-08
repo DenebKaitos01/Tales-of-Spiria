@@ -6,12 +6,9 @@
 	color = "#FF00B4"
 	lifetime = 10
 
+// RMH EDIT: the aphrodisiac bomb is disabled - its smoke is just harmless pink smoke now
 /obj/effect/particle_effect/smoke/aphrodisiac/smoke_mob(mob/living/carbon/M)
-	if(..())
-		M.reagents.add_reagent(/datum/reagent/consumable/aphrodisiac, 1)
-		if(prob(5))
-			to_chat(M, span_warning("You feel warmth spreading through your body..."))
-		return 1
+	return ..()
 
 
 /datum/effect_system/smoke_spread/aphrodisiac
