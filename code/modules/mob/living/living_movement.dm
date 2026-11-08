@@ -78,6 +78,8 @@
 			usedslow = max(0, usedslow - 2)
 		if(HAS_TRAIT(src, TRAIT_TRAM_MOVER))
 			usedslow = 0
+		if(HAS_TRAIT(src, TRAIT_ALWAYS_VIGILANT) && !istype(T, /turf/open/water)) // RMH EDIT: Ragelia - rough ground doesn't slow (swimming still does)
+			usedslow = min(usedslow, 0)
 		if(usedslow != 0)
 			add_movespeed_modifier(MOVESPEED_ID_LIVING_TURF_SPEEDMOD, update=TRUE, priority=100, multiplicative_slowdown=usedslow, movetypes=GROUND)
 		else

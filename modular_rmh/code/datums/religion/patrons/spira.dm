@@ -119,20 +119,21 @@
 
 /datum/patron/spira/greater/ragelia
 	name = "Ragelia"
-	display_name = "Ragelia, the Guardian of Paradise"
-	domain = "War, Vigilance and Loyalty"
-	desc = "Born to help fight, Ragelia battled entropy and the THINGS of the primordial chaos alongside Gaedon. \
-	He spared Saelion only at Sirokel's request, sided with his creator in the war and was allowed to live on \
-	as the guardian of Paradise. His order is one of blind loyalty and constant vigilance against evil."
-	worshippers = "Warriors, guards, sellswords and watchmen"
+	display_name = "Ragelia, the Spear of Paradise"
+	domain = "Warriors, Vigilance and Loyalty"
+	desc = "Born to help Gaedon defend Paradise from the demons, and ever faithful to her creator. \
+	She stood at his side in the war against Saelion and was allowed to live on to continue her duty. \
+	She keeps constant watch over the defense of the world, and is shown by the symbol of her severed hand, \
+	a sign of unconditional loyalty."
+	worshippers = "Warriors, guards and watchmen"
 	flaws = "Blind obedience, Harshness, Rigidity"
-	sins = "Cowardice, Desertion, Letting the chaos in"
-	boons = "Your used weapons dull slower."
-	added_traits = list(TRAIT_SHARPER_BLADES)
+	sins = "Cowardice, Desertion, Doubt"
+	boons = "Always Vigilant: you see more clearly in the dark, and rough terrain does not slow you down."
+	added_traits = list(TRAIT_ALWAYS_VIGILANT)
 	devotion_holder = /datum/devotion/divine/ravox
 	confess_lines = list(
 		"RAGELIA STANDS GUARD, AND SO DO I!",
-		"NOTHING FROM THE CHAOS PASSES!",
+		"KEEP FIGHTING, NO MATTER THE ODDS!",
 		"LOYALTY UNTO THE END!",
 	)
 
