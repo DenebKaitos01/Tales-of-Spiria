@@ -81,21 +81,21 @@
 
 /datum/patron/spira/greater/sirokel
 	name = "Sirokel"
-	display_name = "Sirokel, the Pierced Star"
-	domain = "Mercy, Protection of the Just, the Stars and the Source of Magic"
-	desc = "The first servant of Gaedon, who made the stars with him. She stole her creator's essence to give it \
-	to Saelion and was run through the back for it. Her blood is the font of all magic lent to mortals. \
-	She is shown as a woman pierced by a sword, or as a blue star."
-	worshippers = "The merciful, healers, protectors, mages and the just"
+	display_name = "Sirokel, the Blue Star"
+	domain = "Justice, the Stars and the Martyrs"
+	desc = "The first servant of Gaedon, who made the stars with him. Behind her creator's back she stole the \
+	primordial essence to give it to Saelion, and in his rage Gaedon tried to kill her, running her through the back \
+	with a sword. Her blood is the font of all mortal magic. She is shown as a woman pierced by a sword, or as a blue star."
+	worshippers = "The pious, the protectors and the just"
 	flaws = "Defiance, Recklessness, Trusting too deeply"
 	sins = "Cruelty, Abandoning the weak, Hoarding gifts that should be shared"
-	boons = "Your stamina regeneration delay is lowered during daytime."
-	added_traits = list(TRAIT_APRICITY)
+	boons = "Blue Star: at night, under the open sky, her blue star now and then shines for you, lifting your mood and easing your fatigue."
+	added_traits = list(TRAIT_BLUE_STAR)
 	devotion_holder = /datum/devotion/divine/astrata
 	confess_lines = list(
 		"SIROKEL SHIELDS THE JUST!",
 		"HER BLOOD IS OUR MAGIC, HER MERCY OUR SHIELD!",
-		"BY THE PIERCED STAR, I WILL NOT YIELD!",
+		"BY THE BLUE STAR, I WILL NOT YIELD!",
 	)
 
 /datum/patron/spira/greater/naverae
