@@ -4590,6 +4590,7 @@
 #include "modular_rmh\code\modules\clothing\vladegeg\wintercoat.dm"
 #include "modular_rmh\code\modules\clothing\vladegeg\armor\druid.dm"
 #include "modular_rmh\code\modules\combat\momentum.dm"
+#include "modular_rmh\code\modules\questing\quest_lock_release.dm"
 #include "modular_rmh\code\modules\combat\unarmed_azure.dm"
 #include "modular_rmh\code\modules\crafting\recipe_book_db.dm"
 #include "modular_rmh\code\modules\crafting\alchemy\herbal_preparations.dm"
