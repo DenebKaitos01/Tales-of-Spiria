@@ -52,6 +52,7 @@ type PatronEntry = {
   boons: string;
   available: Booleanish;
   selected: Booleanish;
+  symbol?: string | null;
 };
 type FaithEntry = {
   id: string;
@@ -623,6 +624,8 @@ export const Ornament = (props: { children?: ReactNode }) => (
 type TileProps = {
   name: string;
   icon?: string;
+  /** Image URL (e.g. a base64 data URI) shown instead of the glyph */
+  image?: string;
   selected?: boolean;
   inspected?: boolean;
   locked?: boolean;
@@ -665,7 +668,13 @@ const Tile = (props: TileProps) => {
       ) : mark ? (
         <Icon className="cc-tile-mark" name={mark} />
       ) : null}
-      {icon ? (
+      {props.image ? (
+        <img
+          className="cc-tile-icon"
+          src={props.image}
+          style={{ width: 32, height: 32, imageRendering: 'pixelated' }}
+        />
+      ) : icon ? (
         <Icon className="cc-tile-icon" name={icon} />
       ) : (
         <div className="cc-tile-mono">{monogram(name)}</div>
@@ -2812,7 +2821,12 @@ export const CharacterCreator = () => {
             <Tile
               key={patron.id}
               name={patron.name}
-              icon="sun"
+              image={
+                patron.symbol
+                  ? `data:image/png;base64,${patron.symbol}`
+                  : undefined
+              }
+              icon={patron.symbol ? undefined : 'sun'}
               selected={asBool(patron.selected)}
               inspected={patron.id === inspected?.id}
               locked={!asBool(patron.available)}

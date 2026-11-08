@@ -174,3 +174,24 @@
 		var/datum/patron/spira/spira_patron = patron
 		return spira_patron.sinister
 	return FALSE
+
+// RMH EDIT: deity symbols shown in the character creator's deity tiles
+/datum/patron
+	/// Icon file holding this deity's symbol (null = the generic glyph)
+	var/symbol_icon
+	/// Icon state of the symbol
+	var/symbol_state
+	/// Cached base64 PNG of the symbol for the UI
+	var/symbol_b64
+
+/// Base64 PNG of the deity's symbol, or null
+/datum/patron/proc/get_symbol()
+	if(!symbol_icon || !symbol_state)
+		return null
+	if(!symbol_b64)
+		symbol_b64 = icon2base64(icon(symbol_icon, symbol_state, SOUTH, 1))
+	return symbol_b64
+
+/datum/patron/spira/primordial/saelion
+	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
+	symbol_state = "saelion"

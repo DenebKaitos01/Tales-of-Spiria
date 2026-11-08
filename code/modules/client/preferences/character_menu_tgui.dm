@@ -462,6 +462,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 			"boons" = patron.boons || "",
 			"available" = available,
 			"selected" = current_patron_type == patron.type,
+			"symbol" = patron.get_symbol(), // RMH EDIT: deity symbol
 		))
 
 /datum/preferences/proc/character_setup_faith_options()
