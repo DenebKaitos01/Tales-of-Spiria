@@ -1,6 +1,6 @@
 /obj/item/repair_kit
 	name = "Armor repair kit"
-	desc = "A pile of various plates, chainmail pieces, and other junk that will be critical in those difficult times. This set can repair five serious damages."
+	desc = "A pile of various plates, chainmail pieces, and other junk for field repairs. It patches damaged armor anywhere, roughly (it wears the piece down a little), or restores armor already repaired back to full strength. Five uses."
 	icon = 'modular_rmh/icons/obj/items/repair_kits.dmi'
 	icon_state = "armorkit"
 	w_class = WEIGHT_CLASS_SMALL

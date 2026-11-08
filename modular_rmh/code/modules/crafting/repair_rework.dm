@@ -410,8 +410,27 @@
 	if(for_clothing && attacked_item.anvilrepair && !attacked_item.sewrepair)
 		to_chat(user, span_warning("[src] is only for clothing!"))
 		return
+	// Field repair: anyone can patch damaged gear up with a kit, but it's rough work that always wears the
+	// piece down a little. A smith or tailor (or an Ameliorate) can restore it properly afterwards.
 	if(attacked_item.get_integrity() < attacked_item.max_integrity)
-		to_chat(user, span_warning("[attacked_item] needs to be repaired first."))
+		if(user.get_active_held_item() != src)
+			return
+		playsound(loc, attacked_item.anvilrepair ? pick('sound/repair/hammer_noskill_1.ogg', 'sound/repair/hammer_noskill_2.ogg', 'sound/repair/hammer_noskill_3.ogg') : 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
+		user.visible_message(span_notice("[user] starts patching up [attacked_item] with [src]..."), span_notice("I start patching up [attacked_item] with [src]..."))
+		if(!do_after(user, 4 SECONDS, attacked_item))
+			return
+		if(!attacked_item.true_max_integrity)
+			attacked_item.true_max_integrity = attacked_item.max_integrity
+		attacked_item.max_integrity = max(1, attacked_item.max_integrity - (attacked_item.max_integrity * 0.05))
+		attacked_item.repair_damage(attacked_item.max_integrity * 0.35)
+		if(attacked_item.obj_broken && attacked_item.get_integrity() > 0)
+			attacked_item.atom_fix()
+		attacked_item.play_repair_vfx("integloss", 0.6 SECONDS)
+		user.visible_message(span_info("[user] patches up [attacked_item]. It's a rough job."), span_info("I patch up [attacked_item]. It's a rough job and it wears down a little - a smith or tailor could do better."))
+		amount_repair -= 1
+		if(amount_repair <= 0)
+			to_chat(user, span_warning("There is nothing left of [src]."))
+			qdel(src)
 		return
 	if(!attacked_item.has_lost_max_integ())
 		to_chat(user, span_warning("[attacked_item] is already in top shape."))

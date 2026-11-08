@@ -50,9 +50,10 @@
 /datum/outfit/adventurer_fighter/warrior
 	name = "Warrior"
 	backr = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses // needle, cloth and a health potion, like the other adventurers
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/belt/pouch/cloth/coins/poor
+	backpack_contents = list(/obj/item/repair_kit/poor_armorkit = 1)
 
 /datum/job/advclass/combat/adventurer_fighter/warrior/after_spawn(mob/living/carbon/human/H, client/player_client)
 	. = ..()

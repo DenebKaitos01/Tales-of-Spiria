@@ -51,9 +51,10 @@
 /datum/outfit/adventurer_fighter/ironclad
 	name = "Ironclad"
 	backr = /obj/item/storage/backpack/satchel
-	belt = /obj/item/storage/belt/leather
+	belt = /obj/item/storage/belt/leather/adventurers_subclasses // needle, cloth and a health potion, like the other adventurers
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/belt/pouch/cloth/coins/poor
+	backpack_contents = list(/obj/item/repair_kit/poor_armorkit = 1)
 
 /datum/job/advclass/combat/adventurer_fighter/ironclad/after_spawn(mob/living/carbon/human/H, client/player_client)
 	. = ..()
