@@ -3,13 +3,13 @@
 //   weapons that knock back send people further, and grabbed people are thrown further.
 // - Immovable (TRAIT_IMMOVABLE): can't be knocked down by being kicked or shoved into walls, tables or people
 //   (a kick while exhausted still floors them).
-// - Charge: a 5 tile rush in the facing direction that shoves everyone in the way aside.
+// - Charge: a 5 tile rush in the facing direction that shoves everyone in the way aside, leaving them Exposed.
 
 #define CHARGE_DISTANCE 5
 
 /datum/action/cooldown/spell/undirected/ironclad_charge
 	name = "Charge"
-	desc = "Lower your shoulder and rush up to 5 tiles ahead, shoving aside everyone in your way. \
+	desc = "Lower your shoulder and rush up to 5 tiles ahead, shoving aside everyone in your way and leaving them exposed. \
 	Those who can't be moved stop you."
 	button_icon_state = "bcry"
 	sound = 'sound/combat/shove.ogg'
@@ -40,6 +40,16 @@
 	INVOKE_ASYNC(src, PROC_REF(do_charge), cast_on, cast_on.dir)
 
 /datum/action/cooldown/spell/undirected/ironclad_charge/proc/do_charge(mob/living/charger, charge_dir)
+	// Mark the charge's path on the ground, like a weapon special winding up
+	var/turf/marked = get_turf(charger)
+	for(var/i in 1 to CHARGE_DISTANCE)
+		marked = get_step(marked, charge_dir)
+		if(!marked || marked.density)
+			break
+		var/obj/effect/temp_visual/duration_setting/marker = new(marked, 0.6 SECONDS)
+		marker.icon = 'icons/effects/effects.dmi'
+		marker.icon_state = "trap"
+		marker.plane = GAME_PLANE_FOV_HIDDEN
 	for(var/i in 1 to CHARGE_DISTANCE)
 		if(QDELETED(charger) || charger.stat || charger.body_position == LYING_DOWN)
 			return
@@ -54,7 +64,7 @@
 		charger.Move(next, charge_dir)
 		if(get_turf(charger) == before) // something held fast
 			break
-		new /obj/effect/temp_visual/decoy/fading/halfsecond(before, charger)
+		new /obj/effect/temp_visual/decoy/fading/afterimage(before, charger)
 		sleep(1)
 	if(!QDELETED(charger))
 		charger.changeNext_move(CLICK_CD_MELEE)
@@ -74,8 +84,12 @@
 		victim.Move(dest, push_dir)
 		if(get_turf(victim) != at)
 			break
-	victim.OffBalance(2 SECONDS)
-	victim.visible_message(span_danger("[charger] barrels into [victim], shoving [victim.p_them()] aside!"), span_userdanger("[charger] barrels into me!"))
+	var/obj/effect/temp_visual/duration_setting/impact = new(at, 0.5 SECONDS)
+	impact.icon = 'icons/effects/effects.dmi'
+	impact.icon_state = "sweep_fx"
+	impact.plane = GAME_PLANE_FOV_HIDDEN
+	victim.apply_status_effect(/datum/status_effect/debuff/exposed)
+	victim.visible_message(span_danger("[charger] barrels into [victim], shoving [victim.p_them()] aside and leaving [victim.p_them()] exposed!"), span_userdanger("[charger] barrels into me! I'm exposed!"))
 	log_combat(charger, victim, "charged into")
 
 #undef CHARGE_DISTANCE
