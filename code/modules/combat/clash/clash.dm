@@ -38,6 +38,7 @@
 
 	user.apply_status_effect(/datum/status_effect/debuff/exposed, 3 SECONDS)
 	user.apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
+	solid_foundations() // RMH EDIT: perfect guard
 
 	remove_status_effect(/datum/status_effect/buff/clash)
 
@@ -61,6 +62,7 @@
 	attacker.apply_status_effect(/datum/status_effect/debuff/exposed, 3 SECONDS)
 	attacker.apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
 	attacker.Slowdown(3)
+	solid_foundations() // RMH EDIT: perfect guard
 
 	remove_status_effect(/datum/status_effect/buff/clash)
 	return TRUE

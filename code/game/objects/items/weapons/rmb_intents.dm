@@ -112,6 +112,7 @@
 		to_chat(defender, span_danger("I fall for [user.p_their()] bait <b>perfectly</b>! My balance is GONE!</b>"))
 
 	defender.apply_status_effect(/datum/status_effect/stacking/baited, null, 1)
+	user.solid_foundations() // RMH EDIT: bait landed
 
 	if(!defender.pulling)
 		return TRUE
@@ -279,6 +280,7 @@
 	user.apply_status_effect(/datum/status_effect/debuff/feintcd, cooldown_override)
 
 	to_chat(user, span_notice("[defender.p_they(TRUE)] fell for my feint attack!"))
+	user.solid_foundations() // RMH EDIT: feint landed
 	to_chat(defender, span_danger("I fall for [user.p_their()] feint attack!"))
 	playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
 
