@@ -38,6 +38,7 @@
 	swingdelay_type = SWINGDELAY_CANCEL
 	icon_state = "insmash"
 	misscost = 10
+	knockback = TRUE // RMH EDIT: heavy smashes push people back (much further with Giant's Might)
 	item_damage_type = "blunt"
 	acc_bonus = 10
 
