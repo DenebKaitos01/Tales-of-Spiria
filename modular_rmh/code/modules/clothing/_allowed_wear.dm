@@ -44,6 +44,7 @@
 
 
 /datum/clothing_display_helper/proc/format_sex(list/allowed_sex)
+	return "" // RMH EDIT: clothing is no longer limited by sex
 	if(!length(allowed_sex))
 		return ""
 

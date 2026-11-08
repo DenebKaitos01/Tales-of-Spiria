@@ -1738,6 +1738,22 @@ generate/load female uniform sprites matching all previously decided variables
 	if(!file2use)
 		file2use = default_icon_file
 
+	// RMH EDIT: clothes are no longer limited by sex, so a garment drawn for only one body cut falls back to the
+	// other cut's sprite instead of turning invisible (e.g. bikinis only have "_f" worn states).
+	if(!isinhands && !override_state && file2use && !icon_exists(file2use, t_state))
+		var/alt_state
+		if(coom && findtext(t_state, "[icon_state]_f") == 1)
+			alt_state = "[icon_state][copytext(t_state, length("[icon_state]_f") + 1)]"
+		else if(!coom && findtext(t_state, icon_state) == 1)
+			alt_state = "[icon_state]_f[copytext(t_state, length(icon_state) + 1)]"
+		if(alt_state && icon_exists(file2use, alt_state))
+			t_state = alt_state
+			coom = !coom
+			if(sleevetype)
+				sleevejazz = coom ? "[sleevetype]_f" : sleevetype
+				if(customi)
+					sleevejazz += "_[customi]"
+
 	// Breast-sized garments take the sheet state for the wearer's size instead of the "_boob" overlay.
 	var/breast_sized_suffix = get_breast_sized_worn_suffix(coom, customi, isinhands)
 	if(breast_sized_suffix)

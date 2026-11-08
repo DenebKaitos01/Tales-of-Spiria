@@ -253,8 +253,7 @@
 	if(!(slot_flags & slot))
 		return FALSE
 
-	if(!(M.gender in allowed_sex))
-		return FALSE
+	// RMH EDIT: clothing is no longer limited by sex - anyone can wear anything (allowed_sex is ignored)
 
 	if(!ishuman(M))
 		return FALSE

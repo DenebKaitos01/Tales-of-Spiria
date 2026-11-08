@@ -304,7 +304,7 @@
 	if(isclothing(item_to_check))
 		var/obj/item/clothing/C = item_to_check
 		//Thank you DM Refrence website for telling me how to find out negative if in arguments.
-		if(!(gender in C.allowed_sex) || !(SPEC_ID_HUMEN in C.allowed_race))
+		if(!(SPEC_ID_HUMEN in C.allowed_race)) // RMH EDIT: no sex limits on clothing
 			to_chat(user, "<span class='warning'>This clothing won't fit this mannequin's frame.</span>")
 			return FALSE
 
