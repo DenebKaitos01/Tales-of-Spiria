@@ -1,6 +1,6 @@
-// RMH EDIT: Azure Peak's mace smash. The smash is now a charged blow (half a second) that knocks the target
+// RMH EDIT: Azure Peak's mace smash. The smash is now a charged blow (2 seconds) that knocks the target
 // back and slows them, scaling with Strength: X = 1 tile up to XIV = 4 tiles (one-handed smashes cap at 3).
-// Below Strength X it does neither. Each target can only be knocked back once every 5 seconds, prone
+// Below Strength X it does neither. Each target can only be knocked back once every 8 seconds, prone
 // targets fly half as far, and a smash released early only knocks back one tile.
 // Giant's Might (Ironclad) sends them 2 tiles further.
 
@@ -39,6 +39,6 @@
 /// Can't be knocked back by a smash again for a moment
 /datum/status_effect/debuff/yeetcd
 	id = "yeetcd"
-	duration = 5 SECONDS
+	duration = 8 SECONDS
 	alert_type = null
 	status_type = STATUS_EFFECT_REFRESH

@@ -34,11 +34,11 @@
 	penfactor = AP_CLUB_SMASH
 	damfactor = 1.1
 	clickcd = 14
-	// RMH EDIT: Azure Peak's smash - a half second charge instead of a swing delay, with its own
+	// RMH EDIT: Azure Peak's smash - a 2 second charge instead of a swing delay, with its own
 	// Strength-scaled knockback and slowdown (see modular_rmh/code/modules/combat/mace_smash.dm)
-	chargetime = 5
+	chargetime = 20
 	chargedrain = 1
-	desc = "A powerful charged blow that knocks the target back and slows them, scaling with your Strength: X knocks back 1 tile, up to XIV for 4 tiles. Below Strength X it has no effect. Can't knock the same target back more than once every 5 seconds; prone targets fly half as far, and releasing early only knocks back 1 tile."
+	desc = "A powerful charged blow that knocks the target back and slows them, scaling with your Strength: X knocks back 1 tile, up to XIV for 4 tiles. Below Strength X it has no effect. Can't knock the same target back more than once every 8 seconds; prone targets fly half as far, and releasing early only knocks back 1 tile."
 	icon_state = "insmash"
 	misscost = 10
 	item_damage_type = "blunt"
