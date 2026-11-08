@@ -1,9 +1,9 @@
 
 /datum/quirk/vice/wanted
 	name = "Wanted"
-	desc = "Something in my past has made me a target. I am marked as an outlaw in these lands. I'm always looking over my shoulder. And protecting my loins..."
+	desc = "Something in my past has made me a target. I am marked as an outlaw in these lands. I'm always looking over my shoulder..."
 	desc_hint = "THIS IS A DIFFICULT FLAW - play at your own risk. \
-	<br>You will be hunted and have non-con and rape attempts made against you by town guards. \
+	<br>You are a known criminal: town guards and bounty hunters will try to hunt you down and arrest you. \
 	This does not give you a license to grief or perform criminal acts with impunity, \
 	this is a roleplay flaw to make you a 'target'"
 	point_value = 3
