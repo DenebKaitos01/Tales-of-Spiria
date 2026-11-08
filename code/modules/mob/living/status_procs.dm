@@ -271,8 +271,6 @@
 	return 0
 
 /mob/living/proc/OffBalance(amount) //Can't go below remaining duration
-	if(HAS_TRAIT(src, TRAIT_IMMOVABLE)) // RMH EDIT: the Ironclad never goes off-guard
-		return
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_OFFBALANCED, amount))
 		return
 	var/datum/status_effect/incapacitating/off_balanced/O = IsOffBalanced()

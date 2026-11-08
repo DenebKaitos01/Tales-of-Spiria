@@ -84,7 +84,7 @@
 		return
 
 	var/static/list/weapon_kits = list(
-		"Longsword" = list(/obj/item/weapon/sword/long),
+		"Twin Longswords" = list(/obj/item/weapon/sword/long, /obj/item/weapon/sword/long),
 		"Twin Sabres" = list(/obj/item/weapon/sword/sabre, /obj/item/weapon/sword/sabre),
 	)
 	var/weaponchoice = H.select_equippable(player_client, weapon_kits, message = "Choose Your Blades", title = "Blade Dancer")
@@ -92,5 +92,4 @@
 		return
 
 	H.adjust_skillrank_up_to(/datum/attribute/skill/combat/swords, SKILL_RANK_EXPERT, TRUE)
-	if(weaponchoice == "Twin Sabres")
-		ADD_TRAIT(H, TRAIT_DUALWIELDER, JOB_TRAIT)
+	ADD_TRAIT(H, TRAIT_DUALWIELDER, JOB_TRAIT) // a blade in each hand

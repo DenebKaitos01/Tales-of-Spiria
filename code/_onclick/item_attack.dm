@@ -751,6 +751,7 @@
 	else
 		SEND_SIGNAL(I, COMSIG_ITEM_POST_ATTACK_SIMPLE, src, user, actual_damage)
 	I.remove_bintegrity(1)
+	giant_smash_launch(user, I) // RMH EDIT: Ironclad's Giant's Might
 	if(I.damtype == BRUTE && !nodmg)
 		if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 			simple_woundcritroll(user.used_intent.blade_class, newforce, user, hitlim)
