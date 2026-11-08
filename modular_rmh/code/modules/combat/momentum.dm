@@ -58,7 +58,27 @@
 	owner.adjust_stamina(-owner.maximum_stamina * 0.04) // the blue bar: combat fatigue goes down
 	owner.adjust_energy(owner.max_energy * 0.02) // the green bar comes back
 
+/datum/status_effect/buff/focus/on_apply()
+	. = ..()
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(leave_afterimage))
+
+/// While focused the warrior moves so fast they leave a fading afterimage behind with every step
+/datum/status_effect/buff/focus/proc/leave_afterimage(atom/movable/mover, atom/oldloc, direction, forced)
+	SIGNAL_HANDLER
+	if(!isturf(oldloc) || owner.body_position == LYING_DOWN)
+		return
+	new /obj/effect/temp_visual/decoy/fading/afterimage(oldloc, owner)
+
+/obj/effect/temp_visual/decoy/fading/afterimage
+	duration = 5
+
+/obj/effect/temp_visual/decoy/fading/afterimage/Initialize(mapload, atom/mimiced_atom)
+	. = ..()
+	alpha = 110
+	animate(src, alpha = 0, time = duration)
+
 /datum/status_effect/buff/focus/on_remove()
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	. = ..()
 	if(owner.stat != DEAD)
 		to_chat(owner, span_warning("My focus fades."))

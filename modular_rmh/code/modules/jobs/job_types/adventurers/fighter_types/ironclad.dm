@@ -41,11 +41,13 @@
 		TRAIT_MEDIUMARMOR,
 		TRAIT_HEAVYARMOR,
 		TRAIT_STEELHEARTED,
+		TRAIT_GIANT_MIGHT,
+		TRAIT_IMMOVABLE,
 	)
 
 	spells = list(
 		/datum/action/cooldown/spell/undirected/second_wind,
-		/datum/action/cooldown/spell/undirected/bulwark,
+		/datum/action/cooldown/spell/undirected/ironclad_charge,
 	)
 
 /datum/outfit/adventurer_fighter/ironclad

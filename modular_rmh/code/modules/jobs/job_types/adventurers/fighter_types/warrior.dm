@@ -21,10 +21,9 @@
 	)
 
 /datum/job/advclass/combat/adventurer_fighter/warrior
-	title = "Warrior" // RMH EDIT: the base fighter subclass
-	tutorial = "On the Sword Coast, steel speaks louder than promises. \
-	Warriors are mercenaries, caravan guards, militia veterans, \
-	and hardened survivors of countless skirmishes."
+	title = "Blade Dancer" // RMH EDIT: the base fighter subclass, formerly "Warrior"
+	tutorial = "Steel is a dance, and you never miss a step. Blade Dancers are duelists and sellswords who \
+	build momentum with every blow, until they move so fast they leave their own shadow behind."
 
 	outfit = /datum/outfit/adventurer_fighter/warrior
 	category_tags = list(CAT_ADVENTURER_FIGHTER)
@@ -45,10 +44,10 @@
 
 
 // ------------------------------------------------------------
-// RMH EDIT: the Warrior picks a weapon kit and an armor kit when spawning. The chosen weapon's skill goes to Expert.
+// RMH EDIT: the Blade Dancer picks an armor kit and a blade when spawning. Swords go to Expert.
 
 /datum/outfit/adventurer_fighter/warrior
-	name = "Warrior"
+	name = "Blade Dancer"
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/adventurers_subclasses // needle, cloth and a health potion, like the other adventurers
 	beltl = /obj/item/flashlight/flare/torch/lantern
@@ -80,25 +79,18 @@
 			/obj/item/clothing/shoes/boots/leather/advanced,
 		),
 	)
-	H.select_equippable(player_client, armor_kits, message = "Choose Your Armor", title = "Warrior")
+	H.select_equippable(player_client, armor_kits, message = "Choose Your Armor", title = "Blade Dancer")
 	if(QDELETED(H))
 		return
 
 	var/static/list/weapon_kits = list(
-		"Short Sword & Iron Shield" = list(/obj/item/weapon/sword/short, /obj/item/weapon/shield/tower/buckleriron),
-		"Longsword & Wrestling" = list(/obj/item/weapon/sword/long),
-		"Battle Axe & Wood Shield" = list(/obj/item/weapon/axe/battle, /obj/item/weapon/shield/wood),
-		"Mace & Iron Shield" = list(/obj/item/weapon/mace, /obj/item/weapon/shield/tower/buckleriron),
+		"Longsword" = list(/obj/item/weapon/sword/long),
+		"Twin Sabres" = list(/obj/item/weapon/sword/sabre, /obj/item/weapon/sword/sabre),
 	)
-	var/weaponchoice = H.select_equippable(player_client, weapon_kits, message = "Choose Your Martial Training", title = "Warrior")
+	var/weaponchoice = H.select_equippable(player_client, weapon_kits, message = "Choose Your Blades", title = "Blade Dancer")
 	if(QDELETED(H) || !weaponchoice)
 		return
 
-	switch(weaponchoice)
-		if("Short Sword & Iron Shield")
-			H.adjust_skillrank_up_to(/datum/attribute/skill/combat/swords, SKILL_RANK_EXPERT, TRUE)
-		if("Longsword & Wrestling")
-			H.adjust_skillrank_up_to(/datum/attribute/skill/combat/swords, SKILL_RANK_EXPERT, TRUE)
-			H.adjust_skillrank(/datum/attribute/skill/combat/wrestling, 1, TRUE)
-		if("Battle Axe & Wood Shield", "Mace & Iron Shield")
-			H.adjust_skillrank_up_to(/datum/attribute/skill/combat/axesmaces, SKILL_RANK_EXPERT, TRUE)
+	H.adjust_skillrank_up_to(/datum/attribute/skill/combat/swords, SKILL_RANK_EXPERT, TRUE)
+	if(weaponchoice == "Twin Sabres")
+		ADD_TRAIT(H, TRAIT_DUALWIELDER, JOB_TRAIT)

@@ -1721,13 +1721,15 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 //		var/obj/machinery/disposal/bin/target_disposal_bin
 		var/shove_blocked = FALSE //Used to check if a shove is blocked so that if it is knockdown logic can be applied
 
-		if(prob(clamp(30 + (user.stat_compare(target, STAT_STRENGTH, STAT_CONSTITUTION)*10),0,100)))//check if we actually shove them
+		if(prob(clamp(30 + (user.stat_compare(target, STAT_STRENGTH, STAT_CONSTITUTION)*10) + (HAS_TRAIT(user, TRAIT_GIANT_MIGHT) ? 25 : 0),0,100)))//check if we actually shove them (RMH EDIT: Giant's Might)
 			//Thank you based whoneedsspace
 			target_collateral_mob = locate(/mob/living) in target_shove_turf.contents
 			if(target_collateral_mob)
 				shove_blocked = TRUE
 			else
 				target.Move(target_shove_turf, shove_dir)
+				if(get_turf(target) != target_oldturf && HAS_TRAIT(user, TRAIT_GIANT_MIGHT)) // RMH EDIT: shoved a tile further
+					target.Move(get_step(target, shove_dir), shove_dir)
 				if(get_turf(target) == target_oldturf)
 					target_table = locate(/obj/structure/table) in target_shove_turf.contents
 	//				target_disposal_bin = locate(/obj/machinery/disposal/bin) in target_shove_turf.contents
@@ -1896,7 +1898,9 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 					target_table = locate(/obj/structure/table) in target_shove_turf.contents
 					shove_blocked = TRUE
 			else
-				if(stander && target.stamina >= target.maximum_stamina) //if you are kicked while fatigued, you are knocked down no matter what
+				if(HAS_TRAIT(user, TRAIT_GIANT_MIGHT)) // RMH EDIT: a giant's kick sends them further
+					target.Move(get_step(target, shove_dir), shove_dir)
+				if(stander && target.stamina >= target.maximum_stamina && !HAS_TRAIT(target, TRAIT_IMMOVABLE)) //if you are kicked while fatigued, you are knocked down no matter what
 					target.Knockdown(100)
 
 		if(shove_blocked && !target.is_shove_knockdown_blocked() && !target.buckled)
