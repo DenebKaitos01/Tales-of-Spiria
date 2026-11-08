@@ -1,4 +1,4 @@
-// RMH EDIT: Azure Peak's mace smash. The smash is now a charged blow (2 seconds) that knocks the target
+// RMH EDIT: Azure Peak's mace smash. The smash is now a charged blow (1 second) that knocks the target
 // back and slows them, scaling with Strength: X = 1 tile up to XIV = 4 tiles (one-handed smashes cap at 3).
 // Below Strength X it does neither. Each target can only be knocked back once every 8 seconds, prone
 // targets fly half as far, and a smash released early only knocks back one tile.
