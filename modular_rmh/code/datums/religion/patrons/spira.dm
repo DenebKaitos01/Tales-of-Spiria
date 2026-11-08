@@ -195,3 +195,11 @@
 /datum/patron/spira/primordial/saelion
 	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
 	symbol_state = "saelion"
+
+/datum/patron/spira/primordial/gaedon
+	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
+	symbol_state = "gaedon"
+
+/datum/patron/spira/greater/ragelia
+	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
+	symbol_state = "ragelia"
