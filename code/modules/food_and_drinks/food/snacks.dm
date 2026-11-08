@@ -464,11 +464,17 @@ All foods are distributed among various categories. Use common sense.
 	if(user.cmode || !istype(user.used_intent, INTENT_FEED))
 		return NONE
 
+	// RMH EDIT: hand-feeding animals. eat_food() only played the chewing sound and blocked the click, so
+	// nothing was ever fed (and gnome homunculi never got their food gifts). Liked foods are handled by the
+	// animal's own item_interaction before this runs; anything else falls through to its attackby.
 	if(isanimal(interacting_with))
 		var/mob/living/simple_animal/animal = interacting_with
-		if(!animal.eat_food(src))
-			return ITEM_INTERACT_BLOCKING
-		return ITEM_INTERACT_SUCCESS
+		if(is_type_in_list(src, animal.food_type))
+			return animal.attempt_feed(src, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+		if(istype(animal, /mob/living/simple_animal/hostile/gnome_homunculus))
+			return NONE
+		to_chat(user, span_warning("[animal] doesn't seem interested in [src]."))
+		return ITEM_INTERACT_BLOCKING
 
 	if(!iscarbon(interacting_with))
 		return NONE
