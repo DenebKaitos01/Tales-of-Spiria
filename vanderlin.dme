@@ -4593,6 +4593,7 @@
 #include "modular_rmh\code\modules\combat\battlemaster.dm"
 #include "modular_rmh\code\modules\combat\dragoon.dm"
 #include "modular_rmh\code\modules\combat\ironclad_might.dm"
+#include "modular_rmh\code\modules\combat\mace_smash.dm"
 #include "modular_rmh\code\modules\combat\momentum.dm"
 #include "modular_rmh\code\modules\crafting\repair_rework.dm"
 #include "modular_rmh\code\modules\questing\quest_lock_release.dm"

@@ -36,7 +36,6 @@
 		/datum/action/cooldown/spell/projectile/fire_flare,
 		/datum/action/cooldown/spell/projectile/fireball,
 		/datum/action/cooldown/spell/essence/fire_cascade/class_granted,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 

@@ -43,7 +43,6 @@
 		/datum/action/cooldown/spell/conjure/raise_lesser_undead/necromancer,
 		/datum/action/cooldown/spell/gravemark,
 		/datum/action/cooldown/spell/control_undead,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 

@@ -259,7 +259,6 @@
 		/datum/action/cooldown/spell/aoe/on_turf/ensnare,
 		/datum/action/cooldown/spell/conjure/web,
 		/datum/action/cooldown/spell/enchantment/green_flame,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 /datum/outfit/swamp_witch/hex

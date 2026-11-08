@@ -20,7 +20,6 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/combat/adventurer_wizard/evocation_wizard

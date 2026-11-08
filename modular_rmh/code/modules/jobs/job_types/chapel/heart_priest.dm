@@ -84,7 +84,6 @@
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/undirected/locate_dead,
 		/datum/action/cooldown/spell/sacred_flame,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 /datum/job/heart_priest/after_spawn(mob/living/carbon/human/spawned, client/player_client)

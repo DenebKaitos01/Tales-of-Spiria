@@ -22,6 +22,9 @@
 	var/defeat_final_death = FALSE
 
 /mob/living/proc/defeat_intercept_lethal(reason = DEFEAT_REASON_DEATH)
+	// RMH EDIT: Saelion's Will to Live pulls a follower back from a lethal blow, once per round
+	if(!defeat_lethal_bypass && !suiciding && stat != DEAD && reason != DEFEAT_REASON_HAZARD && try_will_to_live("lethal"))
+		return TRUE
 	if(defeat_lethal_bypass || suiciding || stat == DEAD || !defeat_system_is_eligible())
 		return FALSE
 	if(has_status_effect(/datum/status_effect/defeat_knockout))

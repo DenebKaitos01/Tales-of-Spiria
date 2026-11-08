@@ -2115,6 +2115,8 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 
 	I.funny_attack_effects(H, user, nodmg)
 	knockback(I, H, user, nodmg, actual_damage)
+	if(!nodmg)
+		H.mace_smash_knockback(user) // RMH EDIT: Azure mace smash
 
 	H.send_item_attack_message(I, user, parse_zone(selzone))
 	SEND_SIGNAL(I, COMSIG_ITEM_SPEC_ATTACKEDBY, H, user, affecting, actual_damage)

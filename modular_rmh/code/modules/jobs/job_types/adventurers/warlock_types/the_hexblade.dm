@@ -46,7 +46,6 @@
 		/datum/action/cooldown/spell/mimicry,
 		/datum/action/cooldown/spell/find_flaw,
 		/datum/action/cooldown/spell/enchantment/green_flame,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 // ------------------------------------------------------------

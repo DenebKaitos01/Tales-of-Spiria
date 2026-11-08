@@ -32,7 +32,6 @@
 
 	spells = list(
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 /datum/outfit/adventurer_wizard/hedge_wizard

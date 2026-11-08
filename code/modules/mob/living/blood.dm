@@ -114,6 +114,7 @@
 	amt -= amt * con_modifier * CONSTITUTION_BLEEDRATE_MOD
 
 	blood_volume = max(blood_volume - amt, 0)
+	check_will_to_live_bleeding() // RMH EDIT: Saelion's Will to Live
 
 	if(client)
 		record_featured_stat(FEATURED_STATS_BLEEDERS, src)

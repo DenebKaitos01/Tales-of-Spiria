@@ -55,7 +55,6 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/guild_wizard/expert
@@ -153,7 +152,6 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/projectile/fireball,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/guild_wizard/adept

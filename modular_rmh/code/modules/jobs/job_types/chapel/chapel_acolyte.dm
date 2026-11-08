@@ -264,7 +264,6 @@
 		/datum/action/cooldown/spell/instill_perfection,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
 		/datum/action/cooldown/spell/essence/toxic_cleanse/class_granted,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/acolyte/sune
@@ -596,7 +595,6 @@
 		/datum/action/cooldown/spell/essence/healing_spring/class_granted,
 		/datum/action/cooldown/spell/instill_perfection,
 		/datum/action/cooldown/spell/undirected/conjure_item/light,
-		/datum/action/cooldown/spell/enrapture,
 	)
 
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/acolyte/love
