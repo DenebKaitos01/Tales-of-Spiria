@@ -52,7 +52,7 @@
 /obj/item/bodypart/l_leg/prosthetic
 	name = "debug left leg"
 	icon = 'icons/roguetown/items/misc.dmi'
-	icon_state = "pr_leg"
+	icon_state = "prleg"
 	resistance_flags = NONE
 	obj_flags = CAN_BE_HIT
 	status = BODYPART_ROBOTIC
@@ -68,7 +68,7 @@
 /obj/item/bodypart/r_leg/prosthetic
 	name = "debug right leg"
 	icon = 'icons/roguetown/items/misc.dmi'
-	icon_state = "pr_leg"
+	icon_state = "prleg"
 	resistance_flags = NONE
 	obj_flags = CAN_BE_HIT
 	status = BODYPART_ROBOTIC
@@ -139,7 +139,7 @@
 /obj/item/bodypart/l_arm/prosthetic/iron
 	name = "iron left arm"
 	desc = "A left arm of iron."
-	icon_state = "prarm"
+	icon_state = "pri_arm"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 150
@@ -156,7 +156,7 @@
 /obj/item/bodypart/r_arm/prosthetic/iron
 	name = "iron right arm"
 	desc = "A right arm of iron."
-	icon_state = "prarm"
+	icon_state = "pri_arm"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 150
@@ -173,7 +173,7 @@
 /obj/item/bodypart/l_leg/prosthetic/iron
 	name = "iron left leg"
 	desc = "A left leg of iron."
-	icon_state = "pleg"
+	icon_state = "pri_leg"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 150
@@ -189,7 +189,7 @@
 /obj/item/bodypart/r_leg/prosthetic/iron
 	name = "iron right leg"
 	desc = "A right leg of iron."
-	icon_state = "pleg"
+	icon_state = "pri_leg"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 150
@@ -208,7 +208,7 @@
 /obj/item/bodypart/l_arm/prosthetic/steel
 	name = "steel left arm"
 	desc = "A left arm of steel."
-	icon_state = "prarm"
+	icon_state = "prs_arm"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 200
@@ -224,7 +224,7 @@
 /obj/item/bodypart/r_arm/prosthetic/steel
 	name = "steel right arm"
 	desc = "A right arm of steel."
-	icon_state = "prarm"
+	icon_state = "prs_arm"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 200
@@ -240,7 +240,7 @@
 /obj/item/bodypart/l_leg/prosthetic/steel
 	name = "steel left leg"
 	desc = "A left leg of steel."
-	icon_state = "pleg"
+	icon_state = "prs_leg"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 200
@@ -255,7 +255,7 @@
 /obj/item/bodypart/r_leg/prosthetic/steel
 	name = "steel right leg"
 	desc = "A right leg of steel."
-	icon_state = "pleg"
+	icon_state = "prs_leg"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	max_damage = 200
@@ -272,7 +272,7 @@
 /obj/item/bodypart/l_arm/prosthetic/gold
 	name = "golden left arm"
 	desc = "A left arm of cogs and gold."
-	icon_state = "bprarm"
+	icon_state = "prc_arm"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_BULKY
 	max_damage = 120
@@ -286,7 +286,7 @@
 /obj/item/bodypart/r_arm/prosthetic/gold
 	name = "golden right arm"
 	desc = "A right arm of cogs and gold."
-	icon_state = "bprarm"
+	icon_state = "prc_arm"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_BULKY
 	max_damage = 120
@@ -300,7 +300,7 @@
 /obj/item/bodypart/l_leg/prosthetic/gold
 	name = "golden left leg"
 	desc = "A left leg of cogs and gold."
-	icon_state = "bpleg"
+	icon_state = "prc_leg"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_BULKY
 	max_damage = 120
@@ -314,7 +314,7 @@
 /obj/item/bodypart/r_leg/prosthetic/gold
 	name = "golden right leg"
 	desc = "A right leg of cogs and gold."
-	icon_state = "bpleg"
+	icon_state = "prc_leg"
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_BULKY
 	max_damage = 120
@@ -354,3 +354,32 @@
 	fingers = TRUE
 	anvilrepair = /datum/attribute/skill/craft/engineering
 	smeltresult = /obj/item/ingot/bronze
+
+// RMH EDIT: bronze legs (Azure Peak) - the boon quirks already handed them out, but they had no definition or sprite
+/obj/item/bodypart/l_leg/prosthetic/bronze
+	name = "bronze left leg"
+	desc = "A replacement left leg, engineered out of bronze."
+	icon_state = "bpleg"
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_NORMAL
+	max_damage = 220
+	max_integrity = 350
+	sellprice = 40
+	anvilrepair = /datum/attribute/skill/craft/engineering
+	smeltresult = /obj/item/ingot/bronze
+	melting_material = /datum/material/bronze
+	melt_amount = 100
+
+/obj/item/bodypart/r_leg/prosthetic/bronze
+	name = "bronze right leg"
+	desc = "A replacement right leg, engineered out of bronze."
+	icon_state = "bpleg"
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_NORMAL
+	max_damage = 220
+	max_integrity = 350
+	sellprice = 40
+	anvilrepair = /datum/attribute/skill/craft/engineering
+	smeltresult = /obj/item/ingot/bronze
+	melting_material = /datum/material/bronze
+	melt_amount = 100

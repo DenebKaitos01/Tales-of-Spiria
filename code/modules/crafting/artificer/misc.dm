@@ -403,6 +403,14 @@
 	name = "Bronze Right Arm (+2 Cogs)"
 	created_item = /obj/item/bodypart/r_arm/prosthetic/bronze
 
+/datum/artificer_recipe/prosthetics/bronze/leg_left
+	name = "Bronze Left Leg (+2 Cogs)"
+	created_item = /obj/item/bodypart/l_leg/prosthetic/bronze
+
+/datum/artificer_recipe/prosthetics/bronze/leg_right
+	name = "Bronze Right Leg (+2 Cogs)"
+	created_item = /obj/item/bodypart/r_leg/prosthetic/bronze
+
 // --------- GOLD PROSTHETICS -----------
 
 /datum/artificer_recipe/prosthetics/gold // Guh this need a gold subtype oh well maybe some day there will be a golden cock! COG I MEAN GOD OMG
