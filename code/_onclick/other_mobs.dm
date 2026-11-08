@@ -579,6 +579,7 @@
 			jadded += 50
 			jrange = 1
 
+	jrange += acrobat_jump_bonus() // RMH EDIT: Acrobat
 	jump_action_resolve(A, jadded, jrange, jextra)
 	return TRUE
 

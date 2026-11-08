@@ -147,6 +147,9 @@
 		return . | ZIMPACT_CANCEL_DAMAGE
 	if(HAS_TRAIT(src, TRAIT_NOFALLDAMAGE1) && levels <= 2)
 		return . | ZIMPACT_CANCEL_DAMAGE
+	if(HAS_TRAIT(src, TRAIT_ACROBAT) && levels <= 1 && body_position == STANDING_UP) // RMH EDIT: Acrobat
+		to_chat(src, span_info("I roll with the landing."))
+		return . | ZIMPACT_CANCEL_DAMAGE
 
 	var/can_brace_fall = (!incapacitated(IGNORE_RESTRAINTS) && body_position == STANDING_UP)
 	if(can_brace_fall && GET_MOB_SKILL_VALUE_OLD(src, /datum/attribute/skill/misc/climbing) >= 5) // Master climbers can fall down 2 levels without hurting themselves

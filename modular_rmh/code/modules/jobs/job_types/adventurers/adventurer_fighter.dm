@@ -21,6 +21,7 @@
 	job_subclasses = list(
 		/datum/job/advclass/combat/adventurer_fighter/warrior,
 		/datum/job/advclass/combat/adventurer_fighter/ironclad,
+		/datum/job/advclass/combat/adventurer_fighter/dragoon,
 	)
 
 /datum/job/adventurer_fighter/after_spawn(mob/living/carbon/human/spawned, client/player_client)
