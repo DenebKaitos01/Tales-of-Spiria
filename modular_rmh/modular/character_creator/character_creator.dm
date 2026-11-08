@@ -34,7 +34,7 @@ GLOBAL_LIST_INIT(character_creator_view_links, list(
 	"character_setup_round_action", "playerquality", "ooc_preview", "triumphs", "triumph_buy_menu",
 	"keybinds", "multi", "skin_color_ref_list", "finished", "save", "load", "changeslot", "tab",
 	"defeat_guide", "voicepreview", "moanpreview", "hotkeys", "action_buttons", "tgui_fancy",
-	"tgui_lock", "winflash", "see_chat_non_mob", "ambientocclusion", "color_grading", "auto_fit_viewport",
+	"tgui_lock", "winflash", "see_chat_non_mob", "ambientocclusion", "post_processing", "auto_fit_viewport",
 	"balloon_alerts", "runechat", "lobby_music", "hear_midis", "ambience", "background_music",
 	"allow_midround_antag", "be_voice", "pixel_size", "scaling_method", "player_language",
 ))
