@@ -48,7 +48,7 @@
 	worshippers = "Nobles, the ambitious, the talented and those who press on against all odds"
 	flaws = "Arrogance, Tyranny, Wrath"
 	sins = "Pessimism, Complacency, Fearing to advance or improve"
-	boons = "Ambition: when you critically fail an attack or a craft, you roll again."
+	boons = "When you critically fail an attack or a craft, you roll again."
 	added_traits = list(TRAIT_AMBITION)
 	devotion_holder = /datum/devotion/divine/malum
 	confess_lines = list(
@@ -68,7 +68,7 @@
 	worshippers = "Most beings of the civilized world of Spira, above all the highest ranks of the Holy Church"
 	flaws = "Recklessness, Vengefulness, Careless experiments"
 	sins = "Wasting or scorning life, Senseless destruction of nature"
-	boons = "Will to Live: once per round, when you are about to fall, Endurance gives you a chance to stay on your feet."
+	boons = "Once per round, when you are about to die or bleed out, Saelion pulls you back to your feet."
 	added_traits = list(TRAIT_WILL_TO_LIVE)
 	devotion_holder = /datum/devotion/divine/dendor
 	confess_lines = list(
@@ -89,7 +89,7 @@
 	worshippers = "The pious, the protectors and the just"
 	flaws = "Defiance, Recklessness, Trusting too deeply"
 	sins = "Cruelty, Abandoning the weak, Hoarding gifts that should be shared"
-	boons = "Blue Star: at night, under the open sky, her blue star now and then shines for you, lifting your mood and easing your fatigue."
+	boons = "At night, under the open sky, her blue star now and then shines for you, lifting your mood and easing your fatigue."
 	added_traits = list(TRAIT_BLUE_STAR)
 	devotion_holder = /datum/devotion/divine/astrata
 	confess_lines = list(
@@ -128,7 +128,7 @@
 	worshippers = "Warriors, guards and watchmen"
 	flaws = "Blind obedience, Harshness, Rigidity"
 	sins = "Cowardice, Desertion, Doubt"
-	boons = "Always Vigilant: you see more clearly in the dark, and rough terrain does not slow you down."
+	boons = "You see more clearly in the dark, and rough terrain does not slow you down."
 	added_traits = list(TRAIT_ALWAYS_VIGILANT)
 	devotion_holder = /datum/devotion/divine/ravox
 	confess_lines = list(
