@@ -4545,6 +4545,11 @@ export const CharacterCreator = () => {
       label: 'ambientocclusion',
     },
     {
+      key: 'color_grading',
+      action: 'color_grading',
+      label: 'color_grading',
+    },
+    {
       key: 'auto_fit_viewport',
       action: 'auto_fit_viewport',
       label: 'auto_fit_viewport',
@@ -4590,6 +4595,7 @@ export const CharacterCreator = () => {
       keys: [
         'see_chat_non_mob',
         'ambientocclusion',
+        'color_grading',
         'auto_fit_viewport',
         'balloon_alerts',
         'runechat',

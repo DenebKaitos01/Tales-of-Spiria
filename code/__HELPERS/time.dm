@@ -51,6 +51,7 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 				GLOB.dayspassed = 1
 			SStreasury.distribute_estate_incomes()
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TIME_OF_DAY_CHANGED, GLOB.tod, oldtod)
+		update_all_color_grading() // RMH EDIT: color grading follows the hour
 		for(var/mob/living/player in GLOB.mob_list)
 			if(player.stat != DEAD && player.client)
 				player.do_time_change()
