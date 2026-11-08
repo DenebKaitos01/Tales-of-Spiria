@@ -403,7 +403,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HEAVYARMOR "Plate Training"
 #define TRAIT_DODGEEXPERT "Fast Reflexes"
 #define TRAIT_CIVILIZEDBARBARIAN "Expert Pugilist" // RMH EDIT: Azure Peak unarmed specialist
-#define TRAIT_GIANT_MIGHT "Giant's Might" // RMH EDIT: Ironclad - kicks and shoves push further, charged smashes launch people
+#define TRAIT_GIANT_MIGHT "Giant's Might" // RMH EDIT: Ironclad - kicks, shoves, knockback blows and throws send people further
 #define TRAIT_IMMOVABLE "Immovable" // RMH EDIT: Ironclad - no knockdown from kicks/shoves into things
 #define TRAIT_WILL_TO_LIVE "Will to Live" // RMH EDIT: Saelion - a chance to refuse defeat once per round
 #define TRAIT_AMBITION "Ambition" // RMH EDIT: Gaedon - rerolls critical failures on attacks and crafting

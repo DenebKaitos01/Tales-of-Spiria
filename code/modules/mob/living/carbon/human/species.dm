@@ -1900,7 +1900,7 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 			else
 				if(HAS_TRAIT(user, TRAIT_GIANT_MIGHT)) // RMH EDIT: a giant's kick sends them further
 					target.Move(get_step(target, shove_dir), shove_dir)
-				if(stander && target.stamina >= target.maximum_stamina && !HAS_TRAIT(target, TRAIT_IMMOVABLE)) //if you are kicked while fatigued, you are knocked down no matter what
+				if(stander && target.stamina >= target.maximum_stamina) //if you are kicked while fatigued, you are knocked down no matter what
 					target.Knockdown(100)
 
 		if(shove_blocked && !target.is_shove_knockdown_blocked() && !target.buckled)
@@ -2115,7 +2115,6 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 
 	I.funny_attack_effects(H, user, nodmg)
 	knockback(I, H, user, nodmg, actual_damage)
-	H.giant_smash_launch(user, I) // RMH EDIT: Ironclad's Giant's Might
 
 	H.send_item_attack_message(I, user, parse_zone(selzone))
 	SEND_SIGNAL(I, COMSIG_ITEM_SPEC_ATTACKEDBY, H, user, affecting, actual_damage)
@@ -2733,6 +2732,8 @@ GLOBAL_LIST_EMPTY(roundstart_species)
 					knockback_tiles = FLOOR(newforce/((endurance - 2) * 4), 1)
 				else
 					knockback_tiles = FLOOR(newforce/2, 1)
+				if(HAS_TRAIT(user, TRAIT_GIANT_MIGHT)) // RMH EDIT: a giant's blow sends them further
+					knockback_tiles = max(knockback_tiles, 1) + 2
 				if(knockback_tiles >= 1)
 					var/turf/edge_target_turf = get_edge_target_turf(target, get_dir(user, target))
 					if(istype(edge_target_turf))
