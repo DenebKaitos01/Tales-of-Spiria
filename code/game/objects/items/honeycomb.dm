@@ -70,6 +70,6 @@
 /obj/item/reagent_containers/food/snacks/spiderhoney/honey/wild
 	name = "wild honey"
 	desc = "Sweet wild honey. It has a more complex flavor than regular honey."
-	icon_state = "honey_wild"
+	icon_state = "honeycomb" // RMH EDIT: there is no "honey_wild" sprite
 	honey_color = "#6d4633"
 	list_reagents = list(/datum/reagent/consumable/honey = 7)
