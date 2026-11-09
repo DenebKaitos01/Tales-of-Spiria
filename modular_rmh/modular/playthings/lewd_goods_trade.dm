@@ -430,6 +430,7 @@
 	)
 	exotic_pool += list(
 		/datum/supply_pack/luxury/intimate/portal_set,
+		/datum/supply_pack/luxury/intimate/hypnosis_pendulum,
 		/datum/supply_pack/luxury/bondage/muzzle_black,
 		/datum/supply_pack/luxury/bondage/ballgag_black,
 		/datum/supply_pack/luxury/bondage/ringgag_black,
