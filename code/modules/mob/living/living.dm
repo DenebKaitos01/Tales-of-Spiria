@@ -1250,6 +1250,7 @@
 	if(!pixelshifted)
 		reset_offsets("pixel_shift")
 		return FALSE
+	reset_pixel_rotation()
 	pixelshifted = FALSE
 	pixelshift_x = 0
 	pixelshift_y = 0
