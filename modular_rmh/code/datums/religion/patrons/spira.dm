@@ -112,9 +112,9 @@
 	added_traits = list(TRAIT_ERUDITE)
 	devotion_holder = /datum/devotion/divine/noc
 	confess_lines = list(
-		"WHAT IS WRITTEN CANNOT BE SILENCED!",
-		"NAVERAE KNOWS THE NAME OF ALL THINGS!",
-		"THE RED BANDAGE BINDS MY TONGUE, NOT MY MIND!",
+		"LETTERS ENDURE WHERE WORDS DO NOT!",
+		"EVERYTHING HAS A NAME, EVERYTHING HAS A PURPOSE!",
+		"KNOWLEDGE NURTURES POTENTIAL!",
 	)
 
 /datum/patron/spira/greater/ragelia
