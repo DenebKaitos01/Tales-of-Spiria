@@ -535,6 +535,16 @@
 		mob.visible_message(span_love(mob.get_dry_climax_message()))
 		after_ejaculation(FALSE, parent, null, action, action_initiator, action_target, action_performer)
 		return
+	// The act's own climax lines would spill from the strapon, so only the wearer's vagina climaxes.
+	if(target && mob.climaxes_behind_strapon(action))
+		mob.visible_message(span_love("[mob] shudders and climaxes, [mob.p_their()] hips bucking behind [mob.p_their()] strapon!"), span_love("I shudder and climax, my hips bucking behind my strapon!"))
+		var/obj/item/organ/genitals/filling_organ/vagina/strapon_vag = mob.getorganslot(ORGAN_SLOT_VAGINA)
+		if(strapon_vag?.reagents)
+			strapon_vag.produce_climax_fluid()
+		// A worn harness may empty its bulb, or pump the release, through the toy.
+		mob.on_strapon_climax(action, target)
+		after_ejaculation(FALSE, parent, target, action, action_initiator, action_target, action_performer)
+		return
 	var/obj/item/organ/genitals/filling_organ/testicles/climax_testes = mob.getorganslot(ORGAN_SLOT_TESTICLES)
 	if(climax_testes?.is_pent_up() && mob.getorganslot(ORGAN_SLOT_PENIS))
 		to_chat(mob, span_love("A pent-up load surges out of me!"))
