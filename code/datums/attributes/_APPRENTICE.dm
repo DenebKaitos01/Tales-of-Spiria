@@ -86,7 +86,7 @@
 			continue
 
 		var/multiplier = 0
-		if(HAS_TRAIT(parent, TRAIT_TUTELAGE))
+		if(HAS_TRAIT(parent, TRAIT_TUTELAGE) || HAS_TRAIT(parent, TRAIT_ERUDITE)) // RMH EDIT: Erudite
 			multiplier += 0.15
 		if(LAZYACCESS(apprentice_training_skills, skill_type))
 			multiplier += apprentice_training_skills[skill_type]

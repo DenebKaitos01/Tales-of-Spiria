@@ -100,16 +100,16 @@
 
 /datum/patron/spira/greater/naverae
 	name = "Naverae"
-	display_name = "Naverae, the Silent Namer"
-	domain = "Knowledge, Names, Wizards and Scholars"
+	display_name = "Naverae, the Silent Sage"
+	domain = "Knowledge, Mages and Scholars"
 	desc = "Born to help organize, Naverae named all things alongside Gaedon. He stood by his sister and \
 	had his throat cut so he would never speak again of what he knew. Since then knowledge is preserved \
 	in books, the only way he could share it. His followers wear a red bandage around the neck."
 	worshippers = "Wizards, scholars, scribes and librarians"
-	flaws = "Secrecy, Stubbornness, Bitterness"
+	flaws = "Passion, Stubbornness, Inconsistency"
 	sins = "Burning books, Silencing truth, Hoarding knowledge"
-	boons = "You learn, dream, and teach apprentices slightly better. Access to roles with magic."
-	added_traits = list(TRAIT_TUTELAGE)
+	boons = "You learn, dream and teach apprentices slightly better."
+	added_traits = list(TRAIT_ERUDITE)
 	devotion_holder = /datum/devotion/divine/noc
 	confess_lines = list(
 		"WHAT IS WRITTEN CANNOT BE SILENCED!",

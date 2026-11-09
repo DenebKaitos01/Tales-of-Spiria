@@ -181,7 +181,7 @@ GLOBAL_VAR_INIT(sleep_experience_modifier, 1.0)
  */
 /datum/attribute_holder/proc/get_skill_xp_multiplier(skill_type)
 	var/multiplier = LAZYACCESS(skill_xp_multipliers, skill_type) || 1.0
-	if(HAS_TRAIT(parent, TRAIT_TUTELAGE))
+	if(HAS_TRAIT(parent, TRAIT_TUTELAGE) || HAS_TRAIT(parent, TRAIT_ERUDITE)) // RMH EDIT: Erudite
 		multiplier += 0.05
 	if(parent?.has_quirk(/datum/quirk/boon/quick_learner))
 		multiplier += 0.2

@@ -403,6 +403,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HEAVYARMOR "Plate Training"
 #define TRAIT_DODGEEXPERT "Fast Reflexes"
 #define TRAIT_CIVILIZEDBARBARIAN "Expert Pugilist" // RMH EDIT: Azure Peak unarmed specialist
+#define TRAIT_ERUDITE "Erudite" // RMH EDIT: Naverae - learns, dreams and teaches apprentices better (same as Tutelage)
 #define TRAIT_ALWAYS_VIGILANT "Always Vigilant" // RMH EDIT: Ragelia - sees better in the dark, rough terrain does not slow
 #define TRAIT_BLUE_STAR "Blue Star" // RMH EDIT: Sirokel - her star shines at night, lifting mood and easing fatigue
 #define TRAIT_SOLID_FOUNDATIONS "Solid Foundations" // RMH EDIT: Battlemaster - perfect guards, baits and feints cut the special cooldown

@@ -153,7 +153,7 @@
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
-	if(HAS_TRAIT(mind.current, TRAIT_TUTELAGE))
+	if(HAS_TRAIT(mind.current, TRAIT_TUTELAGE) || HAS_TRAIT(mind.current, TRAIT_ERUDITE)) // RMH EDIT: Erudite
 		dream_dust += BASE_DREAM_DUST / 2
 
 	var/int = mind.current.STAINT
