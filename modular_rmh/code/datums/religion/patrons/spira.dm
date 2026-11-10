@@ -204,3 +204,15 @@
 /datum/patron/spira/greater/ragelia
 	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
 	symbol_state = "ragelia"
+
+/datum/patron/spira/greater/sirokel
+	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
+	symbol_state = "sirokel"
+
+/datum/patron/spira/greater/naverae
+	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
+	symbol_state = "naverae"
+
+/datum/patron/spira/lesser/lunestra
+	symbol_icon = 'modular_rmh/icons/ui/patron_symbols.dmi'
+	symbol_state = "lunestra"
