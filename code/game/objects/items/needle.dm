@@ -246,10 +246,12 @@
 			return TRUE
 
 	var/injury_healed = FALSE
+	var/injury_attempted = FALSE // RMH EDIT: a failed stitch no longer ends in "There aren't any wounds to be sewn."
 	for(var/thing in affecting.injuries)
 		var/datum/injury/injury = thing
 		if(!injury.can_suture_with_needle())
 			continue
+		injury_attempted = TRUE
 		var/time = 2 SECONDS + (injury.damage * 0.5)
 		time *= min(time * 1.5, (ATTRIBUTE_MIDDLING/max(GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION), 1)))
 		time = user.stilled_sand_sew_time(time) // RMH EDIT: Lunestra
@@ -257,13 +259,16 @@
 		if(!do_after(user, time, target))
 			to_chat(user, span_warning("I must stand still!"))
 			return
-		if(!use(1))
+		if(stringamt < 1)
 			to_chat(user, span_warning("All used up..."))
 			return
 		//pretty easy
+		// RMH EDIT: a slipped stitch says so and keeps the thread, like the artery suture does. It used to eat
+		// the thread silently, skip to the next injury and then claim there was nothing to sew.
 		if(user.diceroll(GET_MOB_SKILL_VALUE(user, /datum/attribute/skill/misc/medicine)+3, context = DICE_CONTEXT_PHYSICAL) <= DICE_FAILURE)
-			//to_chat(user, span_warning(fail_msg()))
-			continue
+			to_chat(user, span_warning("My hand slips and the stitch doesn't hold!"))
+			break
+		use(1)
 		if(injury.damage_per_injury() > injury.autoheal_cutoff)
 			injury.heal_damage(10)
 		var/amt2raise = GET_MOB_ATTRIBUTE_VALUE(doctor, STAT_INTELLIGENCE)
@@ -287,7 +292,7 @@
 
 	var/list/sewable = affecting.get_sewable_wounds()
 	if(!length(sewable))
-		if(!injury_healed)
+		if(!injury_healed && !injury_attempted)
 			to_chat(doctor, span_warning("There aren't any wounds to be sewn."))
 		return FALSE
 	var/datum/wound/target_wound
