@@ -41,7 +41,7 @@
 /obj/item/clothing/armor/regenerating/baotha/examine(mob/living/carbon/human/user)
 	. = ..()
 	if(iscarbon(user))
-		if(user.patron.type == /datum/patron/faerun/evil_gods/Blissara)
+		if(user.patron.type == /datum/patron/inhumen/baotha)
 			. += ("This creature is a small gift from my patron, and I can make it take any form I desire.")
 
 /obj/item/clothing/armor/regenerating/baotha/equipped(mob/user, slot, initial = FALSE)
@@ -58,7 +58,7 @@
 	active_item = FALSE
 
 /obj/item/clothing/armor/regenerating/baotha/attack_hand_secondary(mob/living/user, list/modifiers)
-	if(user.patron.type == /datum/patron/faerun/evil_gods/Blissara)
+	if(user.patron.type == /datum/patron/inhumen/baotha)
 		var/mimicry = list("shirt", "formal silks", "rags", "tunic", "dress", "silky dress", "undervestments", "royal gown", "white foreign shirt", "silk shirt", "fancy coat", "low cut tunic", "pristine dress", "gilded dress shirt", "Undo")
 		var/mimicry_choise = browser_input_list(user, "Variants:", "camouflage", mimicry)
 		if(!mimicry_choise)

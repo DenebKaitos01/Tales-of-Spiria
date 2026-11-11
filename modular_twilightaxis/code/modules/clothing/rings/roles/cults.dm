@@ -27,7 +27,7 @@
 /obj/item/clothing/ring/baotha/examine(mob/living/carbon/human/user)
 	. = ..()
 	if(iscarbon(user))
-		if(user.patron.type == /datum/patron/faerun/evil_gods/Blissara)
+		if(user.patron.type == /datum/patron/inhumen/baotha)
 			. += ("This creature is a small gift from my patron, and I can make it take any form I desire.")
 
 /obj/item/clothing/ring/baotha/update_icon_state()

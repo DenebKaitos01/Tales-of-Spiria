@@ -222,10 +222,10 @@
 	. = ..()
 	if(obj_broken || active_item || !istype(user))
 		return
-	if(!(slot & (ITEM_SLOT_NECK|ITEM_SLOT_RING)) || !istype(user.patron, /datum/patron/faerun/evil_gods))
+	if(!(slot & (ITEM_SLOT_NECK|ITEM_SLOT_RING)) || !istype(user.patron, /datum/patron/inhumen))
 		return
 	active_item = TRUE
-	if(!stolen_fyre && istype(user.patron, /datum/patron/faerun/evil_gods/Mask))
+	if(!stolen_fyre && istype(user.patron, /datum/patron/inhumen/matthios))
 		user.set_stat_modifier("matthios_boldness_[REF(src)]", list((STATKEY_LCK) = 1))
 	if(user.has_language(/datum/language/thievescant))
 		to_chat(user, span_info("I already know Thieves' Cant, but praise be Mask anyway!"))

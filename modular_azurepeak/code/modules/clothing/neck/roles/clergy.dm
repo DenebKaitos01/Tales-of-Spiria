@@ -359,7 +359,7 @@
 		return
 
 	var/mob/living/carbon/human/human = user
-	if(istype(human.patron, /datum/patron/faerun/neutral_gods/Tymora))
+	if(istype(human.patron, /datum/patron/divine/xylix))
 		. += span_notice("This is an amulet of Tymora! By Alt+right-clicking it, I can alter its shape to whatever befits my whim.")
 
 /obj/item/clothing/neck/psycross/xylix/AltRightClick(mob/user, list/modifiers)
@@ -367,7 +367,7 @@
 		return
 
 	var/mob/living/carbon/human/human = user
-	if(!istype(human.patron, /datum/patron/faerun/neutral_gods/Tymora))
+	if(!istype(human.patron, /datum/patron/divine/xylix))
 		return
 
 	var/list/psycross_types = typesof(/obj/item/clothing/neck/psycross)

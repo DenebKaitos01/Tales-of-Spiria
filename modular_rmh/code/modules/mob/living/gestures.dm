@@ -26,24 +26,14 @@
 
 /// Patrons whose followers answer a taunt with the middle finger.
 GLOBAL_LIST_INIT(rude_taunt_patrons, typecacheof(list(
-	/datum/patron/faerun/evil_gods/Gorellik,
-	/datum/patron/faerun/evil_gods/Gruumsh,
-	/datum/patron/faerun/evil_gods/Loviatar,
-	/datum/patron/faerun/evil_gods/Maglubiyet,
-	/datum/patron/faerun/evil_gods/Malar,
-	/datum/patron/faerun/evil_gods/Talos,
-	/datum/patron/faerun/evil_gods/Umberlee,
+	/datum/patron/spira/chaos, // RMH EDIT: Spira pantheon instead of Faerun
+	/datum/patron/inhumen,
 )))
 
 /// Patrons too gentle for more than a thumbs down.
 GLOBAL_LIST_INIT(gentle_taunt_patrons, typecacheof(list(
-	/datum/patron/faerun/good_gods/Eilistraee,
-	/datum/patron/faerun/good_gods/Ilmater,
-	/datum/patron/faerun/good_gods/Lathander,
-	/datum/patron/faerun/good_gods/Selune,
-	/datum/patron/faerun/good_gods/Sharess,
-	/datum/patron/faerun/good_gods/Sune,
-	/datum/patron/faerun/good_gods/Yondalla,
+	/datum/patron/spira/primordial/saelion, // RMH EDIT: Spira pantheon instead of Faerun
+	/datum/patron/spira/lesser/lunestra,
 )))
 
 /// The rude, plain or disapproving taunt, depending on who is taunting.
