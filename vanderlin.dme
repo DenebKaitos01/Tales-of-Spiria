@@ -5026,6 +5026,7 @@
 #include "modular_rmh\code\modules\spells\class_essence_spells.dm"
 #include "modular_rmh\code\modules\spells\searing_palm.dm"
 #include "modular_rmh\code\modules\spells\second_wind.dm"
+#include "modular_rmh\code\modules\spells\spell_examine.dm"
 #include "modular_rmh\code\modules\spells\spells_wild_magic.dm"
 #include "modular_rmh\code\modules\spells\spell_types\pointed\enrapture.dm"
 #include "modular_rmh\code\modules\spells\spell_types\pointed\forced_orgasm.dm"

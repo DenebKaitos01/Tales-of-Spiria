@@ -49,7 +49,11 @@
 		return FALSE
 
 	var/list/modifiers = params2list(params)
+	// RMH EDIT: Shift+click shows the action's sheet (as on Azure Peak); Alt+click puts the button back in its place
 	if(LAZYACCESS(modifiers, SHIFT_CLICKED))
+		linked_action?.examine_action(usr)
+		return TRUE
+	if(LAZYACCESS(modifiers, ALT_CLICKED))
 		var/datum/hud/our_hud = usr.hud_used
 		our_hud.position_action(src, SCRN_OBJ_DEFAULT)
 		return TRUE
