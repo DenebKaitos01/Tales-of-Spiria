@@ -141,21 +141,21 @@
 
 /datum/patron/spira/lesser/lunestra
 	name = "Lunestra"
-	display_name = "Lunestra, the Keeper of the Hourglass"
-	domain = "Death, Rest and Souls"
-	desc = "Not so much a goddess of death as its manager: a servant who took the lead in gathering souls and \
-	bringing them to rest. She talks with the newly dead for a while, flipping an hourglass. If you are not \
-	brought back before the sand runs out, it is time for your final rest."
-	worshippers = "Gravetenders, mourners, undertakers and those who fear nothing"
-	flaws = "Indifference, Bureaucracy, Impatience"
+	display_name = "Lunestra, the Guardian of the Hourglass"
+	domain = "Time, Death and Rest"
+	desc = "To every body a soul, to every soul a fragment of creation. And when its time is up, that fragment returns \
+	to Paradise to be used for a new life. Saelion knew how burdensome it would be to see every soul through its cycle, \
+	so he gave the task to one of his first servants: Lunestra, who carries every soul back to Paradise."
+	worshippers = "Gravediggers, the stoic and those who fear nothing"
+	flaws = "Indifference, Conformity, Fatalism"
 	sins = "Defiling the dead, Unnatural undeath, Cheating the hourglass"
-	boons = "You may see the presence of a soul in a body."
-	added_traits = list(TRAIT_SOUL_EXAMINE)
+	boons = "You stitch wounds faster with a needle, and stitching someone at death's door stills their sand: they can't die from their wounds for a minute."
+	added_traits = list(TRAIT_STILLED_SAND)
 	devotion_holder = /datum/devotion/divine/necra
 	confess_lines = list(
-		"THE SAND RUNS FOR ALL OF US!",
-		"LUNESTRA KEEPS THE LEDGER OF SOULS!",
-		"WHEN THE HOURGLASS EMPTIES, I WILL REST!",
+		"MEMENTO MORI!",
+		"NEITHER KINGS NOR PAGANS, WE ALL RETURN TO PARADISE!",
+		"THE HOURGLASS KEEPS ITS SAND RUNNING!",
 	)
 
 /// Is this patron (instance or typepath) one of the dark gods?

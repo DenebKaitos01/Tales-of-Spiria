@@ -416,7 +416,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 
 		playsound(owner, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 
-		if(!do_after(doctor, 5 SECONDS, owner))
+		if(!do_after(doctor, doctor.stilled_sand_sew_time(5 SECONDS), owner)) // RMH EDIT: Lunestra
 			return FALSE
 
 		if(owner)

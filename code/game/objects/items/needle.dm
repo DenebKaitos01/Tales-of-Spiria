@@ -219,6 +219,7 @@
 		if(affecting.is_artery_torn())
 			var/time = 5 SECONDS
 			time *= (ATTRIBUTE_MIDDLING/max(GET_MOB_ATTRIBUTE_VALUE(doctor, STAT_PERCEPTION), 1))
+			time = doctor.stilled_sand_sew_time(time) // RMH EDIT: Lunestra
 			playsound(patient, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 			if(!do_after(doctor, time, patient))
 				to_chat(doctor, span_warning("I must stand still!"))
@@ -237,6 +238,7 @@
 				span_green("I suture <b>[patient]</b>'s [affecting.name] arteries with \the [src].")
 			)
 			use(1)
+			doctor.stilled_sand_stitched(patient) // RMH EDIT: Lunestra
 			for(var/obj/item/organ/artery in affecting.getorganslotlist(ORGAN_SLOT_ARTERY))
 				if(artery.damage)
 					artery.applyOrganDamage(-min(artery.maxHealth/2, 50))
@@ -250,6 +252,7 @@
 			continue
 		var/time = 2 SECONDS + (injury.damage * 0.5)
 		time *= min(time * 1.5, (ATTRIBUTE_MIDDLING/max(GET_MOB_ATTRIBUTE_VALUE(user, STAT_PERCEPTION), 1)))
+		time = user.stilled_sand_sew_time(time) // RMH EDIT: Lunestra
 		playsound(target, 'sound/foley/sewflesh.ogg', 65, FALSE)
 		if(!do_after(user, time, target))
 			to_chat(user, span_warning("I must stand still!"))
@@ -278,6 +281,7 @@
 		injury_healed = TRUE
 
 	if(injury_healed)
+		user.stilled_sand_stitched(target) // RMH EDIT: Lunestra
 		target.defeat_try_prepared_recovery(user, "suture")
 		target.defeat_treat_tool_physical_trauma(user, list(/datum/status_effect/debuff/defeat/physical/wound))
 
@@ -295,6 +299,7 @@
 		return FALSE
 	if(!target_wound.do_sewing_step(doctor, src))
 		return FALSE
+	doctor.stilled_sand_stitched(patient) // RMH EDIT: Lunestra
 	return TRUE
 
 /obj/item/needle/thorn

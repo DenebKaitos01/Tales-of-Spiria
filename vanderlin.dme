@@ -4358,6 +4358,7 @@
 #include "modular_rmh\code\datums\quirks\rmh_vices.dm"
 #include "modular_rmh\code\datums\religion\ambition.dm"
 #include "modular_rmh\code\datums\religion\blue_star.dm"
+#include "modular_rmh\code\datums\religion\stilled_sand.dm"
 #include "modular_rmh\code\datums\religion\will_to_live.dm"
 #include "modular_rmh\code\datums\religion\faiths\spira.dm"
 #include "modular_rmh\code\datums\religion\patrons\spira.dm"
