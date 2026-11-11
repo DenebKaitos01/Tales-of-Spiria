@@ -123,6 +123,13 @@
 /obj/machinery/ameliorate,
 /turf/open/floor/concrete,
 /area/indoors/town/rmh/craft/blacksmith)
+"aaf" = (
+/obj/structure/fake_machine/scomm/megaphone{
+	pixel_y = 8;
+	pixel_x = 0
+	},
+/turf/open/floor/metal/barograte,
+/area/outdoors/town/rmh)
 "aai" = (
 /obj/structure/vine{
 	icon_state = "Light2d"
@@ -171105,7 +171112,7 @@ bDZ
 mOG
 iZD
 iDf
-eUR
+aaf
 eUR
 jHp
 ttb
