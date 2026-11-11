@@ -50,14 +50,14 @@
 		if(ally_ctrl.blackboard[BB_BASIC_MOB_CURRENT_TARGET] == current_target)
 			continue
 
-		ally_ctrl.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, current_target)
-
+		// RMH EDIT: allies with an aggro board join the fight and split up through the shared aggro pool,
+		// instead of all piling onto the caller's target
 		var/datum/component/ai_aggro_system/aggro_comp = ally_ctrl.pawn.GetComponent(/datum/component/ai_aggro_system)
 		if(aggro_comp)
-			aggro_comp.add_threat_to_mob_capped(current_target, 15, 15)
-			aggro_comp.add_threat_to_mob(current_target, 3)
-
-		ally_ctrl.set_blackboard_key(BB_HIGHEST_THREAT_MOB, current_target)
+			aggro_comp.notice_target(current_target)
+		else
+			ally_ctrl.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, current_target)
+			ally_ctrl.set_blackboard_key(BB_HIGHEST_THREAT_MOB, current_target)
 		if(share_ranged_memory)
 			ally_ctrl.set_blackboard_key(BB_LAST_RANGED_HIT_TIME, last_ranged_hit_time)
 			ally_ctrl.set_blackboard_key(BB_LAST_RANGED_ATTACKER, current_target)

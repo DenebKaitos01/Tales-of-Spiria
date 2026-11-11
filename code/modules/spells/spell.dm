@@ -682,6 +682,7 @@
 		return
 
 	SEND_SIGNAL(owner, COMSIG_MOB_AFTER_SPELL_CAST, src, cast_on)
+	combat_threat_from_spell(owner, src, cast_on) // RMH EDIT: spells and miracles cast in a fight draw aggro
 
 	// Sparks and smoke can only occur if there's an owner to source them from.
 	if(sparks_amt)

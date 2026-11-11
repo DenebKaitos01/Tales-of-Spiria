@@ -44,8 +44,7 @@
 	var/mob/living/pawn = controller.pawn
 	var/datum/component/ai_aggro_system/aggro_component = pawn.GetComponent(/datum/component/ai_aggro_system)
 	if(aggro_component)
-		aggro_component.add_threat_to_mob_capped(target, 15, 15)
-		aggro_component.add_threat_to_mob(target, 3)
+		aggro_component.notice_target(target) // RMH EDIT: join the fight without inflating the shared aggro pool
 	else if(!controller.blackboard_key_exists(BB_BASIC_MOB_CURRENT_TARGET))
 		controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, target)
 
@@ -140,8 +139,7 @@
 		if(current_targetting?.can_engage_target(pawn, enemy))
 			var/datum/component/ai_aggro_system/aggro_component = pawn.GetComponent(/datum/component/ai_aggro_system)
 			if(aggro_component)
-				aggro_component.add_threat_to_mob_capped(enemy, 15, 15)
-				aggro_component.add_threat_to_mob(enemy, 3)
+				aggro_component.notice_target(enemy) // RMH EDIT: shared aggro pool
 			else if(!controller.blackboard_key_exists(BB_BASIC_MOB_CURRENT_TARGET))
 				controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, enemy)
 			break

@@ -36,6 +36,7 @@ DECLARE_LOG_NAMED(tgui_log, "tgui", START_LOG)
 DECLARE_LOG_NAMED(world_asset_log, "asset", DONT_START_LOG)
 DECLARE_LOG_NAMED(world_attack_log, "attack", START_LOG)
 DECLARE_LOG_NAMED(world_cloning_log, "cloning", DONT_START_LOG)
+DECLARE_LOG_NAMED(world_combat_aggro_log, "combat_aggro", START_LOG) // RMH EDIT: shared combat aggro debug log
 DECLARE_LOG_NAMED(world_game_log, "game", START_LOG)
 DECLARE_LOG_NAMED(world_href_log, "hrefs", START_LOG)
 DECLARE_LOG_NAMED(world_job_debug_log, "job_debug", START_LOG)

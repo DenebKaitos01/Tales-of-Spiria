@@ -4337,6 +4337,7 @@
 #include "modular_rmh\code\controllers\configuration\dev_config.dm"
 #include "modular_rmh\code\datums\armor.dm"
 #include "modular_rmh\code\datums\character_flaw.dm"
+#include "modular_rmh\code\datums\combat_encounter.dm"
 #include "modular_rmh\code\datums\combat_music.dm"
 #include "modular_rmh\code\datums\dna.dm"
 #include "modular_rmh\code\datums\identity_snapshot.dm"

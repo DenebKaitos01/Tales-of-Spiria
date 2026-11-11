@@ -109,19 +109,18 @@
 		finish_action(controller, succeeded = FALSE)
 		return
 
-	// Choose a random mob from filtered targets to add initial threat
+	// RMH EDIT: every foe in sight joins the fight at no extra threat; the shared aggro pool decides who to go after
 	var/mob/living/chosen_target = pick_revalidated_target(controller, filtered_targets, targetting_datum, living_mob)
 	if(!chosen_target)
 		failed_to_find_anyone(controller, target_key, targetting_datum_key, hiding_location_key)
 		finish_action(controller, succeeded = FALSE)
 		return
 
-	// Find the aggro component on our mob
 	var/datum/component/ai_aggro_system/aggro_comp = living_mob.GetComponent(/datum/component/ai_aggro_system)
 	if(aggro_comp)
-		// Add initial threat to start aggro mechanic
-		aggro_comp.add_threat_to_mob_capped(chosen_target, 15, 15)
-		aggro_comp.add_threat_to_mob(chosen_target, 3)
+		for(var/mob/living/seen_target as anything in filtered_targets)
+			if(targetting_datum.can_engage_target(living_mob, seen_target))
+				aggro_comp.notice_target(seen_target)
 
 	// Check if this pushed the target over the threshold
 	var/mob/highest_threat = controller.blackboard[BB_HIGHEST_THREAT_MOB]
