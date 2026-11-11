@@ -1,4 +1,6 @@
 /proc/sanitize_defeat_mode(defeat_mode)
+	if(!DEFEAT_SYSTEM_ENABLED) // RMH EDIT: with the system off everyone plays by ordinary lethal rules
+		return DEFEAT_MODE_NO_RETURN
 	switch(defeat_mode)
 		if(DEFEAT_MODE_KO_RUNE, DEFEAT_MODE_KO_ONLY, DEFEAT_MODE_NO_RETURN)
 			return defeat_mode
@@ -73,6 +75,8 @@
 	var/tmp/defeat_choice_open = FALSE
 
 /datum/preferences/proc/choose_defeat_mode(mob/user, introduction = FALSE)
+	if(!DEFEAT_SYSTEM_ENABLED) // RMH EDIT
+		return introduction
 	if(!user?.client || user.client != parent || defeat_choice_open)
 		return FALSE
 	if(introduction && defeat_introduction_complete)
@@ -103,14 +107,18 @@
 	return TRUE
 
 /datum/preferences/proc/ensure_defeat_introduction(mob/user)
+	if(!DEFEAT_SYSTEM_ENABLED) // RMH EDIT: nothing to choose while the system is off
+		return TRUE
 	if(defeat_introduction_complete)
 		return TRUE
 	return choose_defeat_mode(user, introduction = TRUE)
 
+#if DEFEAT_SYSTEM_ENABLED // RMH EDIT: the OOC guide only exists while the system is on
 /mob/verb/defeat_recovery_guide()
 	set name = "Defeat & Recovery"
 	set category = "OOC"
 	show_defeat_recovery_guide()
+#endif
 
 /mob/proc/show_defeat_recovery_guide()
 	if(!client)

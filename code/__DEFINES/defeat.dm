@@ -1,3 +1,6 @@
+/// RMH EDIT: master switch for Defeat & Recovery. 0 = off for the whole server: ordinary lethal rules for
+/// everyone, no defeat knockout, captivity or rune rescue, and its options are hidden. 1 turns it back on.
+#define DEFEAT_SYSTEM_ENABLED 0
 #define DEFEAT_MODE_KO_RUNE "ko_rune"
 #define DEFEAT_MODE_KO_ONLY "ko_only"
 #define DEFEAT_MODE_NO_RETURN "no_return"

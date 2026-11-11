@@ -114,6 +114,8 @@
 	AddComponent(/datum/component/defeat_monitor)
 
 /mob/living/proc/defeat_system_is_eligible()
+	if(!DEFEAT_SYSTEM_ENABLED) // RMH EDIT: Defeat & Recovery is switched off server-wide
+		return FALSE
 	if(defeat_lethal_bypass || defeat_final_death || suiciding)
 		return FALSE
 	if(defeat_mode == DEFEAT_MODE_NO_RETURN)

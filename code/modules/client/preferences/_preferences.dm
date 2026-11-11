@@ -2203,8 +2203,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<div class='section-title'>Personal</div>"
 	dat += "<a class='option-row' href='byond://?_src_=prefs;preference=culinary;task=menu'>Food Preferences<small>Change favored foods and culinary preferences.</small></a>"
 	dat += "<a class='option-row' href='byond://?_src_=prefs;preference=combat_music;task=input'>Combat Music<small>[musicname]</small></a>"
-	dat += "<a class='option-row' href='byond://?_src_=prefs;preference=defeat_mode;task=input'>Defeat Mode<small>[defeat_mode_display_name(get_defeat_mode())] - bounded recovery, injuries and aftermath remain</small></a>"
-	dat += "<a class='option-row' href='byond://?_src_=prefs;preference=defeat_threshold;task=input'>Defeat Damage Threshold<small>[get_defeat_damage_threshold()] pooled brute, burn, toxin and clone damage</small></a>"
+	if(DEFEAT_SYSTEM_ENABLED) // RMH EDIT
+		dat += "<a class='option-row' href='byond://?_src_=prefs;preference=defeat_mode;task=input'>Defeat Mode<small>[defeat_mode_display_name(get_defeat_mode())] - bounded recovery, injuries and aftermath remain</small></a>"
+		dat += "<a class='option-row' href='byond://?_src_=prefs;preference=defeat_threshold;task=input'>Defeat Damage Threshold<small>[get_defeat_damage_threshold()] pooled brute, burn, toxin and clone damage</small></a>"
 
 	dat += "<div class='section-title'>Expression</div>"
 	dat += "<a class='option-row' href='byond://?_src_=prefs;preference=relations_gossip'>Rivals, Rumours & Gossip<small>Author stories and configure roundstart rivals.</small></a>"

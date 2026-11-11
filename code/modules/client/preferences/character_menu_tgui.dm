@@ -579,7 +579,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 // ---- Lobby round flow ----
 
 /mob/dead/new_player/proc/character_setup_chargen_set_ready(new_ready)
-	if(new_ready == PLAYER_READY_TO_PLAY && !client?.prefs?.defeat_introduction_complete)
+	if(DEFEAT_SYSTEM_ENABLED && new_ready == PLAYER_READY_TO_PLAY && !client?.prefs?.defeat_introduction_complete) // RMH EDIT
 		client?.prefs?.show_choices(src)
 		return FALSE
 	ready = new_ready
@@ -951,6 +951,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 
 	var/combat_music_name = combat_music?.shortname ? combat_music.shortname : combat_music?.name
 	data["combat_music"] = combat_music_name || "Default"
+	data["defeat_enabled"] = DEFEAT_SYSTEM_ENABLED // RMH EDIT: hides the defeat options while the system is off
 	data["defeat_mode"] = defeat_mode_display_name(get_defeat_mode())
 	data["defeat_threshold"] = get_defeat_damage_threshold()
 	data["song_set"] = !!song_link

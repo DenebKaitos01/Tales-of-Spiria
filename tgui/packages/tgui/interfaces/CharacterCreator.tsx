@@ -287,6 +287,7 @@ type CreatorData = {
   smallclothes_catalog: SmallclothesCatalogEntry[];
   smallclothes: { random: Booleanish; entries: SmallclothesEntry[] };
   combat_music: string;
+  defeat_enabled?: number;
   defeat_mode: string;
   defeat_threshold: number;
   song_set: Booleanish;
@@ -4288,21 +4289,27 @@ export const CharacterCreator = () => {
               {kvButton(L.combatMusic, text(data.combat_music), () =>
                 doPref('combat_music', 'input'),
               )}
-              {kvButton(
-                L.defeatMode,
-                text(data.defeat_mode),
-                () => doPref('defeat_mode', 'input'),
-                L.defeatModeHint,
-              )}
-              {kvButton(
-                L.defeatThreshold,
-                String(data.defeat_threshold ?? ''),
-                () => doPref('defeat_threshold', 'input'),
-                L.defeatThresholdHint,
-              )}
-              {kvButton(L.defeatGuide, L.read, () =>
-                doPref('defeat_guide', 'input'),
-              )}
+              {data.defeat_enabled
+                ? kvButton(
+                    L.defeatMode,
+                    text(data.defeat_mode),
+                    () => doPref('defeat_mode', 'input'),
+                    L.defeatModeHint,
+                  )
+                : null}
+              {data.defeat_enabled
+                ? kvButton(
+                    L.defeatThreshold,
+                    String(data.defeat_threshold ?? ''),
+                    () => doPref('defeat_threshold', 'input'),
+                    L.defeatThresholdHint,
+                  )
+                : null}
+              {data.defeat_enabled
+                ? kvButton(L.defeatGuide, L.read, () =>
+                    doPref('defeat_guide', 'input'),
+                  )
+                : null}
             </div>,
           )}
           {infoBlock(
