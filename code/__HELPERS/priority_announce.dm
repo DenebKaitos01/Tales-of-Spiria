@@ -45,6 +45,7 @@
 			to_chat(target, announcement)
 			if((target.client?.prefs?.read_preference(/datum/preference/bitwise/toggles) & SOUND_ANNOUNCEMENTS) && sound_to_play)
 				target.playsound_local(target, sound_to_play, 100)
+	megaphones_boom() // RMH EDIT: the town megaphones shake with every announcement
 
 /proc/minor_announce(message, title = "", alert, html_encode = TRUE, list/mob/players)
 	if(!message)

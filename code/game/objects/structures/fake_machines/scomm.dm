@@ -19,6 +19,8 @@
 	var/scom_number
 	/// Free-text designation, settable per-instance in the map editor to label which SCOM this is (e.g. "Market Square")
 	var/scom_tag
+	/// How far away someone can stand and still speak into it (0 = same tile)
+	var/hear_range = 0
 	//RMH EDITED END
 
 /obj/structure/fake_machine/scomm/MiddleClick(mob/living/user, list/modifiers)
@@ -143,12 +145,13 @@
 	if(speaking && message)
 		playsound(src, 'sound/vo/mobs/rat/rat_life.ogg', 100, TRUE, -1)
 		say(message, language = message_language)
+		on_relay(message) // RMH EDIT: megaphones shake
 	voicecolor_override = null
 
 /obj/structure/fake_machine/scomm/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	if(speaker == src)
 		return
-	if(speaker.loc != loc)
+	if(get_dist(speaker, src) > hear_range) // RMH EDIT: was speaker.loc != loc
 		return
 	if(!ishuman(speaker))
 		return
@@ -204,6 +207,7 @@
 /proc/scom_announce(message)
 	for(var/obj/structure/fake_machine/scomm/S in SSroguemachine.scomm_machines)
 		S.say(message, spans = list("info"))
+		S.on_relay(message, TRUE) // RMH EDIT: megaphones shake
 
 
 
