@@ -41,6 +41,10 @@
 			self_message = "I flip [M] off!"
 		user.visible_message(span_red(taunt_message), span_red(self_message), ignored_mobs = targetl)
 		user.emote("taunt")
+		if(isliving(user))
+			var/mob/living/living_user = user
+			living_user.show_taunt_gesture(M)
+			living_user.changeNext_move(CLICK_CD_FAST)
 		if(M.client)
 			L.play_gesture_emote(M, taunt_icon, taunt_offset)
 			user.changeNext_move(CLICK_CD_FAST) // Keeps the animation from being spammed
@@ -67,6 +71,9 @@
 		var/mob/M = target
 		var/list/targetl = list(target)
 		user.visible_message("<span class='blue'>[user] shoos [M] away.</span>", "<span class='blue'>I shoo [M] away.</span>", ignored_mobs = targetl)
+		if(isliving(user))
+			var/mob/living/living_user = user
+			living_user.show_gesture(M, "dismiss")
 		if(M.client)
 			var/mob/living/L = user
 			L.play_gesture_emote(M, "dismiss")
@@ -95,6 +102,9 @@
 		var/mob/M = target
 		var/list/targetl = list(target)
 		user.visible_message("<span class='green'>[user] beckons [M] to come closer.</span>", "<span class='green'>I beckon [M] to come closer.</span>", ignored_mobs = targetl)
+		if(isliving(user))
+			var/mob/living/living_user = user
+			living_user.show_gesture(M, "beckon")
 		if(M.client)
 			var/mob/living/L = user
 			L.play_gesture_emote(M, "beckon")
@@ -120,6 +130,9 @@
 		var/mob/M = target
 		var/list/targetl = list(target)
 		user.visible_message("<span class='green'>[user] waves friendly at [M].</span>", "<span class='green'>I wave friendly at [M].</span>", ignored_mobs = targetl)
+		if(isliving(user))
+			var/mob/living/living_user = user
+			living_user.show_gesture(M, "wavefriendly")
 		if(M.client)
 			var/mob/living/L = user
 			L.play_gesture_emote(M, "wavefriendly")
