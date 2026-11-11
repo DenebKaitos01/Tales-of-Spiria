@@ -68,20 +68,12 @@
 		return
 	set_typing_indicator(is_chatbar_speech("[command][typed]"))
 
-/// Whether the chat bar holds a say or me with some text after the verb
+/// Whether the chat bar holds a say or me: the Say/Me buttons' prefix alone is enough, typed text or not.
+/// RMH EDIT: winget can hand the command back quoted and escaped ("!say \""), so leading quotes, backslashes,
+/// spaces and the ! are skipped before looking for the verb.
 /proc/is_chatbar_speech(line)
-	line = LOWER_TEXT(trim_left(line))
-	if(findtext(line, "!", 1, 2))
-		line = copytext(line, 2)
-	var/rest
-	if(findtext(line, "say ", 1, 5) || findtext(line, "say\"", 1, 5))
-		rest = copytext(line, 4)
-	else if(findtext(line, "me ", 1, 4) || findtext(line, "me\"", 1, 4))
-		rest = copytext(line, 3)
-	else
-		return FALSE
-	rest = replacetext(rest, "\"", "")
-	return length(trim(rest)) > 0
+	var/static/regex/speech = regex(@{"^[\s"\\!]*(say|me)(\s|"|\\|$)"}, "i")
+	return speech.Find("[line]") != 0
 
 /mob/proc/set_afk_indicator(state)
 	if(!afk_indicator)
