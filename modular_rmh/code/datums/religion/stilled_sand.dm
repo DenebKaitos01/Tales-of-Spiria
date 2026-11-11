@@ -39,12 +39,16 @@
 	alert_type = /atom/movable/screen/alert/status_effect/stilled_sand
 
 /datum/status_effect/stilled_sand/on_apply()
+	. = ..()
+	if(!.)
+		return
 	ADD_TRAIT(owner, TRAIT_NODEATH, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_NOCRITDAMAGE, TRAIT_STATUS_EFFECT(id))
 	to_chat(owner, span_notice("The sand in my hourglass stops falling. Not yet."))
 	return TRUE
 
 /datum/status_effect/stilled_sand/on_remove()
+	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_NODEATH, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_NOCRITDAMAGE, TRAIT_STATUS_EFFECT(id))
 	if(owner.stat != DEAD)
