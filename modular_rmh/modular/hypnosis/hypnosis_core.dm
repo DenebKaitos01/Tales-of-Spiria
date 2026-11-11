@@ -23,7 +23,7 @@
 /// Endurance, plus two for the Iron Will quirk.
 /mob/living/proc/hypnosis_willpower()
 	. = GET_MOB_ATTRIBUTE_VALUE(src, STAT_ENDURANCE)
-	if(has_quirk(/datum/quirk/positive/iron_will))
+	if(has_quirk(/datum/quirk/boon/iron_will))
 		. += 2
 
 /// Whether others can look this mob in the eyes.

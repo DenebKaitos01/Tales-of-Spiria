@@ -1,14 +1,14 @@
 // Hypnosis quirks: each grants a hypnosis spell and a custom examine line.
 
-/datum/quirk/positive/hypnotic
-	abstract_type = /datum/quirk/positive/hypnotic
+/datum/quirk/boon/hypnotic
+	abstract_type = /datum/quirk/boon/hypnotic
 	preview_render = FALSE
-	incompatible_quirks = list(/datum/quirk/positive/hypnotic/gaze, /datum/quirk/positive/hypnotic/presence)
+	incompatible_quirks = list(/datum/quirk/boon/hypnotic/gaze, /datum/quirk/boon/hypnotic/presence)
 	var/spell_type = /datum/action/cooldown/spell/hypnosis
 	var/examine_section = EXAMINE_SECT_FACE
 	var/default_examine_text = "Their eyes are enticing to gaze into."
 
-/datum/quirk/positive/hypnotic/gaze
+/datum/quirk/boon/hypnotic/gaze
 	name = "Hypnotic Gaze"
 	desc = "My eyes can hold a mind still. After ten seconds of eye contact, the next words someone hears from me settle in as a suggestion or a trigger phrase."
 	desc_hint = "Needs Hypnosis enabled in ERP preferences, for both of you. Range two tiles; both must stand still with eyes uncovered. A trance lasts up to an hour and a half. Strong-willed people can refuse it."
@@ -18,7 +18,7 @@
 		list("key" = "examine_style", "label" = "Examine Style", "type" = QUIRK_SELECT, "default" = "Hypnotic", "options" = list("Hypnotic", "Violet", "Rose", "Velvet", "Gold", "Moss", "Crimson")),
 	)
 
-/datum/quirk/positive/hypnotic/presence
+/datum/quirk/boon/hypnotic/presence
 	name = "Hypnotic Presence"
 	desc = "Something about me draws minds in. After ten seconds of my full attention, no eye contact needed, the next words someone hears from me settle in as a suggestion or a trigger phrase."
 	desc_hint = "Needs Hypnosis enabled in ERP preferences, for both of you. Range two tiles; both must stand still. A trance lasts up to an hour and a half. Strong-willed people can refuse it."
@@ -31,15 +31,15 @@
 		list("key" = "examine_style", "label" = "Examine Style", "type" = QUIRK_SELECT, "default" = "Hypnotic", "options" = list("Hypnotic", "Violet", "Rose", "Velvet", "Gold", "Moss", "Crimson")),
 	)
 
-/datum/quirk/positive/hypnotic/on_spawn()
+/datum/quirk/boon/hypnotic/on_spawn()
 	. = ..()
 	owner?.add_spell(spell_type)
 
-/datum/quirk/positive/hypnotic/on_remove()
+/datum/quirk/boon/hypnotic/on_remove()
 	owner?.remove_spell(spell_type)
 	return ..()
 
-/datum/quirk/positive/hypnotic/proc/get_examine_line()
+/datum/quirk/boon/hypnotic/proc/get_examine_line()
 	var/text = hypnosis_plaintext(get_extra_value("examine_text", default_examine_text), HYPNOSIS_EXAMINE_MAX_LENGTH)
 	if(!length(text))
 		text = default_examine_text
@@ -48,15 +48,15 @@
 		style = "Hypnotic"
 	return hypnosis_format(text, style)
 
-/datum/quirk/positive/hypnotic/on_examined(mob/user, list/P, list/examine_contents)
+/datum/quirk/boon/hypnotic/on_examined(mob/user, list/P, list/examine_contents)
 	if(user == owner || !isliving(user) || !user.allows_hypnosis())
 		return
 	if(!can_show_examine(user))
 		return
 	LAZYADDASSOCLIST(examine_contents, examine_section, get_examine_line())
 
-/datum/quirk/positive/hypnotic/proc/can_show_examine(mob/living/viewer)
+/datum/quirk/boon/hypnotic/proc/can_show_examine(mob/living/viewer)
 	return TRUE
 
-/datum/quirk/positive/hypnotic/gaze/can_show_examine(mob/living/viewer)
+/datum/quirk/boon/hypnotic/gaze/can_show_examine(mob/living/viewer)
 	return owner?.hypnosis_eyes_visible() && viewer.hypnosis_can_see()

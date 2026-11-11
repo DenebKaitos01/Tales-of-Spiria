@@ -918,3 +918,21 @@
 			if(hider != user && user.can_reach_hidden_sex_partner(hider))
 				return hider.MiddleMouseDrop_T(dragged, user)
 	return ..()
+
+// RMH EDIT: from upstream ovi_and_spiders, needed by the strap-on harness port
+/// TRUE when [action] works this mob's strapon with no testicles behind it, so only the vagina climaxes.
+/mob/living/proc/climaxes_behind_strapon(datum/sex_action/action)
+	if(!action || getorganslot(ORGAN_SLOT_TESTICLES) || !getorganslot(ORGAN_SLOT_VAGINA))
+		return FALSE
+	var/obj/item/organ/genitals/penis/penis = getorganslot(ORGAN_SLOT_PENIS)
+	return penis?.is_false_organ() && action.uses_penis_of(src)
+
+/// Whether this act works [holder]'s penis slot: penetrating with it, its scene slot, or its organ-use lists.
+/datum/sex_action/proc/uses_penis_of(mob/living/holder)
+	if(!holder)
+		return FALSE
+	if(ispath(stored_item_type, /obj/item/organ/genitals/penis) && get_storage_insertor(action_user, action_target) == holder)
+		return TRUE
+	if(holder == action_user && (get_scene_user_slot() == ORGAN_SLOT_PENIS || (ORGAN_SLOT_PENIS in uses_user_organs)))
+		return TRUE
+	return holder == action_target && (get_scene_target_slot() == ORGAN_SLOT_PENIS || (ORGAN_SLOT_PENIS in uses_target_organs))
