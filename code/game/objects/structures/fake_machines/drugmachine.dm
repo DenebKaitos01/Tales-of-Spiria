@@ -111,7 +111,7 @@
 	var/budget = 0
 	var/upgrade_flags
 	var/current_cat
-	var/list/available_categories = list("Narcotics", "Instruments")
+	var/list/available_categories = list("Narcotics", "Instruments", "Intimate Toys", "Bondage Gear") // RMH EDIT: lewd goods sell here
 
 /obj/structure/fake_machine/drugmachine/Initialize()
 	. = ..()
@@ -184,9 +184,15 @@
 		else
 			say("Not enough!")
 			return
-		var/pathi = pick(PA.contains)
-		var/obj/item/I = new pathi(get_turf(src))
-		human_mob.put_in_hands(I)
+		// RMH EDIT: lewd packs hold one item or a set (all of it is bought); the old packs list variants to pick from
+		if(PA.group in list("Intimate Toys", "Bondage Gear"))
+			for(var/pathi in (islist(PA.contains) ? PA.contains : list(PA.contains)))
+				var/obj/item/I = new pathi(get_turf(src))
+				human_mob.put_in_hands(I)
+		else
+			var/pathi = pick(PA.contains)
+			var/obj/item/I = new pathi(get_turf(src))
+			human_mob.put_in_hands(I)
 		//RMH EDITED START
 		// Do NOT qdel(PA). Supply packs are shared singletons owned by
 		// SSmerchant; the list keeps referencing it, so this only produced a

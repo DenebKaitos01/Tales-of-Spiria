@@ -1,4 +1,4 @@
-// Other ways to hypnotize: the pendulum item and the vampire Presence coven.
+// The hypnotist's pendulum: the only way to hypnotize (RMH EDIT: no quirks, succubus or vampire versions).
 
 /obj/item/hypnosis_pendulum
 	name = "hypnotist's pendulum"
@@ -49,7 +49,3 @@
 	name = "Hypnotist's Pendulum"
 	cost = 120
 	contains = /obj/item/hypnosis_pendulum
-
-/datum/coven/presence/post_gain()
-	. = ..()
-	owner?.add_spell(/datum/action/cooldown/spell/hypnosis/vampire)

@@ -1,4 +1,5 @@
-// Hypnosis spells: a still, two-tile channel that opens a trance, or releases one.
+// Hypnosis: a still, two-tile channel that opens a trance, or releases one.
+// RMH EDIT: only the pendulum grants it (its subtype below); the base is the shared channel, never given out.
 
 /datum/action/cooldown/spell/hypnosis
 	name = "Hypnotic Gaze"
@@ -30,14 +31,6 @@
 	var/trance_caster_text = "Their mind lies open. The next words they hear from me will stay."
 	var/trance_target_text = "My thoughts go soft and slow. Whatever %CASTER% says to me next will stay with me."
 
-/datum/action/cooldown/spell/hypnosis/presence
-	name = "Hypnotic Presence"
-	desc = "Focus your whole attention on someone for ten seconds; no eye contact needed. The next words they hear from you stay with them as a suggestion or a trigger. Use it on someone already entranced to release them."
-	needs_caster_eyes = FALSE
-	needs_target_eyes = FALSE
-	channel_caster_text = "I turn the full weight of my attention onto %TARGET% and press gently against their thoughts."
-	channel_target_text = "Something about %CASTER% draws my attention in and will not let it go."
-
 /datum/action/cooldown/spell/hypnosis/pendulum
 	name = "Swing the Pendulum"
 	desc = "Swing the pendulum before someone's eyes for fifteen seconds. The next words they hear from you stay with them as a suggestion or a trigger. Use it on someone already entranced to release them."
@@ -45,26 +38,6 @@
 	channel_time = 15 SECONDS
 	channel_caster_text = "I set the pendulum swinging before %TARGET%'s eyes, slow and steady."
 	channel_target_text = "%CASTER% sets a little pendulum swinging. My eyes follow it back and forth, back and forth..."
-
-/datum/action/cooldown/spell/hypnosis/succubus
-	name = "Infernal Allure"
-	desc = "Let your demonic nature wash over someone for eight seconds; no eye contact needed. The next words they hear from you stay with them. You can overwrite a trance someone else left."
-	needs_caster_eyes = FALSE
-	needs_target_eyes = FALSE
-	can_overwrite = TRUE
-	channel_time = 8 SECONDS
-	channel_caster_text = "I let my nature seep out toward %TARGET%, sweet and heavy."
-	channel_target_text = "A warm, heavy sweetness rolls off %CASTER%, and my thoughts begin to drift toward it."
-
-/datum/action/cooldown/spell/hypnosis/vampire
-	name = "Mesmerize"
-	desc = "Bend your Presence onto someone for eight seconds; no eye contact needed. The next words they hear from you stay with them. You can overwrite a trance someone else left."
-	needs_caster_eyes = FALSE
-	needs_target_eyes = FALSE
-	can_overwrite = TRUE
-	channel_time = 8 SECONDS
-	channel_caster_text = "I let my Presence settle over %TARGET% like a cold, still weight."
-	channel_target_text = "%CASTER% seems to fill the whole world, and my thoughts go very still."
 
 /datum/action/cooldown/spell/hypnosis/is_valid_target(atom/cast_on)
 	. = ..()
