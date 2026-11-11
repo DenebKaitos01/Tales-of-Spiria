@@ -205,13 +205,11 @@
 	var/mob/living/simple_animal/hostile/retaliate/maneater_tendrils/sex_proxy
 	var/swallow_timer
 	var/swallow_time = 30 SECONDS
-	/// Damage of an ordinary chew, which armor on the chewed limb can stop.
-	var/chew_damage = 10
-	/// Damage of a big bite, which ignores armor and feeds the plant.
-	var/bite_damage = 15
-	/// The plant spits its victim out once one meal has dealt more than this.
-	var/spit_threshold = 20
-	var/chew_interval = 2 SECONDS
+	/// Damage of each bite, which armor on the bitten limb can stop (it wears the armor down instead).
+	var/chew_damage = 60
+	/// A bitten limb past this much damage is torn off.
+	var/dismember_threshold = 50
+	var/chew_interval = 3 SECONDS
 	/// How often the vines peel one garment off a victim being swallowed.
 	var/strip_interval = 3 SECONDS
 	var/strip_timer
@@ -282,11 +280,10 @@
 
 	if(!buckle_mob(victim, TRUE, check_loc = FALSE))
 		return
-	if(victim_allows_horny_capture(victim))
-		begin_horny_swallow(victim)
-	else
-		// The meal sleeps between chews, so it must not run inside the victim's Move().
-		INVOKE_ASYNC(src, PROC_REF(begin_eat), victim)
+	// RMH EDIT: no more swallowing; it chews like the Azure Peak maneater, breaking armor and tearing limbs off
+	playsound(loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
+	visible_message(span_userdanger("[src] begins to gnaw on [victim]! RESIST as many times as possible, or risk being chewed apart!"))
+	addtimer(CALLBACK(src, PROC_REF(begin_eat), victim), chew_interval, TIMER_OVERRIDE|TIMER_UNIQUE|TIMER_STOPPABLE)
 
 // Crossed() owns snatching; the core adjacency grab skipped consent, pacifism and juvenile checks.
 /obj/structure/flora/grass/maneater/real/HasProximity(atom/movable/AM)
@@ -300,7 +297,7 @@
 		return FALSE
 	// Pacifists face only a capture they opted into; defeated victims stay exempt.
 	if(HAS_TRAIT(victim, TRAIT_PACIFISM))
-		return !victim.has_status_effect(/datum/status_effect/defeat_knockout) && victim_allows_horny_capture(victim)
+		return FALSE
 	return TRUE
 
 /obj/structure/flora/grass/maneater/real/proc/victim_allows_horny_capture(mob/living/victim)
@@ -454,52 +451,49 @@
 		reset_horny_capture()
 	update_icon()
 
+/// RMH EDIT: ported from Azure Peak. Every few seconds it bites a limb: heavy damage that armor can stop, but each
+/// bite wears the armor down (less for the lucky). A limb past 50 damage is torn off, once nothing intact covers it.
 /obj/structure/flora/grass/maneater/real/proc/begin_eat(mob/living/victim)
-	var/meal_damage = 0
-	var/bite_chance = 15
-	while(victim.buckled == src)
-		visible_message(span_warningbig("[src] begins to gnaw on [victim]!"))
-		if(!do_after(victim, chew_interval, progress = FALSE) || victim.buckled != src)
-			visible_message(span_warning("[src] stops chewing on [victim]!"))
-			return
-		if(meal_damage > spit_threshold)
-			maneater_spit_out(victim)
-			return
+	if(!victim || QDELETED(victim) || victim.loc != loc || victim.buckled != src || obj_broken)
+		return
 
-		playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-		meal_damage += chew_victim(victim, bite_chance)
-		bite_chance *= 2
+	visible_message(span_userdanger("[src] gnaws on [victim]!"))
+	playsound(src, 'sound/misc/eat.ogg', rand(30,60), TRUE)
 
-		if(victim.stat == DEAD)
-			var/mob/living/carbon/carbon_victim = iscarbon(victim) ? victim : null
-			if(victim.mind || carbon_victim?.last_mind)
-				victim.gib()
-				seednutrition += 50
-			else
-				maneater_spit_out(victim)
-			return
-
-/// Chews a random limb, or the torso if none remain; returns the damage dealt after armor.
-/obj/structure/flora/grass/maneater/real/proc/chew_victim(mob/living/victim, bite_chance)
 	if(!iscarbon(victim))
 		victim.adjustBruteLoss(chew_damage)
-		return chew_damage
+	else
+		victim.flash_fullscreen("redflash3")
+		playsound(loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
+		var/mob/living/carbon/carbon_victim = victim
+		var/list/limb_zones = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+		var/zone
+		var/obj/item/bodypart/limb
+		var/armor_damage_max = 600 - min((GET_MOB_ATTRIBUTE_VALUE(victim, STAT_FORTUNE) - ATTRIBUTE_MIDDLING) * 100, 550)
+		var/armor_damage = rand(50, max(50, armor_damage_max))
+		while(length(limb_zones) && !limb)
+			zone = pick_n_take(limb_zones)
+			limb = carbon_victim.get_bodypart(zone)
+		if(limb)
+			if(limb.get_damage() > dismember_threshold)
+				if(limb.dismember(BRUTE, BCLASS_CUT))
+					seednutrition += 25
+			else
+				victim.apply_damage(chew_damage, BRUTE, zone, victim.run_armor_check(zone, BCLASS_CUT, damage = armor_damage))
+		else
+			var/core_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
+			victim.apply_damage(chew_damage, BRUTE, core_zone, victim.run_armor_check(core_zone, BCLASS_CUT, damage = armor_damage))
 
-	var/mob/living/carbon/carbon_victim = victim
-	var/obj/item/bodypart/limb = carbon_victim.get_bodypart_complex(list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)) || carbon_victim.get_bodypart(BODY_ZONE_CHEST)
-	victim.flash_fullscreen("redflash3")
-	playsound(src.loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
+	if(victim.stat == DEAD || victim.stat == UNCONSCIOUS)
+		if(!victim.mind)
+			victim.gib()
+			seednutrition += 50
+			return
+		maneater_spit_out(victim)
+		return
 
-	var/big_bite = prob(bite_chance)
-	var/damage = big_bite ? bite_damage : max(0, chew_damage - victim.run_armor_check(limb, BCLASS_CUT, damage = chew_damage))
-	if(!damage)
-		return 0
-	// Bodypart brute is rebuilt from the injury list, so receive_damage() would not last.
-	if(limb.create_injury(WOUND_BITE, damage) && big_bite)
-		seednutrition += 25
-	limb.update_damages()
-	victim.updatehealth()
-	return damage
+	last_eat = world.time
+	addtimer(CALLBACK(src, PROC_REF(begin_eat), victim), chew_interval, TIMER_OVERRIDE|TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /obj/structure/flora/grass/maneater/real/proc/maneater_spit_out(mob/living/C)
 	if(!C)

@@ -96,7 +96,6 @@
 #include "load_map_security.dm"
 #include "lootpanel.dm"
 #include "mana_capacity_enchantment.dm"
-#include "maneater.dm"
 #include "map_landmarks.dm"
 #include "mapping.dm"
 #include "mindbound_actions.dm"
