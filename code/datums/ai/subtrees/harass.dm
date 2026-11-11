@@ -23,10 +23,7 @@
 	if(controller.blackboard[BB_HUMAN_NPC_COMMITTED_SWING_TOKEN])
 		return
 
-	var/health_frac = 1 - pawn.get_ai_hurt_fraction()
-	// Stamina threshold scales down as health drops - the more hurt we are the easier tiredness triggers harass
-	var/effective_stamina_thresh = HARASS_STAMINA_THRESHOLD * health_frac
-	var/should_harass = (health_frac < HARASS_HEALTH_THRESHOLD) || (pawn.stamina > effective_stamina_thresh)
+	var/should_harass = wants_to_harass(controller, pawn) // RMH EDIT: overridable, see the goblin pack AI
 
 	var/currently_harassing = controller.blackboard[BB_HUMAN_NPC_HARASS_MODE]
 
@@ -62,6 +59,14 @@
 	// Not adjacent - move in
 	controller.queue_behavior(/datum/ai_behavior/human_npc_harass_dart_in, BB_BASIC_MOB_CURRENT_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING
+
+// RMH EDIT: split out so subtypes can harass for other reasons (goblin packs)
+/// Should this pawn fight hit-and-run right now?
+/datum/ai_planning_subtree/wounded_harass/proc/wants_to_harass(datum/ai_controller/controller, mob/living/carbon/human/pawn)
+	var/health_frac = 1 - pawn.get_ai_hurt_fraction()
+	// Stamina threshold scales down as health drops - the more hurt we are the easier tiredness triggers harass
+	var/effective_stamina_thresh = HARASS_STAMINA_THRESHOLD * health_frac
+	return (health_frac < HARASS_HEALTH_THRESHOLD) || (pawn.stamina > effective_stamina_thresh)
 
 /datum/ai_behavior/human_npc_harass_dart_in
 	action_cooldown = 0.2 SECONDS

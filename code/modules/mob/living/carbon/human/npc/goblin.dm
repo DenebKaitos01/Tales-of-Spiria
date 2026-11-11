@@ -39,8 +39,8 @@
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 /mob/living/carbon/human/species/goblin/npc
-	ai_controller = /datum/ai_controller/human_npc
-	flee_in_pain = TRUE
+	ai_controller = /datum/ai_controller/human_npc/goblin // RMH EDIT: pack tactics; the goblin AI handles its own fleeing
+	flee_in_pain = FALSE
 	horny_defeat_threshold_override = 1
 	// Greenskins haul horny-defeated prey back to their warren (same lair tag as the simple-mob orcs).
 	kidnap_lair_tag = "greenskin_lair"
@@ -394,8 +394,14 @@
 		))
 		H.simpmob_attack += 10
 		H.simpmob_defend += 25
-	var/loadout = rand(1,5)
+	var/loadout = rand(1,6) // RMH EDIT: 6 is the slinger
 	switch(loadout)
+		if(6) // RMH EDIT: slinger, pelts from range while the pack is around, knife when alone
+			r_hand = /obj/item/weapon/knife/stone
+			belt = /obj/item/storage/belt/leather/rope
+			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/sling
+			neck = /obj/item/ammo_holder/quiver/sling_pouch/stones
+			armor = /obj/item/clothing/armor/leather/hide/goblin
 		if(1) //tribal spear
 			r_hand = /obj/item/weapon/polearm/spear/stone
 			armor = /obj/item/clothing/armor/leather/hide/goblin
