@@ -262,7 +262,7 @@
 	set name = "Anonymize"
 
 	if(prefs.read_preference(/datum/preference/toggle/anonymize))
-		if(alert(src, "Disable Anonymize? (Not Recommended)", "Rivermist Hollow", "YES", "NO") == "YES")
+		if(alert(src, "Disable Anonymize? (Not Recommended)", "Tales of Spiria", "YES", "NO") == "YES")
 			prefs.write_preference(/datum/preference/toggle/anonymize, FALSE)
 			prefs.save_preferences()
 			to_chat(src, "No longer anonymous.")
@@ -270,7 +270,7 @@
 	else
 		if(alert(src, "Enable Anonymize? This will hide your BYOND name from anyone except \
 		Dungeon Masters while playing here, useful for dealing with negative OOC bias or \
-		maintaining privacy from other BYOND users.", "Rivermist Hollow", "YES", "NO") == "YES")
+		maintaining privacy from other BYOND users.", "Tales of Spiria", "YES", "NO") == "YES")
 			prefs.write_preference(/datum/preference/toggle/anonymize, TRUE)
 			prefs.save_preferences()
 			to_chat(src, "Anonymous... OK")
@@ -334,6 +334,6 @@
 	var/list/dat = list()
 	dat += GLOB.roleplay_readme
 	if(dat)
-		var/datum/browser/popup = new(usr, "Primer", "Rivermist Hollow", 650, 900)
+		var/datum/browser/popup = new(usr, "Primer", "Tales of Spiria", 650, 900)
 		popup.set_content(dat.Join())
 		popup.open()

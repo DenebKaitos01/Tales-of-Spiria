@@ -337,7 +337,7 @@ GLOBAL_VAR(restart_counter)
 	var/server_subtitle = CONFIG_GET(string/serversubtitle)
 	var/hosted_by = CONFIG_GET(string/hostedby)
 
-	s += "<center><big><b>[server_name ? server_name : "Rivermist Hollow (Dev)"]"
+	s += "<center><big><b>[server_name ? server_name : "Tales of Spiria (Dev)"]"
 	if (hosted_by)
 		s += " (Hosted by [hosted_by])"
 	s += "</b></big><br>"

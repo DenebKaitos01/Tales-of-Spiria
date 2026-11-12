@@ -1,12 +1,15 @@
-# RIVERMIST HOLLOW
+# TALES OF SPIRIA
 
-Small-scale and even more explicit Noctra/Vanderlin fork
+A high fantasy, adventurer-focused roleplay server for BYOND, set in the town of Rivermist Hollow under the Pantheon of Spira. It is a fork of [Rivermist Hollow](https://github.com/sheetofseaweed/Rivermist-Hollow-Vanderlin), itself a fork of [Vanderlin](https://github.com/Monkestation/Vanderlin).
 
-[![BYOND Build](https://github.com/Monkestation/Vanderlin/actions/workflows/ci_suite.yml/badge.svg)](https://github.com/Monkestation/Vanderlin/actions/workflows/ci_suite.yml)
+The server is private and invite-only. This repository is its public source code, as the AGPL v3 requires.
 
-| Website                   | Link                                           |
-|---------------------------|------------------------------------------------|
-| Vanderlin Code    | [https://github.com/Monkestation/Vanderlin](https://github.com/Monkestation/Vanderlin)    |
+| Project | Link |
+|---|---|
+| Rivermist Hollow (upstream) | [https://github.com/sheetofseaweed/Rivermist-Hollow-Vanderlin](https://github.com/sheetofseaweed/Rivermist-Hollow-Vanderlin) |
+| Vanderlin | [https://github.com/Monkestation/Vanderlin](https://github.com/Monkestation/Vanderlin) |
+
+See [CREDITS.md](./CREDITS.md) for where the code and art come from, and the license of each part.
 
 ## LICENSE
 Original Fork Originates from [commit c28b351807bad950d2b323ada048190844bbda32](https://github.com/tgstation/tgstation/commit/c28b351807bad950d2b323ada048190844bbda32).
