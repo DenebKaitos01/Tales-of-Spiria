@@ -1,6 +1,5 @@
 // RMH EDIT: spell sheets, after Azure Peak. Shift+click an action button to print what it does in chat (for spells:
-// how it is cast, range, charge, cooldown and cost); hovering a button shows its name and description as a tooltip.
-// Alt+click puts a moved button back in its place (that used to be Shift+click).
+// how it is cast, range, charge, cooldown and cost). Alt+click puts a moved button back in its place (that used to be Shift+click).
 
 /// Prints this action's sheet to [user]'s chat.
 /datum/action/proc/examine_action(mob/user)
@@ -13,10 +12,6 @@
 /// Extra lines for the sheet; spells fill this in.
 /datum/action/proc/get_examine_stats()
 	return list()
-
-/// Short text for the hover tooltip.
-/datum/action/proc/get_tooltip_text()
-	return "[desc ? "[desc]<br>" : ""]<i>Shift+click for details.</i>"
 
 /datum/action/cooldown/spell/get_examine_stats()
 	. = list()
@@ -63,13 +58,3 @@
 		if(SPELL_RAGE)
 			return "Rage cost"
 	return "Mana cost"
-
-/atom/movable/screen/movable/action_button/MouseEntered(location, control, params)
-	. = ..()
-	if(!linked_action || !usr?.client)
-		return
-	openToolTip(usr, src, params, title = linked_action.name, content = linked_action.get_tooltip_text())
-
-/atom/movable/screen/movable/action_button/MouseExited(params)
-	. = ..()
-	closeToolTip(usr)
