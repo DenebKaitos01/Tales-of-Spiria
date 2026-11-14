@@ -1,0 +1,55 @@
+// RMH EDIT: Warrior (Fem) voice pack, ported from Azure Peak with its sounds.
+
+/datum/voicepack/female/warrior
+
+/datum/voicepack/female/warrior/get_sound(soundin, modifiers)
+	var/used
+	switch(soundin)
+		if("attack")
+			used = list('modular_rmh/sound/vo/female/warrior/attack (1).ogg', 'modular_rmh/sound/vo/female/warrior/attack (2).ogg', 'modular_rmh/sound/vo/female/warrior/attack (3).ogg', 'modular_rmh/sound/vo/female/warrior/attack (4).ogg', 'modular_rmh/sound/vo/female/warrior/attack (5).ogg', 'modular_rmh/sound/vo/female/warrior/attack (6).ogg', 'modular_rmh/sound/vo/female/warrior/attack (7).ogg', 'modular_rmh/sound/vo/female/warrior/attack (8).ogg', 'modular_rmh/sound/vo/female/warrior/attack (9).ogg', 'modular_rmh/sound/vo/female/warrior/attack (10).ogg', 'modular_rmh/sound/vo/female/warrior/attack (11).ogg', 'modular_rmh/sound/vo/female/warrior/attack (12).ogg')
+		if("pain")
+			used = list('modular_rmh/sound/vo/female/warrior/pain (1).ogg', 'modular_rmh/sound/vo/female/warrior/pain (2).ogg', 'modular_rmh/sound/vo/female/warrior/pain (3).ogg', 'modular_rmh/sound/vo/female/warrior/pain (4).ogg', 'modular_rmh/sound/vo/female/warrior/pain (5).ogg', 'modular_rmh/sound/vo/female/warrior/pain (6).ogg', 'modular_rmh/sound/vo/female/warrior/pain (7).ogg', 'modular_rmh/sound/vo/female/warrior/pain (8).ogg', 'modular_rmh/sound/vo/female/warrior/pain (9).ogg', 'modular_rmh/sound/vo/female/warrior/pain (10).ogg', 'modular_rmh/sound/vo/female/warrior/pain (11).ogg', 'modular_rmh/sound/vo/female/warrior/pain (12).ogg', 'modular_rmh/sound/vo/female/warrior/pain (13).ogg')
+		if("rage")
+			used = list('modular_rmh/sound/vo/female/warrior/rage (1).ogg', 'modular_rmh/sound/vo/female/warrior/rage (2).ogg', 'modular_rmh/sound/vo/female/warrior/rage (3).ogg')
+		if("painmoan")
+			used = list('modular_rmh/sound/vo/female/warrior/painmoan (1).ogg', 'modular_rmh/sound/vo/female/warrior/painmoan (2).ogg', 'modular_rmh/sound/vo/female/warrior/painmoan (3).ogg', 'modular_rmh/sound/vo/female/warrior/painmoan (4).ogg', 'modular_rmh/sound/vo/female/warrior/painmoan (5).ogg')
+		if("paincrit")
+			used = list('modular_rmh/sound/vo/female/warrior/paincrit (1).ogg', 'modular_rmh/sound/vo/female/warrior/paincrit (2).ogg', 'modular_rmh/sound/vo/female/warrior/paincrit (3).ogg')
+		if("painscream")
+			used = list('modular_rmh/sound/vo/female/warrior/painscream (1).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (2).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (3).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (4).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (5).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (6).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (7).ogg', 'modular_rmh/sound/vo/female/warrior/painscream (8).ogg')
+		if("warcry")
+			used = list('modular_rmh/sound/vo/female/warrior/warcry (1).ogg', 'modular_rmh/sound/vo/female/warrior/warcry (2).ogg')
+		if("fatigue")
+			used = 'modular_rmh/sound/vo/female/warrior/fatigue (1).ogg'
+		if("cackle")
+			used = 'modular_rmh/sound/vo/female/warrior/cackle (1).ogg'
+		if("leap")
+			used = list('modular_rmh/sound/vo/female/warrior/leap (1).ogg', 'modular_rmh/sound/vo/female/warrior/leap (2).ogg', 'modular_rmh/sound/vo/female/warrior/leap (3).ogg')
+		if("jump")
+			used = list('modular_rmh/sound/vo/female/warrior/jump (1).ogg', 'modular_rmh/sound/vo/female/warrior/jump (2).ogg', 'modular_rmh/sound/vo/female/warrior/jump (3).ogg')
+		if("giggle")
+			used = list('modular_rmh/sound/vo/female/warrior/giggle (1).ogg', 'modular_rmh/sound/vo/female/warrior/giggle (2).ogg')
+		if("chuckle")
+			used = list('modular_rmh/sound/vo/female/warrior/chuckle (1).ogg', 'modular_rmh/sound/vo/female/warrior/chuckle (2).ogg')
+		if("scream")
+			used = list('modular_rmh/sound/vo/female/warrior/scream (1).ogg', 'modular_rmh/sound/vo/female/warrior/scream (2).ogg')
+		if("laugh")
+			used = list('modular_rmh/sound/vo/female/warrior/laugh (1).ogg', 'modular_rmh/sound/vo/female/warrior/laugh (2).ogg', 'modular_rmh/sound/vo/female/warrior/laugh (3).ogg' ,'modular_rmh/sound/vo/female/warrior/laugh (4).ogg' ,'modular_rmh/sound/vo/female/warrior/laugh (5).ogg','modular_rmh/sound/vo/female/warrior/laugh (6).ogg','modular_rmh/sound/vo/female/warrior/laugh (7).ogg','modular_rmh/sound/vo/female/warrior/laugh (8).ogg')
+		if("pleased")
+			used = list('modular_rmh/sound/vo/female/warrior/pleased (1).ogg', 'modular_rmh/sound/vo/female/warrior/pleased (2).ogg', 'modular_rmh/sound/vo/female/warrior/pleased (3).ogg')
+		if("gasp")
+			used = list('modular_rmh/sound/vo/female/warrior/gasp (2).ogg')
+		if("huh")
+			used = 'modular_rmh/sound/vo/female/warrior/huh (1).ogg'
+		if("hmm")
+			used = list('modular_rmh/sound/vo/female/warrior/hmm (1).ogg', 'modular_rmh/sound/vo/female/warrior/hmm (2).ogg')
+		if("groan")
+			used = list('modular_rmh/sound/vo/female/warrior/groan (1).ogg', 'modular_rmh/sound/vo/female/warrior/groan (2).ogg', 'modular_rmh/sound/vo/female/warrior/groan (3).ogg', 'modular_rmh/sound/vo/female/warrior/groan (4).ogg', 'modular_rmh/sound/vo/female/warrior/groan (6).ogg')
+		if("sigh")
+			used = list('modular_rmh/sound/vo/female/warrior/sigh (1).ogg', 'modular_rmh/sound/vo/female/warrior/sigh (2).ogg')
+		if("hum")
+			used = list('modular_rmh/sound/vo/female/warrior/hum (1).ogg', 'modular_rmh/sound/vo/female/warrior/hum (2).ogg', 'modular_rmh/sound/vo/female/warrior/hum (3).ogg', 'modular_rmh/sound/vo/female/warrior/hum (4).ogg', 'modular_rmh/sound/vo/female/warrior/hum (5).ogg', 'modular_rmh/sound/vo/female/warrior/hum (6).ogg')
+
+	if(!used)
+		used = ..(soundin, modifiers)
+	return used

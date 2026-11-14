@@ -186,6 +186,7 @@
 #define VOICE_PACK_FEM		"Feminine"
 #define VOICE_PACK_FEM_DAINTY	"Dainty (Fem)"
 #define VOICE_PACK_FEM_HAUGHTY	"Haughty (Fem)"
+#define VOICE_PACK_FEM_WARRIOR	"Warrior (Fem)" // RMH EDIT
 
 GLOBAL_LIST_INIT(voice_packs_list, list(
 	VOICE_PACK_DEFAULT = null,
@@ -196,6 +197,7 @@ GLOBAL_LIST_INIT(voice_packs_list, list(
 	VOICE_PACK_FEM = /datum/voicepack/female,
 	VOICE_PACK_FEM_DAINTY = /datum/voicepack/female/dainty,
 	VOICE_PACK_FEM_HAUGHTY = /datum/voicepack/female/haughty,
+	VOICE_PACK_FEM_WARRIOR = /datum/voicepack/female/warrior, // RMH EDIT: ported from Azure Peak
 ))
 
 // Moan types
