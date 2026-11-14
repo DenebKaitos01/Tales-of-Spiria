@@ -123,3 +123,50 @@
 	icon_state = "debuff"
 	overlay_icon = 'modular_rmh/icons/hud/hypnosis.dmi'
 	overlay_state = "hypnosis"
+
+/// RMH EDIT: a mind break trance. Constant arousal, slurred speech and a fucked-stupid haze while the trance lasts.
+/datum/status_effect/hypnosis_mindbreak
+	id = "hypnosis_mindbreak"
+	duration = -1
+	tick_interval = 2 SECONDS
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/hypnosis_mindbreak
+	effectedstats = list("intelligence" = -5, "speed" = -1)
+	/// world.time of the next arousal pulse
+	var/next_pulse = 0
+
+/datum/status_effect/hypnosis_mindbreak/on_apply()
+	. = ..()
+	owner.aroused_slurring = max(owner.aroused_slurring, 4)
+	// Arousal never cools below a quarter while the mind is broken
+	RegisterSignal(owner, COMSIG_SEX_GET_AROUSAL_FLOOR, PROC_REF(on_get_arousal_floor))
+
+/datum/status_effect/hypnosis_mindbreak/on_remove()
+	UnregisterSignal(owner, COMSIG_SEX_GET_AROUSAL_FLOOR)
+	return ..()
+
+/datum/status_effect/hypnosis_mindbreak/proc/on_get_arousal_floor(datum/source, list/floor_data)
+	SIGNAL_HANDLER
+	floor_data["floor"] = max(floor_data["floor"], MAX_AROUSAL / 4)
+
+/datum/status_effect/hypnosis_mindbreak/tick()
+	. = ..()
+	if(!owner || owner.stat == DEAD)
+		return
+	owner.aroused_slurring = max(owner.aroused_slurring, 3)
+	if(world.time < next_pulse)
+		return
+	next_pulse = world.time + 10 SECONDS
+	var/list/arousal_data = list()
+	SEND_SIGNAL(owner, COMSIG_SEX_GET_AROUSAL, arousal_data)
+	// Climbs fast while low, then keeps simmering
+	SEND_SIGNAL(owner, COMSIG_SEX_ADJUST_AROUSAL, (arousal_data["arousal"] < MAX_AROUSAL / 4) ? rand(10, 20) : rand(2, 5))
+	if(prob(35))
+		to_chat(owner, span_love(pick("I can't think... only want...", "Mmmh... what was I... doing...", "Everything is warm and stupid and good...", "My head is empty. My body isn't.")))
+
+/atom/movable/screen/alert/status_effect/hypnosis_mindbreak
+	name = "Mind Broken"
+	desc = "Mmmph... I can't think straight. Only want."
+	icon_state = "debuff"
+	overlay_icon = 'modular_rmh/icons/hud/hypnosis.dmi'
+	overlay_state = "hypnosis"

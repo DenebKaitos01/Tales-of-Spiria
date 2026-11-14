@@ -120,6 +120,8 @@
 #define HYPNOSIS_WILL_SELF_RELEASE 15
 #define HYPNOSIS_MODE_SUGGESTION "suggestion"
 #define HYPNOSIS_MODE_TRIGGER "trigger"
+/// RMH EDIT: the mind is broken open: constant arousal and a dull, fucked-stupid haze for the whole trance
+#define HYPNOSIS_MODE_MINDBREAK "mindbreak"
 #ifndef HEARING_RADIO_FREQ
 #define HEARING_RADIO_FREQ 5
 #endif

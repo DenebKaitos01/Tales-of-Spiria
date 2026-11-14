@@ -153,6 +153,8 @@
 	body.apply_status_effect(/datum/status_effect/hypnotized, src)
 	if(phrase)
 		body.add_stress(/datum/stress_event/hypnotized)
+		if(mode == HYPNOSIS_MODE_MINDBREAK)
+			body.apply_status_effect(/datum/status_effect/hypnosis_mindbreak)
 
 /datum/hypnotic_suggestion/proc/unbind_body()
 	var/mob/living/body = get_target_body()
@@ -165,6 +167,7 @@
 		effect.suggestion = null
 		qdel(effect)
 	body.remove_status_effect(/datum/status_effect/hypnosis_daze)
+	body.remove_status_effect(/datum/status_effect/hypnosis_mindbreak)
 	body.remove_stress(/datum/stress_event/hypnotized)
 
 /datum/hypnotic_suggestion/proc/on_mind_transferred(datum/mind/source, mob/previous_body)
@@ -243,7 +246,11 @@
 	reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), HYPNOSIS_REMINDER_TIME, TIMER_STOPPABLE | TIMER_LOOP)
 	listener.add_stress(/datum/stress_event/hypnotized)
 	update_status()
-	if(mode == HYPNOSIS_MODE_TRIGGER)
+	if(mode == HYPNOSIS_MODE_MINDBREAK)
+		listener.apply_status_effect(/datum/status_effect/hypnosis_mindbreak)
+		addtimer(CALLBACK(src, PROC_REF(tell_target), span_hypnophrase("The words crack something open and pour in: [html_encode(phrase)]. There is no room left to think, only heat.")), 1)
+		addtimer(CALLBACK(src, PROC_REF(tell_caster), span_hypnophrase("Their mind gives way. Nothing is left in there but my words and want.")), 1)
+	else if(mode == HYPNOSIS_MODE_TRIGGER)
 		addtimer(CALLBACK(src, PROC_REF(tell_target), span_hypnophrase("The words sink in and wait there. Whenever [caster_name] says \"[html_encode(phrase)]\", you will slip back under.")), 1)
 		addtimer(CALLBACK(src, PROC_REF(tell_caster), span_hypnophrase("The trigger takes root. Saying \"[html_encode(phrase)]\" near them will pull them back under.")), 1)
 	else
@@ -260,6 +267,8 @@
 /datum/hypnotic_suggestion/proc/describe()
 	if(!phrase)
 		return "My mind is open and waiting. The next words [caster_name] says to me will stay."
+	if(mode == HYPNOSIS_MODE_MINDBREAK)
+		return "My mind is broken open. All that is left: [phrase]"
 	if(mode == HYPNOSIS_MODE_TRIGGER)
 		. = "When [caster_name] says \"[phrase]\", I slip back into trance."
 		if(command)

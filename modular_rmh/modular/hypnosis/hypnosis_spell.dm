@@ -97,6 +97,9 @@
 		"Trigger phrase for half an hour" = list(HYPNOSIS_MODE_TRIGGER, 30 MINUTES),
 		"Trigger phrase for an hour" = list(HYPNOSIS_MODE_TRIGGER, 1 HOURS),
 		"Trigger phrase for an hour and a half" = list(HYPNOSIS_MODE_TRIGGER, HYPNOSIS_MAX_DURATION),
+		"Mind break for half an hour" = list(HYPNOSIS_MODE_MINDBREAK, 30 MINUTES),
+		"Mind break for an hour" = list(HYPNOSIS_MODE_MINDBREAK, 1 HOURS),
+		"Mind break for an hour and a half" = list(HYPNOSIS_MODE_MINDBREAK, HYPNOSIS_MAX_DURATION),
 	)
 
 /datum/action/cooldown/spell/hypnosis/proc/begin_hypnosis(mob/living/carbon/human/caster, mob/living/carbon/human/target)
@@ -126,7 +129,7 @@
 	var/list/trance_choice
 	if(!releasing)
 		var/list/options = get_trance_options()
-		var/answer = browser_input_list(caster, "What should the trance leave behind? A suggestion is their next words from you. A trigger phrase pulls them back under whenever you say it.", "Hypnosis", options, last_choice)
+		var/answer = browser_input_list(caster, "What should the trance leave behind? A suggestion is their next words from you. A trigger phrase pulls them back under whenever you say it. A mind break leaves them dazed and aroused for the whole trance, fixed on your next words.", "Hypnosis", options, last_choice)
 		if(!answer || QDELETED(src))
 			return
 		last_choice = answer
