@@ -941,6 +941,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 	data["voice_type"] = voice_type || "Default"
 	data["voice_color"] = voice_color ? "#[voice_color]" : "#a0a0a0"
 	data["voice_pack"] = voice_pack || VOICE_PACK_DEFAULT
+	data["speech_bark"] = read_preference(/datum/preference/choiced/speech_bark)
 	data["moan_selection"] = moan_selection || MOANPACK_TYPE_DEF
 	data["selected_accent"] = selected_accent || "None"
 
@@ -1024,6 +1025,7 @@ GLOBAL_VAR_INIT(character_setup_debug, FALSE)
 		"windowflashing" = !!windowflashing,
 		"lobby_music" = !!(toggles & SOUND_LOBBY),
 		"hear_midis" = !!(toggles & SOUND_MIDI),
+		"hear_speech_barks" = !!read_preference(/datum/preference/toggle/hear_speech_barks),
 		"ambientocclusion" = !!ambientocclusion,
 		"color_grading" = !!color_grading,
 		"bloom" = !!bloom,

@@ -1374,6 +1374,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		"flame_flicker" = /datum/preference/toggle/flame_flicker, // RMH EDIT
 		"auto_fit_viewport" = /datum/preference/toggle/auto_fit_viewport,
 		"descriptor_color" = /datum/preference/toggle/descriptor_color,
+		"hear_speech_barks" = /datum/preference/toggle/hear_speech_barks,
 	)
 	var/toggle_link_type = toggle_link_types[action]
 	if(toggle_link_type)
@@ -1468,6 +1469,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		if("clear_nsfw_gallery")
 			clear_gallery_images(user, TRUE)
 			show_gallery_ui(user, "nsfw")
+			return TRUE
+		if("speech_bark")
+			if(user.client?.prefs != src)
+				return FALSE
+			user.client.set_speech_bark()
 			return TRUE
 		if("voicepack")
 			var/current_voice_pack = read_preference(/datum/preference/choiced/voice_pack)
