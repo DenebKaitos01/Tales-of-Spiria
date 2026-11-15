@@ -1873,10 +1873,18 @@ generate/load female uniform sprites matching all previously decided variables
 		index += "_[dna.species.custom_id ? dna.species.custom_id : dna.species.id]"
 	// RMH EDIT: clothes are not limited by sex, so a garment whose sleeves exist for one body cut only falls back
 	// to that cut instead of drawing nothing (the ladylike longcloak is drawn entirely as sleeves)
+	// Tried in order: the other cut with the species suffix, then both cuts without it.
 	if(I.sleeved && !icon_exists(I.sleeved, "r_[index]") && !icon_exists(I.sleeved, "l_[index]"))
-		var/alt_index = feminine_sleeves ? "[I.icon_state][copytext(index, length("[I.icon_state]_f") + 1)]" : "[I.icon_state]_f[copytext(index, length(I.icon_state) + 1)]"
-		if(icon_exists(I.sleeved, "r_[alt_index]") || icon_exists(I.sleeved, "l_[alt_index]"))
-			index = alt_index
+		var/species_suffix = copytext(index, length(feminine_sleeves ? "[I.icon_state]_f" : I.icon_state) + 1)
+		var/list/candidates = list(
+			feminine_sleeves ? "[I.icon_state][species_suffix]" : "[I.icon_state]_f[species_suffix]",
+			feminine_sleeves ? "[I.icon_state]_f" : I.icon_state,
+			feminine_sleeves ? I.icon_state : "[I.icon_state]_f",
+		)
+		for(var/candidate in candidates)
+			if(icon_exists(I.sleeved, "r_[candidate]") || icon_exists(I.sleeved, "l_[candidate]"))
+				index = candidate
+				break
 
 	var/static/list/bloody_r = list()
 	var/static/list/bloody_l = list()
