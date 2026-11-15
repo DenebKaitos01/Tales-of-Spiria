@@ -417,6 +417,9 @@
 	character.change_stat(STATKEY_SPD, -2)
 	character.transform = character.transform.Scale(1.25, 1.25)
 	character.transform = character.transform.Translate(0, (0.25 * 16))
+	// RMH EDIT: pixel-scaling to 1.25x doubles one row and column in four, which put extra pixels in the face.
+	// Drawn smoothed instead: a touch softer, but even.
+	character.appearance_flags &= ~PIXEL_SCALE
 	character.update_transform()
 
 /datum/special_trait/little
