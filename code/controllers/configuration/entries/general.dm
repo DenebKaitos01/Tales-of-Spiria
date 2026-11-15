@@ -210,6 +210,9 @@
 
 /datum/config_entry/string/forumurl
 
+/// Discord invite shown as a link in the BYOND hub status
+/datum/config_entry/string/discordurl
+
 /datum/config_entry/string/rulesurl
 
 /datum/config_entry/string/githuburl

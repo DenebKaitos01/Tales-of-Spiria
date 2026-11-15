@@ -343,6 +343,9 @@ GLOBAL_VAR(restart_counter)
 	s += "</b></big><br>"
 	if (server_subtitle)
 		s += "<b>[server_subtitle]</b><br>"
+	var/discord_url = CONFIG_GET(string/discordurl)
+	if (discord_url)
+		s += "<a href=\"[discord_url]\">Discord</a><br>"
 	s += "\["
 
 	if (SSticker.current_state <= GAME_STATE_PREGAME)
