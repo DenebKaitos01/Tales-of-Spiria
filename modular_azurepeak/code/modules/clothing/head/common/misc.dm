@@ -25,12 +25,12 @@
 	ported_clothing = TRUE
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
-/// RMH EDIT: our heads sit higher in the frame than Azure's, so the halo is raised to peek out above the head
+/// RMH EDIT: raised 1px so it peeks out above the head
 /obj/item/clothing/head/halo/build_worn_icon(age = AGE_ADULT, default_layer = 0, default_icon_file = null, isinhands = FALSE, femaleuniform = NO_FEMALE_UNIFORM, override_state = null, coom = FALSE, customi = null, sleeveindex, breast_size = 0, icon/clip_mask = null)
 	. = ..()
 	var/mutable_appearance/standing = .
 	if(!isinhands && istype(standing))
-		standing.pixel_y += 3
+		standing.pixel_y += 1
 
 /obj/item/clothing/head/decoration/gazelleskull
 	name = "Gazelle Skull"

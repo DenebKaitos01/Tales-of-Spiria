@@ -841,6 +841,9 @@
 				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname, used_item = src, used_intent = user.used_intent)
 			else
 				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname, used_item = src, used_intent = user.used_intent)
+			// RMH EDIT: a cleaving swing at an open tile still sweeps and shows its arc, as on Azure Peak
+			if(user.used_intent?.cleave && get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
+				execute_cleave(user, get_turf(target), null)
 			playsound(src, pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 		if(!proximity_flag && ismob(target) && !user.used_intent?.noaa) //this block invokes miss cost clicking on seomone who isn't adjacent to you

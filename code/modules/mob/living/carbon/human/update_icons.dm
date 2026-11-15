@@ -1866,10 +1866,17 @@ generate/load female uniform sprites matching all previously decided variables
 			sleeveindex -= 2
 
 	var/index = I.icon_state
-	if(uses_feminine_sleeves())
+	var/feminine_sleeves = uses_feminine_sleeves()
+	if(feminine_sleeves)
 		index += "_f"
 	if(dna.species.custom_clothes)
 		index += "_[dna.species.custom_id ? dna.species.custom_id : dna.species.id]"
+	// RMH EDIT: clothes are not limited by sex, so a garment whose sleeves exist for one body cut only falls back
+	// to that cut instead of drawing nothing (the ladylike longcloak is drawn entirely as sleeves)
+	if(I.sleeved && !icon_exists(I.sleeved, "r_[index]") && !icon_exists(I.sleeved, "l_[index]"))
+		var/alt_index = feminine_sleeves ? "[I.icon_state][copytext(index, length("[I.icon_state]_f") + 1)]" : "[I.icon_state]_f[copytext(index, length(I.icon_state) + 1)]"
+		if(icon_exists(I.sleeved, "r_[alt_index]") || icon_exists(I.sleeved, "l_[alt_index]"))
+			index = alt_index
 
 	var/static/list/bloody_r = list()
 	var/static/list/bloody_l = list()
