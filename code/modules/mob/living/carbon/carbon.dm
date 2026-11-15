@@ -1417,21 +1417,14 @@
 		maximum_carry_weight += carry_weight_mod.carry_weight_add
 	update_encumbrance()
 
-/mob/living/carbon/proc/get_carry_weight_multiplier()
-	. = 1
-	if(ishuman(src) && HAS_TRAIT(src, TRAIT_TINY))
-		. *= 2
-	if(HAS_TRAIT(src, TRAIT_HOLLOWBONES))
-		. *= 4
-
+// RMH EDIT: no size multipliers - small folk (TRAIT_TINY) and hollow-boned ones carry the same kilos as anyone else.
 /mob/living/carbon/proc/update_carry_weight()
 	. = 0
 	//we do need a typecheck here to avoid nulls
-	var/weight_multiplier = get_carry_weight_multiplier()
 	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items + get_organs_items()))
 		if(isnull(worn_item))
 			continue
-		. += worn_item.get_carry_weight(src) * weight_multiplier
+		. += worn_item.get_carry_weight(src)
 	carry_weight = .
 	update_encumbrance()
 
@@ -1444,11 +1437,10 @@
 
 /mob/living/carbon/human/update_carry_weight()
 	. = 0
-	var/weight_multiplier = get_carry_weight_multiplier()
 	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items + get_organs_items()))
 		if(isnull(worn_item))
 			continue
-		. += worn_item.get_carry_weight(src) * weight_multiplier
+		. += worn_item.get_carry_weight(src)
 	// Seelies used to be skipped here because a perched fae otherwise dumped a full human's weight on
 	// its ride. They now weigh SEELIE_WEIGHT, so the honest sum is already negligible - and a seelie
 	// holding a grand glamour is mortal-sized and should be felt.
