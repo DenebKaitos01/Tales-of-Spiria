@@ -13,6 +13,8 @@
 		return
 	var/mob/living/carbon/human/H = owner
 	H.transform = H.transform.Scale(1.15, 1.15)
+	// RMH EDIT: pixel-scaling a non-whole size doubles rows and columns (extra pixels in the face); draw it smoothed
+	H.appearance_flags &= ~PIXEL_SCALE
 	H.update_transform()
 
 /datum/quirk/peculiarity/large_sized/on_remove()
@@ -20,6 +22,7 @@
 		return
 	var/mob/living/carbon/human/H = owner
 	H.transform = H.transform.Scale(0.87, 0.87)
+	H.appearance_flags |= PIXEL_SCALE // RMH EDIT
 	H.update_transform()
 
 /datum/quirk/peculiarity/small_sized
@@ -31,6 +34,8 @@
 		return
 	var/mob/living/carbon/human/H = owner
 	H.transform = H.transform.Scale(0.9, 0.9)
+	// RMH EDIT: pixel-scaling a non-whole size drops rows and columns; draw it smoothed
+	H.appearance_flags &= ~PIXEL_SCALE
 	H.update_transform()
 
 /datum/quirk/peculiarity/small_sized/on_remove()
@@ -38,6 +43,7 @@
 		return
 	var/mob/living/carbon/human/H = owner
 	H.transform = H.transform.Scale(1.11, 1.11)
+	H.appearance_flags |= PIXEL_SCALE // RMH EDIT
 	H.update_transform()
 
 /datum/quirk/peculiarity/generous_figure
