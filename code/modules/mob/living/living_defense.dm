@@ -289,7 +289,9 @@
 			var/mob/living/thrower = throwingdatum?.get_thrower()
 			if(!istype(thrower))
 				thrower = null
-			var/armor = run_armor_check(zone, damage_type, "", "", I.armor_penetration, damage = I.throwforce, used_weapon = I, attacker = thrower)
+			var/armor = 0
+			if(!I.ignore_throw_armor) // RMH EDIT
+				armor = run_armor_check(zone, damage_type, "", "", I.armor_penetration, damage = I.throwforce, used_weapon = I, attacker = thrower)
 			next_attack_msg.Cut()
 			var/nodmg = FALSE
 			var/damagetype = damage_type

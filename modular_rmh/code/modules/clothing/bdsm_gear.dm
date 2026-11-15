@@ -23,6 +23,11 @@
 	var/drool_chance = BDSM_GAG_DROOL_CHANCE
 	var/muffled_words = "Mmf..."
 
+// RMH EDIT: plain gag, as upstream has it (crafted at the engineer station)
+/obj/item/clothing/face/bdsm_gag/basic
+	name = "gag"
+	icon_state = "black_muzzle"
+
 /obj/item/clothing/face/bdsm_gag/Initialize(mapload, ...)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)

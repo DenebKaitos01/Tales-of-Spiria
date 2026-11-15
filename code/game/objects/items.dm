@@ -224,6 +224,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/icon/experimental_onhip = FALSE
 	var/icon/experimental_onback = FALSE
 
+	/// RMH EDIT: whether this item's thrown impact bypasses the normal armour calculation (bola)
+	var/ignore_throw_armor = FALSE
+
 	// Trying to emote or talk with this in our mouth makes us muffled
 	var/muteinmouth = TRUE
 	// Using spit emote spits the item out of our mouth and falls out after some time

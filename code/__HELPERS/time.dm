@@ -25,6 +25,8 @@
 GLOBAL_VAR_INIT(tod, FALSE)
 GLOBAL_VAR_INIT(forecast, FALSE)
 GLOBAL_VAR_INIT(todoverride, FALSE)
+/// RMH EDIT: days since round start, advanced at dawn (upstream payroll day; only the counter is ported)
+GLOBAL_VAR_INIT(payroll_day_number, 0)
 /// The current day of the week, range from 1-7 (Moon's Dae - Sun's Dae)
 GLOBAL_VAR_INIT(dayspassed, FALSE)
 
@@ -50,6 +52,7 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 			if(GLOB.dayspassed == 8)
 				GLOB.dayspassed = 1
 			SStreasury.distribute_estate_incomes()
+			GLOB.payroll_day_number++ // RMH EDIT
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TIME_OF_DAY_CHANGED, GLOB.tod, oldtod)
 		update_all_color_grading() // RMH EDIT: color grading follows the hour
 		for(var/mob/living/player in GLOB.mob_list)
