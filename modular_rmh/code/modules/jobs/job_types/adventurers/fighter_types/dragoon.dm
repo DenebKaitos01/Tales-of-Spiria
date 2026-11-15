@@ -47,15 +47,14 @@
 
 /datum/outfit/adventurer_fighter/dragoon
 	name = "Dragoon"
-	head = /obj/item/clothing/head/helmet/kettle/iron
-	neck = /obj/item/clothing/neck/chaincoif/iron
-	cloak = /obj/item/clothing/cloak/raincloak
-	armor = /obj/item/clothing/armor/leather
-	shirt = /obj/item/clothing/armor/gambeson/light
-	wrists = /obj/item/clothing/wrists/bracers/leather
-	gloves = /obj/item/clothing/gloves/leather
-	pants = /obj/item/clothing/pants/trou/leather
-	shoes = /obj/item/clothing/shoes/boots/leather
+	head = /obj/item/clothing/head/helmet/sallet/grenzelhoft
+	neck = /obj/item/clothing/neck/gorget/steel
+	armor = /obj/item/clothing/armor/cuirass/grenzelhoft
+	shirt = /obj/item/clothing/armor/gambeson/heavy/grenzelhoft
+	wrists = /obj/item/clothing/wrists/bracers/leather/heavy
+	gloves = /obj/item/clothing/gloves/angle/grenzel
+	pants = /obj/item/clothing/pants/heavy_leather_pants
+	shoes = /obj/item/clothing/shoes/boots/leather/reinforced
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/adventurers_subclasses // needle, cloth and a health potion
 	beltl = /obj/item/flashlight/flare/torch/lantern
