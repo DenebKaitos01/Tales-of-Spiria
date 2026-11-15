@@ -1330,8 +1330,10 @@
 	icon_state = "exe"
 	name = "executioner's sword"
 	desc = "An ancient blade of ginormous stature, with a round ended tip. Does the work quick and clean."
-	possible_item_intents = list(SWORD_STRIKE)
-	gripped_intents = list(SWORD_CHOP)
+	// RMH EDIT: Azure Peak's intents - cut, heavy chop, a flat-tipped thrust and strike in one hand; heavy chop,
+	// cleaving cut, sweeping cut and rend in both
+	possible_item_intents = list(SWORD_CUT, /datum/intent/sword/chop/heavy, /datum/intent/sword/thrust/exe, SWORD_STRIKE)
+	gripped_intents = list(/datum/intent/sword/chop/heavy, /datum/intent/sword/cut/exe/cleave, /datum/intent/sword/cut/exe/sweep, /datum/intent/sword/cut/rend)
 	minstr = 10
 	slot_flags = ITEM_SLOT_BACK
 
