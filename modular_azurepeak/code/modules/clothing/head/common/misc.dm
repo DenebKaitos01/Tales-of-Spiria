@@ -16,13 +16,21 @@
 	icon_state = "chiv_halo"
 	item_state = "chiv_halo"
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	alternate_worn_layer = HALO_LAYER
+	// RMH EDIT: behind the head like a saint's halo; on its own layer it covered the face
+	alternate_worn_layer = BODY_BEHIND_LAYER
 	body_parts_covered = null
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	smeltresult = /obj/item/ingot/gold
 	max_integrity = 777
 	ported_clothing = TRUE
 	misc_flags = CRAFTING_TEST_EXCLUDE
+
+/// RMH EDIT: our heads sit higher in the frame than Azure's, so the halo is raised to peek out above the head
+/obj/item/clothing/head/halo/build_worn_icon(age = AGE_ADULT, default_layer = 0, default_icon_file = null, isinhands = FALSE, femaleuniform = NO_FEMALE_UNIFORM, override_state = null, coom = FALSE, customi = null, sleeveindex, breast_size = 0, icon/clip_mask = null)
+	. = ..()
+	var/mutable_appearance/standing = .
+	if(!isinhands && istype(standing))
+		standing.pixel_y += 3
 
 /obj/item/clothing/head/decoration/gazelleskull
 	name = "Gazelle Skull"

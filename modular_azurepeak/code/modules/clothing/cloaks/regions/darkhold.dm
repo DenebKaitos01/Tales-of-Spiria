@@ -2,14 +2,16 @@
 	name = "ladylike longcloak"
 	desc = "Ermine trimmed, dusted with fyritus. A siege mage's mantle is <i>traditionally</i> cermeonial, but that seldom keeps the more fashion-minded from flaunting their Darkholdian silks at any given opportunity."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/donor_clothes.dmi'
+	// RMH EDIT: the worn sprite was never in onmob/donor_clothes.dmi (invisible when worn); it and its sleeves
+	// are in the sleeves sheet as rhynncloak_f, r_rhynncloak_f and l_rhynncloak_f
+	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/donor_sleeves_armor.dmi'
 	sleeved = 'modular_azurepeak/icons/clothing/onmob/donor_sleeves_armor.dmi'
 	icon_state = "rhynncloak"
 	item_state = "rhynncloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 	boobed = FALSE
-	sleevetype = "shirt"
+	sleevetype = "rhynncloak"
 	nodismemsleeves = TRUE
 	allowed_sex = list(FEMALE)
 	color = CLOTHING_RED
