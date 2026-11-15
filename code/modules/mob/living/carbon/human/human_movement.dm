@@ -95,9 +95,16 @@
 					if(HAS_TRAIT(I, TRAIT_WIELDED))
 						if(HAS_TRAIT(src, TRAIT_TINY))
 							effective *= 0.75
-					if(effective > GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH))
-						if(prob(effective))
-							dropItemToGround(I, silent = FALSE)
+					// RMH EDIT: the chance per step scales with the strength missing (3% per point, halved when held
+					// in both hands) instead of being the weapon's whole MIN.STR, and the wearer is told why it fell
+					var/missing = effective - GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)
+					if(missing > 0)
+						var/drop_chance = missing * 3
+						if(HAS_TRAIT(I, TRAIT_WIELDED))
+							drop_chance *= 0.5
+						if(prob(drop_chance))
+							if(dropItemToGround(I, silent = FALSE))
+								to_chat(src, span_warning("[I] is too heavy for me!"))
 
 // ===== MOUNTING PONIES =====
 
