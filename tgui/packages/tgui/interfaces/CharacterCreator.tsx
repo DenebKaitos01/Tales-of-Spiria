@@ -305,6 +305,7 @@ type CreatorData = {
   voice_color: string;
   voice_pack: string;
   speech_bark: string;
+  speech_moans: Booleanish;
   moan_selection: string;
   selected_accent: string;
   loadout_catalog: LoadoutCatalogEntry[];
@@ -4174,6 +4175,11 @@ export const CharacterCreator = () => {
                     doPref('moanpreview', 'input'),
                   )}
                 </div>
+                {kvButton(
+                  L.speechMoans,
+                  data.speech_moans ? L.on : L.off,
+                  () => doPref('speech_moans', 'input'),
+                )}
               </div>
               <div className="cc-grow" />
               <Btn

@@ -122,8 +122,10 @@ GLOBAL_LIST_INIT(speech_barks, init_speech_barks())
 
 /// Whether high arousal turns this speech into a moan.
 /mob/living/carbon/human/proc/should_speech_moan()
-	// RMH EDIT: speech moans were left out of the port (ERP); barks never turn into moans
-	return FALSE
+	if(!speech_moans)
+		return FALSE
+	var/datum/component/arousal/arousal = GetComponent(/datum/component/arousal)
+	return arousal?.arousal >= SPEECH_MOAN_AROUSAL
 
 /// Whether this listener wants to hear speech barks.
 /proc/client_hears_speech_barks(client/listener)
@@ -212,6 +214,19 @@ GLOBAL_LIST_INIT(speech_barks, init_speech_barks())
 		to_chat(src, span_notice("Your character now speaks with the [bark.name] bark."))
 	else
 		to_chat(src, span_notice("Your character no longer barks while speaking."))
+
+/client/verb/toggle_speech_moans()
+	set category = "Preferences.Options"
+	set name = "Moan While Speaking"
+	if(!prefs)
+		return
+	prefs.toggle_preference(/datum/preference/toggle/speech_moans)
+	prefs.save_character()
+	var/enabled = prefs.read_preference(/datum/preference/toggle/speech_moans)
+	if(ishuman(mob))
+		var/mob/living/carbon/human/speaker = mob
+		speaker.speech_moans = enabled
+	to_chat(src, span_notice("At high arousal your character will [enabled ? "now" : "no longer"] moan instead of making speech sounds."))
 
 #undef SPEECH_BARK_SPEED_BASELINE
 #undef SPEECH_BARK_MAX_BARKS

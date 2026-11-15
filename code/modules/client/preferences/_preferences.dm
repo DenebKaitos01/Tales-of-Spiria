@@ -1475,6 +1475,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				return FALSE
 			user.client.set_speech_bark()
 			return TRUE
+		if("speech_moans")
+			if(user.client?.prefs != src)
+				return FALSE
+			user.client.toggle_speech_moans()
+			return TRUE
 		if("voicepack")
 			var/current_voice_pack = read_preference(/datum/preference/choiced/voice_pack)
 			var/voicepack_input = tgui_input_list(user, "CHOOSE YOUR HERO'S EMOTE VOICE PACK", "VOICE PACK", GLOB.voice_packs_list, current_voice_pack)
