@@ -17,7 +17,7 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-		icon = 'icons\\tg_32.png'
+		icon = 'icons\\tales_of_spiria.png'
 		macro = "default"
 		menu = "menu"
 	elem "split"
@@ -348,7 +348,7 @@ window "popupwindow"
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
 		can-resize = false
-		icon = 'icons\\tg_32.png'
+		icon = 'icons\\tales_of_spiria.png'
 
 window "stonekeep_prefwin"
 	elem "stonekeep_prefwin"
@@ -362,7 +362,7 @@ window "stonekeep_prefwin"
 		saved-params = "pos;is-minimized;is-maximized"
 		statusbar = false
 		can-resize = true
-		icon = 'icons\\tg_32.png'
+		icon = 'icons\\tales_of_spiria.png'
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
