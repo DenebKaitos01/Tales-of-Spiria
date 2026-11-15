@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/heavy/abyssor_painter
+	item_weight = 800 GRAMS
 	name = "sylveric helmet"
 	desc = "Much like the accompanying robes, this sylveric creation serves to obscure the wearer - whether to hide a horrifically sea-changed visage, as rumours about the Bitch Queen's oracles insist, or to hide a less than imposing dark elf who would rather not undermine their own mystique. It is hardly as sturdy as true armour; the thin, flaky metal lets the wearer see clearly but protects little."
 	icon = 'modular_azurepeak/icons/clothing/special/abyssor.dmi'

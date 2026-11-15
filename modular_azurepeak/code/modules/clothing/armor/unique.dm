@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/rare/elfplate/welfplate/light
+	item_weight = 4 KILOGRAMS
 	name = "woad elven maille"
 	desc = "An assembly of woven trunk, bound together by ancient song and tool of the oldest elven druids. It still creaks and weeps with forlorn reminiscence of a bygone era. It looks like only Elves can fit in it."
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'
@@ -25,6 +26,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/full/dwarven/smith
+	item_weight = 11 KILOGRAMS
 	name = "grudgebearer splint apron"
 	desc = "A mixture of plate and maille, worn by dwarven smiths. It cannot be worked on without intrinsic dwarven knowledge."
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'

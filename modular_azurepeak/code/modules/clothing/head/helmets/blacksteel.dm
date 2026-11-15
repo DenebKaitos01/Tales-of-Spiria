@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/blacksteel_ap
+	item_weight = 2.5 KILOGRAMS
 	name = "blacksteel bucket helm"
 	desc = "An antiquated greathelm of blacksteel, crested with a thick and luscious plume. How much will it take for your faith to sway - and how little will it be? Will you clasp to the atrocities of the past and believe yourself unredeemable, or will you mantle the burden of doing what is right? </br>‎ </br>It is never too late to change; for the better, and for the worse."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

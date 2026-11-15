@@ -1,4 +1,5 @@
 /obj/item/clothing/head/rosa
+	item_weight = 300 GRAMS
 	name = "scarlet hat"
 	desc = "A finely crafted hat of silk and leather, adorned with rosas. It continues the tradition of wide brimmed Amnian hats."
 	icon = 'modular_azurepeak/icons/clothing/special/rosewood.dmi'

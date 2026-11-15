@@ -96,6 +96,7 @@
 	H.real_name = pick(file2list("strings/rt/names/human/mad_touched_names.txt"))
 
 /obj/item/clothing/head/menacing/mad_touched_treasure_hunter //its here so it doesnt wind up on some class' loadout.
+	item_weight = 800 GRAMS
 	name = "sack hood"
 	desc = "A ragged hood of thick jute fibres. The itchiness is unbearable."
 	sewrepair = /datum/attribute/skill/misc/sewing/mending

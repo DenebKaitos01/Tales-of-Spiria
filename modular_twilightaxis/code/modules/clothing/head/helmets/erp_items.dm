@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/pony_harness
+	item_weight = 300 GRAMS
 	name = "pony harness gag"
 	desc = "A leather muzzle-harness with a gag piece. Talking becomes a suggestion."
 	icon = 'modular_twilightaxis/icons/clothing/erp_cloth.dmi'

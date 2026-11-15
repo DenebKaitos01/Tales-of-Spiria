@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/leather/studded/cult
+	item_weight = 3.5 KILOGRAMS
 	name = "ascension's robe"
 	icon = 'modular_twilightaxis/icons/clothing/zrobeicon.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/zrobeonmob.dmi'

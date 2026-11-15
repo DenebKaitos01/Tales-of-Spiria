@@ -1,4 +1,5 @@
 /obj/item/clothing/head/onhelm/tw_d_graggar
+	item_weight = 300 GRAMS
 	name = "bloodied star helmkleinod"
 	desc = "A jagged, multi-pointed star stained with dried blood. This macabre ornament signifies a warrior who revels in the brutal chaos of the battlefield."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'

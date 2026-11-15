@@ -1,4 +1,5 @@
 /obj/item/clothing/head/roguehood/newmoon
+	item_weight = 2.5 KILOGRAMS
 	name = "Veiled Star hood"
 	desc = "A hood of the Veiled Star, woven from dense cloth. It is tough against tearing and its lining keeps it warm. How the cloth is made remains a mystery even to the Order's own members."
 	icon = 'modular_twilightaxis/icons/clothing/head_2.dmi'
@@ -29,6 +30,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/nunTA
+	item_weight = 300 GRAMS
 	name = "nun hood"
 	desc = ""
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'
@@ -42,6 +44,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/onhelm/tw_d_peace
+	item_weight = 300 GRAMS
 	name = "Lathander's eye helmkleinod"
 	desc = "An elegant crest depicting Lathander's eye. It serves as a pious reminder of the divine gaze, guiding the wearer towards peace and protecting them from malice."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'

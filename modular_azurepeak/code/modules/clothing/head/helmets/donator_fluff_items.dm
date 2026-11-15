@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/grandmaster_habit
+	item_weight = 2.5 KILOGRAMS
 	name = "\improper Knight-Abbot's habited burgonet"
 	desc = "The Demon's Legion fell before them, like wheat before the swinging scythe. </br>However, the Demon's armies were numberless.</br> A sea of death, forever coming and marching in flame-borne fervour, crashed upon the Lord and his army in waves."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -26,6 +27,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/sallet_winged
+	item_weight = 2.5 KILOGRAMS
 	name = "\improper Knight-Apostle's winged sallet"
 	desc = "O' Lord, hear of my call. Guide me through the blackest of nights. </b> Steel my heart against the temptations of the damned and wicked. </b> Make of me to rest, within the warmest of places."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -66,6 +68,7 @@
 		H.update_inv_head()
 
 /obj/item/clothing/head/helmet/shadowplate
+	item_weight = 2.5 KILOGRAMS
 	name = "scourge mantle"
 	desc = "Gilded fangs, darkened iron; a warning of the venom not held by itself, but by the one who has taken up this mantle."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -182,6 +185,7 @@
 		H.update_inv_head()
 
 /obj/item/clothing/head/helmet/grandmaster_habit/aventail
+	item_weight = 3.5 KILOGRAMS
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/donor_clothes.dmi'
 	sleeved = null
@@ -210,6 +214,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/bascinet/apostle/aventail
+	item_weight = 3.5 KILOGRAMS
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/donor_clothes.dmi'
 	sleeved = null

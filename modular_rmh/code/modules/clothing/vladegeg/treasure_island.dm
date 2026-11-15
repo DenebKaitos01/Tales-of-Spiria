@@ -14,6 +14,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/wig
+	item_weight = 300 GRAMS
 	name = "powdered wig"
 	desc = ""
 	icon = 'modular_rmh/icons/clothing/vladegeg/treasure_island.dmi'

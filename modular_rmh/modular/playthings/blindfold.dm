@@ -1,6 +1,7 @@
 // Blindfolds: cloth over the eyes. The sheer one looks the same but lets its wearer peek.
 
 /obj/item/clothing/face/blindfold
+	item_weight = 100 GRAMS
 	name = "blindfold"
 	desc = "A strip of dark cloth tied around the eyes to block vision."
 	icon = 'icons/obj/clothing/glasses.dmi'

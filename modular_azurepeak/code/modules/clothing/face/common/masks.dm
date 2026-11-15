@@ -22,6 +22,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/face/iamcrystalclear
+	item_weight = 100 GRAMS
 	name = "porcelain mask"
 	desc = "A porcelain mask with black eyes and no mouth."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -89,6 +90,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/face/duelmask
+	item_weight = 100 GRAMS
 	name = "duelist's mask"
 	desc = "A black cloth mask for those masked duelists, doesn't grant any protection, but covers your eyes, and your identity... somehow."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'
@@ -107,6 +109,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/face/ragmask
+	item_weight = 100 GRAMS
 	name = "rag mask"
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/masks.dmi'
@@ -126,6 +129,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/face/facemask/bronze
+	item_weight = 500 GRAMS
 	name = "bronze mask"
 	desc = "Glimmering bronze, curved to veil its wearer's face from both judgement and harm."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'
@@ -150,6 +154,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/face/facemask/leather
+	item_weight = 1.2 KILOGRAMS
 	name = "padded leather mask"
 	desc = "A padded leather mask with a visor, it will prevent bad smells and some damage."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'
@@ -191,6 +196,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/face/facemask/padded
+	item_weight = 1.2 KILOGRAMS
 	name = "padded mask"
 	desc = "A padded cloth mask with a visor, it will prevent bad smells more than damage."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'

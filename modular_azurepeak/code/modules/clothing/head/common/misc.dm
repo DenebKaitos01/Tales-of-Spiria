@@ -8,6 +8,7 @@
 	abstract_type = /obj/item/clothing/head/decoration
 
 /obj/item/clothing/head/halo
+	item_weight = 300 GRAMS
 	name = "halo"
 	desc = "<font color='FFFF00'>'Don't forget, I'm with you in the dark.'</font>"
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -33,6 +34,7 @@
 		standing.pixel_y += 1
 
 /obj/item/clothing/head/decoration/gazelleskull
+	item_weight = 300 GRAMS
 	name = "Gazelle Skull"
 	desc = "A skull, carved from a gazelle that rests overhead. The tribal identity of the gazelle is seen as an omen of sorts. Known for being quick to act and fleetfooted, it symbolizes the need to be fast to react and the need to get out of danger. Sometimes, you will encounter an insurmountable threat, and in order to survive against such a threat, you must flee. That is a fact of life."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'

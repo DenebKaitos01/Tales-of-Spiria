@@ -42,6 +42,7 @@
 		return
 
 /obj/item/clothing/face/facemask/steel/confessor_ap/pyro
+	item_weight = 1.2 KILOGRAMS
 	name = "insulated breath-mask"
 	desc = "A product of strange artifice, painstakingly replicated from ancient design. Protects the wearer from noxious fumes and shrapnel to the eyes. You can taste soot whenever you draw breath."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'

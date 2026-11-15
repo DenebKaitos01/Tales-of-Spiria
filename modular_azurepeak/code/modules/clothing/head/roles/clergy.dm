@@ -98,6 +98,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/roguehood/hierophant
+	item_weight = 800 GRAMS
 	name = "hierophant's pashmina"
 	desc = "A thick hood that covers one's entire head, should they desire, or merely acts as a scarf otherwise. Made with spell-laced fabric to provide some protection against daemons and mortals alike."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -114,6 +115,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguehood/pontifex
+	item_weight = 800 GRAMS
 	name = "pontifex's pashmina"
 	desc = "A slim hood with thin, yet dense fabric. Stretchy and malleable, allowing for full flexibility and mobility. Made with spell-laced fabric to provide some protection against daemons and mortals alike."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -220,6 +222,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/roguehood/psydon_ap/black
+	item_weight = 800 GRAMS
 	name = "blessed hood"
 	desc = "A hood worn by the worshippers of Ao, oft-donned in conjunction with its matching tabard. Mourn, but do not despair; for even the smallest spark of faith might yet reignite the hearth of this dying world."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -250,6 +253,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/eoramask
+	item_weight = 300 GRAMS
 	name = "Sunite mask"
 	desc = "A silver mask in the likeness of a rabbit. Usually worn by the faithful of Sune during their rituals, but it's not like anyone's going to stop you. Right?"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -295,6 +299,7 @@
 	return ..()
 
 /obj/item/clothing/head/necramask
+	item_weight = 300 GRAMS
 	name = "death mask"
 	desc = "A hood with a decorated jaw bone at the chin, normally worn by some followers of Jergal as a form of devotion."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

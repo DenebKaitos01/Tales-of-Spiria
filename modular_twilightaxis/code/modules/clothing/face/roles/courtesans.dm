@@ -1,4 +1,5 @@
 /obj/item/clothing/face/blindfold_ap/pony
+	item_weight = 100 GRAMS
 	name = "pony blindfold"
 	desc = "A thick blindfold that leaves only trust (or panic)."
 	icon = 'modular_twilightaxis/icons/clothing/erp_cloth.dmi'

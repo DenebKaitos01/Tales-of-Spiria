@@ -23,7 +23,7 @@
 
 //............... Bladesinger Helmet ............... //
 /obj/item/clothing/head/rare/elfplate // Unique Bladesinger kit
-	item_weight = 3.5 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	name = "elvish plate helmet"
 	desc = "A bizarrely lightweight helmet of alloyed dark elven steel, offering unparalleled protection for elite bladesingers."
 	icon_state = "elfhead"
@@ -33,7 +33,7 @@
 	body_parts_covered = HEAD|HAIR|NOSE
 
 /obj/item/clothing/head/rare/elfplate/welfplate // Unique Bladesinger kit
-	item_weight = 3.5 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	desc = "A bizarrely lightweight helmet of alloyed elven steel, offering unparalleled protection for elite bladesingers."
 	icon_state = "welfhead"
 
@@ -83,7 +83,7 @@
 
 //............... Hoplite Helmet ............... //
 /obj/item/clothing/head/rare/hoplite // Unique Hoplite kit
-	item_weight = 2.9 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 	melting_material = /datum/material/bronze
 	name = "ancient helmet"
 	desc = "A weathered bronze helmet topped with a symbol of Lathander's sun."

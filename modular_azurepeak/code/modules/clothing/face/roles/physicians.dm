@@ -10,6 +10,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/face/physician/plaguebearer
+	item_weight = 1 KILOGRAMS
 	desc = "What better laboratory than the blood-soaked battlefield? This one seems to be uniquely armored."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/masks.dmi'

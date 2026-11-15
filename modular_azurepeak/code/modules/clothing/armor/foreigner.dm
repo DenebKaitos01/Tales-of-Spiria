@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/rare/elfplate/welfplate/autumn
+	item_weight = 3.5 KILOGRAMS
 	name = "autumwoad elven plate"
 	desc = "An assembly of thickly woven trunk, kept alive by ancient song and bristled with leaves of perpetual autumnage. As the mythos goes, the tone of woaden armor can sway with the emotions of its wearer - for even the eldest of the Emerald Enclave wardens can see their bark shifting back to that familiar crimson hue, whenever they're stricken with the yearning of tymes past. </br>'Like the sun through the trees you came to love me.. and like a leaf on a breeze, you blew away..'"
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'
@@ -23,6 +24,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/rare/elfplate/welfplate/autumn/light
+	item_weight = 4 KILOGRAMS
 	name = "autumwoad elven maille"
 	desc = "An assembly of woven trunk, kept alive by ancient song and bristled with leaves of perpetual autumnage. As the mythos goes, the tone of woaden armor can sway with the emotions of its wearer - for even the eldest of the Emerald Enclave wardens can see their bark shifting back to that familiar crimson hue, whenever they're stricken with the yearning of tymes past. </br>'Like the sun through the trees you came to love me.. and like a leaf on a breeze, you blew away..'"
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'

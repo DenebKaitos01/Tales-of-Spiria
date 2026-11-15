@@ -50,6 +50,7 @@
 	return ..()
 
 /obj/item/clothing/head/hooded/rainhood
+	item_weight = 300 GRAMS
 	name = "hood"
 	desc = "A hood that's attached to the raincoat."
 	icon_state = "rain_hood"

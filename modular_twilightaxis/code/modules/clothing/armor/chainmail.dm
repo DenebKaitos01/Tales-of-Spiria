@@ -17,6 +17,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/chainmail/iron/besilked
+	item_weight = 4 KILOGRAMS
 	name = "iron besilked haubergeon"
 	desc = "A maille shirt fashioned from hundreds of interlinked iron rings."
 	icon = 'modular_twilightaxis/icons/clothing/armor_2.dmi'

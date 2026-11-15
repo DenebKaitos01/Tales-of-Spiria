@@ -50,6 +50,7 @@
 
 //Mostly garbage related to the ending "cutscene"
 /obj/item/clothing/head/maniac
+	item_weight = 800 GRAMS
 	name = "cyberdeck headset"
 	desc = "Sweet dreams..."
 	icon = 'icons/roguetown/maniac/clothing.dmi'

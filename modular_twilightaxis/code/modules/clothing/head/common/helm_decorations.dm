@@ -1,4 +1,5 @@
 /obj/item/clothing/head/antlers
+	item_weight = 300 GRAMS
 	name = "old antlers"
 	desc = "Old antlers which you can wear on helmet, hood....or straight on your head!"
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'
@@ -58,6 +59,7 @@
 		update_appearance()
 
 /obj/item/clothing/head/onhelm/tw_d_castle_red
+	item_weight = 300 GRAMS
 	name = "castle helmkleinod"
 	desc = "A finely crafted crest shaped like a castle turret. Fastened atop a helm, it symbolizes the wearer's steadfast resolve and unyielding defense."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -113,6 +115,7 @@
 		update_appearance()
 
 /obj/item/clothing/head/onhelm/tw_d_dragon_red
+	item_weight = 300 GRAMS
 	name = "dragon's dread"
 	desc = "A terrifying helm ornament depicting a legendary wyrm. To bear the dragon's dread is to cast a long, draconic shadow over the battlefield, inspiring awe and terror."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -168,6 +171,7 @@
 		update_appearance()
 
 /obj/item/clothing/head/onhelm/tw_d_efreet
+	item_weight = 300 GRAMS
 	name = "afreet helmkleinod"
 	desc = "A fearsome crest forged in the likeness of an afreet. Its menacing visage seems to dance with the fury of a roaring flame, warding off cowardly foes."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -177,6 +181,7 @@
 	item_state = "d_efreet"
 
 /obj/item/clothing/head/onhelm/tw_d_horns
+	item_weight = 300 GRAMS
 	name = "horns helmkleinod"
 	desc = "A pair of imposing iron horns designed to be mounted atop a helmet, giving the wearer a beastly silhouette to strike fear into the hearts of their enemies."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -186,6 +191,7 @@
 	item_state = "d_horns"
 
 /obj/item/clothing/head/onhelm/tw_d_skull
+	item_weight = 300 GRAMS
 	name = "gold skull helmkleinod"
 	desc = "A macabre yet opulent golden skull. It is a morbid memento mori, daring death to claim the wealthy and arrogant warrior who wears it."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -195,6 +201,7 @@
 	item_state = "d_skull"
 
 /obj/item/clothing/head/onhelm/tw_d_swan
+	item_weight = 300 GRAMS
 	name = "swan on lake"
 	desc = "An intricate crest portraying a graceful swan resting upon gentle waters. It is a symbol of purity, elegance, and unwavering calm amidst the storm of war."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -204,6 +211,7 @@
 	item_state = "d_swan"
 
 /obj/item/clothing/head/onhelm/tw_d_windmill
+	item_weight = 300 GRAMS
 	name = "windmill helmkleinod"
 	desc = "A peculiar windmill crest. Though humble in origin, it shows a proud connection to the homeland's sweeping plains and tireless industry."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'

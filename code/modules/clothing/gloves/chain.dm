@@ -19,7 +19,7 @@
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
 	sewrepair = null
-	item_weight = 1.35 KILOGRAMS
+	item_weight = 1 KILOGRAMS
 	smeltresult = null
 	melting_material = /datum/material/steel
 	melt_amount = 50
@@ -40,7 +40,7 @@
 	desc = "Gauntlets made out of interwoven iron chains. Decent melee protection, but are better suited to stop arrows than blades."
 	armor_type = /datum/armor/gloves/maille/iron
 	max_integrity = INTEGRITY_STRONG
-	item_weight = 1.35 KILOGRAMS
+	item_weight = 1 KILOGRAMS
 	smeltresult = null
 	melting_material = /datum/material/iron
 	melt_amount = 50
@@ -50,4 +50,4 @@
 	desc = "Gauntlets with gilded fingers fashioned into talons. The tips are all too dull to be of harm."
 	icon_state = "shadowgauntlets"
 	allowed_race = RACES_PLAYER_ELF_ALL
-	item_weight = 1.55 KILOGRAMS
+	item_weight = 1 KILOGRAMS

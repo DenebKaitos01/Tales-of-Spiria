@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/heavy/commandant
+	item_weight = 3.5 KILOGRAMS
 	name = "commandant's helmet"
 	desc = "An old, battered helmet once worn by an officer of the Black Empire's Freikorps. Its scars bear witness to many campaigns."
 	icon = 'modular_twilightaxis/icons/clothing/commandant_set.dmi'

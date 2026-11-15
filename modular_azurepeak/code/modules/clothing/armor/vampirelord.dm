@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/chainmail/iron/vampire
+	item_weight = 8 KILOGRAMS
 	name = "regal maille"
 	desc = "An ornate aketon, woven from crimson silk and worn beneath a layer of enchanted gilbranze maille. Orcus and Shar had both failed in their pursuits - yet, the ancient truths they left behind were more valuable than lyfe itself. It's time to show them all how a Lord truly gets it done."
 	icon = 'modular_azurepeak/icons/clothing/shirts.dmi'

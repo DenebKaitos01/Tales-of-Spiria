@@ -5,6 +5,7 @@
 	abstract_type = /obj/item/clothing/face/exoticsilkmask_ta
 
 /obj/item/clothing/face/facemask/xylixmask/armored
+	item_weight = 1 KILOGRAMS
 	icon = 'modular_twilightaxis/icons/clothing/masks.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/masks.dmi'
 	sleeved = null

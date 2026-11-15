@@ -16,6 +16,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/sexy_nun_hat
+	item_weight = 300 GRAMS
 	icon = 'modular_rmh/icons/clothing/nun_robes.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/nun_robes.dmi'
 	flags_inv = HIDEEARS|HIDEHAIR
@@ -43,6 +44,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/sexy_nun_hat_alt
+	item_weight = 300 GRAMS
 	icon = 'modular_rmh/icons/clothing/nun_robes.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/onmob/nun_robes.dmi'
 	flags_inv = HIDEEARS|HIDEHAIR

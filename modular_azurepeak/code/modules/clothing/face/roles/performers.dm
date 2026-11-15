@@ -1,4 +1,5 @@
 /obj/item/clothing/face/xylixmask
+	item_weight = 100 GRAMS
 	name = "jester mask"
 	desc = "A ceramic mask, forever stuck with the joyful smile its patron god favors. While it will shatter easily from blows, its smug countenance shall taunt its foes."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'

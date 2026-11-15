@@ -1,8 +1,10 @@
 //----------------- CIVIC OUTFITS: HATS.DM ---------------------
 /obj/item/clothing/head/roguetown
+	item_weight = 300 GRAMS
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguetown/helmet/guildguard
+	item_weight = 2.5 KILOGRAMS
 	// Looks like /obj/item/clothing/head/helmet/sallet: free Vanderlin art in place of the licensed sprite
 	icon = /obj/item/clothing/head/helmet/sallet::icon
 	mob_overlay_icon = /obj/item/clothing/head/helmet/sallet::mob_overlay_icon

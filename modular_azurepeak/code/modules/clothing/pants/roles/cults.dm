@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/skirt/baotha
+	item_weight = 1.5 KILOGRAMS
 	name = "saccharine fauldcoat"
 	desc = "A fauldcoat lacquered in sickly pink. The cultists of Blissara claim that their goddess was born from the first longing ever felt by a thinking mind - and that she will be the last thing any mind ever feels."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'

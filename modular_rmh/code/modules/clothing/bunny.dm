@@ -1,4 +1,5 @@
 /obj/item/clothing/head/bunny
+	item_weight = 300 GRAMS
 	name = "bunny ears"
 	desc = ""
 	icon = 'modular_rmh/icons/clothing/bunny.dmi'

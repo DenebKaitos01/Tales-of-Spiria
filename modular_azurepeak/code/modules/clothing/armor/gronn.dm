@@ -12,6 +12,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/heavy/gronn
+	item_weight = 2.5 KILOGRAMS
 	name = "Uthgardt ravager mantle"
 	desc = "A carefully made mantle of bone and hardened leather, offering superior protection against the threats of the wild while remaining light. Uthgardt warriors often adorn one shoulder with a wolf pelt and skull, so that a great beast is always with them."
 	icon = 'modular_azurepeak/icons/clothing/special/gronn.dmi'

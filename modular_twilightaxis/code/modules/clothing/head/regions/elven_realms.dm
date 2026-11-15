@@ -1,4 +1,5 @@
 /obj/item/clothing/head/twilight_elven_hat
+	item_weight = 300 GRAMS
 	name = "elven burka"
 	desc = "A warm hat, designed to protect long elven ears from cold winds of northen Luskan."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'

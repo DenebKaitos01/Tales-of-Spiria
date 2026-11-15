@@ -15,11 +15,11 @@
 	body_parts_covered = COVERAGE_TORSO
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
-	item_weight = 7 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 
 //................ Grenzelhoft Cuirass ............... //
 /obj/item/clothing/armor/cuirass/grenzelhoft
-	item_weight = 13.45 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 	name = "darkhold cuirass"
 	desc = "Simple armor, but made from Darkholdian black-steel, famed afar for its strength."
 	icon_state = "grenzelcuirass"
@@ -56,7 +56,7 @@
 	armor_type = /datum/armor/plate/bad
 	body_parts_covered = COVERAGE_VEST
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
-	item_weight = 7 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 
 //................ Rusted Breastplate ............... //
 /obj/item/clothing/armor/cuirass/iron/rust
@@ -93,7 +93,7 @@
 	body_parts_covered = CHEST
 	prevent_crits = ONLY_VITAL_ORGANS
 	max_integrity = INTEGRITY_POOR
-	item_weight = 6.4 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 /obj/item/clothing/armor/cuirass/vampire
 	name = "ancient plate"
@@ -104,9 +104,10 @@
 	armor_type = /datum/armor/plate/good
 	body_parts_covered = COVERAGE_TORSO
 	prevent_crits = ALL_CRITICAL_HITS_VAMP
-	item_weight = 7 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 
 /obj/item/clothing/armor/cuirass/fencer
+	item_weight = 3.5 KILOGRAMS
 	name = "fencer's cuirass"
 	desc = "An expertly smithed form-fitting steel cuirass that is much lighter and agile, but breaks with much more ease. It's thinner, but backed with silk and leather."	// Experimental.
 	armor_class = AC_LIGHT
@@ -123,6 +124,7 @@
 	item_state = "ornatechestplate"
 
 /obj/item/clothing/armor/cuirass/fluted
+	item_weight = 11 KILOGRAMS
 	name = "fluted cuirass"
 	icon_state = "flutedcuirass"
 	desc = "A sturdy steel cuirass with tassets. Supposedly protective, though maybe not against crossbow bolts."

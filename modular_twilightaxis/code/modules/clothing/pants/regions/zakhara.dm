@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/sirwal
+	item_weight = 300 GRAMS
 	name = "sirwal"
 	desc = "Long, baggy trousers from the Land of Fate, Zakhara."
 	icon = 'modular_twilightaxis/icons/clothing/desert/pants.dmi'

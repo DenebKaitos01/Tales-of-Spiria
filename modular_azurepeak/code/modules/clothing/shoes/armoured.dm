@@ -46,6 +46,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/shoes/boots/armor/baotha
+	item_weight = 1.2 KILOGRAMS
 	name = "saccharine heels"
 	desc = "Plated heels lacquered in sickly pink. Blissara's cultists walk in them as if every step were a dance, and every dance an offering."
 	icon = 'modular_azurepeak/icons/clothing/feet.dmi'

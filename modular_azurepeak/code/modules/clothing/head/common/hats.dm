@@ -1,4 +1,5 @@
 /obj/item/clothing/head/octopus
+	item_weight = 300 GRAMS
 	name = "octopus hat"
 	desc = "A deep red, slimy cephalopod that clings to your scalp. Its tentacles can be adjusted."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -41,6 +42,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/archercap
+	item_weight = 300 GRAMS
 	name = "archer's cap"
 	desc = "For the merry men."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -50,6 +52,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/cap
+	item_weight = 300 GRAMS
 	name = "cap"
 	desc = "A light cap made of cloth, usually worn under a helmet."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -63,6 +66,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/duelhat
+	item_weight = 300 GRAMS
 	name = "duelist's hat"
 	desc = "A feathered leather hat, to show them all your superiority."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -76,6 +80,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/fedora
+	item_weight = 300 GRAMS
 	name = "archeologist's hat"
 	desc = "A strangely-shaped hat with dust caked onto its aged leather."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -89,6 +94,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/flamboyant
+	item_weight = 300 GRAMS
 	name = "flamboyant hat"
 	desc = "A luxurious purple feathered hat with wide brim."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -101,6 +107,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/flathat
+	item_weight = 300 GRAMS
 	name = "flat hat"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
 	mob_overlay_icon = null
@@ -112,6 +119,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/smokingcap
+	item_weight = 300 GRAMS
 	name = "smoking cap"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
 	mob_overlay_icon = null
@@ -154,6 +162,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/armingcap_ap
+	item_weight = 800 GRAMS
 	name = "arming cap"
 	desc = "A modest arming cap. It will stop a light blow."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

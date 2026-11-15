@@ -12,6 +12,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguehood/psydon_ap/warscholar
+	item_weight = 800 GRAMS
 	name = "war scholar's pashmina"
 	desc = "A protective hood, favored by the Golden Order. It offers reliable defense while allowing the wearer to remain focused amidst the chaos of battle."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'

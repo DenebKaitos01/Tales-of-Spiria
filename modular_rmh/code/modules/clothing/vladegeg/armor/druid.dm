@@ -13,7 +13,7 @@
 	sellprice = VALUE_LEATHER_ARMOR + 40
 
 	max_integrity = INTEGRITY_STANDARD + 50
-	item_weight = 3.6
+	item_weight = 3.5 KILOGRAMS
 
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)

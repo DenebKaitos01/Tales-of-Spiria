@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/cuirass/iron/goblin
+	item_weight = 4.5 KILOGRAMS
 	name = "goblin mail"
 	icon_state = "plate_armor_item"
 	item_state = "plate_armor"
@@ -16,6 +17,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/goblin
+	item_weight = 4 KILOGRAMS
 	name = "goblin leather armor"
 	icon_state = "leather_armor_item"
 	item_state = "leather_armor"
@@ -53,6 +55,7 @@
 	smeltresult = /obj/item/fertilizer/ash
 
 /obj/item/clothing/head/helmet/goblin
+	item_weight = 2.5 KILOGRAMS
 	name = "goblin helmet"
 	icon_state = "plate_helm_item"
 	item_state = "plate_helm"

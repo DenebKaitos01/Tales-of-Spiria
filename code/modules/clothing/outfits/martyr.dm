@@ -41,6 +41,7 @@
 	melt_amount = 250
 
 /obj/item/clothing/head/helmet/heavy/holysee
+	item_weight = 3.5 KILOGRAMS
 	name = "holy silver bascinet"
 	desc = "Branded by the Holy See, these helms are worn by its chosen warriors. A bastion of hope in the dark nite."
 	icon = 'icons/roguetown/clothing/special/martyr.dmi'
@@ -103,6 +104,7 @@
 	icon_state = "muscles"
 
 /obj/item/clothing/face/lordmask/naledi
+	item_weight = 1 KILOGRAMS
 	name = "war scholar's mask"
 	item_state = "naledimask"
 	icon_state = "naledimask"
@@ -142,6 +144,7 @@
 	sellprice = 0
 
 /obj/item/clothing/face/exoticsilkmask
+	item_weight = 100 GRAMS
 	name = "exotic silk mask"
 	icon_state = "exoticsilkmask"
 	flags_inv = HIDEFACE|HIDEFACIALHAIR

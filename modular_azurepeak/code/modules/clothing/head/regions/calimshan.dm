@@ -1,4 +1,5 @@
 /obj/item/clothing/head/roguehood/shalal/hijab/raneshen
+	item_weight = 800 GRAMS
 	name = "padded headscarf"
 	desc = "A common sight amongst those travelling the long desert routes, it offers protection from the heat and a modicum of it against the beasts that prowl its more comfortable nites."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

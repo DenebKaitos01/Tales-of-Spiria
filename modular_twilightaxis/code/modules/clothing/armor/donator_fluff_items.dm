@@ -49,6 +49,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/gambeson/aristocratic/heavy
+	item_weight = 5 KILOGRAMS
 	icon = 'modular_twilightaxis/icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/donor_clothes.dmi'
 	sleeved = 'modular_twilightaxis/icons/clothing/onmob/donor_sleeves_armor.dmi'

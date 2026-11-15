@@ -1,5 +1,5 @@
 /obj/item/clothing/head/padded/pestra
-	item_weight = 250 GRAMS
+	item_weight = 800 GRAMS
 	name = "naga hood"
 	desc = "Worn by the faithful of Ilmater. Resembling the face of the Naga clothed in rot."
 	icon_state = "pestrahood"
@@ -8,6 +8,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/head/roguehood/nochood
+	item_weight = 800 GRAMS
 	name = "moon hood"
 	desc = "The face of the Lady of Mysteries. Worn by the faithful of Mystra."
 	icon_state = "nochood"
@@ -21,7 +22,7 @@
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/head/padded/deathface
-	item_weight = 250 GRAMS
+	item_weight = 800 GRAMS
 	name = "death shroud"
 	desc = "A veil for those in service to the Final Scribe. When inducted into the cult of Jergal, the supplicant must make a talisman to hold the memory of a loved one since passed."
 	icon_state = "deathface"
@@ -31,21 +32,21 @@
 	prevent_crits = MINOR_CRITICALS
 
 /obj/item/clothing/head/padded/deathshroud
-	item_weight = 250 GRAMS
+	item_weight = 800 GRAMS
 	name = "death shroud"
 	desc = "Worn by the faithful of Jergal, or less savory individuals."
 	icon_state = "necrahood"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/head/padded/pestra
-	item_weight = 250 GRAMS
+	item_weight = 800 GRAMS
 	name = "naga hood"
 	desc = "Worn by the faithful of Ilmater. Resembling the face of the Naga clothed in rot."
 	icon_state = "pestrahood"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/head/padded/abyssor
-	item_weight = 250 GRAMS
+	item_weight = 800 GRAMS
 	name = "sea hood"
 	desc = "A green hood worn by the faithful of Umberlee."
 	icon_state = "abysshood"
@@ -54,6 +55,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/head/roguehood/eora
+	item_weight = 800 GRAMS
 	name = "opera hood"
 	desc = "A silver opera mask worn by the faithful of Sune, usually during their rituals. Comes with a hood that can be pulled up for warmth."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -67,6 +69,7 @@
 	salvage_result = NUTRITION_LEVEL_HUNGRY
 
 /obj/item/clothing/head/roguehood/astrata
+	item_weight = 800 GRAMS
 	name = "sun hood"
 	desc = "Worn by the faithful of Lathander."
 	icon_state = "astratahood"
@@ -76,6 +79,7 @@
 	prevent_crits = MINOR_CRITICALS
 
 /obj/item/clothing/head/roguehood/priest
+	item_weight = 800 GRAMS
 	name = "solar visage"
 	desc = "The sanctified headwear of the most devoted. The mask can be removed."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'

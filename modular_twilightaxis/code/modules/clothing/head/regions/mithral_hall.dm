@@ -1,4 +1,5 @@
 /obj/item/clothing/head/twilight_hammerhold_hat
+	item_weight = 300 GRAMS
 	name = "kokoshnik"
 	desc = ""
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'

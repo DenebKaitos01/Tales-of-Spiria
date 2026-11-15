@@ -126,6 +126,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/wrists/bracers/zizo
+	item_weight = 1.2 KILOGRAMS
 	name = "avantyne bracers"
 	desc = "Clasped yet practical, these avantyne wristguards are reinforced for the rite without binding themselves to the wearer forever."
 	icon = 'modular_azurepeak/icons/clothing/wrists.dmi'

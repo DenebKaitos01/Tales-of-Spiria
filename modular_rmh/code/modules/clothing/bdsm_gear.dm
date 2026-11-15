@@ -24,6 +24,7 @@
 
 // RMH EDIT: plain gag, as upstream has it (crafted at the engineer station)
 /obj/item/clothing/face/bdsm_gag/basic
+	item_weight = 100 GRAMS
 	name = "gag"
 	icon_state = "black_muzzle"
 
@@ -92,10 +93,12 @@
 	abstract_type = /obj/item/clothing/face/bdsm_gag/muzzle
 
 /obj/item/clothing/face/bdsm_gag/muzzle/black
+	item_weight = 100 GRAMS
 	name = "black leather muzzle"
 	icon_state = "black_muzzle"
 
 /obj/item/clothing/face/bdsm_gag/muzzle/brown
+	item_weight = 100 GRAMS
 	name = "brown leather muzzle"
 	icon_state = "brown_muzzle"
 
@@ -104,11 +107,13 @@
 	dyeable = TRUE
 
 /obj/item/clothing/face/bdsm_gag/ball/black
+	item_weight = 100 GRAMS
 	name = "black ball gag"
 	icon_state = "black_ballgag"
 	drool_chance = 14
 
 /obj/item/clothing/face/bdsm_gag/ball/brown
+	item_weight = 100 GRAMS
 	name = "brown ball gag"
 	icon_state = "brown_ballgag"
 	drool_chance = 14
@@ -122,10 +127,12 @@
 	abstract_type = /obj/item/clothing/face/bdsm_gag/ring
 
 /obj/item/clothing/face/bdsm_gag/ring/black
+	item_weight = 100 GRAMS
 	name = "black ring gag"
 	icon_state = "black_ringgag"
 
 /obj/item/clothing/face/bdsm_gag/ring/brown
+	item_weight = 100 GRAMS
 	name = "brown ring gag"
 	icon_state = "brown_ringgag"
 
@@ -140,10 +147,12 @@
 	abstract_type = /obj/item/clothing/face/bdsm_gag/harness
 
 /obj/item/clothing/face/bdsm_gag/harness/black
+	item_weight = 100 GRAMS
 	name = "black harness gag"
 	icon_state = "black_harnessgag"
 
 /obj/item/clothing/face/bdsm_gag/harness/brown
+	item_weight = 100 GRAMS
 	name = "brown harness gag"
 	icon_state = "brown_harnessgag"
 

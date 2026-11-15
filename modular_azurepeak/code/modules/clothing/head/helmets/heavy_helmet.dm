@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/heavy/aventail
+	item_weight = 3.5 KILOGRAMS
 	name = "hounskull with aventail"
 	desc = "A steel hounskull bascinet with a thick maille aventail secured to the inside. Just as a froggemund befits a knight in the tournaments, an aventailed bascinet befits a knight on the battlefield; unmatched in coverage, durability, and weight."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -50,6 +51,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/barbute
+	item_weight = 3.5 KILOGRAMS
 	name = "barbute"
 	desc = "A steel helmet that provides excellent coverage, while uniquely keeping its wearer's field-of-view almost entirely unrestricted. The cruciformic visor is an inherited design, borne from the earliest daes of Faerun. Mounted on the back is a unique couplet, fit for adopting feathered greatplumes."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -93,6 +95,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/beakhelm
+	item_weight = 3.5 KILOGRAMS
 	name = "beak helmet"
 	desc = "An odd spherical helmet with a beaklike visor."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -106,6 +109,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/heavy/bronze
+	item_weight = 2.5 KILOGRAMS
 	name = "bronze barbute"
 	desc = "A greathelm of bronze, who's nasalguard and mandibles leave the wearer's face cloaked in darkness. The heroes of yore have long since passed, yet their blood still courses through the veins of Faerun's children; you are no different. Quiff a feather to its skullcap to bear your allegience with pride."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -141,6 +145,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/burgonet
+	item_weight = 3.5 KILOGRAMS
 	name = "snouted burgonet"
 	desc = "A burgonet, though this one's not in blacksteel - the visor far more suited for snouts."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -155,6 +160,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/heavy/dwarven
+	item_weight = 3.5 KILOGRAMS
 	name = "grudgebearer dwarven helm"
 	desc = "A hardy dwarven helmet. It lets one's dwarvenly beard to poke out."
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'
@@ -172,6 +178,7 @@
 	item_state = null
 
 /obj/item/clothing/head/helmet/heavy/frogmouth
+	item_weight = 3.5 KILOGRAMS
 	name = "froggemund helmet"
 	desc = "A tall and imposing frogmouth-style helm popular in the highest tourneys of the Sword Mountains. It covers not only the entire head and face, but the neck as well. Add some cloth to show the colours of your family or allegiance, or a nurse's veil to ward off the chill of a winterborn tournament."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -217,6 +224,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/guard
+	item_weight = 3.5 KILOGRAMS
 	name = "steel savoyard"
 	desc = "A helmet with a menacing visage."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -230,6 +238,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/heavy/holyseebarbute
+	item_weight = 3.5 KILOGRAMS
 	name = "holy see barbute"
 	desc = "A polished plate of sheer silver curtains the barbute's front, its mirror-like sheen reflecting all that the gods have made of Creation. \n\n'Look upon their works, ye mighty, and despair.'"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -241,6 +250,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/kabuto
+	item_weight = 3.5 KILOGRAMS
 	name = "kabuto"
 	desc = "A Kozakuran helmet of steel plates, gilded in blacksteel and gold trim alike to evoke feelings of nobility and strength. Commonly worn with a mask or mouthguard."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -254,6 +264,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/knight
+	item_weight = 3.5 KILOGRAMS
 	name = "knight's armet"
 	desc = "A noble knight's greathelm, and the reigning symbol of sixteenth-century nobility. Add a feather to show the colors of your family or allegiance."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -324,6 +335,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/sheriff
+	item_weight = 3.5 KILOGRAMS
 	name = "barred helmet"
 	desc = "A helmet which offers good protection to the face at the expense of vision."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -337,6 +349,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/heavy/zizo_ap
+	item_weight = 3.5 KILOGRAMS
 	name = "avantyne barbute"
 	desc = "Crystallized inzanity, brought to a lower plane of existence and flared into an ethereal greathelm. It has been called forth from the edge of reality, in Her name."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -744,6 +757,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/ravoxhelm_ap/cleric
+	item_weight = 3.5 KILOGRAMS
 	name = "Tempus helmet"
 	desc = "Adorned with powerful ox horns and a seamless blindfold, this helm embodies the steadfast resolve of Tempus. It shuts out the physical world so that judgment may be delivered without bias or hesitation."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -779,6 +793,7 @@
 	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
 
 /obj/item/clothing/head/helmet/heavy/volfplate/berserker
+	item_weight = 800 GRAMS
 	name = "stripped volfskulle bascinet"
 	desc = "A steel bascinet helmet with a snarling visor that protects the entire head and face. Just like the nitebeasts it mimics, so too does the helmet's teeth glisten with flesh-sundering sharpness."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

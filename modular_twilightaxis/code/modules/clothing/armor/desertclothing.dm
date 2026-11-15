@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/brigandine/agha
+	item_weight = 12 KILOGRAMS
 	name = "agha scale"
 	desc = "Fine armor made of treated animal scales, denoting an esteemd career in the dunes."
 	icon = 'modular_twilightaxis/icons/clothing/armor_2.dmi'
@@ -29,6 +30,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/plate/cataphract
+	item_weight = 12 KILOGRAMS
 	name = "cataphract armor"
 	desc = "Metal scales interwoven intricately to form flexible protection!"
 	icon = 'modular_twilightaxis/icons/clothing/desert/armor.dmi'

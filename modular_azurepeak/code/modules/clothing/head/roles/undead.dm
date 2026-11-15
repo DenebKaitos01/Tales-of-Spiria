@@ -1,4 +1,5 @@
 /obj/item/clothing/head/roguehood/lich_sectarian
+	item_weight = 800 GRAMS
 	name = "decrepit unholy hood"
 	desc = "A padded and reinforced hood of roughspun fabrics, silks and worn leather from beyond your lyfetime, splinted into a cocoon that shrouds the face. It bears an inverted holy symbol upon its crest in defiance of the world.</br></br><font color='FF0000'>..Should you stare too long into it, you could almost glimpse something staring back with eternal malice..</font>"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

@@ -21,6 +21,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/pants/gambeson
+	item_weight = 1.5 KILOGRAMS
 	name = "gamboised cuisses"
 	desc = "A heavy fabric trousers, stuffed with padding. Protect the legs from blows and weather. Worn under armor or alone."
 	icon = 'modular_twilightaxis/icons/clothing/pants.dmi'

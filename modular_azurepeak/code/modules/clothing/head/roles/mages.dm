@@ -16,6 +16,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/witchhat
+	item_weight = 300 GRAMS
 	name = "witch hat"
 	desc = "Fair is foul, and foul is fair; Hover through the fog and filthy air."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

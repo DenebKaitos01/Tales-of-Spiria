@@ -10,7 +10,7 @@
 
 	body_parts_covered = COVERAGE_NASAL
 	max_integrity = ARMOR_INT_HELMET_STEEL
-	item_weight = 2.3 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 
 //................ Gallowglass ............... //
@@ -41,7 +41,7 @@
 
 	body_parts_covered = COVERAGE_NASAL
 	max_integrity = ARMOR_INT_HELMET_STEEL
-	item_weight = 3.12 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 //................ Decorative Coppergate ............... //
 /obj/item/clothing/head/helmet/decorativecoppergate
@@ -56,7 +56,7 @@
 
 	body_parts_covered = COVERAGE_NASAL
 	max_integrity = ARMOR_INT_HELMET_STEEL
-	item_weight = 3.12 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 //................ Skull Cap ............... //
 /obj/item/clothing/head/helmet/skullcap
@@ -141,7 +141,7 @@
 	melt_amount = 75
 
 	body_parts_covered = COVERAGE_HEAD
-	item_weight = 2.2 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/kettle/iron
 	name = "iron kettle helmet"
@@ -151,7 +151,7 @@
 	sellprice = VALUE_CHEAP_IRON_HELMET
 	armor_type = /datum/armor/head/scale
 	max_integrity = ARMOR_INT_HELMET_IRON
-	item_weight = 2.2 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	melting_material = /datum/material/iron
 	melt_amount = 75
 
@@ -171,7 +171,7 @@
 	sellprice = VALUE_CHEAP_IRON_HELMET
 	armor_type = /datum/armor/head/scale
 	max_integrity = ARMOR_INT_HELMET_IRON
-	item_weight = 2.2 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 //................ Iron Pot Helmet ............... //
 /obj/item/clothing/head/helmet/ironpot
@@ -182,7 +182,7 @@
 	sellprice = VALUE_IRON_HELMET
 
 	body_parts_covered = COVERAGE_HEAD_NOSE
-	item_weight = 2.85 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/ironpot/lakkariancap
 	name = "embellished crowned cap"
@@ -195,7 +195,7 @@
 	anvilrepair = /datum/attribute/skill/craft/armor_repair
 	body_parts_covered = COVERAGE_HEAD
 	max_integrity = ARMOR_INT_HELMET_IRON
-	item_weight = 1.4 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 //................ Copper Lamellar Cap ............... //
 /obj/item/clothing/head/helmet/coppercap
@@ -212,7 +212,7 @@
 	body_parts_covered = COVERAGE_HEAD
 	prevent_crits = ONLY_VITAL_ORGANS
 	max_integrity = INTEGRITY_POOR
-	item_weight = 3.25 KILOGRAMS
+	item_weight = 800 GRAMS
 
 //............... Battle Nun ........................... (unique kit for the role, iron coif mechanically.)
 /obj/item/clothing/head/helmet/battlenun
@@ -230,7 +230,7 @@
 	armor_type = /datum/armor/head/maille/iron
 	body_parts_covered = NECK|HAIR|EARS|HEAD
 	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 1.56 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/battlenun/steel
 	name = "veil over coif"
@@ -247,7 +247,7 @@
 	armor_type = /datum/armor/head/maille
 	body_parts_covered = NECK|HAIR|EARS|HEAD
 	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 1.56 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 
 //................ Sallet ............... //
@@ -263,7 +263,7 @@
 	armor_type = /datum/armor/head/plate
 	body_parts_covered = COVERAGE_HEAD
 	max_integrity = ARMOR_INT_HELMET_STEEL
-	item_weight = 3.1 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/sallet/iron
 	name = "iron sallet"
@@ -276,7 +276,7 @@
 
 	armor_type = /datum/armor/head/plate/bad
 	max_integrity = ARMOR_INT_HELMET_IRON
-	item_weight = 3.1 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 //................ Elf Sallet ............... //
 /obj/item/clothing/head/helmet/sallet/elven	// blackoak merc helmet
@@ -311,7 +311,7 @@
 
 	body_parts_covered = COVERAGE_HEAD
 	max_integrity = ARMOR_INT_HELMET_STEEL
-	item_weight = 3.25 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/bascinet/steppe
 	name = "steppe bascinet"
@@ -376,14 +376,14 @@
 	name = "visored sallet"
 	desc = "A steel helmet offering good overall protection. Its visor can be flipped over for higher visibility at the cost of eye protection."
 	icon_state = "sallet_visor"
-	item_weight = 3.25 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/visored/sallet/iron
 	name = "visored iron sallet"
 	desc = "An iron helmet offering good overall protection. Its visor can be flipped over for higher visibility at the cost of eye protection."
 	icon_state = "isallet_visor"
 	item_state = "isallet_visor"
-	item_weight = 3.25 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 	smeltresult = /obj/item/ingot/iron
 	melting_material = /datum/material/iron
 	sellprice = VALUE_IRON_HELMET+BONUS_VALUE_TINY
@@ -400,7 +400,7 @@
 	emote_environment = 3
 
 	armor_type = /datum/armor/head/plate/good
-	item_weight = 4.45 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 //............... Knights Helmet ............... //
 /obj/item/clothing/head/helmet/visored/knight
@@ -414,7 +414,7 @@
 	worn_y_dimension = 64
 
 	emote_environment = 3
-	item_weight = 4.45 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/visored/knight/blk
 	color = CLOTHING_SOOT_BLACK
@@ -424,7 +424,7 @@
 	desc = "A lightweight iron armet that protects dreams of chivalrous friendship, fair maidens to rescue, and glorious deeds of combat. Its visor can be flipped over for higher visibility at the cost of eye protection."
 	icon_state = "iknight"
 
-	item_weight = 4.45 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 	smeltresult = /obj/item/ingot/iron
 	melting_material = /datum/material/iron
 	sellprice = VALUE_IRON_HELMET+BONUS_VALUE_TINY
@@ -438,7 +438,7 @@
 	desc = "A knightly armet that protects dreams of chivalry, fair maidens to rescue, and glorious feats of melee. Purpose made for the protector of the royal lineage. Its visor can be flipped over for higher visibility at the cost of eye protection."
 	icon_state = "knightarmet"
 	emote_environment = 3
-	item_weight = 4.45 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 //................. Captain's Helmet .............. //
 /obj/item/clothing/head/helmet/visored/captain
@@ -447,7 +447,7 @@
 	icon = 'icons/roguetown/clothing/special/captain.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
 	icon_state = "capbarbute"
-	item_weight = 4.45 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 //................. Town Watch Helmet .............. //
 /obj/item/clothing/head/helmet/townwatch
@@ -464,7 +464,7 @@
 	melting_material = /datum/material/iron
 	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR_UNUSUAL
-	item_weight = 3.2 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/townwatch/alt
 	icon_state = "gatehelm"
@@ -491,7 +491,7 @@
 	melting_material = /datum/material/iron
 	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR_UNUSUAL
-	item_weight = 3.7 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	detail_tag = "_detail"
 	detail_color = CLOTHING_PLUM_PURPLE
 	uses_lord_coloring = LORD_PRIMARY
@@ -511,7 +511,7 @@
 	melting_material = /datum/material/iron
 	melt_amount = 100
 	sellprice = VALUE_IRON_ARMOR_UNUSUAL
-	item_weight = 3.7 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	detail_tag = "_detail"
 	detail_color = CLOTHING_PLUM_PURPLE
 	uses_lord_coloring = LORD_PRIMARY
@@ -542,7 +542,7 @@
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
 	sellprice = 0 // Incredibly evil Zizoid armor, this should be burnt, nobody wants this
-	item_weight = 3.7 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 //................. Silver Bascinet .............. //
 
@@ -556,7 +556,7 @@
 	allowed_ages = ALL_AGES_LIST //placeholder until younglings have onmob sprites for this item
 	armor_type = /datum/armor/head/plate/silver
 	sellprice = VALUE_SILVER_ARMOR
-	item_weight = 6 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 
@@ -586,7 +586,7 @@
 
 	body_parts_covered = FULL_HEAD
 	prevent_crits = BLUNT_AND_MINOR_CRITS
-	item_weight = 1.3 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/blacksteel
 	abstract_type = /obj/item/clothing/head/helmet/blacksteel
@@ -609,10 +609,10 @@
 	smeltresult = /obj/item/ingot/blacksteel
 	melting_material = /datum/material/blacksteel
 	melt_amount = 100
-	item_weight = 4.5 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/blacksteel/psythorns
-	item_weight = 2.4 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	name = "crown of exotic thorns"
 	desc = "Thorns fashioned from pliable yet durable blacksteel - woven and interlinked, fashioned to be worn upon the head."
 	body_parts_covered = HAIR | HEAD

@@ -50,6 +50,7 @@
 	to_chat(to_pacify, span_info("<b style='color:pink'>A flower of Sharess blooms on my head, I feel at peace.</b>"))
 
 /obj/item/clothing/head/peaceflower
+	item_weight = 300 GRAMS
 	name = "Sune bud"
 	desc = "A flower of gentle petals, associated with Sune or Jergal. Usually adorned as a headdress or laid at graves as a symbol of love or peace."
 	icon = 'icons/roguetown/items/produce.dmi'
@@ -102,6 +103,7 @@
 
 //Putting this here for now until we have a better place. Ook wants this to inject drugs eventually. I guess this is decent for now.
 /obj/item/clothing/head/corruptflower
+	item_weight = 300 GRAMS
 	name = "blissaran bud"
 	desc = "A flower of dark petals and sharp thorns, associated with Blissara. It is said that these allow their wearer to better commune with their goddess."
 	icon = 'icons/roguetown/items/produce.dmi'

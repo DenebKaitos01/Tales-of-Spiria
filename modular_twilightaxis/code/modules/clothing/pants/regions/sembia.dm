@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/trou/leather/etrpants
+	item_weight = 1.5 KILOGRAMS
 	name = "wanderer's pants"
 	desc = "A pair of comfortable black trousers, a style often found in Sembia."
 	icon = 'modular_twilightaxis/icons/clothing/pants.dmi'

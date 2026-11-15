@@ -109,7 +109,7 @@
 	sellprice = 25
 
 /obj/item/clothing/neck/coif
-	item_weight = 850 GRAMS
+	item_weight = 500 GRAMS
 	name = "leather coif"
 	desc = "A simple coif made of boiled leather, not that good as armor itself but mostly useful as padding for proper helmets."
 	icon_state = "coif"
@@ -162,7 +162,7 @@
 	ADD_TRAIT(src, TRAIT_HARD_TO_STEAL, TRAIT_GENERIC)
 
 /obj/item/clothing/neck/coif/cloth
-	item_weight = 250 GRAMS
+	item_weight = 500 GRAMS
 	name = "padded coif"
 	desc = "A simple coif made of cloth. Not very effective armor, but may soften weak blows and keeps the head and neck warm."
 	icon_state = "ccoif"
@@ -264,7 +264,7 @@
 \---------------*/
 
 /obj/item/clothing/neck/chaincoif
-	item_weight = 2.3 KILOGRAMS
+	item_weight = 2 KILOGRAMS
 	name = "chain coif"
 	desc = "A coif made of interwoven steel rings, made to protect against arrows and blades. \
 			Generally used as padding, but serviceable enough on its own."
@@ -332,6 +332,7 @@
 	max_integrity = INTEGRITY_STRONG
 
 /obj/item/clothing/neck/gorget/copper
+	item_weight = 2 KILOGRAMS
 	name = "neck protector"
 	icon_state = "copperneck"
 	desc = "An antique and simple protection for the neck, used more as an accessory by the common folk. But poor protection is still better than nothing."
@@ -352,7 +353,7 @@
 \---------------*/
 
 /obj/item/clothing/neck/bevor
-	item_weight = 1.13 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 	name = "bevor"
 	desc = "A piece of steel plate armor meant to protect the throat and neck of its wearer against decapitation, extending the protection of armor plates."
 	icon_state = "bevor"
@@ -391,7 +392,7 @@
 	max_integrity = INTEGRITY_STRONG
 
 /obj/item/clothing/neck/gorget
-	item_weight = 900 GRAMS
+	item_weight = 1.5 KILOGRAMS
 	name = "gorget"
 	icon_state = "gorget"
 	desc = "An affordable piece of iron armor meant to protect one's neck against chopping. \

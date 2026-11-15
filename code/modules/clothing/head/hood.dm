@@ -131,6 +131,7 @@
 
 
 /obj/item/clothing/head/hooded/magehood
+	item_weight = 800 GRAMS
 	name = "hood"
 	desc = ""
 	color = null
@@ -172,7 +173,7 @@
 	color = CLOTHING_SOOT_BLACK
 
 /obj/item/clothing/head/roguehood/leather
-	item_weight = 145 GRAMS
+	item_weight = 800 GRAMS
 	name = "leather hood"
 	desc = "A simple if foreboding hood made out of leather. Worn by street thug and honest yeoman both. \
 	Protects from the eventual stabbing, but not much more."

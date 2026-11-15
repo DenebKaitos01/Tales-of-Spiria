@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/trou/leather/etrpants/donat
+	item_weight = 2.5 KILOGRAMS
 	icon = 'modular_twilightaxis/icons/clothing/pants.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/pants.dmi'
 	sleeved = 'modular_twilightaxis/icons/clothing/onmob/helpers/sleeves_pants.dmi'

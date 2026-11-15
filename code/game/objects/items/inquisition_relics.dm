@@ -988,7 +988,7 @@
 	item_weight = 100 GRAMS
 
 /obj/item/clothing/head/inqarticles/blackbag
-	item_weight = 300 GRAMS
+	item_weight = 2.5 KILOGRAMS
 	name = "black bag"
 	desc = "A heavily spell-weaved padded sack intended to muffle the cries made within it. Due to the heaviness of the materials involved, application and removal of these is usually difficult for the untrained."
 	icon_state = "blackbag"

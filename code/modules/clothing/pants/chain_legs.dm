@@ -25,7 +25,7 @@
 	armor_type = /datum/armor/pants/maille
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 5.2 KILOGRAMS
+	item_weight = 4 KILOGRAMS
 
 	material_category = ARMOR_MAT_CHAINMAIL
 
@@ -41,7 +41,7 @@
 	melting_material = /datum/material/iron
 	armor_type = /datum/armor/pants/maille/iron
 	max_integrity = INTEGRITY_STRONG
-	item_weight = 5.2 KILOGRAMS
+	item_weight = 4 KILOGRAMS
 
 /obj/item/clothing/pants/chainlegs/kilt
 	name = "steel chain kilt"

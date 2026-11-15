@@ -119,6 +119,7 @@
 	acid = DR_NONE
 
 /obj/item/clothing/armor/skin_armor/stag_hide
+	item_weight = 5 KILOGRAMS
 	slot_flags = null
 	name = "white stag skin"
 	desc = "A pelt like frost over iron."

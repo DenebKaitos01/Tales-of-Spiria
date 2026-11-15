@@ -1,4 +1,5 @@
 /obj/item/clothing/head/nightmare_crown
+	item_weight = 300 GRAMS
 	name = "nightmare tears crown"
 	desc = ""
 	icon = 'modular_twilightaxis/icons/clothing/nightmare_set.dmi'
@@ -10,6 +11,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/tiara
+	item_weight = 300 GRAMS
 	name = "ornate golden tiara"
 	desc = "A delicate tiara, made of gold. It seems to be a symbol of nobility, but also of beauty. It is said that the one who wears it will be blessed by Lathander's light."
 	icon = 'modular_twilightaxis/icons/clothing/donor_clothes.dmi'
@@ -46,6 +48,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/onhelm/tw_d_feathers
+	item_weight = 300 GRAMS
 	name = "feathers accessory"
 	desc = "A cluster of vibrant plumage meant to be affixed to a helmet. Such grand feathers often denote a warrior of high status and noble bearing."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -55,6 +58,7 @@
 	item_state = "d_feathers"
 
 /obj/item/clothing/head/onhelm/tw_d_lion
+	item_weight = 300 GRAMS
 	name = "lion helmkleinod"
 	desc = "A roaring lion sculpted from metal, serving as a proud helm ornament. It embodies courage, royalty, and the fierce heart of its wearer."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'
@@ -64,6 +68,7 @@
 	item_state = "d_lion"
 
 /obj/item/clothing/head/onhelm/tw_d_sun
+	item_weight = 300 GRAMS
 	name = "sun helmkleinod"
 	desc = "A gilded sunburst designed to crown a knight's helm. It catches the light beautifully, radiating an aura of hope and righteous glory."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'

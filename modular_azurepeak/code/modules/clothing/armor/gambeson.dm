@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/gambeson/baotha
+	item_weight = 3 KILOGRAMS
 	name = "saccharine vestments"
 	desc = "Padded vestments embroidered in pink and gold. The faithful of Blissara teach that pain is merely a desire not yet satisfied - and that their goddess satisfies all."
 	icon = 'modular_azurepeak/icons/clothing/shirts.dmi'
@@ -239,6 +240,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/gambeson/heavy/pontifex/loadout
+	item_weight = 5.6 KILOGRAMS
 	name = "aesthetic pontifex's kaftan"
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/armor.dmi'

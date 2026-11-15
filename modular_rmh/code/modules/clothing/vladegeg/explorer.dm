@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/gambeson/explorer
+	item_weight = 5 KILOGRAMS
 	name = "explorer's vest"
 	slot_flags = ITEM_SLOT_SHIRT | ITEM_SLOT_ARMOR
 	desc = "A dashing outfit for an experienced tomb raider."
@@ -33,6 +34,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/explorer
+	item_weight = 2.5 KILOGRAMS
 	icon = 'modular_rmh/icons/clothing/vladegeg/explorer.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/vladegeg/onmob/explorer.dmi'
 	name = "explorer's hat"

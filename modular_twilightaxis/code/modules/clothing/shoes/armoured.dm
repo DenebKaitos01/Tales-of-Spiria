@@ -52,6 +52,7 @@
 	allowed_race = SPECIES_BASE_BODY
 
 /obj/item/clothing/shoes/boots/armor/zizo/bloodraider
+	item_weight = 1.2 KILOGRAMS
 	name = "raider's boots"
 	desc = "Custom-fitted sabatons, made from a series of interlinking darksteel plates."
 	icon = 'modular_twilightaxis/icons/clothing/bloodraider.dmi'

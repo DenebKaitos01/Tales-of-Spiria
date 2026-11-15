@@ -1,4 +1,5 @@
 /obj/item/clothing/head/grenzelhofthat/triumph
+	item_weight = 300 GRAMS
 	name = "Darkhold tellerbarret"
 	desc = "The latest in sixteenth-century fashionwear, stitched by the finest tailors in Darkhold. </br>I can fit this onto a sallet, Sembian bascinet, or Blacksteel armet for added protection. Alternatively, I can nestle it onto my helmet's cosmetic inventory."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -37,6 +38,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/clothing/head/grenzelhofthat
+	item_weight = 800 GRAMS
 	name = "Darkhold plume hat"
 	desc = "Whether it's monsters or fair maidens, a true Darkholdian slays both. This hat contains a hidden metallic cap underneath to protect the head from blows. </br>I can fit this onto a sallet, Sembian bascinet, or Blacksteel armet for added protection."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

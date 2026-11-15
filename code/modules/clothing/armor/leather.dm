@@ -19,7 +19,7 @@
 	prevent_crits = ALL_EXCEPT_CHOP_AND_STAB
 	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
 	salvage_result = /obj/item/natural/hide/cured
-	item_weight = 3.2 KILOGRAMS
+	item_weight = 2 KILOGRAMS
 
 	material_category = ARMOR_MAT_FABRIC
 
@@ -27,6 +27,7 @@
 //KEEP THIS IN MIND
 
 /obj/item/clothing/armor/leather/advanced
+	item_weight = 3.5 KILOGRAMS
 	name = "hardened leather armor"
 	desc = "Sturdy, durable, flexible. Will keep you alive."
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MEDIUM
@@ -35,6 +36,7 @@
 	armor_type = /datum/armor/leather/advanced
 
 /obj/item/clothing/armor/leather/masterwork
+	item_weight = 2.5 KILOGRAMS
 	name = "masterwork leather armor"
 	desc = "This leather armor is a craftsmanship marvel. Made with the finest leather. Strong, nimble, reliable."
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
@@ -47,6 +49,7 @@
 
 //................ Hide Armor ............... //
 /obj/item/clothing/armor/leather/hide
+	item_weight = 2.5 KILOGRAMS
 	name = "hide armor"
 	desc = "A leather armor with additional internal padding of creature fur. Offers slightly higher integrity and comfort."
 	icon_state = "hidearmor"
@@ -76,7 +79,7 @@
 	armor_type = /datum/armor/leather/good
 	prevent_crits = ALL_EXCEPT_STAB
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
-	item_weight = 6.7 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 //................ Leather Vest ............... //	- has no sleeves.  - can be worn in armor OR shirt slot
 /obj/item/clothing/armor/leather/vest
@@ -95,7 +98,7 @@
 	body_parts_covered = COVERAGE_VEST
 	prevent_crits = CUT_AND_MINOR_CRITS
 	salvage_result = /obj/item/natural/hide/cured
-	item_weight = 1.4 KILOGRAMS
+	item_weight = 2 KILOGRAMS
 
 /obj/item/clothing/armor/leather/vest/colored
 	misc_flags = CRAFTING_TEST_EXCLUDE
@@ -109,7 +112,7 @@
 	name = "butchers vest"
 	icon_state = "leathervest"
 	color = "#d69c87" // custom coloring
-	item_weight = 1.4 KILOGRAMS
+	item_weight = 2 KILOGRAMS
 
 //................ Other Vests ............... //
 /obj/item/clothing/armor/leather/vest/colored/butler
@@ -141,7 +144,7 @@
 	desc = "A heavy leather jacket with wooden buttons, favored by workers who can afford it."
 
 	body_parts_covered = COVERAGE_SHIRT
-	item_weight = 1.5 KILOGRAMS
+	item_weight = 2 KILOGRAMS
 	pocket_storage_component_path = /datum/component/storage/concrete/grid/cloak
 
 /obj/item/clothing/armor/leather/jacket/dropped(mob/living/carbon/human/user)
@@ -163,6 +166,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/jacket/gatemaster_jacket
+	item_weight = 4 KILOGRAMS
 	name = "gatemaster's coat"
 	desc = "A thick cloth padded coat specialty made for the gatemaster."
 	icon = 'icons/roguetown/clothing/special/gatemaster.dmi'
@@ -183,6 +187,7 @@
 
 //................ Sea Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/sea
+	item_weight = 2.5 KILOGRAMS
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "sea jacket"
 	desc = "A sturdy jacket worn by daring seafarers. The leather it's made from has been tanned by the salt of Umberlee's seas."
@@ -219,6 +224,7 @@
 //................ Silk Jacket ............... //
 
 /obj/item/clothing/armor/leather/jacket/tailcoat
+	item_weight = 3 KILOGRAMS
 	name = "tailcoat"
 	desc = "A finely-sewn tailcoat often worn by those on the brink of the upper echelons of Astratan caste."
 	icon_state = "butlercoat"
@@ -281,6 +287,7 @@
 	alternate_worn_layer = 19
 
 /obj/item/clothing/armor/leather/jacket/leathercoat
+	item_weight = 3 KILOGRAMS
 	name = "leather coat"
 	desc = "A tan and purple leather coat."
 	icon_state = "leathercoat"
@@ -292,6 +299,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 
 /obj/item/clothing/armor/leather/jacket/leathercoat/confessor
+	item_weight = 3.5 KILOGRAMS
 	name = "confessional coat"
 	desc = "A sturdy raincoat draped atop of a tightly-fastened boiled leather cuirass. The Ordo Venatari trainees often fashion little pieces of memorabilia and stitch it into the lower pockets of the coat to remind the confessors that their cause is virtuous, and that they mustn’t lose sight of what matters."
 	icon_state = "confessorcoat"
@@ -316,6 +324,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 
 /obj/item/clothing/armor/leather/jacket/leathercoat/duelcoat
+	item_weight = 4 KILOGRAMS
 	name = "black leather coat"
 	desc = "A stylish coat worn by the Duelists of Silvermoon. Light and flexible, it doesn't impede the complex movements they are known for, Seems to be well-padded."
 	icon_state = "bwleathercoat"
@@ -344,6 +353,7 @@
 	item_state = "cuirbouilli"
 
 /obj/item/clothing/armor/leather/heavy
+	item_weight = 3.5 KILOGRAMS
 	name = "hardened leather armor"
 	desc = "A heavy steerhide jerkin with enough body to stand on its own. It forms a stiff, protective mantle \
 	for its wearer, shielding from blows and weather alike."

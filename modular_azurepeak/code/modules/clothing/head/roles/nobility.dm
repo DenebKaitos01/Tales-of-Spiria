@@ -10,6 +10,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/crown_hat
+	item_weight = 300 GRAMS
 	name = "crown hat"
 	desc = "Oft worn in place of a crown, this hat is the signature headwear of the Grand Duke. Its iconic feather stretches tall above its peers."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -49,6 +50,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/decoration/broche
+	item_weight = 300 GRAMS
 	name = "golden broche"
 	desc = "Noble lapels for a noble coat."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -64,6 +66,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/decoration/orle
+	item_weight = 300 GRAMS
 	name = "noble striped decoration"
 	desc = "A delicate weaving of colored fabric, intended to be worn atop a helmet; a touch of elegance, indiscriminate of the alloy."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'

@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/heavy/astratan
+	item_weight = 3.5 KILOGRAMS
 	name = "Lathanderite helmet"
 	desc = "Gilded gold and silvered metal, the bright, vibrant colors of an Lathanderite crusader radiate from this blessed helmet."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -47,6 +48,7 @@
 	. += span_info("Bucket helmets, Sugarloaf helmets, and their decorated variants can be uniquely decorated with a nurse's veil as well.")
 
 /obj/item/clothing/head/helmet/heavy/eoran
+	item_weight = 3.5 KILOGRAMS
 	name = "Sunite helmet"
 	desc = "A visage of beauty, this helm made in soft pink and beige reminds one of the grace of Sune."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -62,6 +64,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/undivided
+	item_weight = 3.5 KILOGRAMS
 	name = "templar silver sallet"
 	desc = "A silver-plated jousting helm, and symbol of hope worn by the Duskmarian Sect of The Undivided. Those who don it have sworn to lay down their lyves for the greater good, for no cost is too great to preserve Their will."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -89,6 +92,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/undivided_alt
+	item_weight = 3.5 KILOGRAMS
 	name = "templar bucket helmet"
 	desc = "A gold-plated bucket helm adorned with symbol of Lathander, beacon of hope worn during crusades. Sacrificial Hero, fear not your enemy; it is only the first tilt."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -101,6 +105,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/bandana
+	item_weight = 300 GRAMS
 	name = "bandana"
 	desc = "A simple triangular length of fabric, typically worn tied around the head as decoration, or to constrict long hair during intensive work."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -119,6 +124,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/tricorn
+	item_weight = 300 GRAMS
 	name = "tricorn"
 	desc = "A triangular hat with its brim turned in on itself. Quite a new-fangled design, but one gaining popularity among sailors in particular."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -138,6 +144,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/helmet/tricorn/lucky
+	item_weight = 800 GRAMS
 	name = "lucky tricorn"
 	desc = "A weathered tricorn that has seen many skirmishes. You'd feel lucky with this on your head."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

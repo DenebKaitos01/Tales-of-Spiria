@@ -130,6 +130,7 @@
 	abstract_type = /obj/item/clothing/head/leather
 
 /obj/item/clothing/head/leather/inqhat
+	item_weight = 300 GRAMS
 	name = "inquisitorial hat"
 	desc = "A wide-brimmed leather hat, adorned with a crimson-dyed feather. Death has come to your little town."
 	icon_state = "inqhat"

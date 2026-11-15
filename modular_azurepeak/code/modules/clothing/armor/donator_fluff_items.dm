@@ -218,6 +218,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/longcoat/wyrd_cloak
+	item_weight = 7 KILOGRAMS
 	name = "Cloak of the Wyrd"
 	desc = "Sewn by ways unknown to the land, what may have been garbs fitting for royalty once now lays aged beyond measure. However, it would surely provide much needed warmth for the cold and uncaring bog..."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -234,6 +235,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/donator_girdle
+	item_weight = 8 KILOGRAMS
 	name = "heavy steel plackart"
 	desc = "A curious - and particularly revealing - variant of a half-plated cuirass. It's said that the intentionally provocative design excels at diverting strikes that'd otherwise pierce the wearer's unprotected regions."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -666,6 +668,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/fluted/donator_girdle
+	item_weight = 8 KILOGRAMS
 	name = "fluted plackart"
 	desc = "A curious - and particularly revealing - variant of a fluted cuirass. It's said that the intentionally provocative design excels at diverting strikes that'd otherwise pierce the wearer's unprotected regions."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'

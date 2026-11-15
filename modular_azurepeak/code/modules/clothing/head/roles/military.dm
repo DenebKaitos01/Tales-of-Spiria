@@ -82,6 +82,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguehood/warden/munitioneer
+	item_weight = 800 GRAMS
 	name = "forgehound's hood"
 	desc = "<i><font color='ff9933'>'Beneath his gleaming mask, the fyrmanne smiles. He is a salamander upon the worlde, belching flame, cleaning away history, and leaving a new land for the lyving.'</font></i></br>A thick hood of masterwork quality, it is expertly fitted with thick-leather within the fabric to cushion the skull from blows."
 	icon = 'modular_azurepeak/icons/clothing/special/warden.dmi'

@@ -1,4 +1,5 @@
 /obj/item/clothing/head/rare/elfplate/welfplate/light
+	item_weight = 800 GRAMS
 	name = "woad elven barbute"
 	desc = "A helm of woven trunk, kept alive by ancient song and crowned with living leaves of endless verdure. Lighter and more pliant than it's fuller counterpart, it bends with the will of it's bearer, never truly severed from the living grove."
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'
@@ -14,6 +15,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/rare/elfplate/welfplate/autumn
+	item_weight = 800 GRAMS
 	name = "autumnwoad elven helm"
 	desc = "A helmet of thickly woven trunk, kept alive by ancient song and bristled with leaves of perpetual autumnage. Unblossomed woadmaille can be splintered far easier than their springlyfed counterparts, but - consequently - becomes far lighter to maneuver with. </br>'..the winter winds will be much colder, now you're not here..'"
 	icon = 'modular_azurepeak/icons/clothing/special/race_armor.dmi'

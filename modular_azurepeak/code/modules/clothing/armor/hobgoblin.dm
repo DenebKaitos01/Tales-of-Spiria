@@ -12,6 +12,7 @@
 	allowed_race = SPECIES_BASE_BODY
 
 /obj/item/clothing/armor/cuirass/iron/hobgoblin
+	item_weight = 12 KILOGRAMS
 	name = "hoblin plate"
 	icon = 'modular_azurepeak/icons/clothing/onmob/hobgoblins.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/armor.dmi'

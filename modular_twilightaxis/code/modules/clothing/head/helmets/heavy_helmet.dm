@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/heavy/citywatch
+	item_weight = 3.5 KILOGRAMS
 	name = "watchman's helmet"
 	desc = "A heavy helmet, remarkably resistant to every kind of harm. Worn by the city Watch of Waterdeep."
 	icon = 'modular_twilightaxis/icons/clothing/special/citywatch_armor.dmi'
@@ -11,6 +12,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/twilight_drow
+	item_weight = 3.5 KILOGRAMS
 	name = "scourge barbute"
 	desc = "This helmet is a reluctant concession to the reality of modern warfare. No self-respecting Dark Elf would ever wear this into battle unless absolutely necessary. Naturally, it is usually donned by Drow males."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'
@@ -125,6 +127,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/ravoxhelm_ap/oldrw
+	item_weight = 3.5 KILOGRAMS
 	name = "plumed Tempus helmet"
 	desc = "A helmet with a great, red plume. They will know, in time, that you are the true justiciar of the Vale."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'

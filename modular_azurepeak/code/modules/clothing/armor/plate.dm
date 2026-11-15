@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/heartfelt
+	item_weight = 12 KILOGRAMS
 	name = "coat of armor"
 	desc = "A lordly coat of armor."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -32,6 +33,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/bronze
+	item_weight = 11 KILOGRAMS
 	name = "bronze cuirass"
 	desc = "A chiseled breastplate of bronze, further padded with hide to comfort its championing bod. The plates have been carefully forged to mimic the statuesque physiques of Faerun's ancient heroes. Wearing it bolsters you with determination."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -47,6 +49,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/plate/silver
+	item_weight = 8 KILOGRAMS
 	name = "templar's half-plate"
 	desc = "Holy silver, one fifth. Steel, three fifths. Chosen material, one fifth. The armour of the templar, protector and warrior of the gods' faithful."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -80,6 +83,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/bronze/light
+	item_weight = 2.5 KILOGRAMS
 	name = "bronze cardiophylax"
 	desc = "A thick bronze plate, meticulously sculpted to fit its wearer's physique and guard their heart from all that'd seek to strike it. Unfortunately, it does little to riposte more emotional blows."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -93,6 +97,7 @@
 	armor_type = /datum/armor/ported/bronze
 
 /obj/item/clothing/armor/cuirass/copper
+	item_weight = 2.5 KILOGRAMS
 	name = "copper heartplate"
 	desc = "Shingled copper disks, strapped together to ward the heart from harm. As discovered by its antiquital wearers, it is deceptively protective; yet, its straps can only sustain so much stress before snapping.."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -120,6 +125,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/fluted/baotha
+	item_weight = 4.5 KILOGRAMS
 	name = "saccharine plate armor"
 	desc = "Fluted plate lacquered in sickly pink. The champions of Blissara claim their goddess saw the cruelty of every other god's judgement - and chose, instead, to forgive mortals everything they crave."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -217,6 +223,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/plate/full/samsibsa
+	item_weight = 10 KILOGRAMS
 	name = "samsibsa scaleplate"
 	desc = "A heavy set of armour worn by the kouken of distant Kozakura. As opposed to the plate armour utilized by most of Faerun and the West, samsiba-cheolpan is made of thirty-four rows of composite scales, each an ultra-thin sheet of blacksteel gilded over steel. </br> It is an extremely common practice to engrave characters onto individual plates - such as LUCK, HONOR, or HEAVEN."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -254,6 +261,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/clothing/armor/plate/iron/banded
+	item_weight = 12 KILOGRAMS
 	name = "banded iron armor"
 	desc = "An iron chestplate, pauldrons and tassets worn over a fur vest and padded with heavy leathers. It's primarily worn in the cold north, where armor has to sometimes be cobbled together due to logistical shortages. It leaves the stomach exposed for maneuverability."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -268,6 +276,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/ancient/artificer
+	item_weight = 4 KILOGRAMS
 	name = "artificed half-plate"
 	desc = "Forbidden knowledge, resurrected into a weightless vessel of gilbranze. Whatever arcyne meld once powered it has long gone dark."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -465,6 +474,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/full/bronze/alt
+	item_weight = 10 KILOGRAMS
 	name = "bronze panoplic assembly"
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/armor.dmi'

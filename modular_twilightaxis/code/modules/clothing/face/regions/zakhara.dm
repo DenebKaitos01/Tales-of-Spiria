@@ -1,4 +1,5 @@
 /obj/item/clothing/face/exoticsilkmask_ta/green
+	item_weight = 100 GRAMS
 	name = "exotic silk mask (green)"
 	icon = 'modular_twilightaxis/icons/clothing/desert/masks.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/desert/onmob/masks.dmi'
@@ -7,6 +8,7 @@
 	item_state = "exoticsilkmaskg"
 
 /obj/item/clothing/face/exoticsilkmask_ta/red
+	item_weight = 100 GRAMS
 	name = "exotic silk mask (red)"
 	icon = 'modular_twilightaxis/icons/clothing/desert/masks.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/desert/onmob/masks.dmi'

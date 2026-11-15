@@ -9,6 +9,7 @@
 	abstract_type = /obj/item/clothing/head/onhelm
 
 /obj/item/clothing/head/onhelm/tw_d_oathtaker
+	item_weight = 300 GRAMS
 	name = "oathkeeper's symbol"
 	desc = "An elegant helm accessory. Fashioned from cold iron, it is a heavy burden that reminds the wearer of the unbreakable vows they have sworn."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'

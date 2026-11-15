@@ -1,4 +1,5 @@
 /obj/item/clothing/head/maidhead
+	item_weight = 300 GRAMS
 	name = "maid headdress"
 	desc = "A decorative cloth headband clearly indicating the wearer as a maid."
 	icon = 'modular_azurepeak/icons/clothing/special/maids.dmi'
@@ -9,6 +10,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/chaperon/colored/greyscale/shepherd
+	item_weight = 800 GRAMS
 	name = "mountaineer's chaperon"
 	desc = "A fashionable citygoer's chaperon worn around an insconspicuous iron skullcap. It has a cute little Mamük brooch on the tip of the hood. Szöréndnížine shepherds spend plenty of time in the city and have taken a liking to the chaperon's exaggerated swagger."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

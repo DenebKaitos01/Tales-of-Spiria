@@ -22,6 +22,7 @@
 	item_state = "bplatelegs"
 
 /obj/item/clothing/pants/platelegs/avantyne
+	item_weight = 4 KILOGRAMS
 	name = "avantyne-threaded fauldcoat"
 	desc = "Tassets of threaded darksteel, worn atop a lesser waistcoat. The weightlessness of the alloy is born from its unholy imbuement; for lux invigorates metal far greater than even the purest ores."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'
@@ -35,6 +36,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/pants/platelegs/zizo_ap
+	item_weight = 4 KILOGRAMS
 	name = "avantyne vestments"
 	desc = "Vestments of avantyne, a black crystal said to be the frozen memory of a night that never ended. The faithful of Shar claim the Lady of Loss Herself wore such garments when the Netherese empire fell and its ashes still smouldered. </br>..and to think, it was all a war without reason."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'

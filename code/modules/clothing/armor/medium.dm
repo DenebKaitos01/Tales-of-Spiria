@@ -21,9 +21,10 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	prevent_crits = ALL_CRITICAL_HITS
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
-	item_weight = 7
+	item_weight = 8 KILOGRAMS
 
 /obj/item/clothing/armor/medium/scale/steppe
+	item_weight = 12 KILOGRAMS
 	name = "steel heavy lamellar"
 	desc = "A chestpiece composed of easily-replaced small rectangular plates of layered steel laced together in rows with wire. Malleable and protective, perfect for cavalrymen."
 	icon_state = "hudesutu"
@@ -37,7 +38,7 @@
 	item_state = "surcoat"
 	detail_tag = "_metal"		// metal bits are the details so keep them uncolorer = white
 	detail_color = COLOR_WHITE
-	item_weight = 5.3 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 
 /obj/item/clothing/armor/medium/surcoat/Initialize()
 	. = ..()
@@ -55,6 +56,7 @@
 
 //................ Armored surcoat (Baldurian) ............... //
 /obj/item/clothing/armor/medium/surcoat/heartfelt
+	item_weight = 12 KILOGRAMS
 	desc = "A lordly protection in Baldurian colors. Masterfully crafted coat of plates, for important nobility."
 	color = CLOTHING_BLOOD_RED
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_SMALL
@@ -62,7 +64,7 @@
 	body_parts_covered = COVERAGE_FULL
 
 /obj/item/clothing/armor/medium/scale/inqcoat
-	item_weight = 6.3 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "inquisitorial duster"
 	desc = "Metal plates reinforce this heavy coat. Its striking silhouette is of ill omen to any mainland community - whether pious, or profane."
@@ -102,7 +104,7 @@
 		return
 
 /obj/item/clothing/armor/medium/scale/inqcoat/armored
-	item_weight = 7.2 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "armored inquisitorial duster"
 	desc = "Metal plates reinforce this heavy coat, worn over the top of the finest Aonic plate."

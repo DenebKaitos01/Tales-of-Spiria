@@ -1,5 +1,5 @@
 /obj/item/clothing/armor/plate
-	item_weight = 8.4 KILOGRAMS
+	item_weight = 10 KILOGRAMS
 	name = "steel half-plate"
 	desc = "Steel plate armor with shoulder guards. An incomplete, bulky set of excellent armor."
 	icon_state = "halfplate"
@@ -47,7 +47,7 @@
 
 	armor_type = /datum/armor/plate
 	body_parts_covered = COVERAGE_FULL
-	item_weight = 17 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 
 /obj/item/clothing/armor/plate/full/iron
 	name = "iron plate armor"
@@ -60,7 +60,7 @@
 
 	armor_type = /datum/armor/plate/bad
 	max_integrity = ARMOR_INT_CHEST_PLATE_IRON
-	item_weight = 17 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 
 //................ Rusted Half-plate ............... //
 /obj/item/clothing/armor/plate/rust
@@ -76,7 +76,7 @@
 	sellprice = VALUE_IRON_ARMOR/2
 	armor_type = /datum/armor/plate/bad
 	max_integrity = ARMOR_INT_CHEST_PLATE_DECREPIT
-	item_weight = 8.75 KILOGRAMS
+	item_weight = 10 KILOGRAMS
 
 
 /obj/item/clothing/armor/plate/blkknight
@@ -91,7 +91,7 @@
 	anvilrepair = /datum/attribute/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/blacksteel
 	melting_material = /datum/material/blacksteel
-	item_weight = 20.45 KILOGRAMS
+	item_weight = 11 KILOGRAMS
 	sellprice = VALUE_SILVER_ITEM * 6
 	stand_speed_reduction = 1.05
 	max_integrity = ARMOR_INT_CHEST_PLATE_BLACKSTEEL
@@ -155,7 +155,7 @@
 	armor_type = /datum/armor/plate/silver
 	smeltresult = /obj/item/ingot/silver
 	melting_material = /datum/material/silver
-	item_weight = 22 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 	sellprice = VALUE_SILVER_ITEM * 3
 
 /obj/item/clothing/armor/plate/full/silver/Initialize(mapload)
@@ -163,6 +163,7 @@
 	enchant(/datum/enchantment/silver)
 
 /obj/item/clothing/armor/plate/fluted
+	item_weight = 12 KILOGRAMS
 	name = "fluted half-plate"
 	desc = "An ornate steel cuirass, fitted with tassets and pauldrons for additional coverage. This lightweight deviation of 'plate armor' is favored by cuirassiers all across Duskmar, alongside fledging barons who've - up until now - waged their fiercest battles upon a chamberpot."
 	icon_state = "ornatehalfplate"

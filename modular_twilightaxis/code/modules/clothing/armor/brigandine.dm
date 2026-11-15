@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/brigandine/light/handmade
+	item_weight = 3.5 KILOGRAMS
 	name = "\"Jack-Of-Plate\" brigandine"
 	desc = "This brigandine is an example of the painstaking work of a skilled, and very poor, craftsman. The gambeson, lined with metal parts and scraps of chain mail, is impossible to ruin even with such artistry."
 	icon = 'modular_twilightaxis/icons/clothing/armor.dmi'

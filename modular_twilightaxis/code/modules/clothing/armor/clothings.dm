@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/leather/newmoon_jacket
+	item_weight = 12 KILOGRAMS
 	name = "Veiled Star jacket"
 	desc = "A weighty, handsome coat of dense and sturdy cloth that still offers fair protection. It is the mark of the Holy Order of the Veiled Star, with Mystra's amulet set in the centre of the breast - a loud symbol of radical Mystran zeal."
 	icon = 'modular_twilightaxis/icons/clothing/spellblade_clothes.dmi'

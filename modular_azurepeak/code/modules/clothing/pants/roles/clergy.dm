@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/brayette
+	item_weight = 1.5 KILOGRAMS
 	name = "brayette"
 	desc = "Maille groin protection ideal for answering Silvanus's call without removing your plate armor."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'

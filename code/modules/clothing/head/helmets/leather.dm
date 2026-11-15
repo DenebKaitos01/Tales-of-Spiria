@@ -19,7 +19,7 @@
 	max_integrity = ARMOR_INT_HELMET_LEATHER
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
-	item_weight = 1.6 KILOGRAMS
+	item_weight = 800 GRAMS
 
 	material_category = ARMOR_MAT_FABRIC
 
@@ -27,6 +27,7 @@
 //KEEP THIS IN MIND
 
 /obj/item/clothing/head/helmet/leather/advanced
+	item_weight = 2.5 KILOGRAMS
 	name = "hardened leather helmet"
 	desc = "Sturdy, durable, flexible. A comfortable and reliable hood made of hardened leather."
 	max_integrity = ARMOR_INT_HELMET_HARDLEATHER
@@ -35,6 +36,7 @@
 	armor_type = /datum/armor/head/leather/advanced
 
 /obj/item/clothing/head/helmet/leather/masterwork
+	item_weight = 2.5 KILOGRAMS
 	name = "masterwork leather helmet"
 	desc = "This helmet is a craftsmanship marvel. Made with the finest leather. Strong, nimble, reliable."
 	max_integrity = ARMOR_INT_HELMET_STEEL // masterwork leather = steel-grade integrity, intended
@@ -57,7 +59,7 @@
 	prevent_crits =  MINOR_CRITICALS
 	max_integrity = INTEGRITY_POOR
 	clothing_flags = NONE
-	item_weight = 125 GRAMS
+	item_weight = 800 GRAMS
 
 /obj/item/clothing/head/helmet/leather/headscarf/colored
 	misc_flags = CRAFTING_TEST_EXCLUDE
@@ -113,7 +115,7 @@
 
 	armor_type = /datum/armor/head/padded
 	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_BLUNT)
-	item_weight = 470 GRAMS
+	item_weight = 800 GRAMS
 
 	actions_types = list(/datum/action/item_action/toggle_light)
 
@@ -142,6 +144,7 @@
 	set_light(0)
 
 /obj/item/clothing/head/leather/duelhat
+	item_weight = 300 GRAMS
 	name = "Luskanian duelist hat"
 	desc = "A dainty looking feathered hat that is actually quite heavy and thick, Duelists from Silvermoon are known to value winning fights without dirtying the white feather on top"
 	icon_state = "duelisthat"

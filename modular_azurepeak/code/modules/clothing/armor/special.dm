@@ -21,6 +21,7 @@
 	abstract_type = /obj/item/clothing/armor/vampiric
 
 /obj/item/clothing/armor/vampiric/gnoll
+	item_weight = 3.5 KILOGRAMS
 	name = "gnoll skin"
 	desc = "an impenetrable hide of Gruumsh's fury"
 	icon = 'modular_azurepeak/icons/clothing/onmob/gnoll.dmi'

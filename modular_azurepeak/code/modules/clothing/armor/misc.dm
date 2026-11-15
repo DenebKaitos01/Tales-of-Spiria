@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/longcoat
+	item_weight = 2.5 KILOGRAMS
 	name = "longcoat"
 	desc = "A padded longcoat meant to keep you warm in the frigid winters."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'

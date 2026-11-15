@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/bellyriding_harness
+	item_weight = 2.5 KILOGRAMS
 	name = "bellyriding harness"
 	desc = "A reinforced strap harness built to secure a restrained partner against your torso."
 	icon = 'modular_rmh/icons/clothing/armor/bellyriding.dmi'

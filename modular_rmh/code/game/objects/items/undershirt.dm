@@ -1,4 +1,5 @@
 /obj/item/clothing/undershirt
+	item_weight = 100 GRAMS
 	name = "sheer body"
 	desc = "Something to cover yourself with."
 	icon = 'modular_rmh/icons/clothing/underwear/undershirt.dmi'

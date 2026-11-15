@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/corset/colored
+	item_weight = 5 KILOGRAMS
 	icon = 'modular_rmh/icons/clothing/armor/corset.dmi'
 	mob_overlay_icon = 'modular_rmh/icons/clothing/armor/onmob/corset.dmi'
 	icon_state = "corset"

@@ -24,6 +24,7 @@
 	storage_component_path = /datum/component/storage/concrete/grid/crusader_helm
 
 /obj/item/clothing/head/helmet/heavy/crusader
+	item_weight = 3.5 KILOGRAMS
 	name = "bucket helm"
 	desc = "Proud knights of the Totod order displays their faith and their allegiance openly."
 	icon_state = "totodhelm"

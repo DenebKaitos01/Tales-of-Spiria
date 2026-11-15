@@ -1,4 +1,5 @@
 /obj/item/clothing
+	item_weight = 50 GRAMS
 	name = "clothing"
 	resistance_flags = FLAMMABLE
 	obj_flags = CAN_BE_HIT

@@ -23,6 +23,7 @@
 	pass() // *flips the bird at you* (this isnt meant to be adjustable)
 
 /obj/item/clothing/face/wildguard
+	item_weight = 1 KILOGRAMS
 	name = "wild guard"
 	desc = "A mask shaped after the snarling beasts of Silvanus."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'

@@ -1,4 +1,5 @@
 /obj/item/clothing/face/snmask
+	item_weight = 1 KILOGRAMS
 	name = "traveler silly mask"
 	icon_state = "nmask"
 	item_state = "nmask"
@@ -34,6 +35,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/sillyhat
+	item_weight = 800 GRAMS
 	name = "bamboo hat"
 	desc = "A reinforced bamboo hat."
 	icon_state = "nhat"
@@ -50,6 +52,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/snakekini
+	item_weight = 8 KILOGRAMS
 	name = "segmented cuirass"
 	desc = "A high breastplates and hip armor allowing flexibility and great protection. Your abs is your shield."
 	body_parts_covered = CHEST|GROIN
@@ -63,6 +66,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/snakeshell
+	item_weight = 3.5 KILOGRAMS
 	name = "naga's head-shell"
 	desc = "Segmented helm shaped to the curve of a naga’s hood."
 	icon_state = "head"

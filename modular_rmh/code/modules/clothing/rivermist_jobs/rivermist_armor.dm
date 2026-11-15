@@ -3,6 +3,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored/bulwark
+	item_weight = 10 KILOGRAMS
 	name = "town watch bulwark armor"
 	desc = "Steel armor with thick cloth padded coat. A bulky set of excellent armor made for the Town Watch Bulwarks."
 	icon_state = "master_coat_cuirass"

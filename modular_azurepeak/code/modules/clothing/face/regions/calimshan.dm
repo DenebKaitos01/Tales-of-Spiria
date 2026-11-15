@@ -1,4 +1,5 @@
 /obj/item/clothing/face/facemask/steel/visor/flimsy
+	item_weight = 1.2 KILOGRAMS
 	name = "flimsy helmetless visor"
 	desc = "Hand-made by misplaced Calishite tailors that had never touched a real iron bar, this flimsy mask offers barely any protection, as it was made for fashion."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'

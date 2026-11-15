@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/leather/studded
+	item_weight = 2.5 KILOGRAMS
 	name = "studded leather armor"
 	desc = "Studded leather is the most durable of all hides and leathers and about as light."
 	icon_state = "studleather"

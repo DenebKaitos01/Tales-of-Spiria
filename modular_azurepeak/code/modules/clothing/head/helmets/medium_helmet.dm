@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/baotha
+	item_weight = 800 GRAMS
 	name = "saccharine sallet"
 	desc = "<font color='bf64d0'>...ah, but none of this really matters, anyway.</font>"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -14,6 +15,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/bronze
+	item_weight = 800 GRAMS
 	name = "bronze illyriahelm"
 	desc = "A helmet of bronze, older-in-design than you could possibly imagine. Mounted to its crest is a decorative sigil that has sparked scholarly debates for the better part of a millennium; is it a star, a vortex, or the Sun? </br>A notch behind the sigil allows for the joint mounting of a plume. Nock a feather into it to show off your alliegence's colors."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -47,6 +49,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/bronzegladiator
+	item_weight = 800 GRAMS
 	name = "bronze murmillo"
 	desc = "A bronze helmet that veils the wearer's face behind a perforated visor; a distant ancestor to both the sallet and the savoyard, offering excellent coverage without suffocating its wearer. </br>Arena troupes across the Sword Coast still reenact the legendary duel between Tempus and Gruumsh in such helms - the war god's champion against the One-Eyed God's."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -79,6 +82,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/elvenbarbute
+	item_weight = 2.5 KILOGRAMS
 	name = "elven barbute"
 	desc = "It fits snugly on one's elven head, with special slots for their pointier ears."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -100,6 +104,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/otavan
+	item_weight = 2.5 KILOGRAMS
 	name = "Amnian helmet"
 	desc = "A helmet of Amnian make, similar in structure to an Aonic armet but fitted with an angular klappvisier."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -367,6 +372,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/sallet/visored
+	item_weight = 3.5 KILOGRAMS
 	name = "visored sallet"
 	desc = "A steel 'sallet'-styled helmet with an adjustable visor. Away with you, vile beggar!"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

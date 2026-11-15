@@ -1,4 +1,5 @@
 /obj/item/clothing/face/spectacles
+	item_weight = 100 GRAMS
 	name = "spectacles"
 	icon_state = "glasses"
 	break_sound = "glassbreak"
@@ -109,6 +110,7 @@
 
 
 /obj/item/clothing/face/sack
+	item_weight = 100 GRAMS
 	name = "sack mask"
 	desc = "A brown sack with eyeholes cut into it."
 	icon_state = "sackmask"
@@ -131,6 +133,7 @@
 	icon_state = "sackmask_psy"
 
 /obj/item/clothing/face/antiq
+	item_weight = 100 GRAMS
 	name = "Antiquarian's Hood"
 	desc = "The mechanisms inside hum in a strange, mechanical unison - Glowing Gems radiate a dull light outwards, piercing the dark. You have a feeling that this mask has seen things you wouldn't believe."
 	icon_state = "antiqmask"

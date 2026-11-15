@@ -1,4 +1,5 @@
 /obj/item/clothing/armsleeves
+	item_weight = 100 GRAMS
 	name = "cloth armsleeve"
 	desc = "Beautiful, form-fitting long armsleeves."
 	icon = 'modular_rmh/icons/clothing/underwear/sleeves_undershirts.dmi'

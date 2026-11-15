@@ -1,4 +1,5 @@
 /obj/item/clothing/head/sagesbighat
+	item_weight = 300 GRAMS
 	name = "sage's big hat"
 	desc = "Enormous hat that completely obscures the face. The pair are said to be successors to someone named \"the great sage\", and this big hat is a symbol of their pedigree"
 	icon = 'modular_twilightaxis/icons/clothing/donor_clothes_46x32.dmi'
@@ -12,6 +13,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/eaststrawhat
+	item_weight = 300 GRAMS
 	name = "worn rice hat"
 	desc = "A wicker rice hat."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'
@@ -36,6 +38,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/onhelm/tw_d_basic
+	item_weight = 300 GRAMS
 	name = "helm's chaperon"
 	desc = "A simple but elegant cloth burlet worn over a helmet. It serves both to deflect the beating sun and to display the wearer's heraldic colors with pride."
 	icon = 'modular_twilightaxis/icons/clothing/onhelm.dmi'

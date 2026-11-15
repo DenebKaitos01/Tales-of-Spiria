@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/tricorn/grenzel
+	item_weight = 800 GRAMS
 	name = "reichsmarine tricorn"
 	desc = "Darkhold rules the waves of ten seas. Often worn by crewmen and officers of the Imperial Navy, this hat also features a metallic cap, enhancing its protective properties."
 	icon = 'modular_twilightaxis/icons/clothing/head_2.dmi'

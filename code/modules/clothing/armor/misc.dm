@@ -10,7 +10,7 @@
 \-------------*/
 //................ Corset.................... //
 /obj/item/clothing/armor/corset
-	item_weight = 230 GRAMS
+	item_weight = 2.5 KILOGRAMS
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "corset"
 	desc = "A leather binding to constrict one's figure... and lungs."
@@ -36,7 +36,7 @@
 	armor_type = /datum/armor/leather/good
 	body_parts_covered = COVERAGE_TORSO
 	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 3.2 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 	min_cold_protection_temperature = 5 //this is like fur but also its a fucking bikini like???
 
 	material_category = ARMOR_MAT_CHAINMAIL
@@ -60,7 +60,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 6.24 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 	stand_speed_reduction = 1.15
 
 /obj/item/clothing/armor/brigandine/Initialize()
@@ -103,7 +103,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 7 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 	uses_lord_coloring = LORD_PRIMARY
 	stand_speed_reduction = 1.15
 
@@ -138,7 +138,7 @@
 
 
 /obj/item/clothing/armor/brigandine/light
-	item_weight = 3.95 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "lightweight brigandine"
 	desc = "A light riveted coat with plates concealed inside an exterior fabric. Susceptible to daggers being shoved into your ribs."

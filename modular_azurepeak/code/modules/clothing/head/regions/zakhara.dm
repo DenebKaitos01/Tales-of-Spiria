@@ -47,6 +47,7 @@
 	dyeable = TRUE
 
 /obj/item/clothing/head/roguehood/shalal/hijab/pyro
+	item_weight = 800 GRAMS
 	name = "darksooted headscarf"
 	desc = "A headscarf anointed in cursed soot and drenched in the blood of infernals. The foul mixture has seeped deep into its fibers, leaving behind a strange, smoldering quality that only those with a true fondness for fire can endure."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -84,6 +85,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/deserthood
+	item_weight = 300 GRAMS
 	name = "desert hood"
 	desc = "If only it was this warm."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

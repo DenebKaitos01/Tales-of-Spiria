@@ -1,5 +1,6 @@
 
 /obj/item/clothing/armor/regenerating
+	item_weight = 2.5 KILOGRAMS
 	name = "regenerating armour"
 	desc = "Abstract parent. Contact developer if you see this."
 	icon_state = null

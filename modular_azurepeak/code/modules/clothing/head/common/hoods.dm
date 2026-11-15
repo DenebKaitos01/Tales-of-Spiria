@@ -50,6 +50,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguehood/studded
+	item_weight = 800 GRAMS
 	name = "studded hood"
 	desc = "A padded hood splinted across creating a cocooon for whoever wears it - won't protect your face however."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -100,6 +101,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/necromhood
+	item_weight = 300 GRAMS
 	name = "necromancers hood"
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/head.dmi'

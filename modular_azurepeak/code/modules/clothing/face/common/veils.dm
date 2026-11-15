@@ -1,4 +1,5 @@
 /obj/item/clothing/face/faceveil
+	item_weight = 100 GRAMS
 	name = "simple veil"
 	desc = "A remarkably plain veil meant to conceal ones face... if you wore this, a gust of wind would be all it takes to reveal your identity."
 	icon = 'modular_azurepeak/icons/clothing/masks_2.dmi'

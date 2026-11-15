@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/heavy/vampire_ap
+	item_weight = 3.5 KILOGRAMS
 	name = "ancient ceremonial sayovard"
 	desc = "A grand bascinet of enchanted gilbranze. They erased you from history, they destroyed your kingdom, and they plucked at its remains like vultures-to-carrion. Yet now, they cower in fear of your second coming; for they know that even the Pantheon cannot stop what is coming. </br>Send word - the end is nigh."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

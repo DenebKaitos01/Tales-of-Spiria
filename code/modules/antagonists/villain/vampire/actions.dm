@@ -219,6 +219,7 @@
 	. = ..()
 
 /obj/item/clothing/armor/skin_armor/vampire_fortitude
+	item_weight = 5 KILOGRAMS
 	slot_flags = null
 	name = "vampire's skin"
 	desc = ""

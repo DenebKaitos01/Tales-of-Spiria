@@ -100,6 +100,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/gloves/plate/baotha
+	item_weight = 400 GRAMS
 	name = "saccharine gauntlets"
 	desc = "Plated gauntlets lacquered in sickly pink. Blissara's devoted say the Veiled Desire slips into the minds of those who wear Her gifts, numbing every pain until only longing remains."
 	icon = 'modular_azurepeak/icons/clothing/gloves.dmi'

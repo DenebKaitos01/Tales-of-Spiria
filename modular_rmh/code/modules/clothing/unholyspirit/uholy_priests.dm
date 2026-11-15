@@ -23,6 +23,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/warrior_nun
+	item_weight = 300 GRAMS
 	name = "warrior priestess hood"
 	desc = "A lightweight cloth hood designed to frame the face without obscuring vision."
 	icon = 'modular_rmh/icons/clothing/unholyspirit/warrior_nun.dmi'
@@ -57,6 +58,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/tamer_priestess
+	item_weight = 300 GRAMS
 	name = "priestess hood"
 	desc = "A pure white hood edged with delicate golden trim, resting softly around the head."
 	icon = 'modular_rmh/icons/clothing/unholyspirit/priestess.dmi'

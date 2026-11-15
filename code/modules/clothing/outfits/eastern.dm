@@ -38,6 +38,7 @@
 	has_storage = TRUE
 
 /obj/item/clothing/head/spellcasterhat
+	item_weight = 2.5 KILOGRAMS
 	name = "spellsinger hat"
 	desc = "An oddly shaped hat made of tightly-sewn leather, commonly worn by spellsinger."
 	icon_state = "spellcasterhat"
@@ -54,6 +55,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/shirt/robe/spellcasterrobe
+	item_weight = 500 GRAMS
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "spellsinger robes"
 	desc = "A set of reinforced, leather-padded robes worn by spellblades."
@@ -70,6 +72,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/armor/basiceast
+	item_weight = 3.5 KILOGRAMS
 	name = "simple dobo robe"
 	desc = "A dirty dobo robe with white lapels. Can be upgraded through the use of a tailor to increase its integrity and protection."
 	icon_state = "eastsuit3"
@@ -93,6 +96,7 @@
 //the intent for these armors is to create specific weaknesses/strengths for people to play with
 
 /obj/item/clothing/armor/basiceast/crafteast
+	item_weight = 4.5 KILOGRAMS
 	name = "decorated dobo robe"
 	desc = "A dobo robe with a red tassel. Leather inlays are sewn in. It looks sturdier than a simple robe."
 	icon_state = "eastsuit2"
@@ -104,6 +108,7 @@
 //still weak against blunt
 
 /obj/item/clothing/armor/basiceast/mentorsuit
+	item_weight = 4.5 KILOGRAMS
 	name = "old dobo robe"
 	desc = "The scars on your body were once stories of strength and bravado."
 	icon_state = "eastsuit1"
@@ -114,6 +119,7 @@
 
 
 /obj/item/clothing/armor/basiceast/captainrobe
+	item_weight = 4.5 KILOGRAMS
 	name = "foreign robes"
 	desc = "Flower-styled robes."
 	icon_state = "eastsuit4"
@@ -181,6 +187,7 @@
 	sewrepair = /datum/attribute/skill/misc/sewing/mending
 
 /obj/item/clothing/head/mentorhat
+	item_weight = 800 GRAMS
 	name = "worn bamboo hat"
 	desc = "A reinforced bamboo hat."
 	icon_state = "easthat"

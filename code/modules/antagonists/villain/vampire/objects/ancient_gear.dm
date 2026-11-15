@@ -16,7 +16,7 @@
 
 	body_parts_covered = COVERAGE_HEAD_NOSE
 	block2add = FOV_BEHIND
-	item_weight = 2.10 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 /obj/item/clothing/head/helmet/ancient
 	name = "ancient savoyard"
@@ -31,7 +31,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	body_parts_covered = HEAD_NECK
 	block2add = FOV_BEHIND
-	item_weight = 4.6 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	max_integrity = INTEGRITY_STRONG
 	smeltresult = /obj/item/ingot/steel
 	melting_material = /datum/material/steel
@@ -75,7 +75,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/plate/good
-	item_weight = 8.5 KILOGRAMS
+	item_weight = 8 KILOGRAMS
 
 /obj/item/clothing/armor/plate/ancient
 	name = "ancient half-plate"
@@ -84,7 +84,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/plate/good
-	item_weight = 16 KILOGRAMS
+	item_weight = 10 KILOGRAMS
 
 //................ Underarmor ............... //
 
@@ -95,7 +95,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/maille/good
-	item_weight = 10 KILOGRAMS
+	item_weight = 11 KILOGRAMS
 
 /obj/item/clothing/armor/chainmail/hauberk/ancient
 	name = "ancient hauberk"
@@ -104,7 +104,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/maille/good
-	item_weight = 11 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 
 //................ Wrists ............... //
 
@@ -125,7 +125,7 @@
 	icon_state = "acgloves"
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
-	item_weight = 1.2 KILOGRAMS
+	item_weight = 1 KILOGRAMS
 	armor_type = /datum/armor/gloves/maille/good
 
 /obj/item/clothing/gloves/plate/ancient
@@ -135,7 +135,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/gloves/plate/good
-	item_weight = 1.45 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 
 //................ Legs ............... //
 
@@ -150,7 +150,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/pants/maille/good
-	item_weight = 5.4 KILOGRAMS
+	item_weight = 4 KILOGRAMS
 
 /obj/item/clothing/pants/platelegs/ancient
 	name = "ancient chausses"
@@ -162,7 +162,7 @@
 	sleeved = FALSE
 
 	armor_type = /datum/armor/pants/plate/good
-	item_weight = 5.5 KILOGRAMS
+	item_weight = 3.5 KILOGRAMS
 
 //................ Shoes ............... //
 
@@ -185,5 +185,5 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 	armor_type = /datum/armor/boots/plate/good
-	item_weight = 2 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 

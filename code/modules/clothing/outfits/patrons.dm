@@ -173,6 +173,7 @@
 
 
 /obj/item/clothing/head/veiled
+	item_weight = 300 GRAMS
 	name = "nurse's veil"
 	desc = "A chirurgeon's bonnet, veiled with petal-stuffed linen. The stitchwork is often donned by the likes of wandering plague doctors and clerics; especially, those who're beholden to Ilmater and Ao."
 	icon_state = "veil"
@@ -208,6 +209,7 @@
 	color = "#8b2323"
 
 /obj/item/clothing/head/helmet/heavy/xylixhelm
+	item_weight = 3.5 KILOGRAMS
 	name = "xylixian helmet"
 	desc = "I dance, I sing! I'll be your fool!"
 	icon_state = "xylixhelmet"
@@ -223,6 +225,7 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_JINGLE_BELLS, 2)
 
 /obj/item/clothing/head/helmet/heavy/astratahelm
+	item_weight = 3.5 KILOGRAMS
 	name = "astrata helmet"
 	desc = "Headwear commonly worn by Templars in service to Lathander. The firstborn child's light will forever shine on within its crest."
 	icon_state = "astratanhelm"
@@ -234,6 +237,7 @@
 	melt_amount = 150
 
 /obj/item/clothing/head/helmet/heavy/nochelm
+	item_weight = 3.5 KILOGRAMS
 	name = "noc helmet"
 	desc = "Headwear commonly worn by Templars in service to Mystra. Without mystery there can be no wonder, and without Mystra there can be no light in the dark hours."
 	icon_state = "nochelm"
@@ -246,6 +250,7 @@
 	melt_amount = 150
 
 /obj/item/clothing/head/helmet/heavy/necrahelm
+	item_weight = 3.5 KILOGRAMS
 	name = "necra helmet"
 	desc = "Headwear commonly worn by Templars in service to Jergal. Let its skeletal features remind you of the only thing which is guaranteed in life: You will die."
 	icon_state = "necranhelm"
@@ -257,6 +262,7 @@
 	melt_amount = 150
 
 /obj/item/clothing/head/helmet/heavy/dendorhelm
+	item_weight = 3.5 KILOGRAMS
 	name = "dendor helmet"
 	desc = "Headwear commonly worn by Templars in service to Silvanus. Its protrusions almost resemble branches. Take root in the earth, and you will never be moved."
 	icon_state = "dendorhelm"
@@ -268,6 +274,7 @@
 	melt_amount = 150
 
 /obj/item/clothing/head/helmet/heavy/abyssorgreathelm
+	item_weight = 3.5 KILOGRAMS
 	name = "abyssorite helmet"
 	desc = "A helmet commonly worn by Templars in service to Umberlee. It evokes imagery of the sea with a menacing crustacean visage."
 	icon_state = "abyssorgreathelm"
@@ -279,6 +286,7 @@
 	melt_amount = 150
 
 /obj/item/clothing/head/helmet/heavy/ravoxhelm
+	item_weight = 3.5 KILOGRAMS
 	name = "justice eagle"
 	desc = "Forged in reverence to Tempus, this helm bears the stylized visage of an eagle, symbol of unyielding judgment and divine vigilance. Its hollow eyes see not just foes, but the truth behind every deed."
 	icon_state = "ravoxhelmet"
@@ -320,6 +328,7 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/item/clothing/head/helmet/heavy/volfplate
+	item_weight = 3.5 KILOGRAMS
 	name = "wolf-face helm"
 	desc = "A steel bascinet helmet with a wolfish visor protecting the head, ears, eyes, nose and mouth."
 	icon_state = "volfplate"

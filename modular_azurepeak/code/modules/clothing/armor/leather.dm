@@ -25,6 +25,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/heavy/coat
+	item_weight = 3 KILOGRAMS
 	name = "hardened leather coat"
 	desc = "A heavy steerhide jerkin that reaches past the hips and better protects the vitals."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -92,6 +93,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/heavy/coat/gravecoat
+	item_weight = 3.5 KILOGRAMS
 	name = "gravetender's coat"
 	desc = "A padded coat bearing the same hues one would find on a Jergalite. Small steel braces adorn the wrists, a symbol of Jergal's grasp on those who serve him."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'

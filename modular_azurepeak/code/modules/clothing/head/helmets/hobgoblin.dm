@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/hobgoblin
+	item_weight = 2.5 KILOGRAMS
 	name = "hoblin helmet"
 	icon = 'modular_azurepeak/icons/clothing/onmob/hobgoblins.dmi'
 	mob_overlay_icon = 'modular_azurepeak/icons/clothing/onmob/head.dmi'

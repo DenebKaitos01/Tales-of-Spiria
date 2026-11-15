@@ -23,6 +23,7 @@
 	user.update_inv_wear_mask()
 
 /obj/item/clothing/face/facemask/xylixmask
+	item_weight = 1.2 KILOGRAMS
 	name = "Tymoran mask"
 	desc = "A ceramic mask, forever stuck with the joyful smile its patron god favors. While it will shatter easily from blows, its smug countenance shall taunt its foes."
 	icon = 'modular_twilightaxis/icons/clothing/masks.dmi'
@@ -60,6 +61,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/face/blindfold_ap/psydon
+	item_weight = 100 GRAMS
 	name = "blessed blindfold"
 	desc = "You will not conquer. You will endure. In pain, you affirm the Architect's design."
 	icon = 'modular_twilightaxis/icons/clothing/masks.dmi'

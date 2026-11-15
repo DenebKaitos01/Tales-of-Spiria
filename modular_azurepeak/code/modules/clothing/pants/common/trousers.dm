@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/splintlegs
+	item_weight = 1.5 KILOGRAMS
 	name = "splinted leggings"
 	desc = "A pair of leather pants backed with iron splints, offering superior protection while remaining lightweight."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'
@@ -89,6 +90,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/pants/heavy_leather_pants
+	item_weight = 1.5 KILOGRAMS
 	name = "hardened leather trousers"
 	desc = "Thick hide cut and sewn into a pair of very protective trousers. The dense leather can turn away errant chops."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'

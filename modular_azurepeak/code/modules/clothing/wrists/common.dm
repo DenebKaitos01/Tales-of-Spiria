@@ -100,6 +100,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/wrists/bracers/cloth
+	item_weight = 1.2 KILOGRAMS
 	name = "cloth bracers"
 	desc = "This shouldn't be used in code."
 	icon = 'modular_azurepeak/icons/clothing/wrists.dmi'

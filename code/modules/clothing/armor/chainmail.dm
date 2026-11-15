@@ -17,7 +17,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
-	item_weight = 13 KILOGRAMS
+	item_weight = 11 KILOGRAMS
 
 	material_category = ARMOR_MAT_CHAINMAIL
 
@@ -33,7 +33,7 @@
 	armor_type = /datum/armor/maille/iron
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
-	item_weight = 13 KILOGRAMS
+	item_weight = 11 KILOGRAMS
 
 //................ Hauberk ............... //
 /obj/item/clothing/armor/chainmail/hauberk
@@ -44,7 +44,7 @@
 	sellprice = VALUE_STEEL_ARMOR_FINE
 
 	body_parts_covered = COVERAGE_FULL
-	item_weight = 11 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 
 /obj/item/clothing/armor/chainmail/hauberk/Initialize()
 	. = ..()
@@ -65,5 +65,5 @@
 
 	armor_type = /datum/armor/maille/iron
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
-	item_weight = 11 KILOGRAMS
+	item_weight = 12 KILOGRAMS
 

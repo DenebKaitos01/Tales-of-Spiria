@@ -271,6 +271,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/shirt/twilight_hammerhold/dress/robe/heavy
+	item_weight = 500 GRAMS
 	icon = 'modular_twilightaxis/icons/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_twilightaxis/icons/clothing/onmob/shirts.dmi'

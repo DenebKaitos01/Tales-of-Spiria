@@ -36,7 +36,7 @@
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	break_sound = 'sound/foley/breaksound.ogg'
 	sellprice = 25
-	item_weight = 2.1 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 
 	material_category = ARMOR_MAT_PLATE
 
@@ -49,7 +49,7 @@
 	max_integrity = ARMOR_INT_SIDE_IRON
 	armor_class = AC_MEDIUM
 	sellprice = 20
-	item_weight = 1.4 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 
 /obj/item/clothing/shoes/boots/armor/ironmaille
 	name = "chainmail boots"
@@ -60,7 +60,7 @@
 	max_integrity = ARMOR_INT_SIDE_DECREPIT //meant to be weaker than iron plated boots, better options are out there waiting at the smith
 	armor_class = AC_LIGHT
 	sellprice = VALUE_IRON_ARMOR
-	item_weight = 2.7 KILOGRAMS
+	item_weight = 1.2 KILOGRAMS
 	smeltresult = /obj/item/fertilizer/ash //we avoid melting one piece for one bar
 	melting_material = /datum/material/iron // we get one bar per two pieces of the item recovered and smelted
 	melt_amount = 75
@@ -92,7 +92,7 @@
 	melt_amount = 100
 	armor_class = AC_MEDIUM
 	armor_type = /datum/armor/boots/plate/blacksteel
-	item_weight = 2.1 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 	sellprice = VALUE_SILVER_ITEM * 2
 
 /obj/item/clothing/shoes/boots/leather
@@ -192,7 +192,7 @@
 	smeltresult = /obj/item/ingot/silver
 	melting_material = /datum/material/silver
 	melt_amount = 100
-	item_weight = 3.4 KILOGRAMS
+	item_weight = 1.5 KILOGRAMS
 	sellprice = VALUE_SILVER_ITEM
 
 /obj/item/clothing/shoes/boots/armor/silver/Initialize(mapload)

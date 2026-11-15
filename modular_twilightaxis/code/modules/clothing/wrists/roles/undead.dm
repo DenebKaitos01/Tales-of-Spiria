@@ -1,4 +1,5 @@
 /obj/item/clothing/wrists/bracers/zizo/bloodraider
+	item_weight = 1 KILOGRAMS
 	name = "raider's bracers"
 	desc = "A pair of steel vambraces, protecting the arms from blows-most-foul. Painted in black and red"
 	icon = 'modular_twilightaxis/icons/clothing/bloodraider.dmi'

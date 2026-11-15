@@ -27,6 +27,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/ravoxhelm_ap/triumph
+	item_weight = 3.5 KILOGRAMS
 	name = "Luskanian beak helmet"
 	desc = "All it takes is the will of one to change the world; be it for the better or worse."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

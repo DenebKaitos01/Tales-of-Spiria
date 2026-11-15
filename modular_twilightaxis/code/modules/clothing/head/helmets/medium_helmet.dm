@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/raneshi_jarhelmet
+	item_weight = 2.5 KILOGRAMS
 	name = "Calishite jar helmet"
 	desc = "A jar-shaped helmet worn by the light infantry of the Calishite pashas."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'
@@ -72,6 +73,7 @@
 			H.update_inv_head()
 
 /obj/item/clothing/head/helmet/heavy/zizo_ap/bascinet/bloodraider
+	item_weight = 800 GRAMS
 	name = "raider's helmet"
 	desc = "A darksteel helmet that doesn't obstruct the wearer's vision. Fitted with a sharp horn for the most desperate situations."
 	icon = 'modular_twilightaxis/icons/clothing/bloodraider.dmi'

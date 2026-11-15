@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/janissaryhelm
+	item_weight = 2.5 KILOGRAMS
 	name = "janissary helmet"
 	desc = "A helmet with too much style."
 	icon = 'modular_twilightaxis/icons/clothing/desert/head.dmi'
@@ -12,6 +13,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/heavy/cataphract
+	item_weight = 3.5 KILOGRAMS
 	name = "cataphracts helm"
 	desc = "A helmet with a menacing visage."
 	icon = 'modular_twilightaxis/icons/clothing/desert/head32x48.dmi'

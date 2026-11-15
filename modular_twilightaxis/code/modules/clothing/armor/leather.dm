@@ -25,6 +25,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/leather/heavy/coat/raneshen/new_coat
+	item_weight = 3.5 KILOGRAMS
 	name = "Calishite scale coat"
 	desc = "A lightweight armor made from the scales of the Calishite \\\"megarmach\\\", an armored reptilian creacher that ambushes prey by the riverside, and drags them deep into Umberlee's domain."
 	icon = 'modular_twilightaxis/icons/clothing/armor.dmi'

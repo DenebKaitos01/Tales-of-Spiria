@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/brigandinelegs
+	item_weight = 1.5 KILOGRAMS
 	name = "brigandine chausses"
 	desc = "Splint mail and brigandine chausses, designed to protect the legs while still providing almost complete free range of movement."
 	icon = 'modular_azurepeak/icons/clothing/pants.dmi'

@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/skullcap/cult/enchanted
+	item_weight = 800 GRAMS
 	name = "ominously enchanted hood"
 	desc = "An otherworldly veil, amythortz-woven and crackling with the unignorable truths of a runic enigma. She watches over you; and Her grin is crooked into one of eternal malice."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

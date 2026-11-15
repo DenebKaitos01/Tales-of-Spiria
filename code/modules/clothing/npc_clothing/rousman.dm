@@ -1,4 +1,5 @@
 /obj/item/clothing/head/helmet/rousman
+	item_weight = 2.5 KILOGRAMS
 	name = "stomachgutter helmet"
 	icon_state = "stomachgutter_helm_item"
 	item_state = "stomachgutter_helm"
@@ -12,6 +13,7 @@
 	sellprice = 0
 
 /obj/item/clothing/armor/cuirass/iron/rousman
+	item_weight = 4.5 KILOGRAMS
 	name = "stomachgutter plate armor"
 	icon_state = "stomachgutter_armor_item"
 	item_state = "stomachgutter_armor"
@@ -47,6 +49,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguehood/rousman
+	item_weight = 2.5 KILOGRAMS
 	name = "rous assassin mask"
 	icon_state = "assassin_mask"
 	item_state = "assassin_mask"
@@ -85,6 +88,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roguehood/rousman/rousseer
+	item_weight = 800 GRAMS
 	name = "rousman seer hood"
 	icon_state = "seer_hood"
 	item_state = "seer_hood"

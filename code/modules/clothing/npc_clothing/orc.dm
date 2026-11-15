@@ -1,5 +1,6 @@
 //................ Orc Armor ............... //
 /obj/item/clothing/armor/plate/orc
+	item_weight = 11 KILOGRAMS
 	name = "crude breastplate"
 	icon_state = "marauder_armor"
 	item_state = "marauder_armor"
@@ -24,6 +25,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/chainmail/iron/orc
+	item_weight = 12 KILOGRAMS
 	name = "crude maille"
 	icon_state = "orc_chainvest"
 	item_state = "orc_chainvest"
@@ -39,6 +41,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/helmet/orc
+	item_weight = 2.5 KILOGRAMS
 	name = "Orc Marauder Helmet"
 	icon_state = "marauder_helm"
 	item_state = "marauder_helm"

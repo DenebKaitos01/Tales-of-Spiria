@@ -1,5 +1,5 @@
 /obj/item/clothing/armor/gambeson
-	item_weight = 4.7 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "gambeson"
 	desc = "Thick quilted cloth in layers, good on its own or worn below metal as padding."
@@ -26,7 +26,7 @@
 	material_category = ARMOR_MAT_FABRIC
 
 /obj/item/clothing/armor/gambeson/light
-	item_weight = 3.1 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	name = "light gambeson"
 	desc = "Thin and the maker skimped on the padding, typically worn by the peasantry to give some protection against cold for the whole body."
 	icon_state = "gambesonl"
@@ -48,7 +48,7 @@
 	color = CLOTHING_SOOT_BLACK
 
 /obj/item/clothing/armor/gambeson/heavy
-	item_weight = 5.6 KILOGRAMS
+	item_weight = 5 KILOGRAMS
 	name = "padded gambeson"
 	desc = "Thick, padded, this will help a little even against arrows. A wise man carried steel as well, but it will do in a pinch."
 	icon_state = "gambesonp"
@@ -75,6 +75,7 @@
 	armor_type = /datum/armor/padded/good
 
 /obj/item/clothing/armor/gambeson/apothecary
+	item_weight = 5 KILOGRAMS
 	name = "apothecary overcoat"
 	desc = "An armoured overcoat that can take a few hits. Men have lost their lives for less."
 	icon_state = "apothover"
@@ -83,6 +84,7 @@
 	armor_type = /datum/armor/padded/good
 
 /obj/item/clothing/armor/gambeson/steward
+	item_weight = 5 KILOGRAMS
 	name = "steward tailcoat"
 	desc = "A thick, pristine leather tailcoat adorned with polished bronze buttons."
 	sleeved = 'icons/roguetown/clothing/special/onmob/steward.dmi'
@@ -93,6 +95,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/steward.dmi'
 
 /obj/item/clothing/armor/gambeson/hand
+	item_weight = 5 KILOGRAMS
 	name = "noble undercoat"
 	desc = "A thick undercoat with polished golden buttons."
 	sleeved = 'icons/roguetown/clothing/special/onmob/hand.dmi'

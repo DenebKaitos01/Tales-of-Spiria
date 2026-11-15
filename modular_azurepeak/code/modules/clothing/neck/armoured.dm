@@ -28,6 +28,7 @@
 	adj_sound = 'sound/items/visor.ogg'
 
 /obj/item/clothing/neck/bevor/zizo
+	item_weight = 2 KILOGRAMS
 	name = "avantyne bevor"
 	desc = "An avantyne neckguard cut for the medium rite, still protective without becoming impossible to remove."
 	icon = 'modular_azurepeak/icons/clothing/neck_2.dmi'
@@ -44,6 +45,7 @@
 	adj_sound = 'sound/items/visor.ogg'
 
 /obj/item/clothing/neck/gorget/aventail
+	item_weight = 2 KILOGRAMS
 	name = "aventail"
 	desc = "A thick garment of steel maille and padding, traditionally attached to bascinets. It's burdensome on the shoulders of those who aren't properly trained to wear knightly garments."
 	icon = 'modular_azurepeak/icons/clothing/neck_2.dmi'

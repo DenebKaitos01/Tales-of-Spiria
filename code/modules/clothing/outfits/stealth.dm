@@ -1,5 +1,6 @@
 
 /obj/item/clothing/climbing_gear
+	item_weight = 0 KILOGRAMS
 	name = "climbing gear"
 	desc = "Lets you do the impossible."
 	color = null
@@ -15,6 +16,7 @@
 	playsound(src, 'sound/items/garrotegrab.ogg', 100, TRUE)
 
 /obj/item/clothing/wall_grab
+	item_weight = 0 KILOGRAMS
 	name = "wall"
 	item_state = "grabbing"
 	icon_state = "grabbing"

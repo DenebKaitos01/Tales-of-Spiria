@@ -10,6 +10,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/plate/raneshen_scale
+	item_weight = 12 KILOGRAMS
 	name = "Calishite scalemail"
 	desc = "Armor used by the Empire's vanguard fighters. The plates are connected to each other with cord for mobility. The arms are protected by pauldrons, and the legs by a small chainmail skirt. The armor itself is decorated with bronze."
 	icon = 'modular_twilightaxis/icons/clothing/armor.dmi'
@@ -28,6 +29,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/cuirass/etrcuirass
+	item_weight = 11 KILOGRAMS
 	name = "Sembian cuirass"
 	desc = "An steel cuirass, fine fitted with tassets for additional coverage. Typically seen on Sembian heavy infantry."
 	icon = 'modular_twilightaxis/icons/clothing/armor.dmi'
@@ -95,6 +97,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/plate/fluted/zizo/bloodraider
+	item_weight = 4.5 KILOGRAMS
 	name = "raider's cuirass"
 	desc = "An elegant cuirass that doesn't restrict movement, intimidates enemies, and is simply beautiful. What more could you need?"
 	icon = 'modular_twilightaxis/icons/clothing/bloodraider.dmi'
@@ -109,6 +112,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/medium/scale/inqcoat_ap/overseer
+	item_weight = 3.5 KILOGRAMS
 	name = "confessor coat"
 	desc = "A heavy, reinforced coat with an exquisite burgundy finish that leaves no one indifferent."
 	icon = 'modular_twilightaxis/icons/clothing/inquisition_overseer/overseer.dmi'

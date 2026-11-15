@@ -27,6 +27,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/desert_sorceress
+	item_weight = 300 GRAMS
 	name = "desert sorceress hood"
 	desc = "A thin desert hood worn by sorceresses to shield against sun and sand while leaving the face and eyes unobstructed."
 	icon = 'modular_rmh/icons/clothing/vladegeg/desert_sorceress.dmi'

@@ -29,6 +29,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/gloves/plate/zizo/bloodraider
+	item_weight = 400 GRAMS
 	name = "raider's gauntlets"
 	desc = "Clawed plate gauntlets, capable of tormenting N'wah with their tips."
 	icon = 'modular_twilightaxis/icons/clothing/bloodraider.dmi'

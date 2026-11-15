@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/chainmail/besilked
+	item_weight = 4 KILOGRAMS
 	name = "besilked haubergeon"
 	desc = "A maille shirt fashioned from hundreds of interlinked steel rings; lighter than its compatriots, yet reinforced with the presence of a besilked underjacket. Though fragile, it is a coveted article of nobility. When worn beneath a silk blouse, it can thwart an unsuspecting assassin's blow."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -21,6 +22,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/armor/chainmail/light
+	item_weight = 3.5 KILOGRAMS
 	name = "haubyrnie"
 	desc = "A sleeveless maille shirt, fashioned from dozens of interlinked steel rings. It's light enough to comfortably tuck underneath a blouse, yet tough enough to thwart the razor-sharp edges of unwelcomed company. For the discerning nobleman."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'
@@ -111,6 +113,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/chainmail/light/bronze
+	item_weight = 2.5 KILOGRAMS
 	name = "bronze haubyrnie"
 	desc = "A sleeveless maille shirt, fashioned from dozens of interlinked bronze rings. It's light enough to comfortably tuck underneath a blouse, yet tough enough to thwart the razor-sharp edges of unwelcomed company. For the discerning traveler - ideally, from an antique land."
 	icon = 'modular_azurepeak/icons/clothing/armor.dmi'

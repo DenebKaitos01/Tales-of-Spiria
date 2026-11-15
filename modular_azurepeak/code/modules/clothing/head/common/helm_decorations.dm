@@ -1,4 +1,5 @@
 /obj/item/clothing/head/decoration/crestplume
+	item_weight = 300 GRAMS
 	name = "helmet's crestplume"
 	desc = "An excellent plume, intended to be worn atop a helmet; a touch of flamboyance, indiscriminate of the alloy."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -11,6 +12,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/decoration/featherplume
+	item_weight = 300 GRAMS
 	name = "helmet's featherplume"
 	desc = "A resplendant plume, intended to be worn atop a helmet; a touch of flamboyance, indiscriminate of the alloy."
 	icon = 'modular_azurepeak/icons/clothing/donor_clothes.dmi'
@@ -26,6 +28,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/decoration/greatplume
+	item_weight = 300 GRAMS
 	name = "helmet's greatplume"
 	desc = "A magnificent plume, intended to be worn atop a helmet; a touch of flamboyance, indiscriminate of the alloy."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'

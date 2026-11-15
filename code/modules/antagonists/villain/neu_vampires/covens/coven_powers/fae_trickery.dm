@@ -86,6 +86,7 @@
 	changeling_rune.Grant(owner)
 
 /obj/item/clothing/face/goblin_mask
+	item_weight = 100 GRAMS
 	name = "goblin"
 	desc = "A green changeling creature."
 	icon_state = "goblin"

@@ -1,4 +1,5 @@
 /obj/item/clothing/armor/gambeson/winter_coat
+	item_weight = 5 KILOGRAMS
 	name = "warm winter coat"
 	desc = "A thick, well-crafted winter coat designed to retain heat and protect against harsh cold while remaining comfortable for daily wear."
 	icon_state = "wintercoat"

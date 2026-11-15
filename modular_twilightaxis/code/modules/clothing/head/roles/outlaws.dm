@@ -1,4 +1,5 @@
 /obj/item/clothing/head/hscarf
+	item_weight = 300 GRAMS
 	name = "head scarf"
 	desc = "A silk headscarf, most often seen on the head of a sailor - or a pirate!"
 	icon = 'modular_twilightaxis/icons/clothing/kazengun_n_burger.dmi'
@@ -10,6 +11,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/duelhat/pretzel/skelet
+	item_weight = 800 GRAMS
 	name = "old rebel's hat"
 	desc = "An old felt hat chewed up by time. It suits some rebel against this society perfectly - one who has left nothing behind but a heap of bones."
 	icon = 'modular_twilightaxis/icons/clothing/donor_clothes_2.dmi'

@@ -52,7 +52,7 @@
 	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/head/headband/naledi
-	item_weight = 45 GRAMS
+	item_weight = 800 GRAMS
 	name = "sojourner's headband"
 	desc = "A traditional monk's headband, for those disciples who prefer the sweat out of their eyes."
 	icon_state = "headband"
@@ -107,7 +107,7 @@
 //................ Fancy Hats ............... //
 
 /obj/item/clothing/head/antlerhood
-	item_weight = 1.12 KILOGRAMS
+	item_weight = 800 GRAMS
 	name = "antlerhood"
 	desc = "a hood suited for druids and shamans."
 	color = null
@@ -145,7 +145,7 @@
 
 //................ Briar Thorns ............... //	- Dendor Briar
 /obj/item/clothing/head/padded/briarthorns
-	item_weight = 95 GRAMS
+	item_weight = 800 GRAMS
 	name = "briar thorns"
 	desc = "The pain it causes perhaps can distract from the whispers of a mad God overpowering your sanity..."
 	icon_state = "briarthorns"
@@ -180,7 +180,7 @@
 
 //............... Arming Cap ............... //
 /obj/item/clothing/head/armingcap // arming caps are padded caps worn under maille coifs and such, should basically be on par with leather coif (it should BE the coif but whatever)
-	item_weight = 120 GRAMS
+	item_weight = 800 GRAMS
 	name = "arming cap"
 	desc = "A white padded cap worn by most manual laborers to protect from sunburn."
 	icon_state = "armingcap"
@@ -361,7 +361,7 @@
 	item_flags = ABSTRACT
 
 /obj/item/clothing/head/helmet/pegasusknight
-	item_weight = 1.23 KILOGRAMS
+	item_weight = 2.5 KILOGRAMS
 	name = "coifed helmet"
 	desc = "Many find the design of this helmet unusual, but it protects the neck well and is easy to see out of."
 	icon_state = "lakkarihelm"
@@ -374,7 +374,7 @@
 	sewrepair = null
 
 /obj/item/clothing/head/roguehood/psydon
-	item_weight = 90 GRAMS
+	item_weight = 800 GRAMS
 	name = "exotic hood"
 	desc = "A hood worn by Ao's disciples, oft-worn in conjunction with its matching tabard. Made with spell-laced fabric to provide some protection."
 	icon_state = "psydonhood"
@@ -420,7 +420,7 @@
 		H.update_inv_head()
 
 /obj/item/clothing/head/roguehood/psydon/confessor
-	item_weight = 145 GRAMS
+	item_weight = 800 GRAMS
 	name = "confessional hood"
 	examine_name = "hood"
 	desc = "A loose-fitting piece of leatherwear that can be tightened on the move. Keeps rain, blood, and the tears of the sullied away."

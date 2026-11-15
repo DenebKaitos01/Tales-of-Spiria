@@ -1,4 +1,5 @@
 /obj/item/clothing/head/gasa
+	item_weight = 300 GRAMS
 	name = "gasa"
 	icon = 'modular_twilightaxis/icons/clothing/kazengun_n_burger.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/64x64/head.dmi'
@@ -12,6 +13,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/roningasa
+	item_weight = 300 GRAMS
 	name = "roningasa"
 	icon = 'modular_twilightaxis/icons/clothing/kazengun_n_burger.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/64x64/head.dmi'
@@ -25,6 +27,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/sandogasa
+	item_weight = 300 GRAMS
 	name = "sandogasa"
 	icon = 'modular_twilightaxis/icons/clothing/kazengun_n_burger.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/64x64/head.dmi'
@@ -38,6 +41,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/tengai
+	item_weight = 300 GRAMS
 	name = "tengai"
 	icon = 'modular_twilightaxis/icons/clothing/kazengun_n_burger.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/64x64/head.dmi'
@@ -52,6 +56,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/torioigasa
+	item_weight = 300 GRAMS
 	name = "torioigasa"
 	icon = 'modular_twilightaxis/icons/clothing/kazengun_n_burger.dmi'
 	mob_overlay_icon = 'modular_twilightaxis/icons/clothing/onmob/64x64/head.dmi'

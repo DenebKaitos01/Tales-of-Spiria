@@ -1,4 +1,5 @@
 /obj/item/clothing/head/jafar
+	item_weight = 300 GRAMS
 	name = "Zakharan magos hat"
 	desc = "Bask in its noble size and granduer!"
 	icon = 'modular_twilightaxis/icons/clothing/desert/head.dmi'
@@ -13,6 +14,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/sultan
+	item_weight = 300 GRAMS
 	name = "sultan's turban"
 	desc = "Bask in its noble size and granduer!."
 	icon = 'modular_twilightaxis/icons/clothing/desert/head.dmi'
@@ -27,6 +29,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/sultana
+	item_weight = 300 GRAMS
 	name = "sultana's headdress"
 	desc = "Silky smooth Zakharan silk headress!"
 	icon = 'modular_twilightaxis/icons/clothing/desert/head.dmi'
@@ -41,6 +44,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/tagelmust
+	item_weight = 300 GRAMS
 	name = "tagelmust"
 	desc = "A long cloth, wound around the head, and a veil."
 	icon = 'modular_twilightaxis/icons/clothing/desert/easternclothes.dmi'
@@ -100,6 +104,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/head/hooded/desert_hood
+	item_weight = 300 GRAMS
 	name = "desert cloak hood"
 	desc = "This one will shelter me from the sand."
 	icon = 'modular_twilightaxis/icons/clothing/head.dmi'

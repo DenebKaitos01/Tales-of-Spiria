@@ -51,6 +51,7 @@
 
 
 /obj/item/clothing/head/physician
+	item_weight = 300 GRAMS
 	name = "physician hat"
 	desc = ""
 	icon_state = "courthat"
@@ -87,6 +88,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/face/physician
+	item_weight = 100 GRAMS
 	name = "physician's mask"
 	icon_state = "courtmask"
 	item_state = "courtmask"

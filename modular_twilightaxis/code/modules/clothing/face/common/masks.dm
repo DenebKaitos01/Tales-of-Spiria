@@ -1,4 +1,5 @@
 /obj/item/clothing/face/owlmask
+	item_weight = 100 GRAMS
 	name = "owl mask "
 	desc = "Thin metal mask, made to be similar to owl's head shape."
 	icon = 'modular_twilightaxis/icons/clothing/onmob/stargazer_outfit.dmi'

@@ -11,6 +11,7 @@
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/armor/regenerating/baotha
+	item_weight = 7 KILOGRAMS
 	name = "masquerade"
 	desc = "writhing rags, woven from mutilated human faces, in constant agony intertwined with narcotic ecstasy. They say the previous owner of this item has gone missing, but where?.. And whos saying that?.."
 	icon = 'modular_twilightaxis/icons/clothing/masquerade.dmi'

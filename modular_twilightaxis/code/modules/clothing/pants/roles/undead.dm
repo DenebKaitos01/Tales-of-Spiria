@@ -1,4 +1,5 @@
 /obj/item/clothing/pants/platelegs/zizo_ap/bloodraider
+	item_weight = 1.5 KILOGRAMS
 	name = "raider's splinted leggings"
 	desc = "Raider's best friend, designed to protect the legs while still providing almost complete free range of movement."
 	icon = 'modular_twilightaxis/icons/clothing/bloodraider.dmi'

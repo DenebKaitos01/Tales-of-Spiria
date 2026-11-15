@@ -1,9 +1,11 @@
 //----------------- CIVIC OUTFITS: ARMOR.DM ---------------------
 
 /obj/item/clothing/suit
+	item_weight = 500 GRAMS
 	misc_flags = CRAFTING_TEST_EXCLUDE
 
 /obj/item/clothing/suit/roguetown/armor/guildguard
+	item_weight = 8 KILOGRAMS
 	// Looks like /obj/item/clothing/armor/cuirass: free Vanderlin art in place of the licensed sprite
 	icon = /obj/item/clothing/armor/cuirass::icon
 	mob_overlay_icon = /obj/item/clothing/armor/cuirass::mob_overlay_icon
@@ -60,6 +62,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 
 /obj/item/clothing/suit/roguetown/armor/leather/marshall
+	item_weight = 3 KILOGRAMS
 	// Looks like /obj/item/clothing/armor/gambeson/hand: free Vanderlin art in place of the licensed sprite
 	icon = /obj/item/clothing/armor/gambeson/hand::icon
 	mob_overlay_icon = /obj/item/clothing/armor/gambeson/hand::mob_overlay_icon
@@ -148,6 +151,7 @@
 	slot_flags = ITEM_SLOT_ARMOR
 
 /obj/item/clothing/suit/roguetown/armor/councillor
+	item_weight = 3.5 KILOGRAMS
 	// Looks like /obj/item/clothing/armor/leather/jacket/silk_coat: free Vanderlin art in place of the licensed sprite
 	icon = /obj/item/clothing/armor/leather/jacket/silk_coat::icon
 	mob_overlay_icon = /obj/item/clothing/armor/leather/jacket/silk_coat::mob_overlay_icon

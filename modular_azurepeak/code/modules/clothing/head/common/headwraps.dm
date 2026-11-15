@@ -53,6 +53,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/durag
+	item_weight = 300 GRAMS
 	name = "durag"
 	desc = "A fashionable garment worn to protect one's hair."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -63,6 +64,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/longveil
+	item_weight = 300 GRAMS
 	name = "long veil"
 	desc = "A long, trailing veil made of cloth meant to conceal ones hair. OFten worn by soilbrides and the devout."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -75,6 +77,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/tiyon
+	item_weight = 300 GRAMS
 	name = "tiyon"
 	desc = "A fancy cloth headdress."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
@@ -97,6 +100,7 @@
 	ported_clothing = TRUE
 
 /obj/item/clothing/head/necrahood
+	item_weight = 300 GRAMS
 	name = "death shroud"
 	desc = "Wisps of dark fabric that cover your entire head and flutter gently in the breeze. Often worn by those who usher the dead to the afterlife."
 	icon = 'modular_azurepeak/icons/clothing/head.dmi'
