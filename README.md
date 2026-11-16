@@ -2,7 +2,6 @@
 
 A high fantasy, adventurer-focused roleplay server for BYOND, set in the town of Rivermist Hollow under the Pantheon of Spira. It is a fork of [Rivermist Hollow](https://github.com/sheetofseaweed/Rivermist-Hollow-Vanderlin), itself a fork of [Vanderlin](https://github.com/Monkestation/Vanderlin).
 
-The server is private and invite-only. This repository is its public source code, as the AGPL v3 requires.
 
 | Project | Link |
 |---|---|
