@@ -6,8 +6,8 @@
 	bulb_colour = "#f9ad80"
 	bulb_power = 1
 	var/datum/looping_sound/soundloop = null // = /datum/looping_sound/fireloop
-	pass_flags_self = LETPASSTHROW
 	flags_1 = NODECONSTRUCT_1
+	pass_flags_self = PASSGRILLE|LETPASSTHROW|PASSSTRUCTURE
 	var/cookonme = FALSE
 	var/crossfire = TRUE
 	var/can_damage = FALSE

@@ -574,6 +574,7 @@
 	lock_sound = 'sound/foley/lock.ogg'
 	unlock_sound = 'sound/foley/unlock.ogg'
 	bump_closed = FALSE
+	pass_flags_self = PASSGRILLE|LETPASSTHROW|PASSSTRUCTURE|NOTLETPASSTHROWNMOB
 
 /obj/structure/door/iron/bars/cell
 	name = "cell door"
