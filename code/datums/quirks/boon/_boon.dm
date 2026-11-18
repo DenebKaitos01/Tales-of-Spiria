@@ -311,6 +311,7 @@
 	name = "Strikingly Beautiful"
 	desc = "You are remarkably attractive, improving social interactions."
 	point_value = -4
+	admin_only = TRUE
 
 /datum/quirk/boon/beautiful/on_spawn()
 	if(!owner)
