@@ -509,11 +509,11 @@ GLOBAL_DATUM_INIT(admin_menu_state, /datum/ui_state/admin_menu_state, new)
 	if(options)
 		return options
 	options = list()
-	for(var/category in list(QUIRK_POSITIVE, QUIRK_NEGATIVE, QUIRK_NEUTRAL))
+	for(var/category in list(QUIRK_BOON, QUIRK_VICE, QUIRK_PECULIARITY))
 		var/category_name = "Peculiarities"
-		if(category == QUIRK_POSITIVE)
+		if(category == QUIRK_BOON)
 			category_name = "Boons"
-		else if(category == QUIRK_NEGATIVE)
+		else if(category == QUIRK_VICE)
 			category_name = "Vices"
 		for(var/list/quirk_data as anything in GLOB.quirk_points_by_type[category])
 			options += list(list(
