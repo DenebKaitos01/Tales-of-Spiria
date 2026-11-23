@@ -5274,8 +5274,6 @@
 #include "modular_rmh\modular\stat_allocation\impression.dm"
 #include "modular_rmh\modular\stat_allocation\stat_allocation_prefs.dm"
 #include "modular_rmh\modular\stat_allocation\stat_allocation_spawn.dm"
-#include "modular_rmh\modular\tattoo\_tattoo_defines.dm"
-#include "modular_rmh\modular\tattoo\skin_brands.dm"
 #include "modular_rmh\modular\tattoo\tattoo.dm"
 #include "modular_rmh\modular\tattoo\tattoo_creator.dm"
 #include "modular_rmh\modular\wildtongue\wildtongue.dm"
