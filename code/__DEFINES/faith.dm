@@ -7,3 +7,8 @@
 #define CLERIC_REQ_1 80
 #define CLERIC_REQ_2 160
 #define CLERIC_REQ_3 240
+
+/// RMH EDIT: Champion ranks, from most miracles to most steel.
+#define CHAMPION_RANK_PRIEST "priest"
+#define CHAMPION_RANK_CLERIC "cleric"
+#define CHAMPION_RANK_PALADIN "paladin"

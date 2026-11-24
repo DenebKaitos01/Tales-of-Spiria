@@ -166,6 +166,27 @@
 	progression = CLERIC_REQ_3
 	max_progression = CLERIC_REQ_3
 
+/// RMH EDIT: Champion ranks. Priests hold every tier from the start and regain devotion on their own;
+/// clerics start at the third tier and can reach the fourth; paladins start at the second and stop at the third.
+/datum/devotion/proc/make_champion(rank)
+	switch(rank)
+		if(CHAMPION_RANK_PRIEST)
+			devotion = 300
+			max_devotion = 1000
+			progression = CLERIC_REQ_3
+			max_progression = CLERIC_REQ_3
+			passive_devotion_gain = 1
+		if(CHAMPION_RANK_CLERIC)
+			devotion = 200
+			max_devotion = CLERIC_REQ_3
+			progression = CLERIC_REQ_2
+			max_progression = CLERIC_REQ_3
+		if(CHAMPION_RANK_PALADIN)
+			devotion = 100
+			max_devotion = CLERIC_REQ_2
+			progression = CLERIC_REQ_1
+			max_progression = CLERIC_REQ_2
+
 /datum/devotion/proc/make_acolyte()
 	devotion = 150
 	max_devotion = CLERIC_REQ_3

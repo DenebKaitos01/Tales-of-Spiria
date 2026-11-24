@@ -144,11 +144,10 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 	//ADVENTURERS
 #define CAT_ADVENTURER_BARBARIAN 	"CAT_ADVENTURER_BARBARIAN"  // Adventurer Barbarian classes
 #define CAT_ADVENTURER_BARD	 		"CAT_ADVENTURER_BARD"  		// Adventurer Bard classes
-#define CAT_ADVENTURER_CLERIC	 	"CAT_ADVENTURER_CLERIC"  	// Adventurer Cleric classes
+#define CAT_ADVENTURER_CHAMPION	"CAT_ADVENTURER_CHAMPION"	// Adventurer Champion classes (priest, cleric, paladin)
 #define CAT_ADVENTURER_DRUID	 	"CAT_ADVENTURER_DRUID"  	// Adventurer Druid classes
 #define CAT_ADVENTURER_FIGHTER 		"CAT_ADVENTURER_FIGHTER"  	// Adventurer Fighter classes
 #define CAT_ADVENTURER_MONK	 		"CAT_ADVENTURER_MONK"  		// Adventurer Monk classes
-#define CAT_ADVENTURER_PALADIN 		"CAT_ADVENTURER_PALADIN"  	// Adventurer Paladin classes
 #define CAT_ADVENTURER_RANGER	 	"CAT_ADVENTURER_RANGER"  	// Adventurer Ranger classes
 #define CAT_ADVENTURER_ROGUE	 	"CAT_ADVENTURER_ROGUE"  	// Adventurer Rogue classes
 #define CAT_ADVENTURER_SORCERER		"CAT_ADVENTURER_SORCERER"  	// Adventurer Sorcerer classes

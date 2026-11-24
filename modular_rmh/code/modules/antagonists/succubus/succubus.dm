@@ -147,6 +147,6 @@ GLOBAL_LIST_INIT(succubus_clergy_roles, list(
 	"Chapel Acolyte",
 	"Moon Priest",
 	"Heart Priest",
-	"Adventurer Cleric",
+	"Adventurer Champion",
 	"Adventurer Monk",
 ))
