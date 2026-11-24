@@ -929,12 +929,13 @@
 			return TRUE
 
 		if(SPELL_MIRACLE)
-			//SEAWEED PLEASE LOOK HERE//DISABLED UNTIL DEVOTION AND SPELLS REWORK//
-			//var/mob/living/carbon/human/H = caster
-			//if(!istype(H) || !H.cleric?.check_devotion(spell_cost))
-				//if(feedback)
-					//owner.balloon_alert(owner, "devotion too weak!")
-				//return FALSE
+			// RMH EDIT: miracles spend devotion again. A caster with no devotion at all (a miracle granted
+			// outside the faith system, such as a rogue's snuff) still casts as before.
+			var/mob/living/carbon/human/H = caster
+			if(istype(H) && H.cleric && !H.cleric.check_devotion(used_cost))
+				if(feedback)
+					owner.balloon_alert(owner, "devotion too weak!")
+				return FALSE
 
 			return TRUE
 
