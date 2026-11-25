@@ -8,7 +8,7 @@
 	sharpness = IS_BLUNT
 	wdefense = BAD_PARRY
 	can_parry = TRUE
-	max_integrity = INTEGRITY_STATIC_200
+	max_integrity = 200
 	possible_item_intents = list(SHIELD_BASH)
 
 /obj/item/weapon/scabbard/Initialize()

@@ -611,7 +611,7 @@
 	else
 		if(NOBLOOD in dna?.species?.species_traits)
 			return TRUE
-		src.adjust_blood_volume(-20)
+		blood_volume = max(blood_volume - 20, 0)
 		if(message)
 			visible_message("<span class='danger'>[src] coughs up blood!</span>", "<span class='danger'>I cough up blood!</span>")
 
