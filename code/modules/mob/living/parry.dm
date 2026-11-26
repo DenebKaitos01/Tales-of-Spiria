@@ -161,9 +161,9 @@
 
 /mob/living/proc/get_shield_block_chance()
 	var/obj/item/weapon/shield = get_active_held_item()
-	if(!istype(shield))
+	if(!(istype(shield)))
 		shield = get_inactive_held_item()
-	if(!istype(shield))
+	if(!(istype(shield)))
 		return 0
 
 	var/shield_skill = max(1, GET_MOB_SKILL_VALUE_OLD(src, /datum/attribute/skill/combat/shields))
@@ -192,13 +192,13 @@
 		used_weapon = mainhand
 	if(mainhand && mainhand.can_parry)
 		mainhand_defense += nulltozero(GET_MOB_SKILL_VALUE(src, mainhand.associated_skill))
-		if(istype(mainhand, /obj/item/weapon/shield))
+		if(istype(mainhand, /obj/item/weapon/shield) || istype(mainhand, /obj/item/weapon/scabbard/blackmeadow))
 			force_shield = TRUE
 			used_weapon = mainhand
 
 	if(offhand && offhand.can_parry)
 		offhand_defense += nulltozero(GET_MOB_SKILL_VALUE(src, offhand.associated_skill))
-		if(istype(offhand, /obj/item/weapon/shield))
+		if(istype(offhand, /obj/item/weapon/shield) || istype(offhand, /obj/item/weapon/scabbard/blackmeadow))
 			force_shield = TRUE
 
 	if(!force_shield)
