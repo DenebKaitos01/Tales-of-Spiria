@@ -40,6 +40,7 @@
 /datum/outfit/adventurer_barbarian/martial_artist
 	name = "Martial Artist"
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/colored/brown
+	armor = /obj/item/clothing/armor/regenerating/skin/barbarian
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	gloves = /obj/item/clothing/gloves/knuckles
 	pants = /obj/item/clothing/pants/trou/leather/advanced

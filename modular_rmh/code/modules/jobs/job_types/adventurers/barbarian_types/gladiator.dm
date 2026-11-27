@@ -23,7 +23,6 @@
 	and to wear bronze through the heat of the sand. The crowd is gone, but the rage stayed."
 	outfit = /datum/outfit/adventurer_barbarian/gladiator
 	attribute_sheet = /datum/attribute_holder/sheet/job/advclass/combat/adventurer_barbarian/gladiator
-	tanned_hide = FALSE
 
 	traits = list(
 		TRAIT_STEELHEARTED,

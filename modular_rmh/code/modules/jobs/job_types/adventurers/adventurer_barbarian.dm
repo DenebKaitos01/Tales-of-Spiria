@@ -40,17 +40,10 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	abstract_type = /datum/job/advclass/combat/adventurer_barbarian
 	category_tags = list(CAT_ADVENTURER_BARBARIAN)
 	give_bank_account = TRUE
-	/// Whether this path grows a tanned hide: natural armour that only holds without medium or heavy armour.
-	var/tanned_hide = TRUE
-
-/datum/job/advclass/combat/adventurer_barbarian/after_spawn(mob/living/carbon/human/spawned, client/player_client)
-	. = ..()
-	if(!spawned || QDELETED(spawned) || !tanned_hide)
-		return
-	QDEL_NULL(spawned.skin_armor)
-	spawned.skin_armor = new /obj/item/clothing/armor/regenerating/skin/barbarian(spawned)
 
 // ---------------- Tanned hide ----------------
+// As in Azure Peak, the hide is worn in the chest armour slot: it cannot be taken off,
+// it leaves no room for other body armour, and it is destroyed if it ever leaves the body.
 
 /datum/armor/skin/barbarian
 	blunt = 30
@@ -63,26 +56,10 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 /obj/item/clothing/armor/regenerating/skin/barbarian
 	name = "tanned hide"
 	desc = "Skin thickened by wind, cold and a hundred old wounds. It mends itself in time, but it is no match for proper mail."
-	slot_flags = null
+	slot_flags = ITEM_SLOT_ARMOR
 	armor_type = /datum/armor/skin/barbarian
 	max_integrity = 200
 	repair_time = 30 SECONDS
-	item_flags = DROPDEL
-
-/obj/item/clothing/armor/regenerating/skin/barbarian/get_armor_rating(damage_type)
-	var/mob/living/carbon/human/wearer = loc
-	if(istype(wearer))
-		// The hide gives way under medium or heavy armour: a barbarian trusts one or the other.
-		for(var/obj/item/clothing/worn in list(wearer.wear_armor, wearer.wear_shirt))
-			if(worn.armor_class >= AC_MEDIUM)
-				return 0
-	return ..()
-
-/obj/item/clothing/armor/regenerating/skin/barbarian/Destroy()
-	var/mob/living/carbon/human/wearer = loc
-	if(istype(wearer) && wearer.skin_armor == src)
-		wearer.skin_armor = null
-	return ..()
 
 // ---------------- Rage, one flavour per path ----------------
 // The base rage is +1 STR, +2 END, -2 PER, -2 INT for 30 seconds, followed by a falter.

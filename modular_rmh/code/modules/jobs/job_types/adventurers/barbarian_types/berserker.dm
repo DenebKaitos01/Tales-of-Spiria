@@ -67,7 +67,7 @@
 	mask = /obj/item/clothing/face/skullmask
 	neck = /obj/item/clothing/neck/chaincoif/iron
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/colored/brown
-	armor = /obj/item/clothing/armor/leather/hide
+	armor = /obj/item/clothing/armor/regenerating/skin/barbarian
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	gloves = /obj/item/clothing/gloves/leather/advanced
 	pants = /obj/item/clothing/pants/trou/leather/advanced
